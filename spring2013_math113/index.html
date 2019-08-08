@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p
+{
+    color:black;
+    text-align:left;
+    margin-left:20px;
+}
+ul
+{
+    margin-left:20px;
+/*    list-style-type: upper-roman;*/
+}
+ol
+{
+    margin-left:20px;
+    list-style-type: upper-roman;
+}
+ol ol {
+    list-style-type: decimal;
+}
+h1
+{
+    color:#811;
+    font-size:20pt;
+    text-align:center;
+}
+h2
+{
+    color:gray;
+    font-size:14pt;
+    text-align:center;
+}
+h3
+{
+    color:#811;
+    font-size:16pt;
+    text-align:left;
+}
+table.reg
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 900px;
+    border: 1px solid black;
+}
+table.reg th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 10px;
+    background-color: #b99;
+    text-align:left
+}
+table.reg td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+table.hw
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 400px;
+    border: 1px solid black;
+}
+table.hw th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 5px;
+    background-color: #b99;
+    text-align:left
+}
+table.hw td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+
+#newspaper-c
+{
+    /*font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
+    /*font-size: 14px;*/
+    margin: 45px;
+    width: 700px;
+    text-align: left;
+    border-collapse: collapse;
+    /*border: 1px solid #6cf;*/
+    border: 1px solid gray;
+}
+#newspaper-c th
+{
+    padding: 20px;
+    font-weight: normal;
+    font-size: 13px;
+    /*color: #039;*/
+    text-transform: uppercase;
+    border-right: 1px solid #0865c2;
+    border-top: 1px solid #0865c2;
+    border-left: 1px solid #0865c2;
+    border-bottom: 1px solid #fff;
+}
+#newspaper-c td.odd
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color:black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right:none;
+    font-weight:bold;
+}
+#newspaper-c td
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color: black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right: 1px dashed gray;
+}
+
+
+</style>
+</head>
+
+<title> Math 113: Linear Algebra and Matrix Theory </title>
+<body>
+
+<h1>Math 113: Linear Algebra and Matrix Theory, Spring 2013 </h1>
+<h2>Tuesday, Thursday 12:50-2:05pm in 380-380W</h2>
+
+<h3>Teaching Staff</h3>
+<table id="newspaper-c" summary="Teaching Staff Info">
+<tbody>
+    <tr>
+        <td class="odd"> Instructor </td>
+        <td> Sheel Ganatra </td>
+        <td class="odd"> Course Assistant </td>
+        <td> Graham White </td>
+    </tr>
+    <tr>
+        <td class="odd"> Office </td>
+        <td> 380-382F </td>
+        <td class="odd"> Office </td>
+        <td> 380-380R </td>
+    </tr>
+    <tr>
+        <td class="odd"> e-mail </td>
+        <td> ganatra (at) math (dot) stanford (dot) edu </td>
+        <td class="odd"> e-mail </td>
+        <td> grwhite (at) math (dot) stanford (dot) edu </td>
+    </tr>
+    <tr>
+        <td class ="odd"> Office Hours </td>
+        <td>   Tuesday, Thurdsay, 11.15am-12.45pm  </td>
+        <td class ="odd"> Office Hours </td>
+        <td> Monday, Wednesday 4-5.30pm </td>
+    </tr>
+</tbody>
+</table>
+
+<h3>Course Description and Prerequisites</h3>
+<p>Math 113, a linear algebra course, will initiate the study of <i> vector
+    spaces </i> and <i> linear maps </i> between vector spaces. The first and
+most familiar example of a vector space is the set of n-tuples of real or
+complex numbers. However, we shall see that vector spaces and the techniques of
+linear algebra can be found on many sets with good notions of addition and
+multiplication by scalars (for example: polynomials with real or complex
+coefficients).  This class will focus more on abstract properties as well as
+their geometric interpretations, and less on computational aspects. In
+addition, we will emphasize learning to write clear and compelling proofs. 
+</p>
+
+<p> 
+Math 113 is appropriate for students who have already seen some linear
+algebra (e.g., Math 51), but linear algebra is not a strict prerequisite. </p>
+
+<p> Depending on your interests, you may prefer Math 104, which emphasizes
+applications of linear algebra over the abstract theory. </p>
+
+<!--will initiate the study of 
+algebraic invariants of topological 
+spaces up to <i> homotopy equivalence </i>. Through this quarter we will
+construct, prove properties about, and study applications of three such
+invariants:</p>
+<ol>
+    <li> <b>Fundamental Group</b>. Covering spaces, the fundamental group of the circle, Van Kampen's theorem, the relation between covering spaces and the fundamental group.</li>
+    <li> <b>Homology</b>. Simplicial, singular, and cellular homology. Equivalence of definitions. Excision and the Mayer-Vietoris sequence. Classical applications (Jordan curve separation, Borsuk-Ulam, Brouwer-fixed point, etc.).  </li>
+    <li> <b>Cohomology</b>. Cup product. The Universal Coefficient Theorem, and
+    the Kunneth formula. Poincar&eacute; duality. </li> 
+</ol>
+<p>As a necessary ingredient, we will develop techniques in <i>homological algebra</i>. A
+basic class of topological spaces we will apply our discussion to is the class of <i> CW
+    complexes</i>. -->
+
+
+<!--<h3>Prerequisites</h3>-->
+
+<p>
+<!--In addition to formal prerequisites, we will use a number of notions and
+concepts without much explanation. <i>Topologically</i>: you should be intimately
+familiar with point-set topology, in particular various constructions on
+spaces, the product and quotient topologies, continuity, compactness.
+<i>Algebraically</i>: groups, rings, homomorphisms, equivalence relations,
+quotient sets, quotients of groups by normal subgroups.-->
+</p>
+
+<h3>Textbook and supplementary notes</h3>
+<p> Our course will primarily use Sheldon Axler's <i>
+    Linear Algebra Done Right</i>. </p>
+<p> For further reference, you may also check Professor Katznelson's lecture
+notes, available <a href="katznelson-linalgebra.pdf">here</a>.
+</p>
+
+<p> Here are some important supplementary notes: 
+<ul>
+    <li> The <a href="notes/tensor_products.pdf">tensor product</a> of two
+    vector spaces (after HW 7) </li>
+    <li> <a href="notes/wedge_products.pdf">Wedge products and determinants</a>
+    (after tensor products), including basis-independent definitions of the
+    determinant and characteristic polynomial </li>
+    <li> Understanding the <a href="notes/cross_products.pdf">cross product</a> 
+    in R^3 in terms of the language of wedge products (Note: this will not be
+    on the final at all, and is strictly for those who are interested). </li>
+</ul>
+</p>
+
+
+<h3>Course Grade</h3>
+<p>The course grade will be based on the following: </p>
+<ul>
+    <li> 30% Homework assignments, </li>
+    <li> 30% Midterm exam, </li>
+    <li> 40% Final exam </li>
+</ul>
+
+
+
+<h3>Homework Assignments</h3>
+<p>Homeworks will be posted here on an ongoing basis (roughly a week before
+they are due) and will be due at 4pm on the date listed, at our Course
+Assistant, Graham White's office (380-R). Please submit your homework either
+directly to Graham if he is in his office, or slide the homework under his door
+if he is away. <i>Late
+    homeworks will not be accepted.</i> In order to accomodate
+exceptional situations such as serious illness, your lowest homework score will
+be dropped at the end of the quarter.
+You are encouraged to discuss problems with each other, but you must work on
+your own when you write down solutions. The <a
+href="http://www.stanford.edu/dept/vpsa/judicialaffairs/guiding/honorcode.htm">Honor
+Code</a> applies to this and all other written aspects of the course. </p>
+
+<p> Homework problems will often consist of proofs. Even if a problem doesn't
+start with "Prove that..." you are expected to prove your argument is correct.
+Please make sure to write complete sentences, not just a string of formulas,
+and emphasize which axioms, propositions, lemmas, and theorems you use in your
+argument. </p>
+
+<table class="hw">
+<thead>
+<tr>
+    <th> Due date </th>
+    <th> Assignment </th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+    <td> Apr 12 </td> 
+    <td> <a href="assignments/hw1.pdf">Homework 1</a>. <a href="assignments/hw1_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> Apr 19 </td> 
+    <td> <a href="assignments/hw2.pdf">Homework 2</a>. <a href="assignments/hw2_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> Apr 26 </td> 
+    <td> <a href="assignments/hw3.pdf">Homework 3</a>. <a href="assignments/hw3_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> May 3 </td> 
+    <td> <a href="assignments/hw4.pdf">Homework 4</a>. <a href="assignments/hw4_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> May 10 </td> 
+    <td> <a href="assignments/hw5.pdf">Homework 5</a>. <a href="assignments/hw5_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> May 17 </td> 
+    <td> <a href="assignments/hw6.pdf">Homework 6</a>. <a href="assignments/hw6_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> May 24 </td> 
+    <td> <a href="assignments/hw7.pdf">Homework 7</a>. <a href="assignments/hw7_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> May 30 </td> 
+    <td> <a href="assignments/hw8.pdf">Homework 8</a>. <a href="assignments/hw8_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> N/A </td> 
+    <td> <a href="assignments/hw9.pdf">Homework 9</a> (suggested problems, not
+        for credit).  </td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h3> Lecture Plan </h3>
+<p> Lecture topics by day will be posted on an ongoing basis below. Future
+topics are tentative and will be adjusted as necessary. </p> <table class="reg">
+<thead>
+<tr> 
+    <th> Week </th> 
+    <th> Lecture topics </th> 
+    <th> Book chapters </th> 
+    <th> Remarks </th>
+</tr>
+</thead>
+
+<tbody>
+    <tr>
+        <td> <i> Week 1</i>: Apr 2 - 4 </td>
+        <td> Overview. Fields (real and complex numbers are special cases), and
+            the notion of a vector space over a field. Subspaces. Sums and
+            direct sums of subspaces. Criteria for a sum to be a direct sum.
+            Examples.  </td> <td> Chapter 1 </td>
+        <td>  </td>
+    </tr>
+    <tr>
+        <td> <i>Week 2</i>: Apr 9-11 </td>
+        <td> 
+            Linear combinations and spans. Finite dimensional vector spaces.
+            Linear independence and the notion of basis. More on basis and dimension.
+        </td>
+        <td> Chapter 2 </td>
+        <td>  </td>
+    </tr>
+    <tr>
+        <td> <i>Week 3</i>: Apr 16-18 </td>
+        <td> 
+            Linear maps and isomorphisms. Kernel (null space) and range
+            (image). The matrix of a linear transformation. The vector space of
+            linear maps. Quotient vector spaces, and the rank-nullity theorem.
+        </td>
+        <td> Chapter 3 </td>
+        <td>  </td>
+    </tr>
+    <tr>
+        <td> <i>Week 4</i>: Apr 23-25 </td>
+        <td> 
+            Invariant subspaces. Eigenvectors and eigenvalues. Proof that a
+            linear operator on a complex vector space always has an eigenvalue.
+            Diagonal and upper triangular matrices, and invariant subspaces of
+            real vector spaces.
+        </td>
+        <td> Chapter 5 </td>
+        <td>  </td>
+    </tr>
+    <tr>
+        <td> <i>Week 5</i>: Apr 30-May 2 </td>
+        <td> 
+           The structure of operators on complex linear vector spaces.
+           Generalized eigenspaces, and nilpotent operators. Nilpotent
+           operators, characteristic polynomial, and the decomposition of any
+           complex finite-dimensional vector space into generalized
+           eigenspaces. An analysis of nilpotent operators. 
+       </td>
+        <td> Chapter 8 </td>
+        <td>  </td>
+    </tr>
+    <tr>
+        <td> <i>Week 6</i>: May 7-9 </td>
+        <td> 
+           More about the structure of linear maps on complex vector
+           spaces: Jordan normal form.</i> The minimal polynomial, and relation
+           to characteristic polynomial. Analogous (but weaker) results for
+           linear maps on real vector spaces: existence of 1 or 2 dimensional
+           invariant subspaces, block upper triangular matrices, the
+           characteristic polynomial of 2x2 matrices. Eigenpairs, and
+           generalized eigenpair-spaces. Decomposition into generalized
+           eigenspaces and eigen-pair spaces.
+   </td> <td> Chapters 8, 9 </td>
+        <td>  </td>
+    </tr>
+    <tr>
+        <td> <i>Week 7</i>: May 14-16 </td>
+   <td> An introduction to inner product spaces (a generalization of the
+   dot product on Euclidean space). Orthogonal vectors, and orthonormal
+   lists/bases. The Gram-Schmidt procedure for producing orthonormal lists.
+   Orthogonal complements and projections, and the relation to minimization
+   problems.  Representing linear functionals by vectors, and the
+   adjoint of a linear map between inner product spaces.
+   </td>
+   <td> Chapter 6  </td> <td> </td>
+    </tr>
+    <tr>
+        <td> <i>Week 8</i>: May 21-23 </td>
+   <td> More properties of the adjoint of a linear map between inner
+   product spaces (behavior with respect to composition, sums and scalar
+   products, kernels and images). Self-adjoint operators: first properties.
+   Normal operators (a larger class than self-adjoint), and their
+   characterization. The complex and real spectral theorems.   
+   </td> <td> Chapters 6, 7</td> <td> </td> </tr>
+
+   <tr>
+  <td> <i>Week 9</i>: May 28-30 </td>
+  <td> Beyond the spectral theorem: normal operators on real vector spaces. The
+      geometry of linear transformations: isometries (length preserving maps).
+      Positive linear operators and the polar decomposition (an analogue of
+      "polar coordinates" for complex numbers). Singular value decomposition
+      (SVD). A brief introduction to signed areas and volumes, via alternating
+      multilinear maps. </td> <td> Chapter 7 </td> 
+  <td> </td> </tr> 
+
+  <tr>
+      <td> <i>Week 10</i>: June 4 </td>
+      <td> Wedge (a.k.a. exterior) products, and the relationship to signed
+          volumes and alternating multilinear maps. Determinants of linear
+          operators constructed as the induced map on the top exterior product
+          of a finite-dimensional vector space. Determinants as scaling signed
+          volume. Sample computations and applications. The characteristic
+          polynomial revisited.
+  </td> <td> Notes above </td> <td> </td> </tr>
+
+  </tbody>
+</table>
+
+<h3> Midterm and Final Exam </h3>
+<p> 
+The midterm was held Tuesday, May 7th, from 7pm - 9pm in room 370-370.  <a
+    href="midterm.pdf">Here</a> is a copy of the midterm. <a
+    href="midterm_solutions.pdf">Here</a> are solutions.
+
+<!--If
+you have any legitimate conflicts or special circumstances, please e-mail me as
+soon as possible, and no later than a week before (April 30th). There will be
+at least one make-up time on the same day.-->
+</p>
+
+<p> The topics for the midterm were the first four and a half weeks of
+class: topics will range from first definitions of vector spaces to linear
+maps, eigenvalues, eigenvectors. (Chapters 1-5 of the book, not including
+Chapter 4, aside from the statement of the fundamental theorem of algebra). It
+was a <i> closed book, closed note </i> exam.  </p>
+
+<p> <a href="old_exams/midterm2010.pdf">Here</a> is an exam from 2010 that you
+may have used for practice. <a href="old_exams/midterm2011.pdf">Here</a> is a
+slightly newer one, along with a set of <a href="old_exams/midterm2011_solutions.pdf">solutions</a>. Bear in mind that
+the topics cover differ somewhat year to year, so the questions will not be
+exactly representative of the material you have or have not learned to date.
+</p>
+
+
+<p> The final exam was be held on June 11th (Tuesday) from 3.30-6.30pm, in
+room 380-380Y. <a href="final.pdf">Here</a> is a copy of the final. <a
+    href="final_solutions.pdf">Here</a> are solutions.</p>
+
+<p>The topics for the final were the content of the entire class, with an emphasis
+on material after the midterm (Chapters 8-9, and 6-7 from Axler, along with
+class notes on tensor products and wedge products). <a href="old_exams/final2010.pdf">Here</a> is one practice final from 2010,
+and <a href="old_exams/final2011.pdf">here</a> is another one from 2011.
+<!--topics from the first midterm, Chapters 6-9, notes and
+homework about tensor products and bilinear maps, and determinants following the
+notes and class lecture (you are welcome to refer to Chapter 10 as well, though
+it does not contain an exposition on wedge products). --> </p>
+<!-- <p> The final exam will be held in a room TBD on Tuesday, June 11th, from
+3.30-6.30 pm </p> -->
+
+<!--<p> The final exam was held in room 380D on Thursday, March 21st from 7-10PM. Solutions are now posted <a href="final_solutions.pdf">here</a>. </p>-->
+
+</body>
+
+</html>

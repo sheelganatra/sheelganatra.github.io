@@ -1,0 +1,234 @@
+%\documentclass[11pt]{amsproc}
+%\documentclass[11pt]{article}
+\documentclass[11pt]{article}
+%\usepackage{setspace}
+%\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+%\usepackage{accents}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{eucal}
+\usepackage{xypic}
+\usepackage{pdfsync}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+
+
+%%\setrightmargin{1in}
+%\setallmargins{1in}
+
+% Titlerule is a FAT ruler
+\newcommand{\titlerule}{\rule{\linewidth}{1.5mm}}
+% For comments in the draft - work in progress
+\newcommand{\betainsert}[2]{\fbox{#1}\marginnote{\textsf{#2}}}
+
+% Notes in the margin are nicer this way.
+\newcommand{\marginnote}[1]{\marginpar{\scriptsize\raggedright #1}}
+
+
+
+\def\bd{\partial}
+\def\ra{\rightarrow}
+\def\lra{\longrightarrow}
+\def\Z{{\mathbb Z}}
+%\def\N{{\mathbb N}}
+\def\R{{\mathbb R}}
+\def\Q{{\mathbb Q}}
+\def\C{{\mathbb C}}
+\def\P{{\mathbb P}}
+\def\K{{\mathbb K}}
+\def\w{\mathcal{W}(E)}
+\def\A{\mathcal{A}}
+\def\B{\mathcal{B}}
+\def\M{\mathcal{M}}
+\def\N{\mathcal{N}}
+\def\p{\partial}
+
+\newcommand*{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{conj}{Conjecture}
+\newtheorem{defn}{Definition}
+\newtheorem{claim}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{rem}{Remark}
+
+\theoremstyle{remark}
+\newtheorem*{prob}{Problem}
+\newtheorem{ex}{Example}
+\def\T{\mathcal{T}}
+
+\begin{document}
+\begin{center}
+    \begin{Large} {\bf Math 535A Lecture 1}\\
+    \end{Large}
+    Monday, January 9, 2017
+\end{center}
+%\vspace{10mm}
+
+\subsection*{Review of topological spaces}
+Recall the following definition from point-set topology:
+\begin{defn} A {\em topological space} is a pair $(X, \T)$ (often abbreviated $X$, with $\T$ left implicit) where $X$ is a set and $\T$ is a family of subsets of $X$ such that
+    \begin{enumerate}
+        \item The empty set $\emptyset$ and $X$ are both elements of $\T$,
+        \item Any finite intersection of elements of $\T$ is in $\T$, and
+
+        \item arbitrary unions of elements of $\T$ are again contained in $\T$
+            (to recall notation, we state this precisely as: ``if
+            $\{U_{\alpha}\}_{\alpha \in I}$ is a collection of subsets of $X$
+            with $U_{\alpha} \in \T$ for all $\alpha \in I$, then
+            $\bigcup_{\alpha \in I} U_{\alpha} \in \T$. '')
+    \end{enumerate}
+\end{defn}
+The collection of subsets $\T$ is called a {\em topology} on $X$, and
+the subsets $U \in T$ are called the {\em open sets} of $X$.
+\begin{ex}
+    Any set $S$ has at least two topologies:
+    \begin{itemize}
+        \item The {\em trivial topology} $\T = \{\emptyset, S\}$; and
+        \item The {\em discrete topology} $\T = \mathcal{P}(S) = \{\textrm{all subsets of }S\}$.
+    \end{itemize}
+    In particular, because there is no set of all sets, there is no set of all topological spaces.
+\end{ex}
+
+\begin{ex}
+    Let $X:=(X, d)$ be a {\em metric space}, which we recall is a set $X$
+    equipped with a function $d: X \times X \ra [0, \infty)$ (called the {\em
+    metric} or {\em distance function}), satisfying
+    \begin{itemize}
+        \item $d(x,y) = 0$ if and only if (iff) $x = y$; and
+        \item $d(x,y) = d(y,x)$ for all $x,y \in X$; and
+        \item $d(x,z) \leq d(x,y) + d(y,z)$ for all $x,y,z \in X$.
+    \end{itemize}
+    Given a point $x \in X$ and any real number $\epsilon > 0$, recall that the
+    {\em open ball of radius $\epsilon$ centered at $x$} is 
+    \[
+        B_{\epsilon}(x) = \{y \in X | d(x,y) < \epsilon\}.
+    \]
+    From a metric space $X:=(X,d)$, we obtain a topology $\T$ on $X$ (called
+    the {\em metric topology}) as follows: we say a set $U \subset X$ is open,
+    e.g., in $\T$, if at any $x \in U$, there is a $B_{\epsilon}(x)$ contained
+    in $U$ for some $\epsilon$. One might also call this the topology
+    ``generated'' by the sets $B_{\epsilon}(x)$.
+\end{ex}
+Recall that we use the notation $\R^n := \underbrace{\R \times \cdots \times
+\R}_{n\textrm{ copies}}$ for $n$-dimensional Euclidean space. $\R^n$ can be equipped with the structure of a metric space, using the (usual) Euclidean metric
+\[
+    d(x,y) = ||x-y||= \sqrt{(x_1 - y_1)^2 + \cdots + (x_n - y_n)^2 };
+\]
+in particular $\R^n$ can be thought of as a topological space. \\
+
+Recall some further definitions from point set topology:
+\begin{itemize}
+    \item A topological space $X$ is {\em Hausdorff} if for any two points $x,y
+        \in X$, there exists a neighborhood\footnote{For the purposes of our
+            class, a {\em neighborhood} of a point $p$ refers to an ``open
+        neighborhood'' of the point $p$, i.e., an open set containing $p$.} $U$
+        of $x$ and $V$ of $y$ with $U \cup V = \emptyset$ (so $U$ and $V$
+        ``separate'' $x$ from $y$).  
+
+    \item  A subset $A \subset X$ is {\em dense} if every non-empty open set in
+        $X$ contains an element of $A$.  
+
+    \item A topological space $X$ is {\em separable} if it contains a countable
+        dense subset. (For instance $\Q^n \subset \R^n$ is dense and countable,
+        hence $\R^n$ is separable).  
+
+    \item A topological space $X:=(X, \T)$ is {\em second countable} if there
+        is a countable subset $\T_0 \subset \T$ which generates the topology
+        $\T$, in the sense that elements of $\T$ are (potentially arbitrary)
+        unions of elements of the countable collection $\T_0$.  It is not hard
+        to see that if $X$ is a metric space which is separable, then $X$
+        (thought of as a topological space) is second countable: let if $A
+        \subset X$ denotes the countable dense set, take $\T_0$ be the
+        collection of balls of rational radius centered at the points of $A$.
+\end{itemize}
+
+Let's recall also some methods of constructing topological spaces
+\begin{enumerate}
+
+    \item If $X$ and $Y$ are topological spaces, then the Cartesian product $X \times Y$ is again a topological space whose open sets are generated by products of open sets in $X$ with that in $Y$.
+
+    \item Suppose $Y:=(Y,\T)$ is a topological space, $X$ a set, and $i: X
+        \hookrightarrow Y$ an injective map (for instance, $X$ could be a
+        subset of $Y$ and $i$ could just be the inclusion). Then, $X$ carries
+        an {\em induced} (or  {\em subspace}; though that notation is usually
+        reserved for when $X$ is actually a subset) topology as follows: we say
+        $U \subset X$ is open if and only if it's of the form $i^{-1}(U_Y)$ for
+        $U_Y$ an open subset of $Y$.\footnote{Recall the notation for {\em preimage} of a subset: if $g: A \rightarrow B$ is a map of sets, and $S \subset B$ a subset, then the preimage of $S$ is $g^{-1}(S):= \{x \in A | g(x) \in S\}$.} If $X$ was a subset of $Y$, this is
+        equivalent to: $U \subset X$ is open if and only if it's of the form
+        $U_Y \cap X$, where $U_Y \subset Y$ is open.
+
+        \begin{ex}\label{s1topology1} Let $X = S^1 = \{(x,y) | x^2 + y^2 = 1\} \subset \R^2$.
+            Then, $X$ inherits the structure of a topological space from the
+            topology on $\R^2$ discussed above.
+        \end{ex}
+
+    \item Suppose now $X:=(X,\T)$ is a topological space, $Y$ is a set, and $\rho: X \twoheadrightarrow Y$ a surjective map of sets. Then, $Y$ inherits a topology, called the {\em quotient topology}, from $X$ and $\rho$, as follows: we say $U \subset Y$ is open if and only if the preimage $\rho^{-1}(U)$ is open in $X$.
+        \begin{ex} \label{s1topology2}
+            The closed interval $[0,1] \subset \R$ is a topological space
+            (equipped with the subspace topology from the inclusion $[0,1]
+            \hookrightarrow \R$), and there is a surjective map $\rho: [0,1]
+            \rightarrow S^1$ given by identifying $0$ and $1$ (concretely, one
+            could realize this as the map $t \mapsto (\cos 2\pi t, \sin 2 \pi
+            t)$). The topological space $[0,1]$ and the map $\rho$ give $S^1$
+            the structure of a topological space. 
+        \end{ex}
+
+
+\end{enumerate}
+
+
+\subsection*{Continuous functions and homeomorphisms}
+
+In Examples \ref{s1topology1} and \ref{s1topology2}, we equipped $S^1$ with two
+different topologies; let us call the resulting topological spaces $S^1_{a}$
+and $S^1_b$. We'd like to compare them, and say they're the same, for instance.
+Along the way, it would be helpful to recall the general method by which we
+compare topological spaces: continuous maps.
+
+\begin{defn}
+    A map $f: X \rightarrow Y$ between topological spaces\footnote{meaning, a map of the underlying sets} is said to be {\em continuous} if, for every open subset $U \subset Y$, the preimage $f^{-1}(U)$ is open in $X$.
+\end{defn}
+For a metric space, the above definition is equivalent to the more familiar
+definition expressible in terms of $\epsilon$s and $\delta$s.
+
+Recall, that {\em inverse} of a map of sets $f: A \rightarrow B$, if it exists,
+is the unique map $g: B \rightarrow A$ satisfying $g\circ f = id_{A}$, $f \circ
+g = id_{B}$. In light of the two conditions which need to be satisfied,
+sometimes $g$ is referred to as a two-sided inverse, and maps $g: B \rightarrow
+A$ which satisfy just one of the conditions $g \circ f = id_{A}$ or $f \circ g
+= id_B$ are called one-sided (or left or right respectively) inverses. A
+necessary and sufficient condition for an inverse to exist is for $f$ to be
+{\em bijective}, e.g., injective and surjective. For a topological space, we 
+
+\begin{defn} 
+    A {\em continous map} between topological spaces $f: X \rightarrow
+    Y$ is said to be a {\em homeomorphism} if it has an (two-sided) inverse $g:
+    Y \rightarrow X$ which is also continuous. Equivalently, $f$ is a
+    continuous bijection with continuous inverse.
+\end{defn} 
+If $f: X \rightarrow Y$ is a homeomorphism, then $U \subset X$ is
+open if and only if $f(U) \subset Y$ is open. Therefore, we can use
+homeomorphisms to faithfully ``translate'' properties about the topology of $X$
+to that of $Y$ and back. We might say ``homeomorphisms'' are the
+``isomorphisms'' in the ``category'' of topological spaces (more on this point
+of view next time). 
+
+\begin{ex}
+Continuing the discussion in examples \ref{s1topology1} and \ref{s1topology2}
+and at the top of this section, it turns out that there is a homeomorphism
+$S^1_a \cong S^1_b$, so we can think of the two constructions of the topology
+on $S^1$ as producing the ``same'' topological space.  \end{ex}
+
+
+
+\end{document}
+

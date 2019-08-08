@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p
+{
+    color:black;
+    text-align:left;
+    margin-left:20px;
+}
+ul
+{
+    margin-left:20px;
+/*    list-style-type: upper-roman;*/
+}
+ol
+{
+    margin-left:20px;
+    list-style-type: upper-roman;
+}
+ol ol {
+    list-style-type: decimal;
+}
+h1
+{
+    color:#181;
+    font-size:20pt;
+    text-align:center;
+}
+h2
+{
+    color:gray;
+    font-size:14pt;
+    text-align:center;
+}
+h3
+{
+    color:#181;
+    font-size:16pt;
+    text-align:left;
+}
+table.reg
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 900px;
+    border: 1px solid black;
+}
+table.reg th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 10px;
+    background-color: #9b9;
+    text-align:left
+}
+table.reg td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+table.hw
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 400px;
+    border: 1px solid black;
+}
+table.hw th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 5px;
+    background-color: #9b9;
+    text-align:left
+}
+table.hw td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+
+#newspaper-c
+{
+    /*font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
+    /*font-size: 14px;*/
+    margin: 45px;
+    width: 700px;
+    text-align: left;
+    border-collapse: collapse;
+    /*border: 1px solid #6cf;*/
+    border: 1px solid gray;
+}
+#newspaper-c th
+{
+    padding: 20px;
+    font-weight: normal;
+    font-size: 13px;
+    /*color: #039;*/
+    text-transform: uppercase;
+    border-right: 1px solid #0865c2;
+    border-top: 1px solid #0865c2;
+    border-left: 1px solid #0865c2;
+    border-bottom: 1px solid #fff;
+}
+#newspaper-c td.odd
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color:black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right:none;
+    font-weight:bold;
+}
+#newspaper-c td
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color: black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right: 1px dashed gray;
+}
+
+
+</style>
+</head>
+
+<title> Math 215B: Complex Analysis, Geometry, and Topology</title>
+<body>
+
+<h1>Math 215B: Complex Analysis, Geometry, and Topology - Winter 2013 </h1>
+<h2>Tuesday, Thursday 12:50-2:05pm in 380-380D</h2>
+
+<h3>Teaching Staff</h3>
+<table id="newspaper-c" summary="Teaching Staff Info">
+<tbody>
+    <tr>
+        <td class="odd"> Instructor </td>
+        <td> Sheel Ganatra </td>
+        <td class="odd"> Course Assistant </td>
+        <td> Cary Malkiewich </td>
+    </tr>
+    <tr>
+        <td class="odd"> Office </td>
+        <td> 380-382F </td>
+        <td class="odd"> Office </td>
+        <td> 380-381M </td>
+    </tr>
+    <tr>
+        <td class="odd"> e-mail </td>
+        <td> ganatra (at) math (dot) stanford (dot) edu </td>
+        <td class="odd"> e-mail </td>
+        <td> carym (at) math (dot) stanford (dot) edu </td>
+    </tr>
+    <tr>
+        <td class ="odd"> Office Hours </td>
+        <td> This week: Tuesday, 2.10-3:40pm, Thursday, 11.15am-12.45pm  </td>
+        <td class ="odd"> Office Hours </td>
+        <td> Monday and Wednesday, 12.30-3.30pm </td>
+    </tr>
+</tbody>
+</table>
+
+<h3>Course Description</h3>
+<p>Math 215B will initiate the study of algebraic invariants of topological 
+spaces up to <i> homotopy equivalence </i>. Through this quarter we will
+construct, prove properties about, and study applications of three such
+invariants:</p>
+<ol>
+    <li> <b>Fundamental Group</b>. Covering spaces, the fundamental group of the circle, Van Kampen's theorem, the relation between covering spaces and the fundamental group.</li>
+    <li> <b>Homology</b>. Simplicial, singular, and cellular homology. Equivalence of definitions. Excision and the Mayer-Vietoris sequence. Classical applications (Jordan curve separation, Borsuk-Ulam, Brouwer-fixed point, etc.).  </li>
+    <li> <b>Cohomology</b>. Cup product. The Universal Coefficient Theorem, and
+    the Kunneth formula. Poincar&eacute; duality. </li> 
+</ol>
+<p>As a necessary ingredient, we will develop techniques in <i>homological algebra</i>. A
+basic class of topological spaces we will apply our discussion to is the class of <i> CW
+complexes</i>. </p>
+
+<h3>Textbook</h3>
+<p> Allen Hatcher's <i>
+Algebraic Topology</i>, available for free download 
+<a href="http://www.math.cornell.edu/~hatcher/">here</a>.
+Our course will primarily use Chapters 0, 1, 2, and 3.</p>
+
+<h3>Prerequisites</h3>
+
+<p>In addition to formal prerequisites, we will use a number of notions and
+concepts without much explanation. <i>Topologically</i>: you should be intimately
+familiar with point-set topology, in particular various constructions on
+spaces, the product and quotient topologies, continuity, compactness.
+<i>Algebraically</i>: groups, rings, homomorphisms, equivalence relations,
+quotient sets, quotients of groups by normal subgroups.</p>
+
+<h3>Course Grade</h3>
+<p>The course grade will be based on the following: </p>
+<ul>
+    <li> 50% Homework assignments, </li>
+    <li> 20% a take-home midterm, and </li>
+    <li> 30% a 3-hour (open-book) final exam. </li>
+</ul>
+
+
+
+<h3>Homework Assignments</h3>
+<p>Homework will be posted here on an ongoing basis (roughly a week before they
+are due) and will be due at 5pm on the date listed, in the Course Assistant's
+mailbox. Late homeworks will not be accepted.</p>
+<p>You are encouraged to discuss problems with each other, but you must work on
+your own when you write down solutions. 
+</p>
+
+<table class="hw">
+<thead>
+<tr>
+    <th> Due date </th>
+    <th> Assignment </th>
+    <!--<th>  </th>-->
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td> Jan 18 </td> 
+    <td> <a href="assignments/hw1.pdf">Homework 1</a>.
+    <a href="assignments/hw1_solutions.pdf">Solutions</a>.</td>
+</tr>
+<tr>
+    <td> Jan 25 </td> 
+    <td> <a href="assignments/hw2.pdf">Homework 2</a>. 
+    <a href="assignments/hw2_solutions.pdf">Solutions</a>.</td>
+</tr>
+<tr>
+    <td> Feb 1 </td> 
+    <td> <a href="assignments/hw3.pdf">Homework 3</a>.
+    <a href="assignments/hw3_solutions.pdf">Solutions</a>.</td>
+</tr>
+<tr>
+    <td> Feb 8 </td> 
+    <td> <a href="assignments/hw4.pdf">Homework 4</a>. 
+    <a href="assignments/hw4_solutions.pdf">Solutions</a>.</td>
+</tr>
+<tr>
+    <td> Feb 29 </td> 
+    <td> <a href="assignments/hw5.pdf">Homework 5</a>. 
+        <a href="assignments/hw5_solutions.pdf">Solutions</a>.</td>
+</tr>
+<tr>
+    <td> March 8 </td> 
+    <td> <a href="assignments/hw6.pdf">Homework 6</a>. 
+        <a href="assignments/hw6_solutions.pdf">Solutions</a>.</td>
+</tr>
+<tr>
+    <td> N/A </td> 
+    <td> <a href="assignments/hw7.pdf">Homework 7</a> (not for credit: suggested exercises). 
+</tr>
+
+</tbody>
+</table>
+
+
+<h3> Lecture Plan </h3>
+<p> Lecture topics by day will be posted on an ongoing basis below. </p>
+<table class="reg">
+<thead>
+<tr> 
+    <th> Date </th> 
+    <th> Lecture topics </th> 
+    <th> Book chapters </th> 
+    <th> Remarks </th>
+</tr>
+</thead>
+
+<tbody>
+    <tr> 
+        <td> Jan 8 </td> 
+        <td> Introduction: Spaces, maps, and homotopies. The fundamental group. Dependence on base point. </td>
+        <td> Chapters 0 (first subsection), 1.1</td>
+        <td></td>
+    </tr>
+    <tr> 
+        <td> Jan 10 </td> 
+        <td> Covering spaces and lifting properties. The fundamental group of the circle. Functoriality. </td>
+        <td> Chapters 1.1, 1.3 (first few pages)</td>
+        <td></td>
+    </tr>
+    <tr> 
+        <td> Jan 15 </td> 
+        <td> Fundamental groups of spheres. Van Kampen's theorem. </td>
+        <td>Chapters 1.1, 1.2</td>
+        <td></td>
+    </tr>
+    <tr> 
+        <td> Jan 17 </td> 
+        <td> Fundamental groups of CW complexes.  </td>
+        <td>Chapter 0 (for definitions of CW complexes), 1.2</td>
+        <td></td>
+    </tr>
+  <tr> 
+        <td> Jan 22 </td> 
+        <td> Covering spaces I: Lifting properties, the universal cover, the
+            correspondence theorem.  </td> 
+        <td>Chapter 1.3</td>
+        <td></td>
+    </tr>
+    <tr> 
+        <td> Jan 24 </td> 
+        <td> Covering spaces II: The correspondence theorem, Deck
+            transformations, examples. Graphs and sub-groups of free groups. 
+        </td> 
+        <td>Chapters, 1.3, 1.A</td>
+        <td></td>
+    </tr>
+    <tr> 
+        <td> Jan 29 </td> 
+        <td> 
+           Singular and simplicial homology---first definitions. Functoriality.
+        </td> 
+        <td>Chapter 2, beginning.</td>
+        <td></td>
+    </tr>
+   <tr> 
+        <td> Jan 31 </td> 
+        <td> 
+            The fundamental group and first homology group. Relative homology. Exact sequences.    
+        </td> 
+        <td> Chapter 2.A, 2.1</td>
+        <td></td>
+    </tr>
+   <tr> 
+        <td> Feb 5 </td> 
+        <td> 
+            Short exact sequences and long exact sequences, and applications to Relative homology. Homotopy invariance.    
+        </td> 
+        <td>Chapter 2.1, Sections on "Homotopy Invariance" and "Exact Sequences and Excision". </td>
+        <td></td>
+    </tr>
+   <tr> 
+        <td> Feb 7 </td> 
+        <td> 
+            The 5 Lemma. Reduced homology. Excision via Barycentric
+            subdivision. The homology of spheres.    </td> 
+        <td>Chapter 2.1</td>
+        <td>Additional <a href="barycentric_notes.pdf">notes</a> completing the construction of the (Barycentric) subdivision proposition.</td>
+    </tr>
+   <tr> 
+        <td> Feb 12 </td> 
+        <td> 
+           The Mayer Vietoris sequence. Homology of <i>good pairs</i>.
+           Singular homology = simplicial homology. Degrees of maps between
+           spheres.  
+       </td> 
+        <td>Chapter 2.1, 2.2</td>
+        <td></td>
+    </tr>
+   <tr> 
+        <td> Feb 14 </td> 
+        <td> 
+            More on the degree of a map. Classical applications (Brouwer's
+            fixed point theorem, Jordan-Brouwer curve separation). Towards the
+            homology of CW complexes.  
+        </td> 
+        <td>Chapter 2.2, 2.B</td>
+        <td></td>
+    </tr>
+   <tr> 
+        <td> Feb 19 </td> 
+        <td> 
+            Cellular (CW) homology groups. Immediate applications, including
+            the homology of complex projective spaces. The cellular boundary
+            formula, and applications to real projective space.  
+        </td> 
+        <td>Chapter 2.2</td>
+        <td></td>
+    </tr>
+   <tr> 
+        <td> Feb 21 </td> 
+        <td> 
+           The homology of real projective space.  Homology with coefficients.
+           Co-chain complexes and cohomology.
+       </td> 
+        <td>Chapters 2.2, 3 </td>
+        <td></td>
+    </tr>
+   <tr> 
+        <td> Feb 26 </td> 
+        <td> 
+           Singular cohomology groups and the Universal Coefficient Theorem.
+       </td> 
+        <td>Chapter 3.1 </td>
+        <td></td>
+    </tr>
+   <tr> 
+        <td> Feb 28 </td> 
+        <td> 
+           The Universal Coefficient Theorem continued. Cup product, and the cohomology ring.
+           Statement of the cohomology ring of projective spaces, an
+           application to the Borsuk-Ulam theorem.  </td> 
+        <td>Chapters 3.1, 3.2 </td>
+        <td></td>
+    </tr>
+   <tr> 
+        <td> Mar 5 </td> 
+        <td> 
+           Cup product in the relative setting. Calculation of the cup product
+           on projective spaces, via a reduction to Euclidean spaces.  </td>
+       <td>Chapter 3.2  </td> <td></td>
+    </tr>
+   <tr> 
+        <td> Mar 7 </td> 
+        <td> 
+           The K&uuml;nneth Theorem. An introduction to manifolds and orientations.
+        </td>
+       <td>Chapters 3.2, 3.3  </td> <td></td>
+    </tr>
+   <tr> 
+        <td> Mar 12 </td> 
+        <td> 
+           Manifolds and orientations in homology. The fundamental class.
+        </td>
+       <td>Chapter 3.3  </td> <td></td>
+    </tr>
+   <tr> 
+        <td> Mar 14 </td> 
+        <td> 
+           Orientations in homology continued. Poincar&eacute; duality and its applications.
+        </td>
+       <td>Chapter 3.3  </td> <td></td>
+    </tr>
+</tbody>
+</table>
+
+<h3> Midterm and Final Exam </h3>
+<p>The take-home midterm is <a href="midterm_takehome.pdf">here</a>. It was
+assigned February 11th night and was due in class, February 19th. Solutions are now posted <a href="midterm_solutions.pdf">here</a>.  </p>
+
+<p> The final exam was held in room 380D on Thursday, March 21st from 7-10PM. Solutions are now posted <a href="final_solutions.pdf">here</a>. </p>
+
+</body>
+
+</html>

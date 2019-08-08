@@ -1,0 +1,428 @@
+%!TEX TS-program = xelatex
+
+\documentclass[12pt]{article}
+\usepackage {amsmath, amscd, amsbsy, amsfonts, amsthm, eucal}
+\usepackage{latexsym,amssymb,mathrsfs,bbm}
+\textwidth 6.5in
+\topmargin -.3in
+\oddsidemargin 0in
+\textheight 9in
+\parindent 0 pt
+
+\usepackage{color}
+\definecolor{rltred}{rgb}{0.75,0,0}
+\definecolor{rltgreen}{rgb}{0,0.5,0}
+\definecolor{rltblue}{rgb}{0,0,0.75}
+\def\red{\color{red}}
+\def\black{\color{black}}
+\def\green{\color{rltgreen}}
+\def\blue{\color{rltblue}}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{claim}{Claim}
+
+\newcommand\bi{\begin{itemize}}
+\newcommand\ei{\end{itemize}}
+\newcommand\beq{\begin{equation}}
+\newcommand\eeq{\end{equation}}
+\newcommand\itema{\item[(a)]}
+\newcommand\itemb{\item[(b)]}
+\newcommand\itemc{\item[(c)]}
+\newcommand\itemd{\item[(d)]}
+\newcommand\iteme{\item[(e)]}
+\newcommand\itemf{\item[(f)]}
+\newcommand\itemg{\item[(g)]}
+\newcommand\itemi{\item[(i)]}
+\newcommand\itemii{\item[(ii)]}
+\newcommand\itemiii{\item[(iii)]}
+\newcommand\itemiv{\item[(iv)]}
+\newcommand\itemeq{\item[$\Leftrightarrow$]}
+
+\newcommand\id{\text{id}}
+
+\renewcommand\and{\qquad\text{and}\qquad}
+\renewcommand\|{\ | \ }
+\newcommand\ra{\rightarrow}
+\newcommand\sr{\stackrel}
+\newcommand\mf\mathfrak
+\newcommand\mc\mathcal
+
+\def\manylinedefinition#1{
+\left\{\begin{array}{ll}
+#1
+\end{array}\right.
+}
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+
+\def\pb#1{{\green \bf Problem #1.}\hskip 8pt \black}
+\def\sol{\textbf{Solution:}}
+
+\newcommand\ev{\text{ev}}
+\newcommand\ltwo{\ell^2}
+\newcommand\mfa{\mf a}
+\def\sequence#1{$\{{#1}_n\}$}
+\def\subsequence#1{$\{{#1}_{n_k}\}$}
+\def\sumint#1{\sum_{#1=1}^\infty}
+\def\sumzero#1{\sum_{#1=0}^\infty}
+\def\sumseries#1#2{$\sumint#1 #2_{#1}$}
+\newcommand\e\varepsilon
+\newcommand\limn{\lim_{n \ra \infty}}
+\newcommand\limsupn{\limsup_{n \ra \infty}}
+\newcommand\liminfn{\liminf_{n \ra \infty}}
+%\newcommand\iff{\quad\Leftrightarrow\quad}
+
+\newcommand\Fixaneps{Fix an arbitrary $\e > 0$ }
+\newcommand\foranyeps{for any $\e > 0$ }
+\newcommand\givenanyn{given any $N \in \N$ }
+\newcommand\thereexistsn{there exists an $n \geq N$ }
+\newcommand\thereexistsN{there exists an $N$ such that for every $n \geq N$ }
+\newcommand\foreveryn{for every $n \geq N$ }
+\newcommand\foreveryk{for every $k \geq N$ }
+\newcommand\foreveryx{for every $x \in X$ }
+\newcommand\Foreveryx{For every $x \in X$  }
+
+\newcommand\textbook{Johnsonbaugh and Pfaffenberger}
+\newcommand\notes{Prof. Simon's notes}
+
+\title{hw8-solutions}
+
+\begin{document}
+\centerline{\Large Math 171 Homework 8}
+\centerline{\small (due May 27)}
+\vskip .2in
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{1}
+Let $R$ be a closed and bounded interval in $\R^n$, and let $f: R \ra \R$ be
+a continuous function such that $f(x) = 0$ at almost every $x \in R$. Prove 
+that $f(x) = 0$ for all $x \in R$.
+
+\sol
+
+Let 
+\[
+A := \{ x \in \R \| f(x) \neq 0\}.
+\]
+By assumption $A$ has measure 0. Since $f$ is continuous and 
+$A$ is the preimage of the open set $\R \{0\}$, $A$ is open. Since 
+$A$ is an open subset of $\R^n$ that has measure zero, by Fact 2
+$A$ is empty. Thus, $f(x) = 0$ for all $x \in R$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{2}
+Let $R$ be a closed and bounded interval in $\R^n$ and let 
+$f, g: R \ra \R$ be two Riemann integrable functions on $R$.
+Suppose that $f(x) = g(x)$ almost everywhere in $x \in R$. 
+Prove that $\int_R f = \int_R g$. 
+
+\sol
+
+Consider $h := f - g$. By assumption $h(x) = 0$ almost everywhere on $R$. 
+Since the Riemann integrable functions form a vector space, $h$ is 
+Riemann integrable.
+
+Let $\varphi$ be an a step function adapted to some partition
+$\mc P$ such that $\varphi \leq h$. Let $A$ be the set of $x \in R$ such that
+$h(x) \neq 0$. By assumption $A$ is measure zero.
+For every interval $I$ of the partition
+$\mc P$, by Fact 2, $\mathring I$ is not measure zero. Hence, by Fact 1,
+$\mathring I$ is not a subset of $A$. Therefore, there exists 
+$x \in \mathring I$ such that $h(x) = 0$. For such an $x$ we have that
+$\varphi(x) \leq 0$. Since $\varphi$ is constant on $\mathring I$,
+$\varphi(x) = a_I \leq 0$ for all $x \in \mathring I$. 
+Since $I$ was an arbitrary element of 
+$R$ we have $\varphi \leq 0$ on the interiors of all intervals in $R$
+(i.e. $a_I \leq 0$ for every $I \in R$).
+Therefore, 
+\[
+\int_R \varphi = \sum_{I \in R} a_I \cdot \text{volume}(I) \leq 0.
+\]
+
+Since $\int_R \varphi \leq 0$ for every step function on $R$ such that 
+$\varphi \leq h$, we have that 
+\[
+\underline \int_{R} h \leq 0.
+\]
+Applying the same argument to $-h$ we get that 
+\[
+\overline \int_{R} h \geq 0.
+\]
+Since $h$ is Riemann integrable, 
+\[
+\underline \int_{R} h = \overline \int_{R} h.
+\]
+Thus, 
+\[
+\int_{R} h = 0.
+\]
+By Theorem 2.3 in Leon Simon's notes, we have that
+\[
+\int_R h = \int_R f - \int_R g,
+\]
+so $\int_R f = \int_R g$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{3}
+\bi
+\itemi
+Let $R$ be a closed and bounded interval in $\R^n$, and let $\varphi$ and 
+$\psi$ be two step functions on $R$; that is, $\varphi, \psi \in \mc S(R)$.
+Prove a statement we asserted in class, that 
+$\min (\varphi, \psi)$ is a again a step function on $R$.
+\itemii
+Deduce another statement we asserted in class: that if $f, g \in \mc L_+(\R)$,
+then $\min (f, g) \in \mc L_+(R)$.
+\ei
+
+\sol
+
+\bi
+\itemi
+Let $\mc P$ and $\mc Q$ be partitions associated with $\varphi$ and $\psi$ and
+let $\mc R$ be the common refinement of $\mc P$ and $\mc Q$. Then for 
+every interval $I \in \mc R$, both $\varphi$ and $\psi$ are constant 
+on $\mathring I$, so $\min(\varphi, \psi)$ is also constant on $\mathring I$.
+Thus, $\min(\varphi, \psi)$ is a step function with partition $\mc R$.
+\itemii
+Since $f$ and $g$ are elements of $ \mc L_+(\R)$, it follows that 
+there exist increasing sequences $\{\varphi_n\}$ and $\{\psi_n\}$ of
+non-negative step functions such that $f(x) = \limn \varphi_n(x)$ 
+on $R \backslash A$ and $g(x) = \limn \psi_n(x)$  on $R \backslash B$
+(where $A$ and $B$ are sets of measure zero).
+
+We show that $\min(f, g)(x) = \limn \min(\varphi_n, \psi_n)(x)$ on
+$R \backslash (A \cup B)$. Fix $x \in R \backslash (A \cup B)$.
+Consider two cases:
+\bi
+\item Case 1: $f(x) = g(x)$. Then $\min(f, g)(x) = f(x) = g(x)$.
+Given an $\e > 0$, choose $N_1$ and $N_2$ such that 
+$|\varphi_n(x) - f(x)| < \e$ for every $n \geq N_1$ and
+$|\psi_n(x) - g(x)| < \e$ for every $n \geq N_2$. Then for every
+$n \geq \max (N_1, N_2)$ we have that
+\[
+|\min(\varphi_n(x), \psi_n(x)) - f(x)| < \e,
+\]
+so $\limn \min(\varphi_n, \psi_n)(x) = f(x)$, as desired.
+\item Case 2: $f(x) \neq g(x)$. Without loss of generality assume that
+$f(x) > g(x)$. Then $\min(f, g)(x) = g(x)$.
+
+Let $\e = (f(x) - g(x)) / 2$. Choose $N_1$ and $N_2$ such that 
+$|\varphi_n(x) - f(x)| < \e$ for every $n \geq N_1$ and 
+$|\psi_n(x) - g(x)| < \e$. Then for every $n \geq \max(N_1, N_2)$ we have 
+that
+\[
+\psi_n(x) < g(x) + \e = f(x) - \e < \varphi_n(x).
+\]
+Thus, $\min(\psi_n(x), \varphi_n(x)) = \psi_n(x)$ 
+for every $n \geq \max(N_1, N_2)$, so
+\[
+\limn \min(\psi_n, \varphi_n)(x) = \limn \psi_n(x) = g(x),
+\]
+as desired.
+\ei
+
+To finish the problem note that 
+\bi
+\item
+each $\min(\varphi_n, \psi_n)$ is
+a step function for each $n$ by part (i,
+\item $\min(\varphi_n, \psi_n)$
+is non-negative because $\varphi_n$ and $\psi_n$ are non-negative and
+\item
+the set $A \cup B$ is measure zero because $A$ and $B$ are measure zero.
+\ei
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{4}
+Let $f$ be an \emph{increasing} function on the closed interval 
+$[a, b] \in \R$. Prove that $f$ is Riemann integrable.
+
+\sol
+
+For every $\e > 0$ we produce step functions $\varphi$ and $\psi$ on 
+$[a, b]$ such that $\varphi \leq f \leq \psi$ and 
+$\int_R \psi - \int_R \phi < \e$. 
+
+Choose an integer $n$ such that 
+\[
+n > \frac {\e} {(b - a) (f(b) - f(a))}.
+\]
+
+Partition $[a, b]$ into $n$ intervals 
+$[a_0, a_1], [a_1, a_2], \ldots, [a_{n - 1}, a_n]$ of equal length
+(i.e. $a_k = a + \frac k n (b - a)$).
+
+Let 
+\[
+\varphi(x) := \manylinedefinition{
+f(a_{k - 1}) & \text{if $x \in (a_{k - 1}, a_k)$ for some $k$,} \\
+f(x) & \text{if $x = a_k$ for some $k$}.
+}
+\]
+and 
+\[
+\psi(x) := \manylinedefinition{
+f(a_k) & \text{if $x \in (a_{k - 1}, a_k)$ for some $k$,} \\
+f(x) & \text{if $x = a_k$ for some $k$}.
+}
+\]
+
+By construction $\varphi$ and $\psi$ are step functions with partition
+$\{[a_0, a_1], \ldots, [a_{n - 1}, a_n]\}$. Since 
+$f$ is increasing, for every $x \in (a_{k - 1}, a_k)$ we have that
+$f(a_{k - 1}) \leq f(x) \leq f(a_k)$, so $\varphi \leq f \leq \psi$.
+
+Moreover, 
+\[
+\int_R \varphi = \sum_{k = 0}^{n - 1} \delta f(a_k)
+\and
+\int_R \psi = \sum_{k = 1}^{n} \delta f(a_k)
+\]
+where $\delta = (b - a) / n$ is the length of each of the intervals of the
+partition $\{[a_0, a_1], \ldots, [a_{n - 1}, a_n]\}$. Thus,
+\[
+\int_R \psi - \int_R \phi = \delta(f(a_n) - f(a_0)) = 
+\frac 1 n (b - a) (f(b) - f(b)) < \e,
+\]
+as desired.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{5}
+Define the \emph{Cantor set} $C \subset [0, 1]$ to be the set of real numbers
+in $[0, 1]$ whose base-3 expansion does not contain 1. That is,
+\[
+C:= \left\{
+	x \in [0, 1] \| x = \sumint n \frac{a_i}{3^i}
+    \text{ with each } a_i \in \{0, 2\}
+\right\}.
+\]
+\bi
+\itemi
+Show that $C$ is uncountable.
+\itemii
+Show that $C$ has Lebesgue measure zero.
+\ei
+
+\sol
+
+\bi
+\itemi
+Let $\mc S$ be the set of sequences \sequence a with $a_i \in \{0, 1\}$. 
+Define a function $S: \mc S \ra C$ by
+\[
+S(\{a_i\}) = \sumint n \frac{a_i}{3^i}.
+\]
+By Problem 2 from Homework 2,
+any real number has at most two base-3 expansions and all but countably
+many real numbers have exactly one base-3 expansion. 
+
+Thus, the restriction of $S$ to $\mc S \backslash A$ (with $A$ at 
+most countable) is an injection into $C$. Since $\mc S$ is uncountable
+and $A$ is countable, $\mc S \backslash A$ is uncountable. Since
+$S$ is an injection on $\mc S \backslash A$, $S(\mc S \backslash A)$ is
+also uncountable. Since $C$ contains an uncountable subset 
+$S(\mc S \backslash A)$, it is uncountable.
+
+\emph{Remark: one can actually show that $S$ is injective, i.e. that
+we can take $A = \emptyset$.}
+\itemii
+Write $C = \bigcap_n C_n$, where $C_n$ is the set of all real numbers in
+$[0, 1]$ that have a base-3 expansion which contains no 1's among the 
+first $n$ digits.
+\emph{
+(Note: a number in $C_n$ may have a different base-3 expansion which does 
+contain 1 among its first $n$ digits: for example, $1 = 1.0000$ is 
+an element of every $C_n$ because $1 = 0.22222$.)}
+
+Note that the first $n$ base-3 digits of a number $x \in [0, 1]$ are
+$0.a_1\ldots a_n$ if and only if 
+$x \in [0.a_1\ldots a_n, 0.a_1\ldots a_n + 1 / 3^n]$ or equivalently
+$x \in [\frac m {3^n}, \frac {m + 1}{3^n}]$ where $m \in [0, 3^n)$ is an 
+integer whose base-3 expansion has no 1's. There are exactly $2^n$ such
+integers (we have 2 choices for each digit: 0 and 2). Thus, the total
+lengths of the intervals comprising $C_n$ is $2^n / 3^n$. Since 
+$\limn 2^n / 3^n = 0$, we get that $C$ is measure zero.
+\ei
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{6}
+Show that if $\{I_j\}_{j \in \N}$ is a collection of open intervals in $\R$
+which covers $[0, 1]$, meaning that $[0, 1] \in \bigcap_{j = 1}^\infty I_j$
+then $\sumint j |I_j| \geq 1$. Deduce that $[0, 1]$ does \emph{not} have
+Lebesgue measure zero. \textbf{Hint:} use compactness.
+
+\sol
+
+We firstly prove the statement for a \emph{finite} collection
+$\{I_j = (a_j, b_j) \| 1 \leq j \leq n\}$ of open intervals by induction on 
+$n$.
+
+For $n = 1$, then we have a single interval $(a_1, b_1)$ covering $[0, 1]$.
+Hence, $a_1 < 0$ and $b_1 > 1$, so
+\[
+|I_1| = b_1 - a_1 > 1.
+\]
+
+Assume the induction hypothesis holds for $n - 1$ with $n \geq 2$. 
+We will prove the 
+hypothesis holds for $n$. Let $\{I_j = (a_j, b_j) \| 1 \leq j \leq n\}$
+be a collection of open intervals covering $[0, 1]$. Pick a $k$ such that 
+$I_k = (a_k, b_k)$ contains 0. Then $a_k < 0 < b_k$.
+If $b_k > 1$ then $I_k$ covers $[0, 1]$, so
+$|I_k| > 1$. Assume that $b_k \leq 1$. Then $b_k \in (a_l, b_l)$ for some $l$.
+
+Consider the interval $I' = (a_k, b_l)$. We have that $I_l \subset I'$ and
+$I_j \subset I'$, hence $I_l \cup I_k \subset I'$.
+
+The collection of $n - 1$ intervals
+\[
+\{I_j \| j \neq k, j \neq l\} \cup \{I'\}
+\]
+covers $[0, 1]$, so by the induction assumption,
+\[
+\sum_{j \neq k,l} |I_j| + |I'| \geq 1.
+\]
+Since $b_k \in (a_k, b_k)$ we have that
+\[
+|I_k| + |I_l| = (b_k - a_k) + (b_l - a_l) = (b_l - a_k) + (b_k - a_l) 
+\geq b_l - a_k = |I'|.
+\]
+Thus,
+\[
+\sum_j |I_j| = \sum_{j \neq k, l} |I_j| + |I_k| + |I_l| \geq
+\sum_{j \neq k,l} |I_j| + |I'| \geq 1,
+\]
+proving the induction hypothesis for $n$.
+
+Now we are ready to tackle the infinite covers. Let $\{I_j\}_{j \in \N}$ 
+be a collection of intervals covering $[0, 1]$. Since $[0, 1]$ is compact,
+there exists a finite subcollection $\{I_j\}_{j \in \mc F}$ that 
+still covers $[0, 1]$. Then, using the result for finite covers,
+\[
+\sumint j |I_j| \geq \sum_{j \in \mc F} |I_j| \geq 1.
+\]
+\end{document}

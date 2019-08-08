@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p
+{
+    color:black;
+    text-align:left;
+    margin-left:20px;
+}
+ul
+{
+    margin-left:20px;
+/*    list-style-type: upper-roman;*/
+}
+ol
+{
+    margin-left:20px;
+    list-style-type: upper-roman;
+}
+ol ol {
+    list-style-type: decimal;
+}
+h1
+{
+    color:#118;
+    font-size:20pt;
+    text-align:center;
+}
+h2
+{
+    color:gray;
+    font-size:14pt;
+    text-align:center;
+}
+h3
+{
+    color:#118;
+    font-size:16pt;
+    text-align:left;
+}
+table.reg
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 900px;
+    border: 1px solid black;
+}
+table.reg th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 10px;
+    /*background-color: #b99;*/
+    background-color: #99b;
+    text-align:left
+}
+table.reg td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+table.hw
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 400px;
+    border: 1px solid black;
+}
+table.hw th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 5px;
+    /*background-color: #b99;*/
+    background-color: #99b;
+    text-align:left
+}
+table.hw td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+
+#newspaper-c
+{
+    /*font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
+    /*font-size: 14px;*/
+    margin: 45px;
+    width: 700px;
+    text-align: left;
+    border-collapse: collapse;
+    /*border: 1px solid #6cf;*/
+    border: 1px solid gray;
+}
+#newspaper-c th
+{
+    padding: 20px;
+    font-weight: normal;
+    font-size: 13px;
+    /*color: #039;*/
+    text-transform: uppercase;
+    border-right: 1px solid #0865c2;
+    border-top: 1px solid #0865c2;
+    border-left: 1px solid #0865c2;
+    border-bottom: 1px solid #fff;
+}
+#newspaper-c td.odd
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color:black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right:none;
+    font-weight:bold;
+}
+#newspaper-c td
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color: black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right: 1px dashed gray;
+}
+
+
+</style>
+</head>
+
+<title> Math 535a:  Differential Geometry</title>
+<body>
+
+<h1>Math 535a: Differential Geometry, Spring 2017 </h1>
+<h2>Monday and Wednesday (and occasionally Friday), 10:30-11:50am in KAP 134</h2>
+
+<h3>Teaching Staff</h3>
+<table id="newspaper-c" summary="Teaching Staff Info">
+<tbody>
+    <tr>
+        <td class="odd"> Instructor </td>
+        <td> Sheel Ganatra </td>
+        <td class="odd"> TA </td>
+        <td> Viktor Kleen </td>
+    </tr>
+    <!--<tr>
+        <td class="odd"> Office </td>
+        <td> KAP 266D </td>
+        <td class="odd"> Office </td>
+        <td>  </td>
+    </tr>-->
+    <tr>
+        <td class="odd"> e-mail </td>
+        <td> sheel (dot) ganatra (at) usc (dot) edu (this is the best way to reach me) </td>
+        <td class="odd"> e-mail </td>
+        <td>  kleen (at) usc (dot) edu </td>
+    </tr>
+    <tr>
+        <td class="odd"> Telephone </td>
+        <td> (213) 740-2417 </td>
+        <td class="odd"> </td>
+        <td>  </td>
+    </tr>
+    <tr>
+        <td class ="odd"> Office Hours </td>
+        <td> 
+            This week: by appointment.
+            <!-- , and <i>by appointment</i> in <b>KAP 266D</b> (please feel free to e-mail or drop by).-->
+        </td>
+        <td class ="odd"> Office Hours </td>
+        <td> <!--Tuesday 2-4pm, Thursday 4-5pm in <b>Math Center</b>.-->  </td>
+    </tr>
+</tbody>
+</table>
+
+<h3>Course Description and Prerequisites</h3>
+<p> 
+Math 535a gives an introduction to geometry
+and topology of <i>smooth (or differentiable) manifolds</i> and notions of
+calculus on them, for instance the theory of <i>differential forms</i>. We will
+assume familiarity with undergraduate topology, at the level of USC's Math 440
+or equivalent. Exposure to theoretical linear algebra will also help (but will
+be quickly reviewed).
+</p>
+
+<!--<h3> Announcements </h3>
+
+
+<ul>
+    <li><b> 4/10/2017</b>: We will have class on Monday, Wednesday, and Friday of this week.</li>
+
+    <li><b> 4/2/2017</b>: There will be <i>no class</i> this week (April 3-7). Our next class will be one week from tomorrow, on <i>Monday, April 10</i>. (we will have class on Monday, Wednesday, and Friday of the that week).</li>
+
+    <li><b> 3/27/2017</b>: Note that we will have class this Friday, March 31 at the usual time (in addition to class on Monday and Wednesday). Also, there will be <i>no class</i> on Wednesday, April 5. </li>
+
+    <li><b> 3/20/2017</b>: Note that we will have class this Friday, March 24 at the usual time (in addition to class on Monday and Wednesday).</li>
+    <li><b> 3/6/2017</b>: The deadline for HW5 has been extended to <i>Monday, March 20</i> at 5 pm.</li>
+    <li> <b> 3/1/2017 </b>: There will be <i>no class</i> next <i>Wednesday, 3/8/2017</i>. Since 3/13/2017-3/17/2017 is spring break, our next class will be <i>Monday, 3/20/2017.</i></li>
+    <li> <b> 2/21/2017</b>: Class this week will be held on Wednesday 2/22 and Friday 2/24 (note the unusual class time on Friday), both from 10:30am-11:50am in the usual classroom, KAP 134.</li>
+    <li> <b> Homework submission instructions</b>: Please submit your homework to our TA Viktor, either in his mailbox (in KAP 405) or under the door of his office (KAP 413).</li>
+    <li> <b>1/23/2017</b>: We will have class Monday and Wednesday this week from <b>10:30am-11:50am</b>. Wednesday's class may end a little early, closer to 11:35 or 11:40.</li>-->
+
+    <!--old-commented text<li> For the week of <b>1/16/2017-1/20/2017</b>: no class Monday (MLK day). We will have class on Wednesday <i> and Friday</i>, both in <b>KAP 134</b> from <b>10:30am-11:50am</b>.</li>-->
+
+    <!--<li> <b> 1/13/2017</b>: Our course time has officially changed to <b> Mondays and Wednesdays </b> from <b>10:30am-11:50am</b>, still in <b>KAP 134</b>. We will occasionally hold class on a Friday, to make up for a couple future class cancellations.  </li>
+
+</ul>-->
+
+<h3>Textbook and topics</h3>
+<p> The official course text is <i> Foundations of
+    Differential Manifolds and Lie Groups </i> by Frank Warner. We will
+frequently deviate from this book; additional references will be posted on an
+ongoing basis.</p>
+
+<p> Some topics to be covered include:  </p>
+
+<ul>
+    <li> A review of Calculus on R^n: inverse and implicit function theorems </li>
+    <li> Topological and Differentiable manifolds and maps between them. Sard's theorem.</li>
+    <li> The tangent bundle: vector fields, distributions, and Frobenius' theorem </li>
+    <li> Calculus on manifolds with differential forms, tensors, and vector fields.</li>
+    <li> Integration. Stokes' theorem and de Rham cohomology.</li>
+    <li> (time permitting) An introduction to <i>Riemannian geometry</i>: Riemannian metrics, connections, and curvature</li>
+</ul>
+
+<p> A more detailed lecture plan (updated on an ongoing basis, after each lecture) will be posted below. </p>
+
+<h3>Grading System</h3>
+<ul>
+    <li> 65% Homework assignments, </li>
+    <li> 5% Note taking, </li>
+    <li> 30% Take-home final exam. </li>
+</ul>
+
+
+
+<h3>Homework Assignments</h3>
+<p>Homeworks will be posted here on an ongoing basis (roughly a week or more before they are due) and will be due on the date listed. You can handwrite or <i>LaTeX</i> your solutions. You may work with others and consult references (including the course
+textbook), but the homework you turn in must be
+written by you independently, in your own
+language, and you must cite your sources and
+collaborators.
+<p>
+
+<p> <i>Note</i>: Homework deadline extensions are possible upon arrangement with me (with our TA, Viktor CC'ed) up to 3 times a semester, and at most once per HW. If you decide to request an extension from me, there will be no grading penalty if the HW is submitted within a couple days -- I'll set a more precise deadline each request. <i>Beyond this, late homework will not be accepted.</i></p>
+
+<table class="hw">
+<thead>
+<tr>
+    <th> Due date </th>
+    <th> Assignment </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td> Wednesday, 1/25  </td> 
+    <td>
+        <a href="hw/hw1.pdf">Homework 1</a>. <a href="hw/hw1_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+<tr>
+    <td> Friday, 2/3  </td> 
+    <td>
+        <a href="hw/hw2.pdf">Homework 2</a>.    <a href="hw/hw2_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+<tr>
+    <td> Monday, 2/13  </td> 
+    <td>
+        <a href="hw/hw3.pdf">Homework 3</a>. 
+        <a href="hw/hw3_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+
+<tr>
+    <td> Friday, 2/24  </td> 
+    <td>
+        <a href="hw/hw4.pdf">Homework 4</a>.
+        <a href="hw/hw4_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+<tr>
+    <td> <i>Monday, 3/20</i> (Note extension!)  </td> 
+    <td>
+        <a href="hw/hw5.pdf">Homework 5</a>.
+        <a href="hw/hw5_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+
+<tr>
+    <td> <i>Friday, 3/31</i>   </td> 
+    <td>
+        <a href="hw/hw6.pdf">Homework 6</a>.
+        <a href="hw/hw6_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+
+<tr>
+    <td> <i>Wednesday, 4/19</i>   </td> 
+    <td>
+        <a href="hw/hw7.pdf">Homework 7</a>.
+    </td>
+</tr>
+
+<tr>
+    <td> <i>Friday, 4/28</i>   </td> 
+    <td>
+        <a href="hw/hw8.pdf">Homework 8</a> (half weight assignment).
+    </td>
+</tr>
+
+</tbody>
+</table>
+
+
+
+
+<h3>Note taking</h3>
+<p>I will ask each of you to be the official note taker for 4-5
+lectures, and produce a set of typed (and revised) notes for the
+lecture. These should be completed and e-mailed to me within one week of the
+lecture, or one week of the day you were assigned the lecture, whichever is
+greater (so, if you were assigned on January 10 to write lecture notes for the
+January 9 class, you would have until January 17).  You are required to use
+<i>LaTeX</i> to typeset these notes; now is a good time to learn LaTeX if you
+have not already. As a LaTeX template, please use the January 9th lecture
+notes, whose TeX (and PDF) are provided below.
+</p>
+
+<p> <i>Note</i>: Some limited extensions are generally possible for note-taking
+assignments. Please e-mail me to arrange. </p>
+
+
+
+
+
+<h3> Takehome Final Exam </h3>
+
+<p>
+The takehome final will be a one-week exam, assigned via e-mail.  You are
+strongly encouraged, but not required, to type up your solutions to the exam in
+LaTeX. When solving the problems, you can use any results we have used, stated,
+or proved in class or on your homeworks. If you wish you may consult other
+references (such as the textbook, coursenotes, homeworks, other references) for
+definitions, but you must solve these problems completely on your own. You may
+not discuss your solutions with other people except for the course staff (Sheel
+and Viktor).
+</p>
+
+
+<h3> Lecture Plan </h3>
+<p> Lecture topics by day will be posted on an ongoing basis below. Future
+topics are tentative and will be adjusted as necessary. </p> 
+<table class="reg">
+<thead>
+<tr> 
+    <th> Day </th> 
+    <th> Lecture topics </th> 
+    <th> References and remarks </th> 
+    <th> Notes </th>
+</tr>
+</thead>
+<tbody>
+    <tr>
+        <td> <i> Jan. 9</i> </td>
+        <td> 
+            Welcome and overview of class. A review of point-set topology: topological spaces, metric spaces as an instance, and homeomorphisms.
+        <td> Any standard topology textbook, for instance Munkres.   </td>
+        <td> <a href="lecture_notes/2017-01-09_lecture01.tex">TeX</a>. <a href="lecture_notes/2017-01-09_lecture01.pdf">PDF</a>  </td>
+    </tr>
+
+    <tr>
+        <td> <i> Jan. 11</i> </td>
+        <td> 
+            Review: Linear algebra and multivariable calculus. 
+            The derivative linear map, partial/directional derivatives; higher
+            order derivatives and differentiability, and smooth/C^infty
+            functions. The notion of a <i>category</i>. 
+        <td> Any standard theoretical linear algebra textbook, e.g., Axler, and a multivariable calculus book, e.g., Spivak.  </td>
+ <td>    </td>
+    </tr>
+
+    <tr>
+        <td> <i> Jan. 13</i> </td>
+        <td> 
+            The chain rule. Diffeomorphisms of open sets in R^n. The inverse
+            function theorem (statement). Topological and smooth manifolds.
+            <td>    </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Jan. 18</i> </td>
+        <td> 
+            Examples of smooth manifolds. Equivalences of atlases, and differentiable structures (a.k.a. maximal atlases). Smooth functions on smooth manifolds.
+            <td>    </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Jan. 20</i> </td>
+        <td> 
+            Smooth functions and smooth maps. The rank of a smooth map.
+            <td>    </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Jan. 23</i> </td>
+        <td> 
+            Submersions and immersions, and prototypical examples. Regular values, critical values, and critical points. The implicit function theorem (for submersions), and applications to constructing manifold structures on  preimages.
+            <td>    </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Jan. 25</i> </td>
+        <td> 
+            Immersions, embeddings, and submanifolds. The implicit function theorem (for immersions). A first definition of tangent spaces (for submanifolds of R^n).</td>
+            <td>    </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Jan. 30</i> </td>
+        <td> Two <i>intrinsic</i> definitions of the tangent space to a manifold at a point: via equivalence classes of parametrized curves and derivations from the algebra of germs of smooth functions.
+            <td>    </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Feb. 1</i> </td>
+        <td> A third definition of the tangent space to a manifold at a point. The derivative of a function as a map between tangent spaces. The tangent and cotangent bundles of a manifold.</td>
+            <td>    </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Feb. 6</i> </td>
+        <td> The cotangent space to a manifold at a point. The cotangent bundle, and functoriality with respect to smooth maps. One-forms and vector fields. Flows.
+            <td>    </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Feb. 8</i> </td>
+        <td> Flows and the fundamental theorem of ODE. The action of vector fields on functions, and the Lie bracket of vector fields. Distributions and integral submanifolds. The Frobenius theorem.</td>
+            <td>    </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Feb. 13</i> </td>
+        <td> More on the Frobenius theorem. Partitions of unity, and an application to embedding manifolds in Euclidean space. </td>
+            <td>    </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Feb. 15</i> </td>
+        <td> 
+            Sard's theorem, and an application to Whitney's embedding theorem.
+        </td>
+            <td>    </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Feb. 20</i> </td>
+        <td> 
+            <i>No class (President's day).</i>
+        </td>
+            <td>    </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Feb. 22</i> </td>
+        <td> 
+           Lie groups and Lie group representations. Vector bundles and sub-bundles.
+        </td>
+            <td>    </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Feb. 24 </i> </td>
+        <td> 
+           (note Friday class)!  More about vector bundles. Sections. Methods of constructing
+                old vector bundles out of new vector bundles. Linear algebra:
+                tensor products. 
+        </td>
+            <td> Some <a href="../spring2013_math113/notes/tensor_products.pdf">notes</a> from an old linear algebra course giving some formal properties of the tensor product (without complete proofs). See also Warner Sections 2.1-2.2.
+                  </td> 
+            <td> 
+            </td> 
+    </tr>
+
+    <tr>
+        <td> <i> Feb. 27 </i> </td>
+        <td> 
+                Linear algebra: more tensor products. The tensor algebra
+                of a vector space. Wedge products and the exterior
+                algebra of a vector space. Determinants.
+        </td>
+
+        <td> See <a href="../spring2013_math113/notes/wedge_products.pdf">here</a>
+            for some notes from an old linear algebra course giving some
+            formal properties of the wedge product (without complete
+            proofs).  See also Warner Sections 2.4-2.6.</td> 
+        <td></td>
+    </tr>
+
+    <tr>
+        <td> <i> Mar. 1 </i> </td>
+        <td> Tensor product and wedge product of vector bundles. Differential forms (as sections of the kth exterior power bundle of the cotangent bundle). The exterior derivative. Integrating 1 forms. </td>
+        <td> </td> 
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Mar. 6 </i> </td>
+        <td> Orientability and orientations, for vector spaces and vector bundles. Examples. The classification of two manifolds (a statement of result). </td>
+        <td> </td> 
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Mar. 8 </i> </td>
+        <td> 
+            <i>No class.</i>
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Mar. 13-17 </i> </td>
+        <td> 
+            <i>Spring break (no class).</i>
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Mar. 20 </i> </td>
+        <td> 
+            De Rham cohomology. Functoriality for de Rham cohomology, and first examples.
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Mar. 22 </i> </td>
+        <td> 
+            Statement of a crucial properties of de Rham cohomology: homotopy invariance. The Poincare lemma (de Rham cohomology of R^n). Exact sequences and the Mayer-Vietoris Sequence.
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Mar. 24 </i> </td>
+        <td> 
+            A detour into <i>homological algebra</i>: co-chain complexes and co-chain maps. Short exact sequences of co-chain complexes. Long exact sequences in cohomology from short exact sequences of chain complexes. Introduction to the <i>Lie derivative</i>.
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Mar. 27 </i> </td>
+        <td> 
+            More about Lie derivatives. Interior products, and Cartan's "magic" formula relating Lie derivatives to interior products. The proof of homotopy invariance of de Rham cohomology.
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Mar. 29 </i> </td>
+        <td> 
+            More example computations of de Rham cohomology. The Euler characteristic of a manifold. A variant theory: <i> de Rham cohomology with compact support</i>. Beginning integration: a review of the Riemann integral. 
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Mar. 31 </i> </td>
+        <td> 
+            Riemann integrals and the change of variables formula. Integration of differential forms on oriented manifolds. An introduction to <i>manifolds-with-boundary</i>, an enlargement of the class of manifolds.
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 3-7 </i> </td>
+        <td> 
+            <i>No class</i>.
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 10 </i> </td>
+        <td> 
+            More manifolds with boundary, and induced orientations. Stokes' theorem and some applications.
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 12 </i> </td>
+        <td> 
+            An application of Stokes' theorem to the divergence theorem. Integration on cohomology, and a statement of Poincare duality. The top dimensional (compactly supported) cohomology of a manifold, and the cohomological degree of a map between compact manifolds.
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 14 </i> </td>
+        <td> 
+            The degree of a map between (compact oriented) manifolds (without
+            boundary). Cohomological and topological degree coincide.  (Along
+            the way: proof of the fact that top dimensional cohomology is
+            one-dimensional.) An introduction to intersection theory.
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 17 </i> </td>
+        <td> 
+            Intersection theory. Oriented zero-manifolds, intersections of
+            transverse sub-manifolds, and intersections of transverse manifolds
+            along maps (also known as "pre-images of submanifolds").
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+    
+    <tr>
+        <td> <i> Apr. 19 </i> </td>
+        <td> 
+            The cohomological interpretation of intersection theory (assuming
+            Poincare duality). A statement of the tubular neighborhood theorem.
+        Orthogonal structures on vector bundles.  
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 19 </i> </td>
+        <td> 
+            Riemannian manifolds (manifolds with orthogonal structures on their
+            tangent bundles). Proof of the tubular neighborhood theorem.
+        Connections on vector bundles.  
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 24 </i> </td>
+        <td> 
+            More connections on vector bundles. (Local and global) covariantly
+            constant frames for connections, and flat connections (connections
+        which admit a local covariant constant frame near each point).
+        Existence of connections. The space of connections as an affine space.
+        The curvature of a connection. Local expression of a connection as
+        differentiation plus a matrix of one-forms, and an interpretation
+        of curvature in that regard.
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Apr. 26 </i> </td>
+        <td> 
+            The Levi-Civita connection on a Riemannian manifold. Applications
+            of Riemannian geometry, and a first relationship between the
+            Riemannian geometry of a surface and its topology: the Gauss-Bonnet
+            theorem.
+        </td>
+            <td> 
+            </td> 
+            <td> </td>
+    </tr>
+
+</tbody>
+</table>
+</body>
+
+</html>

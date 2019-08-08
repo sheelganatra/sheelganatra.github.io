@@ -1,0 +1,1012 @@
+%!TEX TS-program = xelatex
+
+\documentclass[12pt]{article}
+\usepackage {amsmath, amscd, amsbsy, amsfonts, amsthm, eucal}
+\usepackage{latexsym,amssymb,mathrsfs,bbm}
+\textwidth 6.5in
+\topmargin -.3in
+\oddsidemargin 0in
+\textheight 9in
+\parindent 0 pt
+
+\usepackage{color}
+\definecolor{rltred}{rgb}{0.75,0,0}
+\definecolor{rltgreen}{rgb}{0,0.5,0}
+\definecolor{rltblue}{rgb}{0,0,0.75}
+\def\red{\color{red}}
+\def\black{\color{black}}
+\def\green{\color{rltgreen}}
+\def\blue{\color{rltblue}}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand\bi{\begin{itemize}}
+\newcommand\ei{\end{itemize}}
+\newcommand\beq{\begin{equation}}
+\newcommand\eeq{\end{equation}}
+\newcommand\itema{\item[(a)]}
+\newcommand\itemb{\item[(b)]}
+\newcommand\itemc{\item[(c)]}
+\newcommand\itemd{\item[(d)]}
+\newcommand\iteme{\item[(e)]}
+\newcommand\itemf{\item[(f)]}
+
+\renewcommand\and{\qquad\text{and}\qquad}
+\renewcommand\|{\ | \ }
+\newcommand\ra{\rightarrow}
+\newcommand\sr{\stackrel}
+\newcommand\mf\mathfrak
+\newcommand\mc\mathcal
+
+\def\manylinedefinition#1{
+\left\{\begin{array}{ll}
+#1
+\end{array}\right.
+}
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+
+\def\pb#1{{\green \bf Problem #1.}\hskip 8pt \black}
+\def\sol{\textbf{Solution:}}
+
+\newcommand\ev{\text{ev}}
+\newcommand\ltwo{\ell^2}
+\newcommand\mfa{\mf a}
+\def\sequence#1{$\{{#1}_n\}$}
+\def\subsequence#1{$\{{#1}_{n_k}\}$}
+\def\sumint#1{\sum_{#1=1}^\infty}
+\def\sumzero#1{\sum_{#1=0}^\infty}
+\def\sumseries#1#2{$\sumint#1 #2_{#1}$}
+\newcommand\e\varepsilon
+\newcommand\limn{\lim_{n \ra \infty}}
+\newcommand\limsupn{\limsup_{n \ra \infty}}
+\newcommand\liminfn{\liminf_{n \ra \infty}}
+%\newcommand\iff{\quad\Leftrightarrow\quad}
+
+\newcommand\Fixaneps{Fix an arbitrary $\e > 0$ }
+\newcommand\foranyeps{for any $\e > 0$ }
+\newcommand\givenanyn{given any $N \in \N$ }
+\newcommand\thereexistsn{there exists an $n \geq N$ }
+\newcommand\thereexistsN{there exists an $N$ such that for every $n \geq N$ }
+\newcommand\foreveryn{for every $n \geq N$ }
+\newcommand\foreveryk{for every $k \geq N$ }
+\newcommand\foreveryx{for every $x \in X$ }
+\newcommand\Foreveryx{For every $x \in X$  }
+
+\newcommand\textbook{Johnsonbaugh and Pfaffenberger}
+\newcommand\notes{Prof. Simon's notes}
+
+\title{hw3-solutions}
+
+\begin{document}
+\centerline{\Large Math 171 Homework 3}
+\centerline{\small (due April 22)}
+\vskip .2in
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 33.3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb {33.3}
+
+Let $f$ be defined on $[0, 1]$ by the formula 
+\[
+f = \manylinedefinition{
+x  &  \text{if $x$ is rational,} \\
+0  &  \text{if $x$ is irrational.}
+}
+\]
+Prove that $f$ is continuous only at 0.
+
+\sol
+
+Firstly, we show that $f$ is \emph{not} continuous at any non-zero $x$ by
+constructing a sequence \sequence x converging to $x$ such that its
+image $\{f(x_n)\}$ does not converge to $f(x)$. We consider two cases:
+\bi
+\item
+Case 1: $x$ is rational, so $f(x) = x \neq 0$.
+
+In this case consider the sequence $x_n := x + \frac 1 {n\sqrt 2}$. Each
+$x_n$ is irrational, so $f(x_n) = 0$. Then $\{f(x_n\}$ converges to $0$, and
+not to $f(x) = x$.
+\item
+Case 2: $x$ is irrational, so $f(x) = 0$.
+
+In this case consider a sequence of \emph{rational} numbers \sequence x
+converging to $x$. We can find such a sequence by finding a rational
+number $x_n$ in the interval $(x, x + 1/n)$ for each $n$ by Theorem 7.8.
+Then $f(x_n) = x_n$ for each $n$, so the sequence $\{f(x_n)\}$ converges to
+$x$ and not to $f(x) = 0$.
+\ei
+
+Secondly, we show that $f$ is continuous at 0 using Theorem 33.3. We claim
+that given an $\e > 0$, for any $x \in \R$ such that $|x| < \e$ 
+we have $|f(x)| < \e$ (we're using $f(0) = 0$ here). There are two cases
+here again:
+\bi
+\item Case 1: $x$ is rational, so $f(x) = x$ and consequently $|f(x)| < \e$
+by our assumption on $x$.
+\item Case 2: $x$ is irrational, so $f(x) = 0$ and consequently 
+$|f(x)| = 0 < \e$.
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 35.5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {35.5}
+
+Let $(M, d)$ be a metric space and let $X$ be a subset of $M$. Prove that 
+$(X, d|_{X \times X})$ is a metric space.
+
+\sol
+
+We need to check that $d$ still satisfies the axioms of a metric
+(Definition 35.1) after we restrict it to $X \times X$:
+\bi
+\item[(i)]
+We know that $d(x, x) = 0$ for every $x \in M$, in particular, for every
+$x \in X$. 
+Conversely, if $d(x, y) = 0$ with $x, y \in X$ then $x = y$ because 
+$x, y \in M$ and $d$ is a metric on $M$.
+\item[(ii)]
+We know that $d(x, y) = d(y, x)$ for any $x, y\in M$, in particular, for
+$x, y \in X$.
+
+\item[(iii)]
+We know that the triangle inequality holds for $x, y, z \in M$, so in
+particular it holds for $x, y, z \in X$.
+
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 35.6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {35.6}
+
+Let $l^\infty$ denote the set of all bounded real sequences, and let $c_0$
+denote the set of all real sequences which converge to 0.
+
+\bi
+\itema
+Prove that $l^1 \subset c_0 \subset l^\infty$.
+\itemb
+Prove that the containments in (a) are proper.
+\itemc
+Prove that
+\[
+d_{l^\infty}(\{a_n\}, \{b_n\}) := \sup \{|a_n - b_n| \| n \in \N\}
+\]
+defines a metric on $l^\infty$ (and thus by (a) together with Problem
+35.5 also on $c_0$ and $l^1$)
+\itemd
+Let $d_{l^1}$ be the metric on $l^1$ defined in Example 35.5. Prove that 
+\[
+d_{l^\infty}(x, y) \leq d_{l^1}(x,y)
+\]
+for $x, y\in l^1$.
+\ei
+
+\sol
+
+\bi
+\itema
+By Theorem 22.3, $l^1 \subset c_0$ and by Theorem 13.2, $c_0 \subset l^\infty$.
+\itemb
+The harmonic series $a_n = 1/n$ is an element of $c_0$ but not of $l_1$.
+The constant series $b_n = 1$ is an element of $l_\infty$ but not $c_0$.
+\itemc
+We verify the axioms of a metric:
+\bi
+\item[(i)]
+Assume \sequence a = \sequence b. Then $a_n = b_n$ for every $n \in N$, so
+\[
+d_{l^\infty}(\{a_n\}, \{a_n\}) = \sup\{0\} = 0.
+\]
+
+Conversely, if \sequence a $\neq$ \sequence b, then there exists an $n \in \N$
+such that $a_n - b_n \neq 0$, so $|a_n - b_n| > 0$ for that $n$. Hence
+0 is not an upper bound of $\{|a_n - b_n| \| n \in \N\}$, so
+$d_{l^\infty}(\{a_n\}, \{b_n\}) > 0$ in that case.
+
+\item[(ii)]
+Symmetry: given \sequence a and \sequence b in $l^\infty$ we have 
+$|a_n - b_n| = |b_n - a_n|$ for every $n \in \N$, so 
+\[
+\{|a_n - b_n| \| n \in \N\} = \{|b_n - a_n| \| n \in \N\} 
+\]
+and, therefore,
+\[
+d_{l^\infty}(\{a_n\}, \{b_n\}) = d_{l^\infty}(\{b_n\}, \{a_n\}).
+\]
+\item[(iii)]
+Given  \sequence a, \sequence b and \sequence c in $l^\infty$, for every
+$n \in \N$ we have that
+\[
+|a_n - b_n| \leq d_{l^\infty}(\{a_n\}, \{b_n\}) \and
+|b_n - c_n| \leq d_{l^\infty}(\{b_n\}, \{c_n\}).
+\]
+By triangle inequality for the absolute value
+\[
+|a_n - c_n| \leq |a_n - b_n| + |b_n - c_n|,
+\]
+so
+\[
+|a_n - c_n| \leq d_{l^\infty}(\{a_n\}, \{b_n\}) + 
+	d_{l^\infty}(\{b_n\}, \{c_n\})
+\]
+for every $n \in \N$. Thus, $d_{l^\infty}(\{a_n\}, \{b_n\}) + 
+	d_{l^\infty}(\{b_n\}, \{c_n\})$ is an upper bound of
+$\{|a_n - c_n| \| n \in \N\}$, so 
+\[d_{l^\infty}(\{a_n\}, \{b_n\}) \leq d_{l^\infty}(\{a_n\}, \{b_n\}) + 
+	d_{l^\infty}(\{b_n\}, \{c_n\}),
+\]
+as desired.
+\ei
+\itemd
+For every $n \in \N$,
+\[
+|x_n - y_n| \leq \sumint k |x_k - y_k| = d_{l^1}(x, y),
+\]
+so $d_{l^1}(x, y)$ is an upper bound on $\{|x_n - y_n| \| n \in \N\}$, and 
+hence its greater or equal to the least upper bound:
+\[
+d_{l^\infty}(x, y) \leq d_{l^1}(x, y).
+\]
+\ei
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 35.7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {35.7}
+
+Let $(M, d)$ be a metric space. Prove that
+\[
+d'(x, y) := \frac{d(x, y)}{1 + d(x, y)} \and 
+d''(x, y) := \min\{d(x, y), 1\}
+\]
+define metrics on $M$. Prove that $d'$ and $d''$ are bounded by 1.
+
+\sol
+
+We verify the axioms of a metric for $d'$ and $d''$:
+\bi
+\item[(i)]
+\[
+d'(x, x) = \frac {d(x, x)} {1 + d(x, x)} = \frac {0} {1 + 0} = 0.
+\]
+\[
+d''(x, x) = \min\{d(x, x), 1\} =\min\{0, 1\} = 0.
+\]
+Conversely, if $x \neq y$ then $d(x, y) > 0$, so
+\[
+d'(x, y) = \frac{d(x, y)}{1 + d(x, y)} > 0
+\]
+because the numerator and the denominator are positive and
+\[
+d''(x, y) = \min\{d(x, y), 1\} > 0.
+\]
+because both $d(x, y)$ and 1 are positive.
+\item[(ii)]
+By assumption $d(x, y) = d(y, x)$, so
+\[
+d'(x, y) = \frac{d(x, y)}{1 + d(x, y)} = \frac{d(y, x)}{1 + d(y, x)}
+= d'(y, x)
+\]
+and $\{d(x, y), 1\} = \{d(y, x), 1\}$, so
+\[
+d''(x, y) = \min\{d(x, y), 1\} = \min\{d(y, x), 1\} = d''(y, x).
+\]
+\item[(iii)]
+The triangle inequality for $d'$. We have that 
+\[d'(x, y) = \frac{d(x, y)}{1 + d(x, y)}  \geq 
+\frac{d(x, y)}{1 + d(x, y) + d(y, z)}
+\]
+and
+\[
+d'(y, z) = \frac{d(y, z)}{1 + d(y, z)} \geq 
+\frac{d(y, z)}{1 + d(x, y) + d(y, z)}. \\
+\]
+Thus,
+\[d'(x, y) + d'(y, z) \geq \frac{d(x, y) + d(y, z)}{1 + d(x, y) + d(y, z)}
+\geq \frac{d(x, z)} {1 + d(x, z)} = d'(x, z)
+\]
+where the latter inequality holds because
+$d(x, y) + d(y, z) \geq d(x, z)$ and the function
+$f(t) := \frac t {1 + t} = 1 - \frac 1 {1 + t}$ is increasing in $t$
+for $t \in [0, \infty)$.
+
+The triangle inequality for $d''$. We consider two cases: 
+\bi
+\item[Case 1:] at least one of the two inequalities
+$d(x, y) \geq 1$ or $d(y, z) \geq 1$
+holds. In this case at least one of the two equalities $d''(x,y) = 1$
+or $d''(y, z) = 1$ holds, so 
+\[
+d''(x, y) + d''(y, z) \geq 1 \geq \min\{ d(x, z), 1\} = d''(x, z).
+\]
+\item[Case 2:] $d(x, y) < 1$ and $d(y, z) < 1$. Hence,
+$d''(x, y) = d(x, y)$ and $d''(y, z) = d(y, z)$. Therefore,
+\[
+d''(x, y) + d''(y, z) \geq d(x, z) \geq \min\{ d(x, z), 1\} = d''(x, z).
+\]
+\ei
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 36.8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {36.8}
+
+Let \sequence a $\in l^1$ and \sequence b $\in l^\infty$. Prove that
+$\{a_nb_n\}\in l^1$.
+
+\sol
+
+This is exactly the statement of Theorem 26.4(i).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 36.11
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {36.11}
+
+Let \sequence a be a sequence such that $\{a_nb_n\} \in l^1$ for every 
+sequence \sequence b $\in l^1$. Prove that \sequence a $\in l^\infty$. Show 
+(by example) that the above statement is false $l^\infty$ is replaced by $c_0$.
+
+\sol
+
+We prove the contrapositive: if \sequence a is not in $l^\infty$ then
+there exists a sequence \sequence b in $l^1$ such that 
+$\{a_nb_n\} \notin l^1$. 
+
+If \sequence a is not in $l^\infty$, it is not bounded. Assume \sequence a
+is not bounded from above (otherwise replace \sequence a with 
+$\{-a_n\}$). Then we can inductively
+construct a subsequence \subsequence a such that $a_{n_k} > k$.
+
+Let 
+\[
+b_n := \left\{\begin{array}{ll}
+	\frac 1 {k^2} & \text{if $n = n_k$ for some $k$},\\
+	0 & \text{otherwise.}
+\end{array}\right.
+\]
+
+Then $0 \leq b_n \leq 1/n^2$ for every $n \in \N$, so by the Comparison Test, 
+$b \in l^1$. However,
+\[
+a_nb_n = \left\{\begin{array}{ll}
+	\frac 1 {k} & \text{if $n = n_k$ for some $k$},\\
+	0 & \text{otherwise,}
+\end{array}\right.
+\]
+so the subsequence 
+$\{\sum_{n = 1}^{n_k} a_nb_n\}_{k \in \N}
+	= \{\sum_{m = 1}^k \frac 1 k\}_{k \in \N},m $
+of partial sums of $\{a_nb_n\}$ diverges. Hence, $\{a_nb_n\}$ is not
+an element of $l^1$.
+
+The constant sequence $a_n = 1$ (tautologically) satisfies the premise of
+the problem and is not an element of $c_0$ because its limit is 1 and not 0.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 37.4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {37.4}
+
+Show (by examples) that Theorem 37.2 does not generalize to $l^2$, $c_0$ or
+$l^\infty$.
+
+\sol
+
+Define the sequence $a^{(k)} = \{a_n^{(k)}\}$ by
+\[
+a^{(k)}_n := \left\{\begin{array}{ll}
+	1 & \text{if $n = k$,}\\
+	0 & \text{otherwise,}
+\end{array}\right.
+\]
+i.e. $a^{(k)}$ has a 1 at index $k$ and zeros everywhere else.
+Then $a^{(k)}$ is an element of $l^1$ (and hence of $c_0$ and $l^\infty$ too)
+
+Then $\lim_{k \ra \infty} a_n^{(k)} = 0$ for every $n \in \N$ because
+$a_n^{(k)} = 0$ for all $k > n$. 
+
+However, the sequence $\{a^{(k)}\}$ of sequences does not converge to
+the sequence $\underline 0$ consisting of all zeros in $l^\infty$
+(and, hence, by Problem 35.6(d) it does not converge to 
+$\underline 0$ in $l^1$ either) because
+\[
+d_{l^\infty}(a^{(k)}, \underline 0) = \sup\{0, 1\} = 1
+\]
+for every $k$. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 37.10
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {37.10}
+
+Let $(M, d)$ be a metric space and let $d'$ and $d''$ be defined as in 
+Exercise 35.7. Let \sequence a be a sequence in $M$ and let $a \in M$. Prove
+that the following statements are equivalent:
+\bi
+\itema
+\sequence a converges to $a$ in $(M, d)$.
+\itemb
+\sequence a converges to $a$ in $(M, d')$.
+\itemc
+\sequence a converges to $a$ in $(M, d'')$.
+\ei
+
+\sol
+
+\bi
+\item
+(a) $\Rightarrow$ (b) and (c)
+
+We have that $\limn d(a_n, a) = 0$ and also
+\[
+0 \leq d'(a_n, a) \leq d(a_n, a) \and 0 \leq d''(a_n, a) \leq d(a_n, a).
+\]
+Therefore, by Squeeze Theorem both $d'(a_n, a)$ and $d''(a_n, a)$ converge
+to 0.
+\item
+(b) $\Rightarrow$ (a)
+
+Given $\epsilon \in (0, 1)$, choose $N$ such that 
+\[d'(a_n, a) < \frac {\epsilon} {1 + \epsilon}
+\]
+for every $n \geq N$. Then 
+\[
+d(a_n, a) = \frac 1 {1 - d'(a_n, a)} - 1 < \epsilon
+\]
+for every $n \geq N$. Hence, $\limn d(a_n, a) = 0$.
+\item
+(c) $\Rightarrow$ (a)
+
+Since $\limn d''(a_n, a) = 0$, we can choose $N$ such that 
+$d''(a_n, a) < 1$ for all $n \geq N$. Using the definition of $d''$ we get
+that for all $n \geq N$, $d''(a_n, a) = d(a_n, a)$, so
+$\limn d(a_n, a) = 0$.
+\ei
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 40.10
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {40.10}
+
+Let \sequence a $\in l^\infty$. Prove that $f$ defined by 
+\[
+f(\{b_n\}) := \sumint n a_n b_n
+\]
+is a continuous real-valued function on $l^1$.
+
+\sol
+
+To show continuity of $f$ we need to show that given \sequence b $\in l^1$ and 
+$\e > 0$ we can find $\delta > 0$ such that for every 
+\sequence {\tilde b} $\in l^1$ such that 
+$d_{l^1}(\{b_n\}, \{\tilde b_n\}) < \delta$ we have that
+\[
+|f(\{b_n\}) - f(\{\tilde b_n\})| < \e.
+\]
+
+Assume \sequence a is bounded by $M$ with $M > 0$ in absolute value: 
+$|a_n| < M$ for every $n \in \N$. We show that $\delta := \e / M$ works.
+
+By Theorem 23.1 applied to series $\sumint n a_nb_n$ and 
+$\sumint n a_n\tilde b_n$ we have that
+\[
+f(\{b_n\}) - f(\{\tilde b_n\}) = \sumint n a_n(b_n - \tilde b_n).
+\]
+Hence, by Theorem 26.2
+\[
+|f(\{b_n\}) - f(\{\tilde b_n\})| \leq \sumint n |a_n(b_n - \tilde b_n)|
+\]
+By Theorem 26.3(i) we have that
+\[
+\sumint n |a_n(b_n - \tilde b_n)| \leq \sumint n M |b_n - \tilde b_n| = 
+	M d_{l^1}(\{b_n\}, \{\tilde b_n\}) < \epsilon.
+\]
+Therefore,
+\[
+|f(\{b_n\}) - f(\{\tilde b_n\})| < \epsilon,
+\]
+as desired.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {1. Product metrics, continuity and composition.}
+
+If $(M_1, d_1)$ and $(M_2, d_2)$ are metric spaces then one can define a
+distance function $d$ on the Cartesian product $M_1 \times M_2$ by 
+\beq
+\label{eq:l1-metric}
+d((m, n), (m', n')) := d_1(m, m') + d_2(n, n').
+\eeq
+
+\bi
+\itema
+Show that $d$ defines a metric on $M_1 \times M_2$ called the 
+\emph{(standard) product metric.}
+\itemb
+In fact, $d$ is not the only natural metric on $M_1 \times M_2$. For instance,
+show that 
+\beq
+\label{eq:l2-metric}
+d_{\ltwo}((m, n), (m', n')) := \sqrt{ d_1(m, m')^2 + d_2(n, n')^2}
+\eeq
+defines another metric on $M_1 \times M_2$, called the 
+\emph{$\ltwo$ product metric}.
+
+Then, also show that there is an isometry between $\R^n$ with its Euclidean
+metric and $\R^k \times \R^{n-k}$ where each of $\R^k$ and $\R^{n - k}$ are
+equipped with their Euclidean metrics and the product is equipped with the 
+$l^2$ product metric.
+
+\itemc
+Usually, unless otherwise specified, we will think of the product 
+$M_1 \times M_2$ as a metric space with respect to the standard product metric.
+Show that if $N$ is a metric space and $f_i: N \ra M_i$ are continuous maps 
+for $i = 1, 2$, then the map $(f_1, f_2): N \ra M_1 \times M_2$ is also
+continuous.
+
+Now, show that the identity map 
+$(M_1 \times M_2, d) \ra (M_1 \times M_2, d_{\ltwo})$
+is a continuous map from $M_1 \times M_2$ with its standard product metric to
+$M_1 \times M_2$ with its $\ltwo$ product metric.
+
+Conclude from Corollary 40.6 of the book (which says that the composition of
+continuous functions is continuous) that if $f_1$ and $f_2$ are continuous,
+then $(f_1, f_2): N \ra M_1 \times M_2$, where now $M_1 \times M_2$ is 
+equipped with the $\ltwo$ product metric, is continuous too.
+
+\itemd
+Prove that the following functions from $\R^2$ to $\R$ (where $\R^2$ is 
+equipped with its Euclidean metric) are continuous:
+\bi
+\item
+$(x, y) \mapsto xy$,
+\item
+$(x, y) \mapsto x + y$.
+\ei
+Deduce a new proof of Theorem 40.4 parts (ii) and (v) from this, part (c),
+and the fact that the compositions of continuous functions are continuous
+(Corollary 40.6). Finally, indicated (but do not prove) how the remaining parts
+of Theorem 40.4 are similarly consequences of the continuity of some basic 
+real-valued functions on $\R$ or $\R \times \R$ along with the part (c)
+and Corollary 40.6.
+\ei
+
+\sol
+
+\bi
+\itema
+We check the axioms of a metric for $d$:
+\bi
+\item[(i)]
+We have $d_1(m, m) = 0$ and $d_2(n, n) = 0$, hence
+\[
+d((m, n), (m, n)) = d_1(m, m) + d_2(n, n) = 0.
+\]
+Conversely, if $(m, n) \neq (m', n')$ then at least one of the following
+non-equalities hold: $m \neq m'$ or $n \neq n'$. Hence, at least one of
+the following inequalities hold: $d_1(m, m') > 0$ or $d_2(n, n') > 0$. Thus,
+\[
+d((m, n), (m', n')) = d_1(m, m') + d_2(n, n') > 0.
+\]
+\item[(ii)] Symmetry:
+\[
+d((m, n), (m', n')) = d_1(m, m') + d_2(n, n') = d_1(m', m) + d_2(n', n)
+= d((m', n'), (m, n)).
+\]
+\item[(iii)] Triangle inequality: we know that
+\[
+d_1(m, m'') \leq d_1(m, m') + d_1(m', m'') \and
+d_2(n, n'') \leq d_2(n, n') + d_2(n', n'').
+\]
+Hence
+\begin{align*}
+d((m, n), (m'', n''))
+& = d_1(m, m'') + d_2(n, n'') \\
+& \leq (d_1(m, m') + d_1(m', m'')) + (d_2(n, n') + d_2(n', n'')) \\
+& = (d_1(m, m') + d_2(n, n')) + (d_1(m', m'') + d_2(n', n'')) \\
+& = d((m, n), (m', n')) + d((m', n'), (m'', n'')).
+\end{align*}
+
+\ei
+\itemb
+We check the axioms of a metric for $d_{\ltwo}$ in the same manner as
+in the previous part:
+\bi
+\item[(i)]
+We have $d_1(m, m) = 0$ and $d_2(n, n) = 0$, hence
+\[
+d_{\ltwo}((m, n), (m, n)) = \sqrt{d_1(m, m)^2 + d_2(n, n)^2} = 0.
+\]
+Conversely, if $(m, n) \neq (m', n')$ then at least one of the following
+non-equalities hold: $m \neq m'$ or $n \neq n'$. Hence, at least one of
+the following inequalities hold: $d_1(m, m') > 0$ or $d_2(n, n') > 0$. Thus,
+\[
+d_{\ltwo}((m, n), (m', n')) = \sqrt{ d_1(m, m')^2 + d_2(n, n')^2} > 0.
+\]
+\item[(ii)] Symmetry:
+\[
+d_\ltwo((m, n), (m', n')) = \sqrt{d_1(m, m')^2 + d_2(n, n')^2}
+\]
+\[
+= \sqrt{d_1(m', m)^2 + d_2(n', n)^2}
+= d_\ltwo((m', n'), (m, n)).
+\]
+\item[(iii)] Triangle inequality: as before, we know that
+\[
+d_1(m, m'') \leq d_1(m, m') + d_1(m', m'') \and
+d_2(n, n'') \leq d_2(n, n') + d_2(n', n'').
+\]
+Hence,
+\begin{align*}
+d((m, n), (m'', n''))
+& = \sqrt{d_1(m, m'')^2 + d_2(n, n'')^2} \\
+& \leq \sqrt{(d_1(m, m') + d_1(m', m''))^2 + (d_2(n, n') + d_2(n', n''))^2} \\
+& \leq \sqrt{d_1(m, m')^2 + d_2(n, n')^2}
+	+ \sqrt{d_1(m', m'')^2 + d_2(n', n'')^2} \\
+& = d((m, n), (m', n')) + d((m', n'), (m'', n'')),
+\end{align*}
+where the latter inequality holds by Lemma \ref{lem:minkowski}.
+\ei
+
+\begin{lemma}
+\label{lem:minkowski}
+Any real numbers $a_1, a_2, b_1, b_2$ satisfy
+\[
+\sqrt{(a_1 + a_2)^2 + (b_1 + b_2)^2} \leq
+\sqrt{a_1^2 + b_1^2} + \sqrt{a_2^2 + b_2^2}
+\]
+\end{lemma}
+
+\begin{proof}
+The desired inequality is equivalent to the following triangle inequality in 
+$\R^2$:
+\[
+d_{\R^2}((0, 0), (a_1 + a_2, b_1 + b_2)) \leq
+d_{\R^2}((0, 0), (a_1, b_1)) + d_{\R^2}((a_1, b_1), (a_1 + a_2, b_1 + b_2)).
+\]
+\end{proof}
+
+We can give an isometry $f: \R^k \times \R^{n-k} \ra \R^n$ via concatenation
+of vectors:
+\[
+f((a_1, \ldots, a_k), (b_1, \ldots, b_{n - k}))
+	= (a_1, \ldots, a_k, b_1, \ldots, b_{n - k}).
+\]
+It is an isometry because, given $a, a'\in \R^k$ and $b, b'\in \R^{n-k}$ we
+have that
+\begin{align*}
+d_{\R^k \times \R^{n - k}}((a, b), (a', b'))
+& = \sqrt{d_{\R^k}(a, a')^2 + d_{\R^{n - k}}(b, b')^2} \\
+& = \sqrt{\sum_{j = 1}^k|a_j - a'_j|^2
++ \sum_{j = 1}^{n - k} |b_j - b'_j|^2} \\
+& = d_{\R^n}(f(a, b), f(a', b')).
+\end{align*}
+
+\itemc
+Since $f_1, f_2$ are continuous, then given $x \in N$ and $\e > 0$
+we can choose $\delta_1, \delta_2 > 0$ such that
+for every $y \in N$ such that $d_{N}(x, y) < \delta_i$ we have 
+$d_{M_i}(f_i(x), f_i(y)) < \e/2$ (with $i = 1, 2$).
+Let $\delta := \min(\delta_1, \delta_2)$.
+Then for every $y \in y$ such that $d_N(x, y) < \delta$ we have that
+\begin{align*}
+d_{M_1 \times M_2}((f_1(x), f_2(x)), (f_1(y), f_2(y)) 
+& = d_{M_1}(f_1(x), f_1(y)) + d_{M_2}(f_2(x), f_2(y)) \\
+& < \frac \e 2 + \frac \e 2 = \e.
+\end{align*}
+
+Thus, $(f_1, f_2)$ is continuous.
+
+To show that the identity $(M_1 \times M_2, d) \ra (M_1 \times M_2, d_{\ltwo})$
+is continuous we show 
+\[
+d_{\ltwo}(x, y) \leq d(x, y)
+\]
+for every $x, y \in M_1 \times M_2$. Indeed, assuming the inequality above,
+given $\e > 0$ and $x \in M_1 \times M_2$ for every 
+$y \in M_1 \times M_2$ such that $d(x, y) < \e$ we also have
+$d_{\ltwo}(x, y) < \e$.
+
+The desired inequality is equivalent to the following two inequalities
+\begin{align*}
+& \sqrt{d_1(x_1, y_1)^2 + d_2(x_2, y_2)^2}
+\leq d_1(x_1, y_1)^2 + d_2(x_2, y_2)^2 \\
+\iff\> & d_1(x_1, y_1)^2 + d_2(x_2, y_2)^2
+\leq d_1(x_1, y_1)^2 + 2 d_1(x_1, y_1) \cdot d_2(x_2, y_2)
+	+ d_2(x_2, y_2)^2,
+\end{align*}
+with the latter one is being obviously true.
+
+We have that $(f_1, f_2): (N, d_{N}) \ra (M_1 \times M_2, d_{\ltwo})$ is a 
+composition of two continuous continuous functions:
+$(f_1, f_2): (N, d_{N}) \ra (M_1 \times M_2, d)$ and 
+identity $(M_1 \times M_2, d) \ra (M_1 \times M_2, d_{\ltwo})$, hence it
+is continuous by Corollary 40.6.
+
+\itemd
+
+By Theorem 40.2, to show continuity of $(x, y) \mapsto xy$ and
+$(x, y) \mapsto x + y$ it suffices to show that for any sequence 
+$\{(x_n, y_n)\}$ points in $\R^2$ converging to some $(x, y) \in \R^2$,
+the sequences $\{x_ny_n\}$ and $\{x_n + y_n\}$ converge to $xy$ and $x + y$,
+respectively.
+
+By Theorem 37.2, \sequence x and \sequence y converge to $x$ and $y$, 
+respectively. Hence, the desired conclusion follows by Theorem 12.6 and
+12.2, respectively.
+
+The remaining parts of Theorem 40.4 follow from the continuity of
+\bi
+\item[(i)]
+$x \mapsto |x|: \R \ra \R$,
+\item[(iii)]
+$x \mapsto cx: \R \ra \R$,
+\item[(iv)]
+$(x, y) \mapsto x - y: \R^2 \ra \R$,
+\item[(vi)]
+$(x, y) \mapsto x/y: \R \times \R \backslash \{0\} \ra \R$.
+\ei
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {2. Pseudometrics and equivalence relations.}
+
+Recall that an \emph{equivalence relation} on a set $X$ is any binary relation
+on $X$, denoted $\sim$, which satisfies the following properties:
+\bi
+\item
+\emph{(reflexive property)}
+$x \sim x$, $\forall x \in X$;
+\item
+\emph{(symmetric property)}
+$x \sim y$, implies $y \sim x$, $\forall x, y \in X$;
+\item
+\emph{(transitive property)}
+If $x \sim y$ and $y \sim z$ then $x \sim z$, $\forall x,y,z \in X$.
+\ei
+
+One simple example of an equivalence relation is \emph{equality}: it is clear
+that $x = x$, $x = y$ if $y = x$ and if $x = y$ and $y = z$ then $x = z$.
+
+Now, let $M$ be a set. A function $d: M \times M \ra [0, \infty)$ is called
+a \emph{pseudometric} if $d$ satisfies
+\bi
+\item[(i)]
+$d(x, x) = 0$, $\forall x \in M$;
+\item[(ii)]
+$d(x, y) = d(y, x)$, $\forall x,y \in M$ and
+\item[(iii)]
+$d(x, z) \leq d(x, y) + d(y, z)$, $\forall x, y, z \in M$.
+\ei
+
+Namely, $d$ satisfies all of the conditions of a metric except that
+$d(x, y) = 0$ need not imply $x = y$ (note that condition (i) is weaker than
+the respective condition for a metric). A \emph{pseudometric space} is a pair
+$(M, d)$ of a set and a pseudometric on it.
+
+\bi
+\itema
+Show that $\R^2$ with the function $d(x, y) = |y_2 - x_2|$ is a pseudometric
+space but not a metric space (that is, $d(x, y) = 0$ does not imply $x = y$).
+
+\itemb
+Given a pseudometric space $(M, d)$, consider the following binary relation
+on $M$: say $x \sim y$ if $d(x, y) = 0$. Show that $\sim$ is an equivalence
+relation.
+
+\itemc
+Recall that given a set $X$ and an equivalence relation $\sim$ on $X$ one
+can partition $X$ into a collection of \emph{equivalence classes}. An 
+equivalence class is a subset of $X$ consisting of all elements that are 
+similar to a given element. Any element $a \in X$ belongs to a single 
+equivalence class called $[a]$:
+\[
+[a] := \{ x \in X \| x \sim a \}.
+\]
+Two elements $a$ and $b$ have the same equivalence class (i.e. $[a] = [b]$)
+if and only if $a \sim b$. In that case $a$ and $b$ are different
+\emph{representatives} of the same equivalence class.
+
+Show that given a pseudometric space $(M, d)$, the function $d(x, y)$ only
+depends on the equivalence classes $[x], [y]$ with respect to the 
+equivalence relation $\sim$.
+
+\itemd
+Given a set with an equivalence relation $(X, \sim)$ we can define the
+\emph{quotient} of $X$ by $\sim$ as the set of distinct equivalence classes:
+\[
+X / \sim := \{ [a] \| a \in X \}.
+\]
+
+Given a pseudometric space $(M, d)$, define $M^* := M / \sim$ where $\sim$
+is the equivalence relation defined above. Define 
+$d^*: M^* \times M^* \ra [0, \infty)$ by $d^*(\alpha, \beta) := d(x, y)$
+for any representatives $x \in \alpha, y \in \beta$. By the previous section,
+$d(x, y)$ only depends on the equivalence classes $[x], [y]$, do $d^*$ is
+well-defined.
+
+Show that $d^*$ gives a metric on $M^*$.
+
+\iteme
+Let's return to the example $X = (\R^2, d(x, y) = |y_2 - x_2|)$. Show that
+the induced metric space $(X^*, d^*)$ is \emph{isometric} to $\R$ with its
+Euclidean metric.
+
+\itemf
+Let $\mc F(\R)$ be the set of functions $f: \R \ra \R$. Fixing a pair of 
+distinct $x_0, x_1 \in \R$, define a function 
+\[
+d: \mc F(\R) \times \mc F(\R) \ra [0, \infty)
+\]
+by 
+\[
+d(f, g) = |f(x_0) - g(x_0)| + |f(x_1) - g(x_1)|.
+\]
+Show that $d$ defines a pseudometric on $\mc F(\R)$ but that $d(x, y) = 0$
+does not imply $x = y$. Show that the resulting quotient metric space
+$\mc F(\R)^*$ is isometric to $\R^2$ with its $\ell^1$ metric.
+\ei
+
+\sol
+
+\bi
+\itema
+We check the axioms of a pseudometric space for $d$:
+\bi
+\item[(i)] $d(x, x) = |x_2 - x_2| = 0$.
+\item[(ii)]
+$d(x, y) = |y_2 - x_2| = |x_2 - y_2| = d(y, x)$
+\item[(iii)]
+$d(x, z) = |z_2 - x_2| \leq |y_2 - x_2| + |z_2 - y_2| = d(x, y) + d(y, z)$.
+\ei
+
+However, $d$ is not a metric because $d((0, 0), (1, 0)) = 0$.
+\itemb
+We have that $x \sim y$ if and only if $x_2 = y_2$. We check the axioms of
+an equivalence for this relation:
+\bi
+\item Reflexivity: $x \sim x$ because $d(x, x) = 0$.
+\item Symmetry: if $x \sim y$ then $d(x, y) = 0$. By symmetry of the
+metric $d(y, x) = 0$, hence $y \sim x$.
+\item Transitivity: if $x \sim y$ and $y \sim z$ then $d(x, y) = 0$ and 
+$d(y, z) = 0$, so by triangle inequality
+\[
+d(x, z) \leq d(x, y) + d(y, z) = 0.
+\]
+Since $d(x, z)$ cannot be negative, $d(x, z) = 0$, so $x \sim z$
+\ei
+\itemc
+It suffices to show that $d(x, y) = d(x, y')$ whenever $y \sim y'$. Indeed,
+in that case whenever $x \sim x'$ and $y \sim y'$ we have the following
+chain of equalities
+\[
+d(x, y) = d(x, y') = d(y', x) = d(y', x') = d(x', y'),
+\]
+showing the independence of $d$ on the choice of representatives $x$ and $y$.
+
+By triangle inequality we have that
+\[
+d(x, y) \leq d(x, y') + d(y', y) = d(x, y')
+\]
+and
+\[
+d(x, y') \leq d(x, y) + d(y, y') = d(x, y).
+\]
+Thus, $d(x, y) = d(x, y')$, as desired.
+\itemd
+All of the axioms of a metric follow by the axioms of a pseudo-metric 
+and a coherent choice of representatives: given 
+$\alpha, \beta, \gamma \in X / \sim$ choose $x \in \alpha$, $y \in \beta$
+and $z \in \gamma$. Then
+
+\bi
+\item[(i)] $d^*(\alpha, \alpha) = d(x, x) = 0$. Conversely, if 
+$d^*(\alpha, \beta) = 0$, then $d(x, y) = 0$, so $x \sim y$, so
+$\alpha = [x] = [y] = \beta$.
+\item[(ii)]
+$d^*(\alpha, \beta) = d(x, y) = d(y, x) = d^*(\beta, \gamma)$.
+\item[(iii)]
+$d^*(\alpha, \gamma) = d(x, z) \leq d(x, y) + d(y, z)
+	= d^*(\alpha, \beta) + d^*(\beta, \gamma).$
+\ei
+\iteme
+We show that a map $f: (X^*, d^*) \ra \R$ given by
+\[
+f([x]) = x_2
+\]
+is an isometry. We start by noting that $f$ is well-defined, 
+i.e. if $x$ and $y$ are two different representatives of $\alpha$, then
+$x \sim y$, so $x_2 = y_2$, hence they given the same $f(\alpha)$ when
+chosen as representatives for $\alpha$.
+
+Next, we show that the function $f$ is bijective. The function $f$ is 
+injective because if $f([x]) = f([y])$ then $x_2 = y_2$, so $x \sim y$ and 
+consequently $[x] = [y]$. The function $f$ is surjective because given
+any $t \in \R$ we have that $f([(0, t)]) = t$.
+
+Finally, the function $f$ preserves distances:
+\[
+|f(x) - f(y)| = |x_2 - y_2| = d^*(x, y).
+\]
+\itemf
+We verify the axioms of a pseudometric for $d$:
+\bi
+\item[(i)]
+$d(f, f) = |f(x_0) - f(x_0)| + |f(x_1) - f(x_1)| = 0.$
+\item[(ii)]
+\begin{align*}
+d(f, g)
+& = |f(x_0) - g(x_0)| + |f(x_1) - g(x_1)| \\
+& = |g(x_0) - f(x_0)| + |g(x_1) - f(x_1)| \\
+& = d(g, f)
+\end{align*}
+\item[(iii)]
+\begin{align*}
+d(f, h)
+& = |f(x_0) - h(x_0)| + |f(x_1) - h(x_1)| \\
+& \leq (|f(x_0) - g(x_0)| + |g(x_0) - h(x_0)|)
+	+ (|f(x_1) - g(x_1)| + |g(x_1) - h(x_1)|) \\
+& = (|f(x_0) - g(x_0)| + |f(x_1) - g(x_1)|)
+	+ (|g(x_0) - h(x_0)| + |g(x_1) - h(x_1)|) \\
+& = d(f, g) + d(g, h).
+\end{align*}
+\ei
+Also, $d$ is not a metric because 
+\[
+d(x \mapsto 0, x \mapsto (x - x_0)(x - x_1) ) = 0.
+\]
+with $x \mapsto 0$ and $x \mapsto (x - x_0)(x - x_1)$ being two distinct
+functions $\R \ra \R$.
+
+We show that the evaluation function 
+$\ev: \mc F(\R)^* \ra (\R^2, d_{\ell^1})$ given 
+by $\ev([f]) := (f(x_0), f(x_1))$ is an isometry. As in the previous
+part we start by showing that the function $\ev$ is well-defined: 
+i.e. if $f$ and $g$ are the representative of the same equivalence class
+than they give the same element of $\R^2$. If $[f] = [g]$ then $f \sim g$,
+so 
+\[
+0 = d(f, g) = |f(x_0) - g(x_0)| + |f(x_1) - g(x_1)|.
+\]
+Therefore, $(f(x_0), f(x_1)) = (g(x_0), g(x_1))$, so $\ev$ is well-defined.
+
+Next we show that the evaluation function $\ev$ is bijective. The
+evaluation function is injective because if $\ev([f]) = \ev([g])$ then
+$f(x_0) = g(x_0)$ and $f(x_1) = g(x_1)$, so $f \sim g$ and, consequently,
+$[f] = [g]$. The evaluation function is surjective, because given
+$(a, b) \in \R$ we have $\ev([f]) = (a, b)$ with
+\[
+f(x) := \left\{\begin{array}{ll}
+	a & \text{if $x = x_0$,} \\
+    b & \text{if $x = x_1$,} \\
+    0 & \text{otherwise}.
+\end{array}
+\right.
+\]
+
+Finally, $\ev$ preserves distances:
+\[
+d_{\ell^1}(\ev([f]), \ev([g])) =  |f(x_0) - g(x_0)| + |f(x_1) - g(x_1)| = 
+d^*([f], [g]).
+\]
+
+\ei
+
+
+\end{document}

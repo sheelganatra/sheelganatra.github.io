@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p
+{
+    color:black;
+    text-align:left;
+    margin-left:20px;
+}
+ul
+{
+    margin-left:20px;
+/*    list-style-type: upper-roman;*/
+}
+ol
+{
+    margin-left:20px;
+    list-style-type: upper-roman;
+}
+ol ol {
+    list-style-type: decimal;
+}
+h1
+{
+    color:#167;
+    font-size:20pt;
+    text-align:center;
+}
+h2
+{
+    color:gray;
+    font-size:14pt;
+    text-align:center;
+}
+h3
+{
+    color:#289;
+    font-size:16pt;
+    text-align:left;
+}
+table.reg
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 900px;
+    border: 1px solid black;
+}
+table.reg th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 10px;
+    /*background-color: #b99;*/
+    background-color: #3AC;
+    text-align:left
+}
+table.reg td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+table.hw
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 400px;
+    border: 1px solid black;
+}
+table.hw th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 5px;
+    /*background-color: #b99;*/
+    background-color: #3AC;
+    text-align:left
+}
+table.hw td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+
+#newspaper-c
+{
+    /*font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
+    /*font-size: 14px;*/
+    margin: 45px;
+    width: 700px;
+    text-align: left;
+    border-collapse: collapse;
+    /*border: 1px solid #6cf;*/
+    border: 1px solid gray;
+}
+#newspaper-c th
+{
+    padding: 20px;
+    font-weight: normal;
+    font-size: 13px;
+    /*color: #039;*/
+    text-transform: uppercase;
+    border-right: 1px solid #0865c2;
+    border-top: 1px solid #0865c2;
+    border-left: 1px solid #0865c2;
+    border-bottom: 1px solid #fff;
+}
+#newspaper-c td.odd
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color:black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right:none;
+    font-weight:bold;
+}
+#newspaper-c td
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color: black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right: 1px dashed gray;
+}
+
+
+</style>
+</head>
+
+<title> Math 51: Linear Algebra and Differential Calculus of Several Variables </title>
+<body>
+
+<h1>Math 51: Linear Algebra and Differential Calculus of Several Variables, Summer 2016 </h1>
+<h2>
+    Section 01 (Class #21628): Monday-Friday 1:30pm-2:50pm in 200-203<br>
+    Section 02 (Class #27802): Monday-Friday 3:00pm-4:20pm in 200-203
+</h2>
+
+<h3>Teaching Staff</h3>
+<table id="newspaper-c" summary="Teaching Staff Info">
+<tbody>
+    <tr>
+        <td class="odd"> Instructor </td>
+        <td> Sheel Ganatra </td>
+        <td class="odd"> Course Assistant </td>
+        <td> Valentin Buciumas </td>
+        <td class="odd"> Course Assistant </td>
+        <td> Zev Rosengarten </td>
+    </tr>
+    <tr>
+        <td class="odd"> Office </td>
+        <td> 380-382E </td>
+        <td class="odd"> Office </td>
+        <td> 380-381A </td>
+        <td class="odd"> Office </td>
+        <td> 380-381N </td>
+    </tr>
+    <tr>
+        <td class="odd"> e-mail </td>
+        <td> ganatra (at) math (dot) stanford (dot) edu </td>
+        <td class="odd"> e-mail </td>
+        <td> buciumas (at) stanford (dot) edu </td>
+        <td class="odd"> e-mail </td>
+        <td> zevr (at) math (dot) stanford (dot) edu </td>
+    </tr>
+    <!--<tr>
+        <td class ="odd"> Office Hours </td>
+        <td> This week: Tuesday 9 am - 10 am, Wednesday 9 am - 10 am, Friday 10 am - 11:30 am.
+            This week: Wednesday, Thursday, 4:25pm-5:55pm
+        </td>
+
+        <td class ="odd"> Office Hours </td>
+        -<td> This week: Tuesday 4:30 pm - 7:30 pm, Thursday 4:30 pm - 7:30 pm. </td>
+
+        <td class ="odd"> Office Hours </td>
+        <td> This week: Wednesday 10 am - 1 pm, Friday 1 pm - 5 pm.
+        </tr>-->
+</tbody>
+</table>
+
+<!--<h3>Announcements and Schedule this week (Lecture, Office Hours, etc.) </h3>
+
+
+<p> <b>August 7, 2016</b>: Please note that Homework 8 will be due on <i>Wednesday</i> this week rather than Friday. Also, here are some important dates to keep in mind this week: </p>
+<ul>
+    <li> Monday and Tuesday (<i>August 7-8</i>) will be devoted to the final topics in class which may appear on the final; that is <i> Lagrange multipliers with multiple constraints</i> and <i>applications</i>.</li>
+    <li>Wednesday we will (tentatively) explore applications of Linear Algebra to <i>Google's Page Rank algorithm</i>.</li>
+    <li>Thursday we will have an <i>in-class review session</i>.</li>
+    <li> Your <b>final exam</b> will be held this <b>Saturday, August 13</b> from <b>7pm-10pm</b> in <b>Herrin Hall T175</b>.</li>
+</ul>
+
+<p> <b>July 24, 2016</b>: Here are some important dates to keep in mind this week:
+<ul>
+    <li> There will be <i> no class</i> on Monday, July 25. </li>
+    <li> Zev will lead a <i>review session</i> on Tuesday, July 26 in lieu of usual class, and <i>through both classes</i>. Students are welcome to come to both sections review sessions, as the material covered will in general be different.</li>
+    <li> Your second midterm exam will be on <i>Wednesday, July 27</i> in class. See below for more details about topics covered on the exam.</li>
+</ul>
+</p>-->
+
+<h3>Course Description and Prerequisites</h3>
+<p> 
+Linear Algebra and Multivariable Calculus are two of the most widely used mathematical tools across all scientific disciplines. This course seeks to develop background in both and highlight the ways in which multivariable calculus can be naturally understood in terms of linear algebra.</p>
+
+<p> By the end of this course, you should be able to:</p>
+<ul>
+    <li> Understand notions in linear algera, such as vectors and their spans, matrices and their relationship to linear transformations, subspaces and their bases.</li>
+    <li> Solve and analyze systems of linear equations, and relate the solution set to properties of algebraic objects (matrix null space, column space) associated to the system.
+    <li> Analyze the rate of change of a multivariable function in coordinate directions via partial derivatives. Aggregate partial derivatives (derivative matrix, gradients) to get local information such as: tangent planes, linear approximation, and directional derivatives.</li>
+    <li> Use differential calculus techniques such as critical points and Lagrange multipliers to solve for constrained local and global extrema.</li>
+    <!--@@TODO:For a detailed syllabus see the Syllabus page.-->
+</ul>
+
+<p><b>Prerequesites</b> (from the Stanford Course catalogue): Math 21, or 42, or a
+score of 4 on the BC Advanced Placement exam or 5 on the AB Advanced Placement
+exam, or consent of instructor. <i> Note that our prerequesite for the above AP
+exam scores is not strict, so if you believe you have comparable requesite
+background, you are welcome to enroll.</i></p>
+
+
+<h3>Textbook and Learning Resources (Office Hours, Tutoring)</h3>
+<p> The textbook is a special combined edition of Levandosky's <i>Linear Algebra</i> book and parts of Colley's <i>Vector Calculus</i>. (We will use Chapter 2 and 4 from the 4th edition of Colley.) Hard-copy versions of the text should be available at the campus bookstore. An electronic version is also available. If you are interested in one, read these <a href="http://web.stanford.edu/class/math51/math51_electronic_student.pdf">instructions</a> and then go to the publisher's <a href="http://www.pearsoncustom.com/ca/stanford_math51/">site</a>.</i></p>
+
+<p> Calculators are neither required nor recommended for Math 51 (and will not be allowed on exams anyway). </p>
+
+<p> Each member of the course staff will hold <i>office hours</i> every week in which
+you can discuss concepts covered in classes, homework problems, or other
+class-related questions. You may attend the office hours of <b>any</b> member
+of the course staff, and no appointment is ever necessary.</p>
+
+<p><a href="https://sarc.stanford.edu/tutoring">Stanford Summer Tutor Program (STP)</a> offers FREE tutoring and academic skills
+coaching to students enrolled in Stanford's Summer Quarter; just drop in. Math tutoring is held in the Organic Chemistry Building, and the weekly schedule is posted <a href="https://sarc.stanford.edu/tutoring/schedule">here</a>.</p>
+
+<p><a href="hints.html">Here</a> is some advice for succeeding in Math 51, given by Professor Brumfiel (slightly modified to account for the different structure of the class in summer).
+
+<p><b>Statement from the Registrar concerning students with documented disabilities:</b> 
+<br>
+"Students who may need an academic accommodation based on the impact of a disability must initiate the request with the Office of Accessible Education (OAE). Professional staff will evaluate the request with required documentation, recommend reasonable accommodations, and prepare an Accommodation Letter for faculty dated in the current quarter in which the request is being made. Students should contact the OAE as soon as possible since timely notice is needed to coordinate accommodations. The OAE is located at 563 Salvatierra Walk (phone: 723-1066)."
+</p>
+
+<h3>Course Grade</h3>
+<p>The course grade will be based on the following: </p>
+<ul>
+    <li> 17.5% Homework assignments (assigned and due weekly), </li>
+    <li> 23.5% Midterm Exam 1 (on <b>Wednesday, July 6</b> in class), </li>
+    <li> 23.5% Midterm Exam 2 (on <b>Wednesday, July 27</b> in class), </li>
+    <li> 35.5% Final Exam (on <b>Saturday, August 13</b> from 7:00pm-10:00pm, <i>same time for both sections</i>).</li>
+</ul>
+
+
+
+<h3>Homework Assignments</h3>
+<p>Homeworks will be posted here on an ongoing basis. Please read carefully the <a href="hw_policy.html">Weekly Homework Policy</a> before submitting your homework assignment; it gives important instructions in how to approach the homework assignments and how to write up (for instance, you are required to <i>show all your work</i> for full credit; just answers given will often receive no credit). </p>
+
+<p> <b>HW Submission Instructions</b>: 
+<ul>
+    <li> <b> Section 01 (1:30pm-2:50pm) students</b>: Submit your assignments to <b>Zev Rosengarten</b>, either (a) in person at his office, (b) under his office door, or (c) via e-mail (<i>no photos please! only typed or scanned solution sets</i>).</li>
+
+    <li> <b> Section 02 (3:00pm-4:20pm) students</b>: Submit your assignments to <b>Valentin Buciumas</b>, either (a) in person at his office, (b) under his office door, or (c) via e-mail (<i>no photos please! only typed or scanned solution sets</i>).</li>
+</ul>
+</p> 
+<!--(roughly a week before
+they are due) and will be due at 4pm on the date listed. 
+Please submit your homework either directly to our Course Assistant Alex if
+he is in his office (380-380M) or slide the homework under his door if he
+is away. --></p>
+
+
+<p> <i>Late homeworks will not be accepted.</i> 
+In order to accomodate exceptional situations such as serious illness, your lowest homework score will be dropped at the end of the quarter.  
+You are encouraged to discuss problems with each other, but you must work on your own when you write down solutions. 
+The <a href="http://www.stanford.edu/dept/vpsa/judicialaffairs/guiding/honorcode.htm">Honor Code</a> applies to this and all other aspects of the course. </p>
+
+<p>
+As homeworks are completed, solutions (in PDF) will be uploaded here.  </p>
+
+<p> Once you pick up your graded HWs, it is your responsibility to look over your assignment (and CourseWork grade), along with the posted solutions, to make sure it is correctly graded. <a href="regrade_policy.html">Here</a> are instructions for how to submit a <a href="regrade_policy.html">regrade request</a> in case there is any issue with your grade.</p>
+
+<table class="hw">
+<thead>
+<tr>
+    <th> Due date and time </th>
+    <th> Assignment </th>
+    <th> Remarks </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td> Friday, June 24 at 1 PM  </td> 
+    <td>
+        
+        <a href="assignments/hw1.pdf">HW 1</a>.
+    </td>
+    <td> Solutions on <a href="http://coursework.stanford.edu">coursework</a>. </td>
+</tr>
+
+<tr>
+    <td> Friday, July 1 at 1 PM  </td> 
+    <td>
+        <a href="assignments/hw2.pdf">HW 2</a>.
+    </td>
+    <td> Solutions on <a href="http://coursework.stanford.edu">coursework</a>. </td>
+</tr>
+
+<tr>
+    <td> Friday, July 8 at 1 PM  </td> 
+    <td>
+        <a href="assignments/hw3.pdf">HW 3</a>.
+    </td>
+    <td> Solutions on <a href="http://coursework.stanford.edu">coursework</a>. </td>
+</tr>
+
+<tr>
+    <td> Friday, July 15 at 1 PM  </td> 
+    <td>
+        <a href="assignments/hw4.pdf">HW 4</a>.
+    </td>
+    <td> Solutions on <a href="http://coursework.stanford.edu">coursework</a>. </td>
+</tr>
+
+<tr>
+    <td> Friday, July 22 at 1 PM  </td> 
+    <td>
+        <a href="assignments/hw5.pdf">HW 5</a>.
+    </td>
+    <td> Solutions on <a href="http://coursework.stanford.edu">coursework</a>. </td>
+</tr>
+
+
+<tr>
+    <td> Friday, July 29 at 1 PM  </td> 
+    <td>
+        <a href="assignments/hw6.pdf">HW 6</a>.
+    </td>
+    <td> Solutions on <a href="http://coursework.stanford.edu">coursework</a>. </td>
+</tr>
+
+
+<tr>
+    <td> <i>Thursday</i>, August 4 at 1 PM  </td> 
+    <td>
+        <a href="assignments/hw7.pdf">HW 7</a>.
+    </td>
+    <td> Solutions on <a href="http://coursework.stanford.edu">coursework</a>. </td>
+</tr>
+
+<tr>
+    <td> <i>Wednesday</i>, August 10 at 1 PM  </td> 
+    <td>
+        <a href="assignments/hw8.pdf">HW 8</a>.
+    </td>
+    <td> Solutions on <a href="http://coursework.stanford.edu">coursework</a>. </td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+<h3> Midterm and Final Examinations </h3>
+
+<p>All exams for Math 51 are <i>closed-book</i>, <i>closed-notes</i> exams, with no
+calculators or other electronic aids permitted. Furthermore, they are all
+<i>cumulative</i> (so Midterm 2 will test on everything covered in class to
+that point, not just everything covered since Midterm 1, and so on).  Your overall exam average is the weighted average of all scores on all exams;
+this average counts 82.5% towards the final grade. No scaling or curving is
+applied to individual exam scores. </p>
+
+<p> A good way to prepare for these exams is to make sure you can solve all of the homework problems, and to solve problems from <a
+href="old_exams.html">old exams</a> from previous incarnations of Math 51; see also below.</p>
+
+
+<p> Once you pick up your graded midterms, it is your responsibility to look over your assignment (and CourseWork grade), along with the posted solutions, to make sure it is correctly graded. <a href="regrade_policy.html">Here</a> are instructions for how to submit a <a href="regrade_policy.html">regrade request</a> in case there is any issue with your grade.</p>
+
+<h4> Midterm exam 1 </h4>
+<p> The first midterm was held <i>in class</i> (the usual room, <b>200-203</b>) 
+on <b>Wednesday, July 6</b>. The topics ranged through topics covered in class by the end of <i> Friday, July 1</i>. </p>
+
+<p><a href="midterm1.pdf">Here</a> is the exam. <a href="midterm1_solutions.pdf">Here</a> are solutions to the exam.</p>
+
+<h4> Midterm exam 2 </h4>
+<p> The second midterm exam was held <i>in class</i> (the usual room, <b>200-203</b>) on <b>Wednesday, July 27</b>.  The topics ranged through topics covered in class by the end of <i>Friday, July 22</i>.
+
+<p><a href="midterm2.pdf">Here</a> is the exam. <a href="midterm2_solutions.pdf">Here</a> are solutions to the exam. </p>
+
+
+<h4> Final Exam </h4>
+
+<p> 
+The Final Exam was held on <b>Saturday, August 13</b> from <b>7:00pm - 10:00 pm</b>. </p>
+<p><a href="final.pdf">Here</a> is the exam (with a small typo fixed in 13g -- because of this typo, everyone received credit for that part of problem 13). <a href="final_solutions.pdf">Here</a> are solutions to the exam. </p>
+
+<h4>Previous Exams (for practice)</h4>
+<p> <a href="old_exams.html">Here</a> is a page with links to old exams  given in previous incarnations of Math 51.</p> 
+
+<!--Material covered on a given midterm of a given course may not exactly correlate to the material covered in Math 51 this quarter, so please bear this in mind when working these examples. Also keep in mind that the midterm exams are not of a uniform length, since different courses set different time limits (60 minutes, 90 minutes, 120 minutes, etc.)</p>
+
+<p>When reviewing these exams you should attempt to solve the problems on your own without looking at the included solutions. Working the problems with the solutions at hand will do you no good at all.</p>-->
+
+
+
+<h3> Lecture Plan </h3>
+<p> Lecture topics by day will be posted on an ongoing basis below. Future
+topics are tentative and will be adjusted as necessary. <i>L</i> refers to The
+Levandosky, Linear Algebra part of your text (Part 1) and <i>C</i> refers to
+the Colley, Vector Calculus part of your text (Part 2).  </p> 
+
+<p><i> Note: no recording of lectures is permitted. You are welcome to take pictures of the whiteboard though. </i></p>
+<table class="reg">
+<thead>
+<tr> 
+    <th> Day </th> 
+    <th> Lecture topics </th> 
+    <th> Book chapters </th> 
+    <th> Remarks </th>
+</tr>
+</thead>
+<tbody>
+    <tr>
+        <td> <i> June 20</i> </td>
+        <td> 
+            Welcome and overview of class. Vectors in R^n and linear combinations.
+        <td>  L1, L2.  </td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> <i> June 21</i> </td>
+        <td> 
+            Linear combinations and spans. 
+        <td>  L2.  </td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> <i> June 22</i> </td>
+        <td> 
+           Parametric representations of lines and planes. Linear independence and dependence. A brief mention of the dot product.
+        <td>  L3, L4.  </td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> <i> June 23</i> </td>
+        <td> 
+            Dot products and cross products. 
+        <td>  L4.  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> June 24</i> </td>
+        <td> 
+            Systems of linear equations. Matrices. Augmented matrices associated to systems of linear equations, row operations and <i> reduced row echelon form</i> (rref).
+        <td>  L5, L6.  </td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> <i> June 27</i> </td>
+        <td> 
+            Matrix-vector products (and matrix multiplication).  The relationship to systems of linear equations: the augmented system corresponding to [A|b] describes solutions to the equation Ax = b. The null space N(A) of a matrix A.
+            <td>  L7, L8.  </td>
+        <td> See also L15 p. 99-100 for general matrix multiplication.  </td>
+    </tr>
+    <tr>
+        <td> <i> June 28</i> </td>
+        <td> 
+             Homogeneous and inhomogeneous systems of linear equations. The column space C(A) of a matrix A. The relationship between N(A), C(A),  and solutions to the system of linear equations Ax = b. 
+        <td>  L9.  </td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> <i> June 29</i> </td>
+        <td> 
+            Subspaces of R^n. If A is an m x n matrix, the null space N(A) is a subspace of R^n and the column space C(A) is a subspace of R^m.
+        <td>  L10.  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> June 30</i> </td>
+        <td> 
+            Basis for a subspace. How find the basis of the null space and column space of a matrix A. The dimension of a subspace. Properties of dimension. The rank-nullity theorem relating the dimension of the column space (or <i>rank</i>) and the dimension of the null space (or <i> nullity</i>) of a matrix A.
+        <td>  L11, L12.  </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> July 1 </i> </td>
+        <td> 
+             Linear transformations. Every linear transformation T has an associated matrix A; how to go back and forth. Examples and non-examples of linear transformations. The kernel and image of a linear transformation.
+        <td>  L13, L14.  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> July 4 </i> </td>
+        <td> 
+            <i>No class (holiday)</i>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> July 5 </i> </td>
+        <td> 
+            <i>(Guest lecture by Professor Ralph Cohen)</i> More examples of linear transformations. Composition of linear transformations and matrix multiplication.
+        <td>  L14, L15.  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> July 6 </i> </td>
+        <td> 
+            <b>Midterm exam 1</b> (in class).
+        <td>    </td>
+        <td> </td>
+    </tr>
+    
+    <tr>
+        <td> <i> July 7 </i> </td>
+        <td> 
+            Inverses.
+        <td>  L16.  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> July 8 </i> </td>
+        <td> 
+            Determinants
+        <td>  L17.  </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> July 11 </i> </td>
+        <td> 
+            Systems of coordinates. The change of basis matrix (and its inverse!) as a way of going between different systems of coordinates. Systems of coordinates with respect to orthonormal bases.
+        <td>  L21 (p. 145-149) for systems of coordinates, and L22 (p. 162) for orthonormal bases.  </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> July 12 </i> </td>
+        <td> 
+            Systems of coordinates II: the matrix of a linear transformation in different coordinates. Similar matrices.
+        <td>  L21.  </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> July 13 </i> </td>
+        <td> 
+            Eigenvectors and Eigenvalues I. The notion of an <i> eigenbasis</i>. If a matrix has an eigenbasis then it is similar to a <i>diagonal</i> matrix, meaning it is <i>diagonalizable</i> (and vice versa).
+        <td>  L23.  </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> July 14 </i> </td>
+        <td> 
+            Eigenvectors and Eigenvalues II. Cases in which we can find an eigenbasis. Symmetric matrices and the Spectral Theorem.
+        <td>  L23, L18 (for transpose), L25  </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> July 15 </i> </td>
+        <td> 
+            Multivariable functions, graphs, and level sets. <i>Contour maps</i> (which are drawings of collections of level sets). Parametric curves.
+        <td>  C2.1 + additional notes on parametric curves (handout given in class)  </td>
+        <td> Note that Colley doesn't use the term <i>contour map</i> but you will be expected to know what this term means. </td>
+    </tr>
+
+    <tr>
+        <td> <i> July 18 </i> </td>
+        <td> 
+            Limits, continuity; partial derivatives; differentiability.
+        <td>  C2.2 (up to page 111, not including addendum), C2.3 (up to page 128, not including addendum)  </td>
+        <td> Limits will only appear on the final exam in a minimal way; you should know the formal definition and intuitive meaning, and how to show certain limits do *not* exist, but you will not need to check a limit exists directly from the definition. You should however know the definition of continuity and differentiability in terms of limits. </td>
+    </tr>
+
+    <tr>
+        <td> <i> July 19 </i> </td>
+        <td> 
+            Partial derivatives and <i> higher order derivatives</i>. Clairaut's theorem. Differentiability and applications: tangent planes to graphs, linear approximations of multivariable functions. The <i>gradient vector</i> of a real-valued function.
+        <td>  C2.3 (up to page 128, not including addendum), C2.4 (up to page 138, not including addendum)  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> July 20 </i> </td>
+        <td> 
+            Tangent lines to images of parametric curves. 
+             The <i>matrix of partial derivatives</i> of a general
+             multivariable function. Differentiability and the <i> total
+                 dervative</i> linear transformation (whose associated
+             matrix is the matrix of partial derivatives).
+        <td>  C2.3 (up to page 128, not including addendum), C2.4 (up to page 138, not including addendum), paper handout given earlier in class (for finding tangent lines to images of parametric curves)  </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> July 21 </i> </td>
+        <td> 
+            The chain rule. A brief mention of directional derivatives and the gradient.
+        <td>  C2.5 (up to page 153, not including addendum), C2.3 (up to page 128, for the gradient), C2.6 (up to page 168, not including implicit/inverse function theorems)  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> July 22 </i> </td>
+        <td> 
+            <i>(Guest lecture by Oleg Lazarev)</i> Directional derivatives and the gradient. Application: tangent planes to implicit surfaces, and more generally tangent planes to <i>level sets</i>.
+        <td>  C2.6 (up to page 168, not including implicit/inverse function theorems), C2.3 (for definition of gradient)  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> July 25 </i> </td>
+        <td> 
+            <i>No class.</i>
+        <td>    </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> July 26 </i> </td>
+        <td> 
+            <i>Review session</i> during regular class hours in regular classroom. Students are welcome to come to both classes' review sessions; problems covered will be different!
+        <td>    </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> July 27 </i> </td>
+        <td> 
+            <b>Midterm exam 2</b> (in class).
+        <td>    </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> July 28 </i> </td>
+        <td> 
+            Quadratic forms.</td>
+        <td> L26, <i>not including Prop. 26.2</i>   </td>
+        <td> 
+            Any verification of definiteness of a quadratic form should be either directly from definitions or using Prop. 26.1. of Levandosky, checking the signs of the eigenvalues of the corresponding matrix. Solutions on exams which use Prop 26.2 for 2x2 matrices <i>will not receive credit.</i> </td>
+    </tr>
+
+    <tr>
+        <td> <i> July 29 </i> </td>
+        <td> 
+            First and second-order Taylor approximations for multivariable functions. The <i>Hessian of a real-valued function, which is (in most nice cases) a <i>symmetric matrix</i>.</td>
+        <td>  C4.1 (up to page 258, not including addendum)   </td>
+        <td> 
+        
+        </td>
+    </tr>
+
+    <tr>
+        <td> <i> August 1 </i> </td>
+        <td> 
+            The first and second derivative tests for finding local extrema (minimum/maximum) of multivariable functions.</td>
+        <td> C4.2 and L26 (to check definiteness of the quadratic form associated to the Hessian, we will use Levandosky Prop. 26.1, <i>not</i> the method in Colley p. 268 and <i> not</i> the method in Levadosky Prop. 26.2.   </td>
+        <td> 
+            Any verification of definiteness of the quadratic form associated to the Hessian should be either directly from definitions or using Prop. 26.1. of Levandosky, checking the signs of the eigenvalues of the corresponding matrix. Solutions on exams which use Prop 26.2 for 2x2 matrices or Colley p.268's "principal minors" <i>will not receive credit.</i> </td>
+        </td>
+    </tr>
+
+    <tr>
+        <td> <i> August 2 </i> </td>
+        <td> 
+            Finding global extrema (minima/maxima) of functions. The <i>Extreme Value theorem</i> which ensures that global extrema of continuous functions always exist when the domain is <i>closed</i> and <i>bounded</i> (also called <i>compact </i>). Using the first and second derivative tests for interior local extrema, and finding boundary local extrema via <i>parametrizing the boundary</i>.</td>
+            <td> C2.2 p. 101-102 for definitions of a ball and a closed set. C4.2 Definition 2.4 for the definition of a compact set, and Theorem 2.5.  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> August 3 </i> </td>
+        <td> 
+            More closed and bounded domains. Finding boundary extrema via <i>parametrizing the boundary </i>, and finding global extrema in examples.</td>
+        <td> C4.2 as above, handout on parametrizing the boundary given two days earlier   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> August 4 </i> </td>
+        <td> 
+            Lagrange Multipliers with one constraint. Worked Examples.
+        </td>
+        <td> C4.3, up to page 286 (not including "A Hessian Criterion for Constrained Extrema")  </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> August 5 </i> </td>
+        <td> 
+            Lagrange Multipliers continued. More examples and applications: calculating the distance from a point in R^n to various sets.
+        </td>
+        <td> C4.3 (as above)   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> August 8 </i> </td>
+        <td> 
+            Lagrange Multipliers with multiple constraints. 
+        </td>
+        <td> C4.3 (as above)   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> August 9 </i> </td>
+        <td> 
+            A conceptual exercise in finding extrema. An application of finding extrema to Least Squares Solutions, in particular for <i>linear regressions</i>.
+        </td>
+        <td> C4.4 (note: C4.4 doesn't have any particularly new mathematics, it just applies existing concepts to various problems; so you could think of this section as "applied problem solving exercises involving Colley Chapter 4 concepts"). 
+           </td>
+           <td>   This class day might only appear on the final exam in an inessential way: specific <i>formulae appearing in C4.4 will not need to be memorized for the final exam</i>. If anything from this section appears it will be carefully explained so that all you need to know is the calculus done in C4.2 and C4.3.</td>
+    </tr>
+
+
+    <tr>
+        <td> <i> August 10 </i> </td>
+        <td> 
+            An applications of Linear Algebra: Google's PageRank algorithm.
+        </td>
+        <td> None (though you can search to learn more about this topic online!)
+        </td>
+        <td> This is an optional lecture which will not appear on the final exam. </td>
+    </tr>
+
+    <tr>
+        <td> <i> August 11 </i> </td>
+        <td> 
+            Review session <i>through both classes.</i>
+        </td>
+        <td> 
+        </td>
+        <td>  </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> August 13 </i> </td>
+        <td> 
+            <b>Final exam</b> from <b>7pm-10pm</b> in <b>Herrin hall room T175</b> (for both classes).
+        </td>
+        <td> 
+        </td>
+        <td>  </td>
+    </tr>
+
+</tbody>
+</table>
+</body>
+
+
+

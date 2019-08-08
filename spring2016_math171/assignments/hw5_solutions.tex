@@ -1,0 +1,706 @@
+%!TEX TS-program = xelatex
+
+\documentclass[12pt]{article}
+\usepackage {amsmath, amscd, amsbsy, amsfonts, amsthm, eucal}
+\usepackage{latexsym,amssymb,mathrsfs,bbm}
+\textwidth 6.5in
+\topmargin -.3in
+\oddsidemargin 0in
+\textheight 9in
+\parindent 0 pt
+
+\usepackage{color}
+\definecolor{rltred}{rgb}{0.75,0,0}
+\definecolor{rltgreen}{rgb}{0,0.5,0}
+\definecolor{rltblue}{rgb}{0,0,0.75}
+\def\red{\color{red}}
+\def\black{\color{black}}
+\def\green{\color{rltgreen}}
+\def\blue{\color{rltblue}}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand\bi{\begin{itemize}}
+\newcommand\ei{\end{itemize}}
+\newcommand\beq{\begin{equation}}
+\newcommand\eeq{\end{equation}}
+\newcommand\itema{\item[(a)]}
+\newcommand\itemb{\item[(b)]}
+\newcommand\itemc{\item[(c)]}
+\newcommand\itemd{\item[(d)]}
+\newcommand\iteme{\item[(e)]}
+\newcommand\itemf{\item[(f)]}
+\newcommand\itemi{\item[(i)]}
+\newcommand\itemii{\item[(ii)]}
+\newcommand\itemiii{\item[(iii)]}
+
+\renewcommand\and{\qquad\text{and}\qquad}
+\renewcommand\|{\ | \ }
+\newcommand\ra{\rightarrow}
+\newcommand\sr{\stackrel}
+\newcommand\mf\mathfrak
+\newcommand\mc\mathcal
+
+\def\manylinedefinition#1{
+\left\{\begin{array}{ll}
+#1
+\end{array}\right.
+}
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+
+\def\pb#1{{\green \bf Problem #1.}\hskip 8pt \black}
+\def\sol{\textbf{Solution:}}
+
+\newcommand\ev{\text{ev}}
+\newcommand\ltwo{\ell^2}
+\newcommand\mfa{\mf a}
+\def\sequence#1{$\{{#1}_n\}$}
+\def\subsequence#1{$\{{#1}_{n_k}\}$}
+\def\sumint#1{\sum_{#1=1}^\infty}
+\def\sumzero#1{\sum_{#1=0}^\infty}
+\def\sumseries#1#2{$\sumint#1 #2_{#1}$}
+\newcommand\e\varepsilon
+\newcommand\limn{\lim_{n \ra \infty}}
+\newcommand\limsupn{\limsup_{n \ra \infty}}
+\newcommand\liminfn{\liminf_{n \ra \infty}}
+%\newcommand\iff{\quad\Leftrightarrow\quad}
+
+\newcommand\Fixaneps{Fix an arbitrary $\e > 0$ }
+\newcommand\foranyeps{for any $\e > 0$ }
+\newcommand\givenanyn{given any $N \in \N$ }
+\newcommand\thereexistsn{there exists an $n \geq N$ }
+\newcommand\thereexistsN{there exists an $N$ such that for every $n \geq N$ }
+\newcommand\foreveryn{for every $n \geq N$ }
+\newcommand\foreveryk{for every $k \geq N$ }
+\newcommand\foreveryx{for every $x \in X$ }
+\newcommand\Foreveryx{For every $x \in X$  }
+
+\newcommand\textbook{Johnsonbaugh and Pfaffenberger}
+\newcommand\notes{Prof. Simon's notes}
+
+\title{hw5-solutions}
+
+\begin{document}
+\centerline{\Large Math 171 Homework 5}
+\centerline{\small (due May 6)}
+\vskip .2in
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 34.2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{34.2}
+
+\bi
+\itema
+Use Exercise 30.8 and the Heine-Borel theorem to prove that if $f$ is 
+continuous on $[a, b]$ and $f(x) > 0$ for every $x$ in $[a, b]$, then there
+exists $\e > 0$ such that $f(x) \geq \e$ for every $x \in [a, b]$.
+\itemb
+Prove the statement in part (a) by considering the function 
+$g(x) = 1/f(x)$.
+\ei
+
+\sol
+
+\bi
+\itema
+For every $t \in [a, b]$, consider the function $g_t: [a, b] \ra \R$ given 
+by $h_t(x) = f(x) - \frac 1 2f(t)$. We have that $h_t(t) = \frac 1 2 f(t) > 0$
+is continuous at $x = t$,
+so by Exercise 30.8 there exists $\delta_t > 0$ such that 
+$h_t(x) > 0$ for every $x \in (t - \delta_t, t + \delta_t) \cap [a, b]$.
+
+We know that the collection open intervals 
+$\{(t - \delta_t, t + \delta_t) \| t \in [a, b]\}$ covers $[a, b]$, so
+by Heine-Borel Theorem there exists an finite subcollection
+$\{(t_i - \delta_{t_i}, t_i + \delta_{t_i}) \| i = 1, \ldots, n\}$.
+
+Let $\e = \min\{\frac 1 2 f(t_i) \| i = 1, \ldots, n\}$. Then $\e > 0$
+and for every $x \in [a, b]$ there exists an $t_i$ such that 
+$x \in (t_i - \delta_{t_i}, t_i + \delta_{t_i})$, so 
+\[
+f(x) - \frac 1 2 f(t_i) = h_{t_i}(x) > 0
+\]
+and consequently $f(x) > \frac 1 2 f(t_i) \geq \e$.
+\itemb
+By Theorem 40.4vi, $g$ is continuous on $[a, b]$, so by Theorem 42.6 $g$
+is bounded on $M$. Thus, there exists $L > 0$ such that for every 
+$x \in [a, b]$ we have that $g(x) \leq M$. Let $\e := M$. Then 
+for every $x \in [a, b]$ we have that $f(x) \geq \e$.
+\ei
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 34.6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{34.6. (Uniform continuity)}
+
+Prove that if $f$ is continuous on $[a, b]$ and $\e > 0$, then there exists
+$\delta > 0$ such that if $|x - y| < \delta$ and $x, y \in [a, b]$, then
+$|f(x) - f(y)| < \e$.
+
+\sol
+
+By definition of continuity we know that for every $x \in [a, b]$ there exists
+$\delta_x > 0$ such that for every 
+$y \in (x - \delta_x, x + \delta_x) \cap [a, b]$
+we have that $|f(y) - f(x)| < \e / 2$. Then for any two element $y$ and 
+$z$ of $ (x - \delta_x, x + \delta_x) \cap [a, b]$ we have that
+\[
+|f(y) - f(z)| \leq |f(y) - f(x)| + |f(x) - f(z)| < 
+\frac \e 2 + \frac \e 2 = \e.
+\]
+
+We know that the collection of open intervals 
+$\{(x - \frac {\delta_x} 2, x + \frac {\delta_x} 2) \| x \in [a, b]\}$
+covers $[a, b]$. Hence, by Heine-Borel Theorem, there exists finite
+subcollection
+$\{(x_i - \frac {\delta_{x_i}} 2, x_i + \frac {\delta_{x_i}} 2)
+\| i = 1, \ldots, n\}$ that covers $[a, b]$. Let
+\[
+\delta := \min\left\{ \frac {\delta_{x_i}} 2 \| i = 1, \ldots, n\right\}.
+\]
+
+Then given any $x, y \in [a, b]$ with $|x - y| < \delta$, since the
+intervals $(x_i - \frac {\delta_{x_i}} 2, x_i + \frac {\delta_{x_i}} 2)$
+cover $[a, b]$, there exists $i$ such that 
+$x$ is an element of
+$(x_i - \frac {\delta_{x_i}} 2, x_i + \frac {\delta_{x_i}} 2)$.
+
+Then
+\[
+|y - x_i| \leq |y - x| + |x - x_i| < \delta + \frac {\delta_{x_i}} 2 
+\leq \delta_{x_i},
+\]
+so $y$ lies in
+$(x_i - \delta_{x_i}, x_i + \delta_{x_i})$. Since $x$ and $y$ are 
+both elements of $(x_i - \delta_{x_i}, x_i + \delta_{x_i})$, we have that
+$|f(x) - f(y)| < \e$, as desired.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 35.9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{35.9}
+
+Let $H^\infty$ denote the set of all real sequences \sequence a such that
+$|a_n| \leq 1$ for every positive integer $n$. $H^\infty$ is called the
+\emph{Hilbert cube}.
+
+\bi
+\itema
+Let \sequence a, \sequence b$\in H^\infty$. Prove that the series
+\[
+\sumint n \frac {|a_n - b_n|} {2^n}
+\]
+converges.
+\itemb
+Prove that 
+\[
+d(\{a_n\}, \{b_n\}) := \sumint n \frac {|a_n - b_n|} {2^n}
+\]
+defines a metric on $H^\infty$.
+\ei
+
+\sol
+
+\bi
+\itema
+We have
+\[
+|a_n - b_n| \leq |a_n| + |b_n| \leq 2
+\]
+for every $n$. Hence, the series converges by Comparison test with the
+series $\sumint n \frac 1{2^{n - 1}}$.
+\itemb
+We verify the axioms of a metric:
+\bi
+\item
+Non-negativity:
+$d(\{a_n\}, \{b_n\}) \geq 0$, being a sum of a series of non-negative terms.
+\item
+Distance to self:
+$d(\{a_n\}, \{a_n\}) = 0$ because $d(\{a_n\}, \{a_n\})$ is the sum of a 
+series consisting of zeros. 
+\item
+Non-degeneracy: If $d(\{a_n\}, \{b_n\}) = 0$,
+then $a_n = b_n$ for every $n$.
+\item
+Symmetry:
+$d(\{a_n\}, \{b_n\}) = d(\{b_n\}, \{a_n\})$ because 
+$|a_n - b_n| = |b_n - a_n|$.
+\item
+Triangle inequality: we know that triangle inequality holds term-wise:
+\[
+\frac{|a_n - c_n|} {2^n} \leq \frac{|a_n - b_n|}{2^n}
+	+ \frac{|b_n - c_n|} {2^n}
+\]
+for every $n$. Hence, it also holds for partial sums:
+\[
+\sum_{n=1}^k\frac{|a_n - c_n|} {2^n}
+	\leq \sum_{n=1}^k \frac{|a_n - b_n|}{2^n}
+    + \sum_{n=1}^k \frac{|b_n - c_n|} {2^n}.
+\]
+Taking the limit of both sides as $k$ goes to $\infty$ and applying 
+Squeeze Theorem we get the desired triangle inequality for $d$:
+\[
+d(\{a_n\}, \{c_n\}) \leq d(\{a_n\}, \{b_n\}) + d(\{b_n\}, \{c_n\}).
+\]
+\ei
+\ei
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 41.4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{41.4}
+
+Let $M$ be a metric space and let $X$ be a subset of $M$ with the relative
+metric. Prove that if $f$ is a continuous function on $M$, then its 
+restriction $f|_{X}$ to $X$ is a continuous function on $X$.
+
+\sol
+
+We use the sequential characterization of continuity as in Theorem 40.2.
+
+Let \sequence x be a sequence of elements of $X$ converging to $x$
+in the relative metric. Then \sequence x also converges to $x$ viewed 
+as a sequence in $M$, hence the sequence $\{f(x_n)\}$ converges to $f(x)$
+which is the same as saying that the sequence $\{f|_{X}(x_n)\}$ converges
+to $f|_{X}(x)$ because $f|_X(y) = f(y)$ for all $y \in X$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 42.1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{42.1}
+
+Prove that none of the spaces $\R^n, \ell^1, \ell^2, c_0, \ell^\infty$ is 
+compact.
+
+\sol
+
+By Theorem 42.6 it suffices to produce an unbounded continuous function $f$ on 
+each of these spaces to show that they are not compact. We will choose
+the function of the form $f(x) := d(x, a)$ where $a$ is a fixed point in
+the respective space. Such an $f$ is continuous by Theorem 40.3.
+
+For $\R^n$ pick $a$ to be the zero vector $\underline 0 = (0, \ldots, 0)$.
+For every $L > 0$, let $x := (L + 1, 0, 0, \ldots, 0)$. Then
+\[
+f(x) = d(x, \underline 0) = L + 1 > L.
+\]
+Thus, $f$ is unbounded.
+
+For all the other spaces we pick $a$ to be the zero sequence $\underline 0$:
+$\underline 0_n = 0$. For every $L > 0$, let $x$ be the sequence whose
+first element is $L + 1$ and the rest are 0: $x_1 = L + 1$ and $x_n = 0$
+for $n > 1$. Note that $x$ is an element of each of the spaces
+$\ell^1, \ell^2$, $c_0$ and $\ell^\infty$.
+
+Then 
+\[
+f(x) = d(x, \underline 0) = L + 1 > L
+\]
+with respect to each of the metrics $\ell^1, \ell^2$ and $\ell^\infty$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 42.2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{42.2}
+
+Let $X$ be a compact subset of a metric space $M$. Prove that $X$ is closed.
+
+\sol
+
+By Theorem 39.5 it suffices to show that the complement $X^c$ of $X$ is
+open. Let $y$ be an arbitrary point of $X^c$. Let $f: M \ra \R$ be 
+a function given by $f(x) = d(x, y)$. By Theorem 40.3 $f$ is continuous.
+
+Let $U_n := f^{-1}((1/n, \infty))$. By Theorem 40.5iii $U_n$ is open.
+Also, for every $x \in X$ we have that $d(x, y) > 0$, so there exists
+$n \in \N$ such that $1/ n < d(x, y)$ and consequently
+$x \in U_n$. Therefore, $\{U_n\}_{n \in \N}$ forms an open cover of $X$.
+Since $X$ was compact, there exists an open subcover $\{U_{n_k}\}$ 
+of $X$. Let $n_j$ be the largest among $n_k$'s. Then 
+$U_{n_k} \subset U_{n_j}$ for every $k$. Therefore, $X \subset U_{n_j}$, i.e.
+for all points $x \in X$ we have $d(x, y) > 1 / n$. 
+
+In particular, for every $z \in M$ such that $d(z, y) < 1 / {n_j}$
+we have that $z \in X^c$, so $X^c$ contains an open ball of radius $1/{n_j}$ 
+around $y$. Thus, $X^c$ is open.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{1. Closures and continuity}
+Let $M$ and $N$ be metric spaces. Show that the following are equivalent:
+
+\bi
+\itemi
+$f: M \ra N$ is continuous;
+\itemii
+$f(\bar A) \subset \overline{f(A)}$ for all sets $A \subset M$;
+\itemiii
+$\overline{f^{-1}(B)} \subset f^{-1}(\bar B)$ for all subsets $B \subset N$.
+\ei
+
+\sol
+
+\bi
+\item (ii) $\Rightarrow$ (i)
+Assume (ii). By Theorem 40.2 to prove continuity of $f$ it suffices to show
+that the sequence $\{f(x_n)\}$ converges to $f(x)$ for every sequence
+\sequence x of elements of $M$ converging to $x \in M$. 
+
+We will show the previous statement by contradiction. 
+Assume a \sequence x in $M$ converges to $x \in M$ and 
+the sequence $\{f(x_n)\}$ \emph{does not} converge to $f(x)$. 
+Then, by definition of convergence, there exists $\e > 0$ such that 
+for every $N$ there exists $n \geq N$ with $d(f(x_n), f(x)) \geq \e$. 
+
+Hence, there exists a subsequence $\{f(x_{n_k})\}$ of $\{f(x_n)\}$
+such that $d(f(x_{n_k}), f(x)) \geq \e$ for every $k$.
+
+Let $A$ be the set of values of the subsequence \subsequence x.
+By construction, for every $p \in A$, $d(f(p), f(x)) \geq \e$.
+We know that \subsequence x converges to $x$, being a subsequence of 
+\sequence x. Therefore, $x \in \bar A$.
+
+By assumption (ii), $f(x) \in \overline{f(A)}$. Therefore, there exists
+a sequence \sequence y of elements of $f(A)$ converging to $f(x)$. 
+So, there exists $n$ such that $d(y_n, f(x)) < \e$. Since 
+$y_n$ is an element of $f(A)$, it can be written as 
+$y_n = f(p)$ for some $p \in A$. However, $d(f(p), f(x)) \geq \e$,
+so we got the desired contradiction.
+
+\item (iii) $\Rightarrow$ (ii)
+Assume (iii). Let $A$ be a subset of $M$ and let $x$ be any element of 
+$\bar A$.
+Fix a sequence \sequence x of
+elements of $A$ converging to $x$. It suffices to show that 
+$f(x) \in \overline{f(A)}$.
+
+Let $B = f(A)$. For each $x_n$, $f(x_n)$ is an element of $f(A)$, so
+$x_n$ is an element of $f^{-1}(B)$. Therefore, $x \in \overline{f^{-1}(B)}$.
+By assumption (iii), $x \in f^{-1}(\bar B)$ which implies $f(x) \in \bar B$,
+as desired.
+
+\item (i) $\Rightarrow$ (iii)
+Assume (i). Let $B$ be a arbitrary subset of $N$ and let $x$ be an
+arbitrary element of $\overline{f^{-1}(B)}$. Fix a sequence \sequence x
+of element of $f^{-1}(B)$ converging to $x$. By assumption (i), the sequence
+$\{f(x_n)\}$ converges to $f(x)$. For every $n$, since $x_n \in f^{-1}(B)$
+we have that $f(x_n) \in B$. Therefore, the limit $f(x)$ of $\{f(x_n)\}$
+is a limit point of $B$: $f(x) \in \bar B$. Thus, 
+$x \in f^{-1}(\bar B)$, as desired.
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{2. Closures and interiors in the relative metric}
+(Note: this is basically book problem 41.5 rewritten with the notation we've
+been using in class and homework.)
+
+\bi
+\itema
+Let $M$ be a metric space and $X \subset M$ a subset endowed with the relative
+metric. If $Y$ is a subset of $X$, let $\bar Y^X$ denote the closure of $Y$ in
+the metric space $X$. Prove that $\bar Y^X = \bar Y \cap X$.
+\itemb
+Recall that we defined the \emph{interior $\mathring B$} of a set 
+$B \subset N$ in a
+metric space $N$ on last week's homework. If $Y \subset X \subset M$ as above,
+state and prove a corresponding result to (a) comparing the interior of $Y$ in
+$X$ to the interior of $Y$ in $M$ (also, introduce notation for the two 
+different notions.)
+\ei
+
+\sol
+
+\bi
+\itema
+We get the desired result via the following sequence of equivalences. 
+\bi
+\item[]
+$x \in \bar Y^X$.
+\item[$\Leftrightarrow$]
+$x \in X$ and there exists a sequence \sequence x in $Y \subset X$
+converging to $x$
+with respect to the relative metric $d_X$ on $X$.
+\item[$\Leftrightarrow$]
+$x \in X$ and there exists a sequence \sequence x in $Y \subset X$
+converging to $X$ with to the metric $d_M$ on $M$.
+\item[$\Leftrightarrow$]
+$x \in \bar Y \cap X$.
+\ei
+
+\itemb
+Let $\mathring Y^X$ denote the interior of $Y$ in $X$. We show that
+if $Y \subset X \subset M$ then
+\[
+\mathring Y = \mathring Y^X \cap \mathring X.
+\]
+by proving inclusions both ways.
+
+$\mathring Y \subset \mathring Y^X \cap \mathring X$. Indeed, given 
+$y \in \mathring Y$, there exists an open ball $B^M_{\e}(y)$ in $M$ that
+is a subset of $Y$. In particular, $B^M_{\e}(y) \subset X$, so 
+$y \in \mathring X$. Also, $B^M_{\e}(y) \cap X = B^X_{\e}(y)
+$ is the $\e$-ball in $X$
+with the relative metric and it is contained in $Y$. Hence, 
+$y \in \mathring Y^X$.
+
+$\mathring Y \supset \mathring Y^X \cap \mathring X$. Given 
+$y \in  \mathring Y^X \cap \mathring X$, we can find an open ball
+$B_{\e_1}^M(y)$ which is a subset of $X$. Since $y \in \mathring Y^X$, 
+there exists an open ball $B_{\e_2}^X(y)$ which is a subset of $Y$.
+Let $\e = \min\{e_1, e_2\}$. Then any element of $B_{\e}^M(y)$ is an
+element of $X$, hence an element of $B_{\e}^X(y)$ and consequently
+and element of $Y$. Thus, $y \in \mathring Y$.
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{3. An interesting example of closed sets in the relative metric}
+Regard $\Q$, the set of all rational numbers, as a metric space with the
+metric $d(p, q) = |p - q|$ (this is the \emph{relative metric} for the
+inclusion $\Q \subset \R$). Let $E$ be the subset of all $p \in \Q$ such that
+$2 < p^2 < 3$. Show that $E$ is closed and bounded in $\Q$ but $E$ is not
+compact. Is $E$ open in $\Q$?
+
+\sol
+
+Since $\sqrt 2$ and $\sqrt 3$ are not in $\Q$, $E$ is the intersection of a
+closed subset $[-\sqrt 3, -\sqrt 2] \cup [\sqrt 2, \sqrt 3]$ with $\Q$, 
+and hence closed by Theorem 41.2ii.
+
+It is bounded because for every $p \in E$ we have $|p| < 2$. 
+
+To show that $E$ is not compact we construct an infinite open cover
+that does not have a finite subcover as follows. Let 
+$U_n = (-\infty, \sqrt 3 - 1 / n) \cap \Q$. Then each $U_n$ is open in $\Q$
+by Theorem 41.2i because it is the intersection of an open set with $\Q$.
+Together $\{U_n\}$ covers $E$ because every $x \in E$ satisfies $x < \sqrt 3$,
+so there exists $n$ such that $1/n < \sqrt 3 - x$ and hence $x \in U_n$.
+However, no finite subcollection $\{U_{n_k}\}$ covers $E$. 
+Indeed, given any such
+finite subcollection let $n = \max \{n_k\}$. By denseness of rationals
+we can find a rational number $q$ in $(\sqrt 3 - 1/{n}, \sqrt 3)$.
+By construction, this $q$ is an element of $E$ and not an element of any
+of the $U_{n_k}$. Thus, no finite subcollection $\{U_{n_k}\}$
+covers $E$, so $E$ is not compact.
+
+$E$ is a also open in $\Q$ because it is the intersection of an open set
+$(-\sqrt 3, - \sqrt 2) \cup (\sqrt 2, \sqrt 3)$ with $\Q$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{4}
+\bi
+\itema
+Let $M$ be a metric space. A subset $X \subset M$ is said to be
+\emph{dense} if $\overline X = M$. Show that if $X \subset M$ is dense, then
+for any point $p \in M$ and any $\e > 0$, there exists a point $x \in X$
+with $x \in B_{\e}(p)$.
+\itemb
+A metric space $M$ is said to be \emph{separable} if it contains a countable,
+dense set. Show that $\R^k$ is separable.
+\emph{
+Hint: Let $X$ be the set of points with only rational coordinates.
+}
+\ei
+
+
+\sol
+
+\bi
+\itema
+Let $p$ be an arbitrary point of $M$ and $\e$ an arbitrary positive number. 
+We have that $p \in \overline X$, so there exists a sequence \sequence p of 
+elements of $X$ converging to $p$.
+By the definition of convergence, there exists $N$ such that for every 
+$n \geq N$, $d(x_n, p) < \e$. In particular, $x_N \in B_\e(p)$.
+\itemb
+We know that $X$ as defined in the hint is countable, being a finite product
+$\Q^k$ of countable sets $\Q$.
+
+We will show that $X$ is dense in $\R^k$. Let 
+$\underline x = (x_1, \ldots, x_k)$ be an arbitrary point of $\R^k$. 
+Since $\Q$ is dense in $\R$, for every coordinate $x_i$ we can pick a 
+sequence $q_i^{(k)}$ in $\Q$ converging to $x_i$. Then by Theorem 37.2 
+we know that the sequence $\{\underline q^{(k)}\}$ converges to 
+$\underline x$.
+
+\ei
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{5}
+
+A collection $\mc V := \{ V_\alpha\}_{\alpha \in I}$ of open subsets of a
+metric space $M$ is said to be a \emph{base} for $M$ If the following is true:
+for every $p \in M$ and every open set $U \subset M$ containing $p$ there
+exists $V_{\alpha}$ containing $p$ and that is a subset of $U$. In other 
+words, every open set in $M$ is the union of a subcollection of the
+$\{V_\alpha\}_{\alpha \in I}$.
+
+Prove that every separable metric space has a countable base. 
+\emph{
+Hint: take all open balls with rational radius whose center lies in some
+countable dense subset of $M$.
+}
+
+\sol
+
+Let $M$ be a separable metric space. Consider a countable dense subset
+$X$ of $M$. As suggested in the hint consider the collection
+$\mathcal V := \{ B_{1/n}(x) \| x \in X,\ n \in \N\}
+\}$.
+We know that $\mathcal V$ is countable because it is equivalent to cartesian
+product $X \times \N$ of two countable sets. We show that $\mc V$ forms a 
+base of $M$.
+
+Given $p \in M$ and open set $U$ containing $p$, choose $\e > 0$ such
+that $B_{\e}(p)$ is contained in $U$. Choose a positive integer $n$ such that
+$1/n < \e/2$. By denseness of $X$, we can choose $x \in X$ that is contained
+in $B_{1/n}(p)$. Then $p \in B_{1/n}(x)$. 
+
+If we show that $B_{1/n}(x) \subset B_{\e}(p)$ we are done because
+then $B_{1/n}(x)$ is an element of $\mc V$ containing $p$ that is a subset 
+of $U$. 
+
+Given any $y \in B_{1/n}(x)$, by the triangle inequality
+\[
+d(y, p) \leq d(y, x) + d(x, p) < \frac 1 n + \frac 1 n < \e,
+\]
+so $y \in B_{\e}(p)$, as desired.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{6}
+
+Prove that every compact metric space $K$ has a countable base and therefore
+conclude that $K$ is separable. 
+\emph{
+Hint: for every $n \in \N$, there are finitely many neighborhoods of $1/n$
+which cover $K$.
+}
+
+\sol
+
+Fix an arbitrary integer $n$. The collection of open sets
+$\{B_{1/n}(x) \| x \in K\}$ covers $K$, so by compactness of $K$ there exists
+a finite subcollection $\{B_{1/n}(x_k^{(n)}) \| k = 1, \ldots, m_n\}$ that
+covers $K$. 
+
+Consider the union $\mc V$ of the finite covers of the form
+$\{B_{1/n}(x_k^{(n)}) \| k = 1, \ldots, m_n\}$ over all $n$.
+We claim that $\mc V$ forms a base.
+
+Indeed, given any $p \in K$ and an open set $U$ containing $p$, fix an
+$\e > 0$ such that $B_{\e}(p) \subset U$. Next, fix a positive integer $n$
+such that $1/n < \e/2$. Since $\{B_{1/n}(x_k^{(n)}) \| k = 1, \ldots, m_n\}$
+is a cover of $K$, there exits $k$ such that $B_{1/n}(x_k^{(n)}$ contains $p$.
+
+Then $B_{1/n}(x_k^{(n)} \subset B_{\e}(p)$. Indeed, for every 
+$y \in B_{1/n}(x_k^{(n)}$ by the triangle inequality we have that
+\[
+d(y, p) \leq d(y, x_k^{(n)}) + d(x_k^{(n)}, p) < \frac 1 n + \frac 1 n < \e.
+\]
+
+Thus, $\mc V$ indeed forms a base of $K$. We know that $\mc V$ is countable,
+being a countable union of finite sets.
+
+Finally, we show that if $K$ has a countable base $\mc V$ then $K$ is 
+separable.
+For every open set $U$ in $\mc V$ pick an element $x$ of $U$. Let $X$ be the
+set of the picked elements. Then $X$ is countable because $\mc V$ is.
+We show that $X$ is dense, by showing the complement of its closure
+$(\overline X)^c$ is empty.
+
+Indeed, assume that $(\overline X)^c$ is non-empty and pick an element 
+$p \in (\overline X)^c$. Then there exists an element $U$ of the base
+containing $p$ that is a subset of $(\overline X)^c$. However, by construction
+of $X$, $X$ contains at least one element of $U$ leading to a contradiction.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{7. Constructing open and closed sets.}
+By Theorem 40.5, $f$ is continuous if and only if the preimage under $f$ of 
+any open set (respectively, closed set) is open (respectively, closed).
+This suggests an easy way to give examples of open and closed sets in a metric
+space $M$: write down a function $f: M \ra \R$, show that $f$ is continuous
+and take the preimage under $f$ of an open or closed set in $\R$. Then 
+we can take intersections/unions of such sets to get even more open and closed
+sets. Using this method:
+
+\bi
+\itema
+Show that the generalized ellipsoid 
+$
+E_{a_1,\ldots, a_{k + 1}} = \{(x_1, \ldots, x_{k + 1}) \|
+\sum_{i = 1}^{k + 1} a_i x_i^2 = 1 \}
+$
+is a closed subset of $\R^{k+1}$ for $a_1, \ldots, a_{k + 1}$ fixed positive
+real numbers.
+\itemb
+Show that 
+$
+V := \{\underline a = \{ a_n\} \in \ell^\infty \|
+a_1^2 + a_2 < 1 \text{ and } a_3 > a_4
+\}
+$
+is an open subset of $\ell^\infty$.
+\ei
+
+
+\sol
+
+\bi
+\itema
+Let $f: \R^{k + 1} \ra \R$ be given by 
+\[
+f(x_1, \ldots, x_{k + 1}) = \sum_{i = 1}^{k + 1} a_i x_i^2.
+\]
+The function $f$ is continuous, being a sum of products of continuous 
+coordinate functions $x_i$. Then $E_{a_1,\ldots, a_{k + 1}}$ is closed
+being the preimage of the closed set $\{1\}$ under $f$.
+\itemb
+Let $g, h: \ell^\infty \ra \R$ be given by
+\[
+g(\underline a) = a_1^2 + a_2
+\]
+and 
+\[
+h(\underline a) = a_3 - a_4.
+\]
+Again, the functions $g$ and $h$ are continuous because they are polynomials
+in coordinate functions $a_i$ which are continuous. 
+Then $V$ is the intersection of open sets $g^{-1}((-\infty, 1))$ and
+$h^{-1}((0, \infty))$ and hence open too.
+\ei
+
+
+\end{document}

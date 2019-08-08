@@ -1,0 +1,826 @@
+%!TEX TS-program = xelatex
+
+\documentclass[12pt]{article}
+\usepackage {amsmath, amscd, amsbsy, amsfonts, amsthm, eucal}
+\usepackage{latexsym,amssymb,mathrsfs,bbm}
+\textwidth 6.5in
+\topmargin -.3in
+\oddsidemargin 0in
+\textheight 9in
+\parindent 0 pt
+
+\usepackage{color}
+\definecolor{rltred}{rgb}{0.75,0,0}
+\definecolor{rltgreen}{rgb}{0,0.5,0}
+\definecolor{rltblue}{rgb}{0,0,0.75}
+\def\red{\color{red}}
+\def\black{\color{black}}
+\def\green{\color{rltgreen}}
+\def\blue{\color{rltblue}}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand\bi{\begin{itemize}}
+\newcommand\ei{\end{itemize}}
+\newcommand\beq{\begin{equation}}
+\newcommand\eeq{\end{equation}}
+\newcommand\itema{\item[(a)]}
+\newcommand\itemb{\item[(b)]}
+\newcommand\itemc{\item[(c)]}
+\newcommand\itemd{\item[(d)]}
+
+\renewcommand\and{\qquad\text{and}\qquad}
+\renewcommand\|{\ | \ }
+\newcommand\ra{\rightarrow}
+\newcommand\sr{\stackrel}
+\newcommand\mf\mathfrak
+\newcommand\mc\mathcal
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+
+\def\pb#1{{\green \bf Problem #1.}\hskip 8pt \black}
+\def\sol{\textbf{Solution:}}
+
+\newcommand\mfa{\mf a}
+\def\sequence#1{$\{{#1}_n\}$}
+\def\subsequence#1{$\{{#1}_{n_k}\}$}
+\def\sumint#1{\sum_{#1=1}^\infty}
+\def\sumzero#1{\sum_{#1=0}^\infty}
+\def\sumseries#1#2{$\sumint#1 #2_{#1}$}
+\newcommand\e\varepsilon
+\newcommand\limn{\lim_{n \ra \infty}}
+\newcommand\limsupn{\limsup_{n \ra \infty}}
+\newcommand\liminfn{\liminf_{n \ra \infty}}
+%\newcommand\iff{\quad\Leftrightarrow\quad}
+
+\newcommand\Fixaneps{Fix an arbitrary $\e > 0$ }
+\newcommand\foranyeps{for any $\e > 0$ }
+\newcommand\givenanyn{given any $N \in \N$ }
+\newcommand\thereexistsn{there exists an $n \geq N$ }
+\newcommand\thereexistsN{there exists an $N$ such that for every $n \geq N$ }
+\newcommand\foreveryn{for every $n \geq N$ }
+\newcommand\foreveryk{for every $k \geq N$ }
+\newcommand\foreveryx{for every $x \in X$ }
+\newcommand\Foreveryx{For every $x \in X$  }
+
+\newcommand\textbook{Johnsonbaugh and Pfaffenberger}
+\newcommand\notes{Prof. Simon's notes}
+
+\title{hw2-solutions}
+
+\begin{document}
+\centerline{\Large Math 171 Homework 2}
+\centerline{\small (due April 15)}
+\vskip .2in
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 22.7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {22.7}
+
+Let \sequence a and \sequence b be sequences such that \thereexistsN
+we have that $a_n = b_n$. Prove that if \sumseries n a is convergent,
+then \sumseries n b is convergent. If the sum \sumseries n a is $L$,
+find the sum of the series \sumseries n b. (This exercise show that altering
+a finite number of terms of an infinite series does not affect the convergence
+of the series, but that it may affect the sum of the series.)
+
+\sol
+
+Let $A_n := \sum_{i=1}^n a_n$ and $B_n := \sum_{i=1}^n b_n$ be the respective
+partial sums. We will show that $B_n$ converges to $L + (B_N - A_N)$ 
+(where $N$ is the fixed integer from the statement of the problem) by proving
+the following lemma
+
+\begin{lemma}
+For $n \geq N$ the following identity holds
+\[
+B_n = A_n + (B_N - A_N)
+\]
+\end{lemma}
+
+\begin{proof}
+We prove the lemma by induction on $n$.
+
+Induction basis: for $n = N$ we have that
+\[
+B_N = A_N + (B_N - A_N).
+\]
+
+Induction step: assume $B_n = A_n + (B_N - A_N)$ for an $n \geq N$. 
+Then
+\[
+B_{n + 1} = B_n + b_n = A_n + b_{n + 1} + (B_N - A_N).
+\]
+Since $n + 1 > n \geq N$ we have that $b_{n + 1} = a_{n + 1}$, so
+\[
+B_{n + 1} = A_n + a_{n + 1} + (B_N - A_N) = A_{n + 1} + (B_N - A_N)
+\]
+as desired.
+\end{proof}
+
+Assuming the lemma, Theorem 12.2 implies that
+\[
+\limn B_n = L + (B_N - A_N)
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 23.5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {23.5}
+Give an example of divergent series \sumseries n a and \sumseries n b
+such that $\sumint n (a_n + b_n)$ converges.
+
+\sol
+
+Let $a_n := 1$ and $b_n := -1$ for all $n$. Then the partial sums of
+\sumseries n a approach $\infty$, the partial sums of \sumseries n b
+approach $- \infty$ and  $\sumint n (a_n + b_n) = \sumint n 0$ converges
+to 0.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 24.1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {24.1}
+Use induction to prove that if 
+\[
+s_n = \sum_{i=1}^n \frac 1 i,
+\]
+then 
+\beq
+\label{eq:harmonic-ineq}
+s_{2^n} \geq \frac {n + 2} 2.
+\eeq
+
+\sol
+
+Induction basis: for $n = 0$,
+\[
+s_{2^0} = s_1 = 1 = \frac {0 + 2} 2,
+\]
+so the equality in (\ref{eq:harmonic-ineq}) holds.
+
+Induction step: assume $s_{2^n} \geq \frac {n + 2} 2$ and use it to prove that
+$s_{2^{n + 1}} \geq \frac {n + 1 + 2} 2$.
+
+We have that 
+\beq
+\label{eq:recursion}
+s_{2^{n + 1}} = s_{2^n} + \sum_{i = 2^n + 1}^{2^{n + 1}} \frac 1 i.
+\eeq
+For each $i$ between $2^n + 1$ and $2^{n + 1}$ we have that 
+$1 / i \geq 1 / 2^{n + 1}$. Hence,
+\beq
+\label{eq:aux-ineq}
+\sum_{i = 2^n + 1}^{2^{n + 1}} \frac 1 i \geq
+\sum_{i = 2^n + 1}^{2^{n + 1}} \frac 1 {2^{n + 1}} = 
+\frac {2^{n + 1} - 2^n} {2^{n + 1}} = \frac 1 2.
+\eeq
+Therefore, plugging in (\ref{eq:aux-ineq}) into (\ref{eq:recursion}) we get
+\[
+s_{2^{n + 1}} \geq s_{2^n} + \frac 1 2
+\]
+which using the induction assumption becomes
+\[
+s_{2^{n + 1}} \geq \frac {n + 2} 2 + \frac 1 2 = \frac {n + 2 + 1} 2
+\]
+which is exactly the desired statement for $n + 1$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 24.2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {24.2}
+Assume that there exists an increasing function $L$ from $[2, \infty)$ into
+$(0, \infty)$ which satisfies $L(x^n) = n L(x)$. (The natural logarithm is
+such a function.) Determine whether the following series converge or diverge.
+
+\bi
+\itema
+$ \sum_{n=2}^\infty \frac 1 {n L(n)}$
+\itemb
+$ \sum_{n=2}^\infty \frac 1 {L(n)}$
+\ei
+
+\sol
+
+Both series diverge!
+
+\bi
+\itema
+By $2^n$ Test (Theorem 24.2), $ \sum_{n=2}^\infty \frac 1 {n L(n)}$
+diverges if and only if $ \sum_{n=2}^\infty 2^n \frac 1 {2^n L(2^n)}$ does.
+We have that
+\[
+2^n \frac 1 {2^n L(2^n)} = \frac 1 {nL(2)}.
+\]
+By the contrapositive of the last part of Theorem 23.1, because
+$\sumint n 1/n$ diverges, so does $\sumint n 1 / nL(2)$.
+\itemb
+We have that $1 / L(n) > 1 / n L(n)$ for $n \geq 2$, so by comparison
+test and part (a), $\sum_{n=2}^\infty \frac 1 {L(n)}$ also diverges.
+\ei
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 24.9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {24.9}
+
+Prove that if \sequence a is a decreasing sequence of positive numbers and
+\sumseries n a converges, then $\limn n a_n = 0$. Deduce that 
+$\sumint n 1/n^{s}$ diverges if $0 \leq s \leq 1$.
+
+\sol
+
+By $2^n$ Test (Theorem 24.2), the series $\sumint n 2^n a_{2^n}$ converges.
+Then by Theorem 22.3,
+\[
+\limn 2^n a_{2^n} = 0.
+\]
+Thus, \foranyeps \thereexistsN we have that $|2^n a_{2^n}| < \e / 2$. 
+Given $m \geq 2^N$ let $n$ be the smallest positive integer such that 
+$m < 2^{n + 1}$. Then
+\[
+2^n \leq m < 2^{n + 1}
+\]
+and $n \geq N$ because $2^N \leq m < 2^{n + 1}$, so $N < n + 1$.
+Then because $m < 2^{n + 1}$ and $a_m \leq a_{2^n}$ (\sequence a is
+decreasing) we have that
+\[
+|m a_m| < |2^{n + 1} a_{2^n}| = 2 |2^n a_{2^n}| < 2 \cdot \frac \e 2 = \e.
+\]
+Thus, $|m a_m| < \e$ for every $m \geq 2^N$. Hence, $\limn n a_n = 0$.
+
+We prove the second statement by contradiction: assume that 
+$\sumint n 1/n^{s}$ converges for some $0 \leq s \leq 1$. Then, on one hand,
+by the first part of the problem, $\limn n/n^{s} = 0$. However, on the other
+hand, by a direct computation
+\[
+\limn \frac n {n^{s}} = \limn n^{1 - s} 
+= \left\{ \begin{array}{ll}
+	\infty & \text{if }s < 1,\\
+	1 & \text{if }s = 1.
+\end{array}\right.
+\]
+Thus, our assumption leads to a contradiction. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 25.4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {25.4}
+
+Give an example of a sequence \sequence a of positive numbers such that 
+$\limn a_n = 0$, but the series $\sumint n (-1)^{n + 1} a_n$ diverges.
+
+\sol
+The idea is to construct a sequence the sum of whose even terms diverges
+and the sum of whose odd terms converges. For example, 
+
+\[
+a_n := \left\{ \begin{array}{ll}
+	\frac 2 n & \text{if }n\text{ is even},\\
+	\frac 1 {2^{(n+1)/2}} & \text{if }n\text{ is odd}.
+\end{array}\right.
+\]
+i.e. 
+\[
+\{a_n\} = \frac 1 1, \frac 1 {2^1}, \frac 1 2, \frac 1 {2^2},
+\frac 1 3, \frac 1 {2^3}, \frac 1 4, \frac 1 {2^4}, \ldots
+\]
+
+Let $A_n := \sum_{i=1}^n (-1)^{n+1} a_n$ be the partial sums of \sequence a. 
+We show the following identity for the even index partial sums by induction 
+on the index $2n$:
+\[
+A_{2n} = -\sum_{i = 1}^n \frac 1 i + \left(1 - \frac 1 {2^n}\right).
+\]
+
+Induction basis: for $n = 1$ we have that
+\[
+A_2 = a_1 - a_2 = -\frac 1 {2^{(1 + 1)/2}} + \frac 2 2 =
+	1 + \left(1 - \frac 1 2\right).
+\]
+
+Induction step: assume 
+$A_{2n} = -\sum_{i = 1}^n \frac 1 i + \left(1 - \frac 1 {2^n}\right)$. 
+Then
+\begin{align*}
+A_{2(n + 1)} 
+& = A_{2n} + a_{2n + 1} - a_{2n + 2}
+	= A_{2n} + \frac 1 {2^{n + 1}} - \frac 1 {n + 1} \\
+& =  - \left(\sum_{i = 1}^n \frac 1 i + \frac 1 {n + 1}\right) 
+	+ \left(1 - \frac 1 {2^n} + \frac 1 {2^{n + 1}}\right) \\
+& = - \sum_{i = 1}^{n + 1} \frac 1 i + \left(1 - \frac 1 {2^{n + 1}}\right).
+\end{align*}
+
+We have that $-\sum_{i = 1}^n \frac 1 i$ diverges and 
+$\left(1 - \frac 1 {2^n}\right)$ converges to 1, hence their sum $A_{2n}$
+diverges.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 26.7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {26.7}
+
+Let \sequence a be a sequence of nonzero numbers. Prove that if
+\[
+\limsupn \left| \frac {a_{n + 1}}{a_n} \right| < 1
+\]
+then \sumseries n a converges absolutely. Prove that 
+\[
+\liminfn \left| \frac {a_{n + 1}}{a_n} \right| > 1
+\]
+then \sumseries n a diverges.
+
+\sol
+
+We emulate the proof of the Ratio Test (Theorem 26.6).
+\bi
+\itema
+By Theorem 21.1
+\[
+\limsupn \left| \frac {a_{n + 1}}{a_n} \right|
+	= \limn (\sup\{\left| \frac {a_{k + 1}}{a_k} \right| \| k \geq n\}),
+\]
+so since $\limsupn \left| \frac {a_{n + 1}}{a_n} \right| < 1$ we can
+choose $N$ such that 
+\[
+\sup\{\left| \frac {a_{n + 1}}{a_n} \right| \| n \geq N\} = M < 1.
+\]
+Then for every $n \geq N$ we have that
+\[
+\left| \frac {a_{n + 1}}{a_n} \right| \leq M,
+\]
+so by induction on $k$ we have that
+\[
+|a_{N + k}| < M^k |a_N|.
+\]
+Then, because the geometric series $\sumint n M^n |a_N|$ converges
+absolutely, by comparison test so does \sumseries n a.
+\itemb
+As in the previous part, by Theorem 21.1
+\[
+\liminfn \left| \frac {a_{n + 1}}{a_n} \right|
+	= \limn (\inf\{\left| \frac {a_{k + 1}}{a_k} \right| \| k \geq n\}),
+\],
+so we can choose $N$ such that 
+\[
+\inf\{\left| \frac {a_{n + 1}}{a_n} \right| \| n \geq N\} = M > 1.
+\]
+Then by induction on $k$ we have that
+\[
+|a_{N + k}| > M^k |a_N|.
+\]
+Then because $|a_N|$ is nonzero, we have that 
+\[
+\limn M^n |a_N| = \infty,
+\]
+so the sequence \sequence a is unbounded. Hence, by the contrapositive
+of Theorem 22.3 \sumseries n a diverges: if \sumseries n a were to 
+converge, $\limn a_n$ would equal zero, so \sequence a would be bounded.
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 27.2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {27.2}
+
+Suppose the power series $\sumzero n a_n (x - t)^n$ has radius of convergence
+$R$. Let $p$ be an integer. Prove that the power series 
+$\sumzero n a_n (x - t)^n$ has the same radius of convergence $R$.
+
+\sol
+
+Note that
+\[
+|n^p a_n|^{1/n} = n^{p/n} \cdot |a_n|^{1/n}.
+\]
+By definition of the radius of convergence, it suffices to prove that
+if 
+\[
+\limsupn |a_n|^{1/n} = L
+\]
+then
+\[
+\limsupn n^{p/n} \cdot |a_n|^{1/n} = L
+\]
+where $L$ is either an non-negative real number or $\infty$. 
+
+If $L = \infty$ then $|a_n|^{1/n}$ is unbounded above. For $n \geq 1$ we have
+that $n^{p/n} \geq 1$, so
+\[
+n^{p/n} \cdot |a_n|^{1/n} \geq |a_n|^{1/n}.
+\]
+Therefore, $n^{p/n} \cdot |a_n|^{1/n}$ is not bounded above, so
+$\limsupn n^{p/n} \cdot |a_n|^{1/n} = \infty$.
+
+Assume that $L$ is a real number. By Theorem 16.7
+\[
+\limn n^{1/n} = 1,
+\]
+so because $n^{p/n} = (n^{1/n})^p$ by Corollary 12.7,
+\[
+\limn n^{p/n} = 1.
+\]
+
+By Theorem 20.8
+\[
+\limsupn n^{p/n} \cdot |a_n|^{1/n} = 1 \cdot L = L,
+\]
+as desired.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 28.1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {28.1}
+
+Prove that the series 
+\bi
+\itema
+$1 + \frac 1 {\sqrt 2} - \frac 2 {\sqrt 3} + \frac 1 {\sqrt 4}
+	+ \frac 1 {\sqrt 5} - \frac 2 {\sqrt 6} + \cdots$
+\itemb
+$\sumint n (-1)^n n^{(1 - n)/n}$
+\ei
+converge conditionally.
+
+\sol
+\bi
+\itema
+Let \sequence a be the sequence $1, 1, -2, 1, 1, -2, \ldots$ and 
+\sequence b be the sequence
+\[
+b_n = \frac 1 {\sqrt n}.
+\]
+Then the sequence in question is $\{a_n b_n\}$. To show convergence
+using Dirichlet's Test (Theorem 28.2) it suffices to show that the
+sequence of partial sums \sequence A of the series \sumseries n a 
+is bounded and \sequence b is a decreasing sequence with limit 0.
+
+The statement about \sequence b follow from the fact that the sequence
+$\{\sqrt n\}$ is increasing with limit $\infty$.
+
+We show that the sequence \sequence A of partial sums of \sumseries a
+is periodic with period 3:
+$A_{3n + 1} = 1$, $A_{3n + 2} = 2$, $A_{3n + 3} = 0$ by induction on $n$.
+In particular, it follows that \sequence A is bounded below by 0 and above
+by 2.
+
+The induction base follows immediately from computing the first 
+three partial sums. In the induction step we assume that $A_{3n + 3} = 0$
+and then get
+\begin{align*}
+A_{3n + 4} &= A_{3n + 3} + 1 = 1 \\
+A_{3n + 5} &= A_{3n + 4} + 1 = 2 \\
+A_{3n + 6} &= A_{3n + 5} - 2 = 0.
+\end{align*}
+
+We are left to prove that $\sumint n |a_nb_n|$ diverges. We can do it
+by comparison test with $\sumint n b_n$ (using $|a_n b_n| \geq b_n$)
+which diverges by the second part of Problem 24.9 with $s = 1/2$.
+
+\itemb
+We will use the Alternating Series Test (Corollary 28.4) to show convergence.
+To use the test it suffices to show that the sequence $\{n^{(1 - n) / n}\}$
+is decreasing and converges to 0.
+
+We have that
+\[
+n^{(1 - n) / n} = n^{1/n} \cdot \frac 1 n.
+\]
+
+We know that the sequence $\{n^{1/n}\}$ is decreasing and converges
+to 1 (Theorem 16.7) and the sequence $\{1/n\}$ is also decreasing and 
+converges to 0. Hence, their product $\{n^{(1 - n) / n}\}$ is also decreasing
+and by Theorem 12.7 converges to $1 \cdot 0 = 0$.
+
+We are left to prove that $\sumint n n^{(1 - n) / n}$ diverges. Since 
+the sequence $\{n^{1/n}\}$ is decreasing and converges to 1, we have that
+$n^{1/n}$, so
+\[
+n^{(1 - n) / n} \geq \frac 1 n.
+\]
+Thus, by the comparison test with $\sumint n \frac 1 n$, 
+$\sumint n n^{(1 - n) / n}$ diverges.
+\ei
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 19.2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {19.2}
+Let \sequence a be a sequence. Prove that \sequence a is a Cauchy sequence
+if and only if for every $\e > 0$, \thereexistsN $|a_n - a_N| < \e$. 
+
+\sol
+Assume \sequence a is Cauchy. Then given any $\e > 0$ there exists $N$ such
+that for every $n, m \geq N$ we have that $|a_m - a_n| < \e$. In particular,
+we may set $m = N$ and get the desired statement.
+
+Conversely, assume that for every $\e > 0$, \thereexistsN $|a_n - a_N| < \e$. 
+
+\Fixaneps and choose an $N$ such that \foreveryn $|a_n - a_N| < \e / 2$.
+Then for every $n, m \geq N$ by triangle inequality 
+\[
+|a_m - a_n| \leq |a_m - a_N| + |a_n - a_N| < \frac \e 2 + \frac \e 2 = \e.
+\]
+Thus, \sequence a is Cauchy.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {1}
+\textbf{More general sums:}
+Let $E \subset \R$ be any set of \emph{positive} real numbers. Let
+$\mc F \subset \mc P(E)$ be the set of finite subsets of $E$ (recall that 
+$\mc P(E)$, the \emph{power set} of $E$, is the set of all subsets), and
+define
+\begin{equation}
+\sum_{x\in E} x := \sup_{f\in \mc F} s_F = \sup\{s_F \| F \in \mc F\},
+\end{equation}
+where $s_F = \sum_{f \in F} f$ is the usual sum of the elements of the finite
+subset $F \subset E$.
+\bi
+\itema
+Show that $\sum_{x\in E} x < \infty$ only if $E$ is countable.
+\itemb
+Show that if $E$ is countably infinite and \sequence x is an \emph{enumeration}
+of $E$ (namely, $x_i = f(i)$ for $f: \N \sr \cong \ra E$ a bijection), then
+\begin{equation}
+\sum_{x\in E} x = \sumint i x_i
+\end{equation}
+\ei
+
+\sol
+
+\bi
+\itema
+Assume $E$ is uncountable.
+We write $E$ as a disjoint union of sets $E_n$ indexed by a non-negative
+integer $n$:
+\[
+E_1 = E \cap (1, \infty) \and E_n = E \cap 
+\left(\frac 1 n, \frac 1 {n - 1}\right] \text{ for } n > 1.
+\]
+Since $E$ is uncountable, $E_n$ is uncountable for at least one of $n$'s
+(since a countable union of countable sets is countable, see Theorem 9.5).
+
+Fix such an $n$, for which $E_n$ is uncountable. In particular, $E_n$ is
+infinite. For every positive integer $m$ we can choose a finite subset $F_m$ 
+of $E_n$ with $m$ elements. Each element of $f$ of $F_m$ satisfies
+\[
+f > \frac 1 n
+\]
+being also an element of $E_n$. Hence,
+\[
+\sum_{f \in F} f > \frac m n.
+\]
+Since $m$ can be any positive integer, the set 
+$\{s_{F_m} \| m \in \N\}$ is unbounded above, so its superset
+$\{s_{F} \| F \in \mc F\}$ is also unbounded above and hence
+\[
+\sum_{x\in E} x = \infty.
+\]
+\itemb
+\bi
+\item
+Firstly we show that $\sum_{x\in E} x \leq \sumint i x_i$. Since
+$\sum_{x\in E} x$ is the lowest upper bound of $\{s_F \| F \in \mc F\}$
+it suffices to show that $\sumint i x_i$ is an upper bound
+of $\{s_F \| F \in \mc F\}$, i.e. that
+\[
+s_F \leq \sumint i x_i,\ \forall F \in \mc F.
+\]
+Let $F$ be an arbitrary finite subset of $E$. By assumption we can write $F$ 
+as
+\[
+F = \{x_i \| i \in I\}
+\]
+for some finite subset $I$ of $\N$. Let $n$ be the largest element of $I$.
+Then $F \subset \{x_1, \ldots, x_n\}$, so
+\[
+s_F \leq \sum_{i=1}^n x_i.
+\]
+Since each $x_i$ is positive, the sequence of partial sums 
+$\{\sum_{i=1}^n x_i\}$ is increasing, so each partial sum is smaller or
+equal to the limit:
+\[
+\sum_{i=1}^n x_i \leq \sumint i x_i.
+\]
+Thus, $s_F \leq \sumint_i x_i$ as desired.
+\item
+Secondly we show $\sum_{x\in E} x \geq \sumint i x_i$. Since $\sumint i x_i$
+is the limit of the partial sums $\{\sum_{i=1}^n x_i\}$, it suffices to show
+that $\sum_{x \in E} \geq \sum_{i=1}^n x_i$ for every $n$. Since
+$F_n := \{x_1, \ldots, x_n\}$ is a finite subset of $E$,
+$s_{F_n} = \sum_{i=1}^n x_i$ and
+\[
+s_{F_n} \leq \sum_{x \in E}
+\]
+by definition of $\sum_{x \in E}$. 
+\ei
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {2}
+\textbf{Decimal (and base $p$) expansions:}
+Let $p \in \N \backslash \{1\} = \{2, 3, 4, \ldots \}$ and let $x$ be a real
+number with $0 < x < 1$.
+\bi
+\itema
+Show that there is a sequence \sequence a of integers with $0 \leq a_n < p$
+such that
+\beq
+\label{eq:series}
+x = \sumint n \frac {a_n} {p^n}
+\eeq
+\itemb
+Moreover, show that such a sequence \sequence a is unique except when 
+$x = \frac q {p^n}$ for another integer $q$; in this case, show that there are
+exactly two such sequences.
+\itemc
+Conversely, show that if \sequence a is any sequence of integers with 
+$0 \leq a_n < p$, the series (\ref{eq:series}) converges to a real number $x$ 
+with $0 \leq x \leq 1$.
+
+(If $p = 10$, this \sequence a is called the \emph{decimal expansion} of $x$
+and gives a representation of $x$ more familiar with from earlier math classes
+``$x = 0.a_1a_2a_3a_4$''. If $p = 2$, this sequence is called the
+\emph{binary expansion}, also mentioned in class.)
+\itemd
+Finally, consider the case $p = 2$. Let $S_{0,1}$ denote the set of 
+\emph{binary sequences}, by definition the set of all sequences 
+\sequence a where each $a_i \in \{0, 1\}$ (recall we discussed this set in 
+class). Show using the previous two parts that there is a bijection
+$S_{0,1} \backslash C \cong (0, 1)$, where $C \subset S_{0,1}$ is some
+countable subset. Conclude that the uncountability of $S_{0,1}$ (proven in
+class) implies the uncountability of $\R$, $(0, 1)$ or any non-empty
+interval $(a, b)$.
+\ei
+
+\sol
+
+\bi
+\itema
+We will inductively construct a sequence \sequence a 
+(starting with $a_0 = 0$) such that 
+\begin{equation}
+\label{eq:base-p-ineq}
+\sum_{k=0}^{n - 1} \frac{a_k}{p^k} + \frac {a_n} {p^n} \leq x 
+\leq \sum_{k=0}^{n - 1} \frac{a_k}{p^k} + \frac {a_n + 1} {p^n}.
+\end{equation}
+
+Induction basis: by assumption $0 \leq x \leq 1$, so $a_0 = 0$ satisfies
+(\ref{eq:base-p-ineq}).
+
+Induction step: assume (\ref{eq:base-p-ineq}) holds for $n$ and try to
+find $a_{n + 1}$ such that (\ref{eq:base-p-ineq}) holds for $n + 1$.
+Let
+\[
+y := \left(x - \sum_{k=0}^{n} \frac{a_k}{p^k} \right) \cdot p^n.
+\]
+By assumption (\ref{eq:base-p-ineq}) we have that $0 \leq y \leq 1$.
+Let $a_{n + 1}$ be the smallest non-negative integer such that
+\begin{equation}
+\label{eq:smallest}
+a_{n + 1} + 1 \geq py.
+\end{equation}
+Since $y \leq 1$, we have $(p - 1) + 1 \geq py$, so $a_{n + 1} \leq p - 1$.
+Also, because $a_{n + 1}$ was defined to the the \emph{smallest} non-negative 
+integer satisfying (\ref{eq:smallest}), either $a_{n + 1} = 0$ or
+$(a_{n + 1} - 1) + 1 < py$. In either case,
+\[
+a_{n + 1} \leq py \leq a_{n + 1} + 1.
+\]
+After plugging in the expression for $y$ in into the equation above and 
+a couple of algebraic manipulations we get
+\[
+\sum_{k=0}^{n} \frac{a_k}{p^k} + \frac {a_{n + 1}} {p^{n + 1}} \leq x 
+\leq \sum_{k=0}^{n} \frac{a_k}{p^k} + \frac {a_{n + 1} + 1} {p^{n + 1}}
+\]
+which is exactly what we needed to prove in the induction step.
+Induction complete.
+
+Next we will show that the constructed sequence \sequence indeed satisfies
+(\ref{eq:series}). By construction we have
+\[
+0 \leq x - \sum_{k=0}^{n} \frac{a_k}{p^k} \leq \frac 1 {p^n}.
+\]
+Hence, by Squeeze Theorem the sequence 
+$\left\{x - \sum_{k=0}^{n} \frac{a_k}{p^k}\right\}$ converges to 0. Therefore,
+the sequence of partial sums $\sum_{k=0}^{n} \frac{a_k}{p^k}$ converges to $x$ 
+as desired.
+\itemb
+\begin{lemma}
+\label{lem:two-expansions}
+If
+\[
+\sumint n \frac {a_n}{p^n} = \sumint n \frac {b_n}{p^n}
+\]
+for two \emph{distinct} sequences \sequence a and \sequence b such that
+$a_n$ and $b_n$ are integers between 0 and $p - 1$ then there exists a
+non-negative integer $N$ such that (up to switching the sequences 
+\sequence a and \sequence b)
+\bi
+\item
+$a_n = b_n$ for $n < N$,
+\item
+$a_N = b_N + 1$,
+\item
+$a_n = 0$ and $b_n = p - 1$ for $n > N$.
+\ei
+\end{lemma}
+
+Assuming the lemma, if a number $x$ has at lest two distinct base $p$
+expansions \sequence a and \sequence b then
+\[
+x = \sumint n \frac{a_n}{p^n} = \sum_{n = 1}^N \frac{a_n}{p^n} = 
+\frac{q}{p^N}
+\]
+with $q = \sum_{n = 1}^N a_nP^{N - n}$ an integer. Conversely, we can prove 
+that any rational number of the form $q/p^N$ with $q$ an integer between  
+1 and $p^N - 1$ has exactly two base $p$ expansions. We start by
+assuming that $q$ is not divisible by $p$ (otherwise keep dividing both
+$q$ and $p^N$ by $p$ until $q$ is not divisible by $p$).
+Let $q_{N-1}q_{N-2}\ldots q_0$ be a base $p$ expansion of the integer $q$
+(where we add enough zeros at the beginning so that there are exactly
+$N$ digits):
+\[
+q = \sum_{n = 0}^N q_n p^n.
+\]
+Since $q$ is not divisible by $p$, $q_0 > 0$.
+
+Then $q / p^N$ has the following two base $p$ expansions:
+$\{q_{N-1}, q_{N-2}, \ldots, q_1, q_0, 0, 0, 0, \ldots\}$ and 
+$\{q_{N-1}, q_{N-2}, \ldots, q_1, q_0 - 1, p - 1, p - 1, p - 1, \ldots\}$,
+and it cannot have more than two expansions by the lemma.
+
+
+\begin{proof}[Proof of Lemma \ref{lem:two-expansions}]
+Let $N$ be the minimal integer such that $a_N \neq b_N$ (it exists because
+we assumed \sequence a and \sequence b to be distinct). Assume $a_N > b_N$
+(otherwise switch \sequence a and \sequence b). Then $a_n = b_n$ for
+every $n < N$ and $a_{N} \geq b_N$ so
+\begin{align*}
+\sumint n \frac {a_n}{p^n} 
+& \geq \sum_{n=1}^{N - 1} \frac {a_n}{p^n} + \frac {a_N}{p^N} \\
+& = \sum_{n=1}^{N - 1} \frac {b_n}{p^n} + \frac {a_N}{p^N} \\
+& \geq \sum_{n=1}^{N - 1} \frac {b_n}{p^n} + \frac {b_N + 1}{p^N}
+\end{align*}
+with the equalities holding if and only if $a_n = 0$ for all $n > N$
+and $a_N = b_N + 1$. We also have that
+\begin{align*}
+\sumint n \frac {b_n}{p^n}
+& \leq \sum_{n=1}^{N - 1} \frac {b_n}{p^n} + \frac {b_N}{p^N} + 
+\sum_{n = N + 1} ^{\infty} \frac {p - 1}{p^n} \\
+& = \sum_{n=1}^{N - 1} \frac {b_n}{p^n} + \frac {b_N}{p^N} + \frac 1 {p^N}.
+\end{align*}
+with the equality holding if and only $b_n = p - 1$ for every $n \geq N$.
+\end{proof}
+
+\itemc
+Since $0 \leq a_n \leq p - 1$ by the Comparison test it suffices to show
+that the series
+\[
+\sumint n \frac {p - 1} {p^n}
+\]
+converges. The latter series is a geometric series with ratio $\frac 1 p < 1$,
+hence it converges to 
+\[
+\frac {(p - 1)/p} {1 - 1/p} = 1.
+\]
+(Theorem 22.4i). Thus, by Comparison Test (Theorem 26.3i)
+$\sumint n \frac {p - 1} {p^n}$ converges and 
+\[
+0 \leq \sumint n \frac {p - 1} {p^n} \leq 1.
+\]
+\itemd
+In part (b) we showed that all numbers other than those of the form
+$\frac q {2^n}$ have exactly one binary expansion and those of the form
+$\frac q {2^n}$ have exactly two: one ending in infinitely many zeros
+and one ending in infinitely many ones. If we prohibit binary expansions 
+ending in all zeros we get a bijection between $(0, 1)$ and the ``allowed''
+binary expansions.
+
+More precisely, let $C$ is the subset of $S_{0,1}$ 
+consisting of sequences \sequence a for which \thereexistsN,
+$a_n = 0$. The formula (\ref{eq:series}) defines a bijection from
+$S_{0, 1} \backslash C$ to $(0, 1)$. 
+
+To show that $C$ is countable, note that $C$ is equivalent to the set of 
+numbers in $(0, 1)$ that can be written in the form $\frac q {2^n}$, and
+the latter set is a countable union of finite set: there are countably
+many choices of $n$ and for each $n$ there are finitely many choices of $q$.
+
+We know from class that $S_{0,1}$ is uncountable (being equivalent to
+the power set $\mc P(\N)$). Hence, $S_{0,1} \backslash C$ is also uncountable
+(because if it were countable then $S_{0, 1}$ would be a union of two
+countable sets and hence also countable). 
+\ei
+
+\end{document}

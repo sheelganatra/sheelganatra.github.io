@@ -1,0 +1,309 @@
+%!TEX TS-program = xelatex
+
+\documentclass[12pt]{article}
+\usepackage {amsmath, amscd, amsbsy, amsfonts, amsthm, eucal}
+\usepackage{latexsym,amssymb,mathrsfs,bbm}
+\textwidth 6.5in
+\topmargin -.3in
+\oddsidemargin 0in
+\textheight 9in
+\parindent 0 pt
+
+\usepackage{color}
+\definecolor{rltred}{rgb}{0.75,0,0}
+\definecolor{rltgreen}{rgb}{0,0.5,0}
+\definecolor{rltblue}{rgb}{0,0,0.75}
+\def\red{\color{red}}
+\def\black{\color{black}}
+\def\green{\color{rltgreen}}
+\def\blue{\color{rltblue}}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{claim}{Claim}
+
+\newcommand\bi{\begin{itemize}}
+\newcommand\ei{\end{itemize}}
+\newcommand\beq{\begin{equation}}
+\newcommand\eeq{\end{equation}}
+\newcommand\itema{\item[(a)]}
+\newcommand\itemb{\item[(b)]}
+\newcommand\itemc{\item[(c)]}
+\newcommand\itemd{\item[(d)]}
+\newcommand\iteme{\item[(e)]}
+\newcommand\itemf{\item[(f)]}
+\newcommand\itemg{\item[(g)]}
+\newcommand\itemi{\item[(i)]}
+\newcommand\itemii{\item[(ii)]}
+\newcommand\itemiii{\item[(iii)]}
+\newcommand\itemiv{\item[(iv)]}
+\newcommand\itemeq{\item[$\Leftrightarrow$]}
+
+\newcommand\id{\text{id}}
+
+\renewcommand\and{\qquad\text{and}\qquad}
+\renewcommand\|{\ | \ }
+\newcommand\ra{\rightarrow}
+\newcommand\sr{\stackrel}
+\newcommand\mf\mathfrak
+\newcommand\mc\mathcal
+
+\def\manylinedefinition#1{
+\left\{\begin{array}{ll}
+#1
+\end{array}\right.
+}
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+
+\def\pb#1{{\green \bf Problem #1.}\hskip 8pt \black}
+\def\sol{\textbf{Solution:}}
+
+\newcommand\ev{\text{ev}}
+\newcommand\ltwo{\ell^2}
+\newcommand\mfa{\mf a}
+\def\sequence#1{$\{{#1}_n\}$}
+\def\subsequence#1{$\{{#1}_{n_k}\}$}
+\def\sumint#1{\sum_{#1=1}^\infty}
+\def\sumzero#1{\sum_{#1=0}^\infty}
+\def\sumseries#1#2{$\sumint#1 #2_{#1}$}
+\newcommand\e\varepsilon
+\newcommand\limn{\lim_{n \ra \infty}}
+\newcommand\limsupn{\limsup_{n \ra \infty}}
+\newcommand\liminfn{\liminf_{n \ra \infty}}
+%\newcommand\iff{\quad\Leftrightarrow\quad}
+
+\newcommand\Fixaneps{Fix an arbitrary $\e > 0$ }
+\newcommand\foranyeps{for any $\e > 0$ }
+\newcommand\givenanyn{given any $N \in \N$ }
+\newcommand\thereexistsn{there exists an $n \geq N$ }
+\newcommand\thereexistsN{there exists an $N$ such that for every $n \geq N$ }
+\newcommand\foreveryn{for every $n \geq N$ }
+\newcommand\foreveryk{for every $k \geq N$ }
+\newcommand\foreveryx{for every $x \in X$ }
+\newcommand\Foreveryx{For every $x \in X$  }
+
+\newcommand\textbook{Johnsonbaugh and Pfaffenberger}
+\newcommand\notes{Prof. Simon's notes}
+
+\title{hw7-solutions}
+
+\begin{document}
+\centerline{\Large Math 171 Homework 7}
+\centerline{\small (due May 20)}
+\vskip .2in
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 45.2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{45.2}
+
+\bi
+\itema
+Give an example or a subset of $\R$ which is connected but not compact.
+\itemb
+Give an example of a subset of $\R$ which is compact but not connected.
+\itemc
+Characterize the compact connected subsets of $\R$.
+\ei
+
+\sol
+
+\bi
+\itema
+$\R$ is connected by Theorem 45.7 and not compact by Theorem 43.9.
+\itemb
+$\{0, 1\}$ is not connected because the point $\{0\}$ is open and closed in
+$\{0, 1\}$ and compact because it is finite.
+\itemc
+\begin{claim}
+The compact connected subsets of $\R$ are 
+\bi
+\item the empty set,
+\item singleton sets $\{x\}$, $x \in \R$ and
+\item closed intervals $[a, b]$, $a, b \in \R$, $a < b$.
+\ei
+\end{claim}
+
+\begin{proof}
+By Corollary 45.4, the connected subsets of $\R$ are the empty set,
+the singleton sets, bounded intervals (open, closed and half-open),
+rays ($[a, \infty)$ and $(-\infty, a]$) and $\R$ itself. 
+By Theorem 43.9 the compact subsets of $\R$ are the closed bounded sets. 
+Open intervals are not closed. Rays and $\R$ are not bounded. Hence, 
+we get the list in the claim.
+\end{proof}
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 45.5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{45.5}
+Let $X$ be a connected subset of a metric space $M$. Prove that $\overline X$ 
+is connected. Is $\mathring X$ necessarily connected?
+
+\sol
+Assume that $\overline X$ is not connected. We will show that $X$ is also
+not connected. Write $\overline X = U \cup V$ where $U$ and $V$ are disjoint
+non-empty open subsets of $\overline X$. Then $X = (X \cap U) \cup (X \cap V)$
+with $X \cap U$ and $X \cap V$ disjoint open in $X$. To show that $X$
+is not connected it suffices to show that $X \cap U$ and $X \cap V$ are 
+non-empty. Assume that $X \cap U$ is empty. Then $X = X \cap V$, so 
+$X \subset V$.
+We show that this implies that $\bar X = V$ contradicting our assumptions
+that $U$ in nonempty. Indeed, let $x$ be a limit point of $X$ and let
+\sequence x be a sequence of elements of $X$ converging to $x$. Then
+each $x_n$ is contained in $V$. Since $V$ is closed in $\bar X$,
+and $x$ is a limit point of $V$, $x \in V$. 
+
+Next we give an example when $X$ is connected and $\mathring X$ is not
+connected.
+Let 
+\[
+X = ([-2, 0] \times [-2, 0]) \cup ([0, 2] \times [0, 2]).
+\]
+We show that $\mathring X$ is not connected. Because for every $\e > 0$, 
+the point $(-\e/2, \e/2)$ is an element of $B_{\e}((0, 0))$ and 
+not of $X$, $(0, 0) \notin \mathring X$. 
+
+Let $f: \R^2 \ra \R$ be given by $f(x, y) = x + y$. 
+Since $(0, 0) \notin \mathring X$, $f(x, y) \neq 0$ for every 
+$(x, y) \in \mathring X$.
+
+
+Since 
+$f$ is continuous, the set $U := f^{-1}((0, \infty))$ is open
+in $\R^2$. Therefore, $U \cap \mathring X$ is open in $\mathring X$.
+The set $U \cap \mathring X$ is nonempty because it contains 
+the point $(1, 1)$. The set $U \cap \mathring X$ is not all of 
+$\mathring X$ because it does not contain the point $(-1, -1) \in \mathring X$.
+Finally, $U \cap \mathring X$ is closed in $\mathring X$ because
+$U \cap \mathring X = f^{-1}([0, \infty)) \cap \mathring X$.
+Thus, $\mathring X$ is not connected.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 45.7ab
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{45.7}
+
+\bi
+\itema
+Show, by example, that unions and intersections of connected sets are not 
+necessarily connected.
+\itemb
+Prove that if $X$ and $Y$ are connected subsets of $\R$, then
+$X \cap Y$ is connected.
+\ei
+
+\sol
+
+\bi
+\itema
+Consider connected singleton sets $\{0\}$ and $\{1\}$. Their union
+$\{0, 1\}$ is not connected.
+
+
+\itemb
+By Theorem 45.3, it suffices to show that whenever $a, b \in X \cap Y$ with
+$a < b$ then $[a, b] \subset X$. Assume that $a, b \in X \cap Y$. 
+Since $a, b \in X$ and $X$ is connected, by Theorem 45.3, 
+$[a, b] \subset X$. Similarly, $[a, b] \subset Y$. Thus,
+$[a, b] \subset X \cap Y$, as desired.
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 46.2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{46.2}
+Give an example of a complete metric space that is not compact.
+
+\sol
+
+$\R$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 46.3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{46.3}
+Given an example of a connected metric space that is not complete.
+
+\sol
+$\ (0, 1)$ is connected by Corollary 45.4, but not complete because the Cauchy
+sequence $\{1/n\}_{n > 1}$ does not converge in $(0, 1)$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 46.5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{46.5}
+Let $M$ be a metric space.
+\bi
+\itema
+Prove that if $C$ is a complete subset of $M$, then $C$ is closed.
+\itemb
+Prove that if $M$ is complete, then every closed subset of $M$ is complete.
+\ei
+
+\sol
+\bi
+\itema
+Let $x$ be limit point of $C$ in $M$.
+Let \sequence x be a sequence of elements of $C$ converging to an element
+$x$ of $M$. By Theorem 46.2, \sequence x is a Cauchy sequence in $M$.
+Since each $x_n$ is an element of $C$, \sequence x is a Cauchy sequence
+in $C$. Since $C$ is complete, \sequence x converges to some $y \in C$
+as a sequence in $C$. Thus, \sequence x converges to both $x$ and $y$ as
+a sequence in $M$, so $x = y \in C$. Thus, $C$ is contains all of its limit
+points.
+\itemb
+Assume $M$ is complete and let $C$ be a closed subset of $M$. Let
+\sequence x be a Cauchy sequence in $C$. Since $M$ is complete, 
+\sequence x converges to some $x \in M$. Since $C$ is closed
+$x \in C$. Thus, every Cauchy sequence in $C$ converges to an element of $C$.
+\ei
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{1}
+Let $X$ be any two element set, for instance $\{1, 2\}$, endowed with the
+discrete metric. Prove that a metric space $M$ is connected if and only if
+continuous functions $f: M \ra X$ are constant.
+
+\sol
+
+Assume that there exists an non-constant function $f: M \ra X$. 
+Since the singleton sets $\{1\}$ and $\{2\}$ are open in the discrete metric
+and $f$ is continuous it follows that $f^{-1}(\{1\})$ and $f^{-1}(\{2\})$ are
+open subsets of $M$. Since $X = \{1\} \cup \{2\}$ it follows that 
+\[
+M = f^{-1}(\{1\}) \cup f^{-1}(\{2\}).
+\]
+Since $f$ is non-constant, both $f^{-1}(\{1\})$ and $f^{-1}(\{2\})$ and
+are non-empty. Thus, $M$ can be written as a union of two disjoint nonempty 
+open sets $f^{-1}(\{1\})$ and $f^{-1}(\{2\})$, so $M$ is not connected.
+
+Assume $M$ is not connected. Say $M = U \cup V$ with $U$ and $V$ disjoint
+nonempty open subsets of $M$. Define $f: M \ra X$ by
+\[
+f(x) \manylinedefinition{ 
+	1 & \text{if $x \in U$,} \\
+    2 & \text{if $x \in V$.}
+}
+\]
+Then $f$ is continuous because the preimage of every open subset of $X$
+is open in $M$. Indeed, $X$ has 4 subsets: $\emptyset$, $\{1\}$, $\{2\}$, $X$,
+each of them open in $X$. The preimage of each of the 4 subsets of $X$ 
+is open in $M$: $f^{-1}(\emptyset) = \emptyset$, $f^{-1}(\{1\}) = U$,
+$f^{-1}(\{2\}) = V$, $f^{-1}(X) = M$.
+
+\end{document}

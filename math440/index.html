@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p
+{
+    color:black;
+    text-align:left;
+    margin-left:20px;
+}
+ul
+{
+    margin-left:20px;
+/*    list-style-type: upper-roman;*/
+}
+ol
+{
+    margin-left:20px;
+    list-style-type: upper-roman;
+}
+ol ol {
+    list-style-type: decimal;
+}
+h1
+{
+    color:#811;
+    font-size:20pt;
+    text-align:center;
+}
+h2
+{
+    color:gray;
+    font-size:14pt;
+    text-align:center;
+}
+h3
+{
+    color:#811;
+    font-size:16pt;
+    text-align:left;
+}
+h4
+{
+    color:#811;
+    font-size:14pt;
+    text-align:left;
+}
+table.reg
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 900px;
+    border: 1px solid black;
+}
+table.reg th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 10px;
+    background-color: #b99;
+    /*background-color: #99b;*/
+    text-align:left
+}
+table.reg td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+table.hw
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 400px;
+    border: 1px solid black;
+}
+table.hw th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 5px;
+    background-color: #b99;
+    /*background-color: #99b;*/
+    text-align:left
+}
+table.hw td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+
+#newspaper-c
+{
+    /*font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
+    /*font-size: 14px;*/
+    margin: 45px;
+    width: 700px;
+    text-align: left;
+    border-collapse: collapse;
+    /*border: 1px solid #6cf;*/
+    border: 1px solid gray;
+}
+#newspaper-c th
+{
+    padding: 20px;
+    font-weight: normal;
+    font-size: 13px;
+    /*color: #039;*/
+    text-transform: uppercase;
+    border-right: 1px solid #0865c2;
+    border-top: 1px solid #0865c2;
+    border-left: 1px solid #0865c2;
+    border-bottom: 1px solid #fff;
+}
+#newspaper-c td.odd
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color:black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right:none;
+    font-weight:bold;
+}
+#newspaper-c td
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color: black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right: 1px dashed gray;
+}
+
+
+</style>
+</head>
+
+<title> Math 440:  Topology </title>
+<body>
+
+<h1>Math 440: Topology, Fall 2017 </h1>
+<h2> MWF 11:00-11:50am in KAP 147</h2>
+
+<h3>Teaching Staff</h3>
+<table id="newspaper-c" summary="Teaching Staff Info">
+<tbody>
+    <tr>
+        <td class="odd"> Instructor </td>
+        <td> Sheel Ganatra </td>
+        <td class="odd"> TA </td>
+        <td> Viktor Kleen </td>
+    </tr>
+    <tr>
+        <td class="odd"> e-mail </td>
+        <td> sheel (dot) ganatra (at) usc (dot) edu (this is the best way to reach me) </td>
+        <td class="odd"> e-mail </td>
+        <td>  kleen (at) usc (dot) edu </td>
+    </tr>
+    <tr>
+        <td class="odd"> Telephone </td>
+        <td> (213) 740-2417 </td>
+        <td class="odd"> </td>
+        <td>  </td>
+    </tr>
+    <tr>
+        <td class ="odd"> Office Hours </td>
+        <td> 
+            This week: Monday 11-12pm, Tuesday 3-4pm in <b>KAP 266D</b>.
+        </td>
+        <td class ="odd"> Office Hours </td>
+        <td> Monday 12-2pm, Tuesday 1-3pm <b>Math Center (KAP 263)</b>.  </td>
+    </tr>
+</tbody>
+</table>
+
+
+<!--
+<h3> Announcements </h3>
+
+
+<ul>
+
+    <li> <b> 10/2/2017</b>: Our midterm exam will be held this week on <b>Wednesday 10/4</b> in class. In light of this and your HW which is due Monday, all office hours this week are on Monday (VK: 12-1, SG: 1:30-3) or Tuesday (VK: 1-3, SG: 3-4:30).</li>
+
+    <li> <b> 8/21/2017</b>: Welcome to Math 440! Please familiarize yourself with the course syllabus (this website) and exam calendar, and pick up a copy of the course textbook if you have not already. 
+    </li>
+
+</ul>
+-->
+
+<h3>Overview, texbook, and prerequisites</h3>
+<p> 
+Topology provides the language of modern analysis and geometry. This course is
+an introduction to <i>pointset topology</i>, which formalizes the notion of a
+shape (via the notion of a <i>topological space</i>), notions of ``closeness''
+(via open and closed sets, convergent sequences), properties of topological
+spaces (compactness, completeness, and so on), as well as relations between
+spaces (via continuous maps). We will also study many examples, and see some
+applications.
+</p>
+
+<p> Some topics to be covered include:  </p>
+
+<ul>
+    <li>Metric spaces</li>
+    <li>Open and closed subsets </li>
+    <li>Topological spaces and their properties (connectedness, compactness, etc.)</li>
+    <li>Continuous functions</li>
+    <li>Constructions of new topological spaces out of old ones (via products and quotients)</li>
+    <li>Complete metric spaces</li>
+</ul>
+
+<p>As a necessary ingredient, we will recall (and develop) the language of
+<i>set theory</i>. Time permitting, we may include other topics, such as the
+<i>fundamental group</i> of a topological space.</p> </p>
+
+<p> A more detailed lecture plan (updated on an ongoing basis, after each lecture) will be posted below. </p>
+
+
+<p> <i>Textbook</i>: The official course text is <i> Topology </i> (2nd edition) by James R. Munkres. 
+Within this text, we will focus on Part I, particularly Chapters 1-3 (and other portions on an as-needed basis).
+</p>
+
+<p>
+<i>Prerequesites</i>: Math 440 is very proof-oriented and requires a certain level of mathematical sophistication. 
+It is recommended that you take at least one other upper level mathematics
+course before Math 440 (i.e., a MATH course labeled 400 or above), or otherwise
+that you have some comfort or familiarity with writing proofs.
+</p>
+
+<p>
+Math 440 will emphasize a rigorous, proof-intensive development of topics.
+There is some overlap with the topics covered in first semester real analysis
+(Math 425a), particularly with the notion/study of <i>metric spaces</i>, but
+the overall emphasis is rather different.
+</p> 
+
+
+<h3>Grading System</h3>
+<ul>
+    <li> 35% Homework </li>
+    <li> 20% Midterm Exam </li>
+    <li> 15% Project </li>
+    <li> 30% Final Exam </li>
+</ul>
+
+
+
+<h3>Homework Assignments</h3>
+<p> 
+Math 440 will have weekly homework assignments, posted here (a week or more
+before they are due). You can handwrite your solutions, but you are encouraged
+to consider typing your solutions with <i>LaTeX</i>. You may work with others
+and consult references (including the course textbook), but the homework you
+turn in <i>must be written by you independently, in your own language, and you
+    must cite your sources and collaborators.</i>
+</p>
+
+
+<p><i>Late homeworks will not be accepted.</i> In order to accomodate
+exceptional situations such as serious illness, <i>your lowest homework score will
+    be dropped</i> at the end of the semester.</p>
+
+</p>
+
+
+<table class="hw">
+<thead>
+<tr>
+    <th> Due date </th>
+    <th> Assignment </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td> Sept. 1 </td> 
+    <td>
+        <a href="hw/hw1.pdf">Homework 1</a>.
+        <a href="hw/hw1_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+<tr>
+    <td> Sept. 8 </td> 
+    <td>
+        <a href="hw/hw2.pdf">Homework 2</a>.
+        <a href="hw/hw2_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+
+<tr>
+    <td> Sept. 15 </td> 
+    <td>
+        <a href="hw/hw3.pdf">Homework 3</a>.
+        <a href="hw/hw3_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+
+<tr>
+    <td> Sept. 22 </td> 
+    <td>
+        <a href="hw/hw4.pdf">Homework 4</a>.
+        <a href="hw/hw4_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+
+<tr>
+    <td> Oct. 2 </td> 
+    <td>
+        <a href="hw/hw5.pdf">Homework 5</a>.
+        <a href="hw/hw5_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+
+<tr>
+    <td> Oct. 16 </td> 
+    <td>
+        <a href="hw/hw6.pdf">Homework 6</a>.
+        <a href="hw/hw6_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+<tr>
+    <td> Oct. 27 </td> 
+    <td>
+        <a href="hw/hw7.pdf">Homework 7</a>.
+        <a href="hw/hw7_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+<tr>
+    <td> Nov. 8 </td> 
+    <td>
+        <a href="hw/hw8.pdf">Homework 8</a>.
+        <a href="hw/hw8_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+
+<tr>
+    <td> Nov. 30 </td> 
+    <td>
+        <a href="hw/hw9.pdf">Homework 9 (half weight)</a>.
+        <a href="hw/hw9_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+
+</tbody>
+</table>
+
+
+<p> <i>Note</i>: we are looking not just for valid proofs, but also a readable,
+well explained ones (and indeed, you will be partly graded on readability).
+This means you should try to use complete sentences, insert explanations, and
+err on the side of writing out "for all" and "there exist", etc. symbols if
+there is any chance of confusion.</p>
+
+<p> <i>For further advice on writing your homework (and project paper)</i>, see: 
+<ul>
+    <li> Prof. J. Munkres' <a href="https://math.mit.edu/~jhirsh/top_comments.pdf">Comments on Style</a>.</li>
+
+    <li> Prof. K. Conrad's guide to (common) <a href="http://www.math.uconn.edu/~kconrad/math216/mathwriting.pdf">Errors in Mathematical Writing</a>.</li>
+
+    <li> Prof. M. Hutchings' <a href="https://math.berkeley.edu/~hutching/teach/proofs.pdf">Introduction to mathematical arguments</a> (including a review of logic and common types of proofs).</li>
+</ul>
+
+    
+    
+    </p>
+
+
+
+<h3> Exams </h3>
+<p>
+<ul>
+    <li> The <i>midterm exam</i> was held on <b>Wednesday, October 4</b>, <b>in class</b> (e.g., at the usual time 11:00am-11:50am, in the usual place KAP 147). <a href="midterm.pdf">Here</a> is the exam. <a href="midterm_solutions.pdf">Here</a> are solutions.</li>
+
+
+    <li> The <i>final exam</i> will be held on <b>Wednesday, December 6</b> from <b>11 am to 1 pm</b>, location <b>TBD</b>.</li>
+</ul>
+</p>
+
+<p>Both exams are <i>closed book</i>, <i>closed notes</i> exams, with no calculators or other electronic aids permitted. The final exam will be cumulative, but will have greater emphasis on topics developed after the midterm.</p>
+
+<h3> Project </h3>
+
+<p>A portion of your class grade will be based upon a project exploring an
+aspect of topology beyond the topics covered in class. Concretely, with a small group
+of 2-3 students, you will be asked to write a <i>short expository article</i>
+(around 4-6 pages, typed), and give an <i>in-class 20 min presentation</i>. The topic
+of study will be chosen in consultation with the Instructor.
+</p>
+
+<p> The project assignment is posted <a href="project_assignment.pdf">here</a>. Key dates:
+<ul>
+    <li> <b>Tuesday, 10/31 at 1 pm</b>: decide on group and top 2-3 project choices, and e-mail Instructor.</li>
+    <li> <b>Friday, 11/10 at 4 pm</b>: Submit outline to Instructor and Viktor.  </li>
+    <li> <b>Monday, 11/20 at 10 am</b>: Submit first draft to Instructor and Viktor.  </li>
+    <li> <b>Friday, 12/1 at 4 pm</b>: Submit final draft to Instructor and Viktor.</li>
+    <li> Class presentations: <b>November 20, November 27, November 29, and December 1 in class</b></li>
+</ul>
+</p>
+
+
+
+
+
+
+<h4> Students with Disabilities</h4>
+<p>
+Any student requesting academic accommodations based on a disability is
+required to register with <a href="https://dsp.usc.edu">Disability Services and Programs (DSP)</a> each semester.
+A letter of verification for approved accommodations can be obtained from DSP.
+<i>If required, please make sure that the DSP letter (for approved accomodations) is delivered to me as early in the semester as
+    possible</i>.  For more details, see the DSP web site 
+<a href="https://dsp.usc.edu/">here</a>; in particular contact information is <a href="http://dsp.usc.edu/contact/">here</a>.
+</p>
+
+<h4> Academic Integrity </h4>
+
+<p>
+The instructor strongly adheres to the University policies regarding principles
+of academic honesty and academic integrity violations, and will strictly
+enforce these rules. You are encouraged to review those, for instance in
+SCampus, the Student Guidebook (see e.g., University Governance, Section 11.00
+and Appendix A).  
+</p>
+
+<h3> Disclaimer </h3>
+<p>This syllabus is not a contract, and the Instructor reserves the right to make some changes during the semester.</p>
+
+
+<h3> Lecture Plan </h3>
+<p> Lecture topics by day will be posted on an ongoing basis below. Future
+topics are tentative and will be adjusted as necessary. </p> 
+<table class="reg">
+<thead>
+<tr> 
+    <th> Day </th> 
+    <th> Lecture topics </th> 
+    <th> References and remarks </th> 
+    <th> Notes </th>
+</tr>
+</thead>
+<tbody>
+    <tr>
+        <td> <i> Aug. 21</i> </td>
+        <td> 
+            Welcome and overview of class (e.g., ''what is topology?'') A review of mathematical notation, and some basic set theory (sets and their basic operations--union, intersection, complement). </td>
+        <td> Munkres Chapter 1.1   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Aug. 23</i> </td>
+        <td> More set theory: Cartesian products and functions between sets. A review of logic (particularly statements such as "If P then Q" and variants such as the contrapositive, converse, and negation). </td>
+        <td> Munkres Chapter 1.1, 1.2   </td>
+        <td>  </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Aug. 25</i> </td>
+        <td> Injections, surjections, and bijections. Preimages and images of sets under functions. Countability and uncountability. Indexed families of sets (we began this topic, to be reviewed Monday). </td>
+        <td> Munkres Chapter 1.2, 1.5 (for indexed families of sets)   </td>
+        <td>  </td>
+    </tr>
+
+    <tr>
+        <td> <i> Aug. 28</i> </td>
+        <td> Indexed families of sets and operations on them: union, intersection, and product. Equivalence relations.
+        </td>
+        <td> Munkres Chapter 1.5 (for indexed families), 1.3 (for equivalence relations)   </td>
+        <td>  </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Aug. 30</i> </td>
+        <td> Some exercises involving set theoretic identities (for instance, De Morgan's law, applied to the complement of a union or intersection of a family of sets). An introduction to <i>metric spaces</i>. </td>
+        <td> Munkres Chapter 1.5, beginning of 2.20 (in particular, the definition of a metric, an epsilon-ball, and the definition of an "open set" at the top of p. 120).   </td>
+        <td> For now, ignore the definition of "metric topology" or "metrizable" (we have not yet defined a "topology" or a "basis for a topology." </td>
+    </tr>
+
+    <tr>
+        <td> <i> Sept. 1</i> </td>
+        <td> 
+            Examples of metric spaces: R^n with its Euclidean, taxi-cab, and max (or 'square') metrics. The L2 metric, and the 2-adic metric. Open balls and open sets in metric spaces.
+        </td>
+        <td> Munkres, beginning of 2.20 (in particular, the definition of a metric, an epsilon-ball, and the definition of an "open set" at the top of p. 120).   </td>
+        <td> For now, ignore the definition of "metric topology" or "metrizable" (we have not yet defined a "topology" or a "basis for a topology." </td>
+    </tr>
+
+    <tr>
+        <td> <i> Sept. 6</i> </td>
+        <td> 
+            More examples of open sets in metric spaces: open balls are in particular open sets. Behavior of open sets with respect to union and intersection. Closed sets, and first examples.
+        </td>
+        <td> Munkres, beginning of 2.20 (in particular, the definition of a metric, an epsilon-ball, and the definition of an "open set" at the top of p. 120).   </td>
+        <td> For now, ignore the definition of "metric topology" or "metrizable" (we have not yet defined a "topology" or a "basis for a topology." </td>
+    </tr>
+
+    <tr>
+        <td> <i> Sept. 8</i> </td>
+        <td> 
+            More closed sets. Continuous functions between metric spaces (given using the epsilon-delta definition). A function between metric spaces is continuous if and only if the preimage of every open set is open.
+        </td>
+        <td> Munkres, beginning of 2.20 (in particular, the definition of a metric, an epsilon-ball, and the definition of an "open set" at the top of p. 120).   </td>
+        <td> For now, ignore the definition of "metric topology" or "metrizable" (we have not yet defined a "topology" or a "basis for a topology." </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Sept. 11</i> </td>
+        <td> 
+            A function between metric spaces is continuous if and only if the preimage of every open set is open. Compositions of continuous functions are continuous. More examples: distance to a point is continuous. Every function from a discrete metric space is continuous.
+        </td>
+        <td> Munkres, beginning of 2.20 (in particular, the definition of a metric, an epsilon-ball, and the definition of an "open set" at the top of p. 120).   </td>
+        <td> For now, ignore the definition of "metric topology" or "metrizable" (we have not yet defined a "topology" or a "basis for a topology." </td>
+    </tr>
+
+    <tr>
+        <td> <i> Sept. 13</i> </td>
+        <td> 
+            Sequences and convergent sequences in a metric space. A function between metric spaces is continuous if and only if it is <i>sequentially continuous</i>, meaning the image of a every convergent sequence (with limit x) is again convergent (with limit (f(x))).
+        </td>
+        <td> Sequences in sets are defined in Munkres p. 38. Convergent sequences are defined (in arbitrary topological spaces in Munkres 2.17, specifically on page 98 - to get the definition of metric space, replace "for each open U" by "for each epsilon ball B(x,epsilon)" in the definition.). The main result we covered is discussed in Munkres 2.21 (specifically Theorem 21.3--where, since we are working with a metric space, you can ignore the condition "the converse holds if X is metrizable"--the converse always holds for metric spaces.).   </td>
+        <td>  </td>
+    </tr>
+
+    <tr>
+        <td> <i> Sept. 15</i> </td>
+        <td> 
+            More about continuity being equivalent to sequential continuity. The definition of an abstract topological space.
+        </td>
+        <td> See references mentioned in previous lecture. Abstract topological spaces are the subject of Munkres 2.12.    </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Sept. 18</i> </td>
+        <td> 
+            More about (abstract) topological spaces. A fundamental example: every metric space has an underlying topological space (with topology given by open subsets of the space with respect to the metric). Closed sets and their properties. The notion of a <i>metrizable</i> topological space. Examples of non-metrizable topological spaces.
+        </td>
+        <td> Munkres 2.12. Munkres 2.17 Theorem 17.1 (for properties of closed sets). Munkres 2.20 p. 120 for the definition of metrizable.   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Sept. 20</i> </td>
+        <td> 
+            Continuous functions between topological spaces. Compositions of
+            continuous functions are continuous. <i>Homeomorphisms</i> between
+            topological spaces (continuous bijections with continuous
+            inverses), and an example of a continuous bijection that is not a
+            homeomorphism. The idea that homeomorphisms are "dictionaries" that
+            equate properties involving the topology on one space to properties
+            involving the topology on another space. 
+        </td>
+        <td> Munkres 2.18 (caveats: in Theorem 18.1, we've so far only proved
+            that (1) and (3) are equivalent. Also, in Theorem 18.2, we've only
+            discussed (a) and (c) so far, and haven't covered 18.3).  </td>
+        <td>  </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Sept. 22</i> </td>
+        <td> 
+            Homeomorphisms continued. The closure of a subset.
+        </td>
+        <td> Munkres 2.17.   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Sept. 25</i> </td>
+        <td> 
+            Operations on topological spaces: closure (continued from last time), and the relation to limit points of a set. The interior of a set.
+
+        </td>
+        <td> Munkres 2.17.   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Sept. 27</i> </td>
+        <td> 
+            More about the interior of a set, and the boundary of a set.
+            Subspaces of topological spaces.  
+        </td>
+        <td> Munkres 2.17, Munkres 2.16.   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Sept. 29</i> </td>
+        <td> 
+            More about subspaces of topological spaces, with examples. Continuous functions from subspaces.
+        </td>
+        <td> Munkres 2.16.   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Oct. 2</i> </td>
+        <td> 
+            More subspaces. A basis for a topology.
+        </td>
+        <td> Munkres 2.13 (definition of basis) and 2.16.   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Oct. 4</i> </td>
+        <td> 
+            <i>Midterm exam</i> in class.
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Oct. 6</i> </td>
+        <td> 
+            More about a basis for a topology.
+        </td>
+        <td> Munkres 2.13  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Oct. 9</i> </td>
+        <td> 
+            The product topology (which requires a basis to define).
+        </td>
+        <td> Munkres 2.19  </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Oct. 11</i> </td>
+        <td> 
+            Properties of topological spaces: the Hausdorff (aka T2) and T1
+            axioms. Metric spaces are always Hausdorff and always satisfy T1. 
+        </td>
+        <td> Munkres 2.17 (see section title "Hausdorff spaces")  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Oct. 13</i> </td>
+        <td> 
+            Connectedness. The relationship of connectedness with the notion of a separation. Examples of connected and non-connected spaces.
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Oct. 16</i> </td>
+        <td> 
+            More examples around connectedness: A subset of R (equipped with
+            the subspace topology) is connected if and only if it is an
+        interval.  
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Oct. 18 </i> </td>
+        <td> 
+       Images of connected sets under continuous maps are continuous. Unions of
+       subsets which are each connected (in the subspace topology) and which
+       have non-empty intersection remain connected.  Finite products of
+       connected spaces are connected.
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Oct. 20 </i> </td>
+        <td> 
+            Paths, and the definition of <i>path-connectedness</i>. If a space
+            is path connected, it is connected too (but not necessarily vice
+        versa!).  
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Oct. 23 </i> </td>
+        <td> 
+            An example of a space which is connected but not path connected:
+            the <i>topologists' sine curve</i>. Open covers, and their
+            subcovers. An introduction to <i>compactness</i>. First examples of
+            compact and non-compact spaces.
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Oct. 25 </i> </td>
+        <td> 
+            More examples of compact and non-compact spaces. The closed
+            interval [0,1] is compact.  
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Oct. 27 </i> </td>
+        <td> 
+            If Y is a subset of X, then the two notions of compactness we've
+            discussed (for Y as a subset of X, and for Y thought of as
+            asubspace) agree. Closed intervals [a,b] of R are compact (in
+            either sense). A list of some methods for constructing compact
+            subsets: 1) closed intervals in R are compact, 2) finite products
+            are compact, 3) images of compact subsets under continuous maps are
+            compact, 4) closed subsets of compact spaces are compact, and 5)
+            the Heine-Borel theorem: a subset of R^n is compact iff it's closed
+            and bounded (with respect to the standard metric).
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Oct. 30 </i> </td>
+        <td> 
+            Proofs of some assertions about compact sets: images of compact
+            sets are compact, closed subsets of compact spaces are compact, and
+            half of the proof that products of compact spaces are compacts: the
+            Tube Lemma.
+
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Nov. 1 </i> </td>
+        <td> 
+            Completed proof that products of compact spaces are compact.
+            Compact subsets of Hausdorff spaces are closed, and compact subsets
+            of metric spaces are always bounded. In R^n, a subset is compact
+            iff it is closed and bounded (the Heine-Borel theorem).
+
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Nov. 3 </i> </td>
+        <td> 
+            The extreme value theorem. Any continuous bijection from a compact
+            space to a Hausdorff space is automatically a homeomorphism.
+            Other notions of compactness: <i>sequential compactness</i> and <i>limit point compactness</i> which are equivalent to compactness
+            for metric spaces. In complete generality, compactness and sequential
+            compactness both imply limit point compactness, but compactness and sequential compactness are not equivalent (and one doesn't imply the other).  </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Nov. 6 </i> </td>
+        <td> 
+            If X is compact, then X is limit point compact. Quotient maps of sets (i.e., surjective maps of sets), and the definition of the <i>quotient topology</i>. Examples of quotient maps of sets coming from <i>partitions</i>, which in turn are often sets of equivalence classes under an equivalence relation.
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Nov. 8 </i> </td>
+        <td> 
+            More about the quotient topology: a proof that it's actually a topology. A key lemma on how to construct maps out of the quotient: if f: X --> Y is any map of sets, and if p: X --> bar(X) is a quotient map of sets, when does there exist a map bar(f): bar(X) --> Y satisfying bar(f) composed with p = f? Furthermore, if f was a continuous map between spaces, then bar(f) becomes continuous with respect to the quotient topology on 
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+    
+    <tr>
+        <td> <i> Nov. 10 </i> </td>
+        <td> 
+            <i> No class</i>.
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Nov. 13 </i> </td>
+        <td> 
+            More about the quotient topology (on bar(X) induced by a space X and a quotient map of sets p: X --> bar(X)): it is the largest topology for which p is continuous. A review of one way to construct functions out of bar(X). Examples of quotient spaces: the circle as the quotient of [0,1] by identifying 0 and 1, the torus as the quotient of the square by identifying opposite sides, and the Mobius strip as the quotient of the square by identifying two opposite sides, with a twist.
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Nov. 15 </i> </td>
+        <td> 
+            The example of the torus as a quotient space (of [0,1] x [0,1]) in some detail: what are open sets on the quotient, in terms of subsets of the original space?
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Nov. 17 </i> </td>
+        <td> 
+            Fundamental group I: all about paths, homotopies of paths (rel endpoints), and concatenation of paths. The definition of the fundamental group.
+        </td>
+        <td> Some <a href="fundamental_group.pdf">handwritten notes</a> on fundamental group.  </td>
+        <td> Not on the final exam.</td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Nov. 20 </i> </td>
+        <td> 
+            Some more about the fundamental group. <i>Project presentations begin</i>.
+        </td>
+        <td> Some <a href="fundamental_group.pdf">handwritten notes</a> on fundamental group.  </td>
+        <td> Not on the final exam.</td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Nov. 27 </i> </td>
+        <td> 
+            <i>Project presentations</i>.
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Nov. 29 </i> </td>
+        <td> 
+            <i>Project presentations</i>.
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Dec. 1 </i> </td>
+        <td> 
+            <i>Project presentations</i>.
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+</tbody>
+</table>
+</body>
+
+</html>

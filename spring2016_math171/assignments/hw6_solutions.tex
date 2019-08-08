@@ -1,0 +1,892 @@
+%!TEX TS-program = xelatex
+
+\documentclass[12pt]{article}
+\usepackage {amsmath, amscd, amsbsy, amsfonts, amsthm, eucal}
+\usepackage{latexsym,amssymb,mathrsfs,bbm}
+\textwidth 6.5in
+\topmargin -.3in
+\oddsidemargin 0in
+\textheight 9in
+\parindent 0 pt
+
+\usepackage{color}
+\definecolor{rltred}{rgb}{0.75,0,0}
+\definecolor{rltgreen}{rgb}{0,0.5,0}
+\definecolor{rltblue}{rgb}{0,0,0.75}
+\def\red{\color{red}}
+\def\black{\color{black}}
+\def\green{\color{rltgreen}}
+\def\blue{\color{rltblue}}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand\bi{\begin{itemize}}
+\newcommand\ei{\end{itemize}}
+\newcommand\beq{\begin{equation}}
+\newcommand\eeq{\end{equation}}
+\newcommand\itema{\item[(a)]}
+\newcommand\itemb{\item[(b)]}
+\newcommand\itemc{\item[(c)]}
+\newcommand\itemd{\item[(d)]}
+\newcommand\iteme{\item[(e)]}
+\newcommand\itemf{\item[(f)]}
+\newcommand\itemg{\item[(g)]}
+\newcommand\itemi{\item[(i)]}
+\newcommand\itemii{\item[(ii)]}
+\newcommand\itemiii{\item[(iii)]}
+\newcommand\itemiv{\item[(iv)]}
+\newcommand\itemeq{\item[$\Leftrightarrow$]}
+
+\newcommand\id{\text{id}}
+
+\renewcommand\and{\qquad\text{and}\qquad}
+\renewcommand\|{\ | \ }
+\newcommand\ra{\rightarrow}
+\newcommand\sr{\stackrel}
+\newcommand\mf\mathfrak
+\newcommand\mc\mathcal
+
+\def\manylinedefinition#1{
+\left\{\begin{array}{ll}
+#1
+\end{array}\right.
+}
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+
+\def\pb#1{{\green \bf Problem #1.}\hskip 8pt \black}
+\def\sol{\textbf{Solution:}}
+
+\newcommand\ev{\text{ev}}
+\newcommand\ltwo{\ell^2}
+\newcommand\mfa{\mf a}
+\def\sequence#1{$\{{#1}_n\}$}
+\def\subsequence#1{$\{{#1}_{n_k}\}$}
+\def\sumint#1{\sum_{#1=1}^\infty}
+\def\sumzero#1{\sum_{#1=0}^\infty}
+\def\sumseries#1#2{$\sumint#1 #2_{#1}$}
+\newcommand\e\varepsilon
+\newcommand\limn{\lim_{n \ra \infty}}
+\newcommand\limsupn{\limsup_{n \ra \infty}}
+\newcommand\liminfn{\liminf_{n \ra \infty}}
+%\newcommand\iff{\quad\Leftrightarrow\quad}
+
+\newcommand\Fixaneps{Fix an arbitrary $\e > 0$ }
+\newcommand\foranyeps{for any $\e > 0$ }
+\newcommand\givenanyn{given any $N \in \N$ }
+\newcommand\thereexistsn{there exists an $n \geq N$ }
+\newcommand\thereexistsN{there exists an $N$ such that for every $n \geq N$ }
+\newcommand\foreveryn{for every $n \geq N$ }
+\newcommand\foreveryk{for every $k \geq N$ }
+\newcommand\foreveryx{for every $x \in X$ }
+\newcommand\Foreveryx{For every $x \in X$  }
+
+\newcommand\textbook{Johnsonbaugh and Pfaffenberger}
+\newcommand\notes{Prof. Simon's notes}
+
+\title{hw6-solutions}
+
+\begin{document}
+\centerline{\Large Math 171 Homework 6}
+\centerline{\small (due May 13)}
+\vskip .2in
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 42.3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{42.3}
+Let $X_1, \ldots, X_n$ be a finite collection of compact subsets of a metric
+space $M$. Prove that $X_1 \cup X_2 \cup \cdots \cup X_n$ is a compact metric
+space. Show (by example) that this result does not generalize to infinite
+unions.
+
+\sol
+
+Let $\mc U$ be an open cover of $X_1 \cup \ldots \cup X_n$. Since each
+$X_i$ is compact, there exists a finite subcollection $\mc U_i$ of 
+$\mc U$ that covers $X_i$. Then $\bigcup_i \mc U_i$ is a finite subcollection
+of $\mc U$ that covers $X_1 \cup \ldots \cup X_n$.
+
+For an counterexample with infinite unions, consider
+$\bigcup [-1 + 1/n, 1 - 1/n] = (0, 1)$. Since each interval 
+$[-1 + 1/n, 1 - 1/n]$ is closed and bounded, it is compact. However, 
+$(0, 1)$ is not closed, so it is not compact.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 42.8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{42.8}
+Let $f$ be a continuous, real-valued function on a metric space $M$ which is
+never zero. Prove that the collection of open sets $U$ for which either 
+$f(x) > 0$ for $x \in U$ or $f(x) < 0$ for $x \in U$ is an open cover of $M$.
+
+\sol
+
+It suffices to show that for every $x \in M$ there exists an element $U$ of
+the collection containing $x$. Without loss of generality, assume that 
+$f(x) > 0$. Then, by continuity of $f$ there exists a ball $B_{\delta}(x)$
+such that for every $y \in B_{\delta}(x)$, $f(y) > 0$. Then, $B_{\delta}(x)$
+is the desired element of the collection of open sets.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 42.12
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{42.12}
+A \emph{contractive mapping} on $M$ is a function $f$ from the metric space
+$(M, d)$ into itself satisfying 
+\[
+d(f(x), f(y)) < d(x, y)
+\]
+whenever $x, y \in M$ with $x \neq y$. Prove that if $f$ is a contractive 
+mapping on a compact metric space $M$, then there exists a unique point
+$x \in M$ with $f(x) = x$. (Such a point is called a \emph{fixed point}.)
+
+\sol
+
+\emph{Existence.}
+Consider the function $F: M \ra [0, \infty)$ given by 
+\[
+F(x) = d(x, f(x)).
+\]
+
+We show that $F$ is continuous. Fix $x \in M$ and $\e > 0$. Since
+$f$ is continuous, there exists $\delta > 0$ such that for every
+$y$ in $B_{\delta}(x)$ we have that $d(f(x), f(y)) < \e/2$.
+Let $\delta' = \min\{\e/2, \delta\}$. Then for every
+$y$ in $B_{\delta'}(x)$ we have that
+\begin{align*}
+d(y, f(y)) 
+& \leq d(x, y) + d(x, f(y)) \\
+& \leq d(x, y) + d(x, f(x)) + d(f(x), f(y)) \\
+& < \delta' + d(x, f(x)) + \frac \e 2 \\
+& \leq \e + d(x, f(x)).
+\end{align*}
+and by the same argument with $x$ and $y$ switched we also have that
+\[
+d(x, f(x))  < \e + d(y, f(y)).
+\]
+Thus, for every $y$ in $B_{\delta'}(x)$ we have that
+\[
+|F(x) - F(y)| < \e,
+\]
+so $F$ is continuous.
+
+Since $F$ is continuous,
+by Theorem 42.6 $F(x)$ attains a minimum at a point $x_0 \in M$. If 
+$F(x_0) = 0$ then $f(x_0) = x_0$, so we are done. Assume $F(x_0) > 0$. 
+Then, $f(x_0) \neq x_0$, so
+\[
+F(f(x_0)) = d(f(f(x_0)), f(x_0)) < d(f(x_0), x_0) = F(x_0),
+\]
+contradicting the assumption that $x$ was a minimum of $F$. Thus,
+$F(x_0) = 0$.
+
+\emph{Uniquence.}
+Assume that there are two distinct fixed point $x$ and $y$ of $f$. Then 
+on one hand
+\[
+d(f(x), f(y)) = d(x, y)
+\]
+because $f(x) = x$ and $f(y) = y$, but on the other hand
+\[
+d(f(x), f(y)) < d(x, y),
+\]
+so we get a contradiction. Thus, the fixed point is unique.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 43.2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{43.2}
+Let $M_1$ and $M_2$ be compact metric spaces. Prove that the product metric
+space $M_1 \times M_2$ is compact.
+
+\sol
+
+By Theorem 43.5, it suffices to show that any sequence 
+$\{(x_n, y_n\}$ in $M_1 \times M_2$ has a convergent subsequence. 
+Since, $M_1$ is compact, there exists a subsequence 
+$\{(x_{n_k}, y_{n_k}\}$ of $M_1 \times M_2$ whose first coordinates 
+\subsequence x converge to some $x \in M_1$. Since, $M_2$ is compact there
+exists a further subsequence $\{(x_{n_{k_l}}, y_{n_{k_l}}\}$ of 
+$\{(x_{n_k}, y_{n_k}\}$ whose second coordinates
+$\{ y_{n_{k_l}}\}$ converge to some $y \in M_2$. Since  $\{x_{n_{k_l}}\}$
+is a subsequence of \subsequence x,
+$\{x_{n_{k_l}}\}$ converges to $x$. Therefore, by Problem 4 on the 
+midterm,
+$\{(x_{n_{k_l}}, y_{n_{k_l}}\}$ converges to $(x, y) \in M_1 \times M_2$.
+Thus, the sequence $\{(x_n, y_n\}$ has a convergent subsequence 
+$\{(x_{n_{k_l}}, y_{n_{k_l}}\}$, so $M_1 \times M_2$ is compact.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 43.7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{43.7}
+Let $X$ be a compact subset of a metric space $M$. If $y \in X^c$, prove 
+that there exists a point $a \in X$ such that 
+\beq
+\label{eq:min}
+d(a, y) \leq d(x, y) \qquad \text{for all } x \in X.
+\eeq
+Give an example to show that the conclusion may fail if ``compact'' is
+replaced by ``closed''.
+
+\sol
+Fix $y \in X^c$. Consider the function $f: X \ra [0, \infty)$ given by
+\[
+f(x) := d(x, y).
+\]
+
+We know that $f$ is continuous. Since $X$ is compact, $f$ attains a minimum
+at some $a \in X$. The point $a$ satisfies (\ref{eq:min}).
+
+\emph{Counterexample for closed.} Let $M = (0, 1] \cup (2, 3)$ with the 
+relative metric and let $X = (2, 3)$. Because $X$ is the intersection of 
+a closed subset $[2, 3]$ of $\R$ with $M$, $X$ is closed in $M$.
+Let $y = 1$. For every $a \in X$ we have that $a > 2$. Choose some element
+$x \in (2, a)$. Then $x \in X$ and 
+\[
+d(x, y) = x - 1 < a - 1 = d(a, y).
+\]
+Thus, for $X$ only closed the conclusion of the problem fails.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 44.1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{44.1}
+Give an example of metric spaces $M_1$ and $M_2$ and a continuous function $f$
+from $M_1$ onto $M_2$ such that $M_2$ is compact, but $M_1$ is not compact.
+
+\sol
+
+Let $M_1 = \R$, let $M_2$ consist of a single point $p$ and let 
+$f: M_1 \ra M_2$ be given by $f(x) = p$ for all $x \in \R$. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 44.6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{44.6}
+Let $f$ be a one-to-one function from a metric space $M_1$ onto a metric
+space $M_2$. If $f$ and $f^{-1}$ are continuous, we say that $f$ is a
+\emph{homeomorphism} and that $M_1$ and $M_2$ are 
+\emph{homeomorphic} metric spaces.
+
+\bi
+\itema
+Prove that any two closed intervals of $\R$ are homeomorphic.
+\itemb
+Prove (a) with ``closed'' replaced by ``open''; then by ``half-open.''
+\itemc
+Prove that a closed interval is not homeomorphic to either an open interval or 
+a half-open interval.
+\itemd
+Let $M$ be a metric space and let $G(M)$ denote the set of homeomorphisms of
+$M$ onto $M$.
+\bi
+\itemi
+Prove that $G(M)$ is a group under composition.
+\itemii
+Identify the group $G(M)$ in case $M$ is finite.
+\itemiii
+Prove that if $M_1$ and $M_2$ are homeomorphic metric spaces, then 
+$G(M_1)$ is isomorphic to $G(M_2)$.
+\itemiv
+Show, by example, that the converse of (iii) does not hold.
+\ei
+\iteme
+Prove that any metric space $M$ is homeomorphic to a metric space
+$(M^*, d)$ where $d$ is bounded by 1.
+\itemf
+Let $M$ be a separable metric space. Prove that there is a one-to-one
+continuous function $f$ from $M$ to $H^\infty$.
+\itemg
+Prove that a metric space $M$ is compact if and only if $M$ is homeomorphic
+to a closed subset of $H^\infty$.
+\ei
+
+\sol
+
+\bi
+\itema
+Given two intervals $[a, b]$ and $[c, d]$, the function $f:[a, b] \ra [c, d]$
+given by
+\beq
+\label{eq:fw}
+f(x) = c + \frac {x - a}{b - a}(d - c)
+\eeq
+is continuous with a continuous inverse $g:[c, d] \ra [a, b]$
+\beq
+\label{eq:bw}
+g(y) = a + \frac {y - c}{d - c}(b - a).
+\eeq
+\itemb
+The same formulas (\ref{eq:fw}) and (\ref{eq:bw}) define pairs of continuous
+functions which are inverses of each other: $f_{open}:(a, b) \ra (c, d)$ and 
+$g_{open}:(c, d) \ra (d, c)$, as well as
+$f_{left}:[a,b) \ra [c, d)$ and $g_{left}:[c, d) \ra [a, b)$,
+as well as 
+$f_{right}:(a,b] \ra [c, d)$ and $g_{right}:(c, d] \ra [a, b)$.
+
+To show that $[a, b)$ is homeomorphic to $(c, d]$, we consider the continuous
+function
+$\tilde f: [a, b) \ra (c, d]$ given by
+\[
+\tilde f(x) = d - \frac {x - a}{b - a}(d - c)
+\]
+and its continuous inverse
+\[
+\tilde g(y) = a + \frac {d - y}{d - c}(b - a).
+\]
+\itemc
+Because any closed interval is closed and bounded, it is compact. 
+Because any open interval and any half-open interval is not closed,
+it is not compact.
+\itemd
+\bi
+\itemi
+We check the axioms of a group for $G(M)$:
+\bi
+\item \emph{Closure.} If $f, g: M \ra M$ are homeomorphisms then so is
+$f \circ g$, because $f \circ g$ is continuous and has a continuous inverse
+$g^{-1} \circ f^{-1}$.
+\item \emph{Identity element.} The identity function $\id_M:M \ra M$ given by
+$\id_M(x) = x$ satisfies the properties of the identity element of $G(M)$.
+Namely, for every $f \in G(M)$ and $x \in M$, we have that
+\[
+(f \circ \id_M)(x) = f(\id_M(x)) = f(x)
+\]
+and
+\[
+(\id_M \circ f)(x) = \id_M(f(x)) = f(x)
+\]
+\item \emph{Associativity.} For any triple of elements $f, g, h \in G(M)$ and
+$x \in M$ we have that
+\[
+(f \circ (g \circ h))(x) = f((g \circ h)(x)) = f(g(h(x))) = 
+(f \circ g)(h(x)) = ((f \circ g) \circ h)(x).
+\]
+\item \emph{Existence of inverses.} For any $f \in G(M)$, the inverse function
+$f^{-1}: M \ra M$ is continuous and has a continuous inverse $f$, hence
+$f^{-1}\in G(M)$. Moreover, $f^{-1}$ satisfies the properties of a group
+inverse: $f \circ f^{-1} = \id_M$ and $f^{-1} \circ f = \id_M$.
+\ei
+\itemii
+Let $M$ be a finite set $\{x_1, \ldots, x_n\}$. Any subset of $M$ is 
+open, hence by Theorem 40.5iii, any function $f: M \ra M$ is continuous.
+Therefore, a function $f: M \ra M$ is a homeomorphism if and only if
+it has an inverse function $f^{-1}$, i.e. if and only if $f$ is a bijection.
+Such an $f$ is also known as a \emph{permutation}, so $G(M)$ is the
+symmetric group on an $n$ letters $S_n$.
+\itemiii
+Given a homeomorphism $f: M_1 \ra M_2$, one can define an isomorphism
+$F: G(M_1) \ra G(M_2)$ by
+\[
+F(g) = f \circ g \circ f^{-1}
+\]
+for $g \in G(M_1)$.
+Because $f$, $g$, $f^{-1}$ is a homeomorphism, their composition $F(g)$ is
+also a homeomorphism. The map $F$ has an inverse $F^{-1}: G(M_2) \ra G(M_1)$
+given by
+\[
+F^{-1}(h) = f^{-1} \circ h \circ f
+\]
+for $h \in G(M_2)$,
+so $F$ is a bijection between $G(M_1)$ and $G(M_2)$. Finally, 
+$F$ is a group homomorphism because
+\[
+F(g \circ h) = f \circ g \circ h \circ f^{-1} = 
+f \circ g \circ f^{-1} \circ f \circ h \circ f^{-1} = F(g) \circ F(h).
+\]
+\itemiv
+Consider the sets $M_1 = (0, 1) \cup \{2\}$ and $M_2 = (0, 1)$. 
+Note that $M_1$ has an isolated point $2$ and $M_2$ has no isolated points,
+so $M_1$ and $M_2$ are not homeomorphic.
+
+We show that the groups $G(M_1)$ and $G(M_2)$ are isomorphic by proving
+that every element of $G(M_1)$ restricts to an element of 
+$G(M_2)$ and every element of $G(M_2)$ uniquely extends to an 
+element of $G(M_1)$.
+
+Given an element $f$ of $G(M_1)$, we know that
+$\{f(2)\}$ is the preimage of a an open set 
+$\{2\}$ under the continuous map $f^{-1}$, so it has to be open in $M_1$.
+Thus, $f(2)$ is an isolated point of $M_1$, so $f(2) = 2$. 
+Therefore the restriction $\tilde f$ of $f$ to $M_2$ defines an
+a continuous function from $M_2$ to itself with a continuous 
+inverse $\tilde f^{-1}$ being the restriction of $f^{-1}$ to $M_2$.
+
+Conversely, given any element $g \in G(M_2)$ we can uniquely extend it
+to $\hat g: M_1 \ra M_1$ by setting $\hat g(2) := 2$. We have that 
+$\hat g$ is continuous and has a continuous inverse $\hat g^{-1}$ 
+being the extension of $g^{-1}$ to $M_1$ via $\hat g^{-1}(2) = 2$.
+\ei
+\iteme
+Consider the metric $d''$ from Problem 35.7:
+\[
+d''(x, y) = \min\{d(x, y), 1\}.
+\]
+By construction $d''$ is bounded by 1.
+By Problem 37.10, the identity on $M$ viewed as a function from 
+$(M, d)$ to $(M, d'')$ is a homeomorphism.
+\itemf
+By part (e) we can assume that $d$ is bounded by 1. Let 
+$\{x_n: n\in \N\}$ be a dense subset of $M$. Define
+$f: M \ra H^\infty$ by
+\[
+f(x) = (d(x, x_1), d(x, x_2), d(x, x_3), \ldots).
+\]
+We prove that $f$ is one-to-one and continuous.
+
+To show that $f$ is one-to-one, it suffices to show that $f(x) \neq f(y)$
+whenever $x \neq y$. Assume $x \neq y$ with $x, y \in M$. Then $d(x, y) > 0$.
+Since $\{x_n: n\in \N\}$ is dense in $M$, we can choose $n$ such that
+\[
+d(x_n, x) < \frac {d(x, y)} {2}.
+\]
+Since by triangle inequality
+\[
+d(x, y) \leq d(x_n, x) + d(x_n, y),
+\]
+we have that
+\[
+d(x_n, y) \geq d(x, y) - d(x_n, x) > \frac {d(x, y)} 2.
+\]
+In particular, $d(x_n, x) \neq d(x_n, y)$, so the $n^{th}$ term of 
+$f(x)$ and $f(y)$ is different. Therefore, $f(x) \neq f(y)$.
+
+Next we show that $f$ is continuous. Note that given $\e > 0$ and 
+$x, y \in M$ such that $d(x, y) < \e$, by triangle inequality we have that
+\[
+|d(x, x_n) - d(y, x_n)| \leq d(x, y) < \e
+\]
+for every $n$. Therefore,
+\[
+d_{H^\infty}(f(x), f(y)) = \sumint n \frac {|d(x, x_n) - d(y, x_n)|} {2^n}
+ < \sumint n \frac \e {2^n} = \e.
+\]
+Thus, $f$ is continuous (in fact we just
+proved that $f$ is uniformly continuous).
+\itemg
+Assume that $M$ is compact. Then its image $f(M) \subset H^\infty$ is
+also compact and hence closed in $H^\infty$. Since $f$ one-to-one,
+by Theorem 44.3, $f$ is a homeomorphism from $M$ to $f(M)$.
+
+Conversely, to show that every closed subset of $H^\infty$ is compact,
+by Theorem 43.8 it suffices to show that $H^\infty$ is compact
+(Problem 43.6). 
+
+Let $\{y^{(n)}\}$ be a sequence of elements of $H^\infty$. 
+Let $\mc S$ be the set of subsequences of $\{y^{(n)}\}$. 
+
+\begin{lemma}
+\label{lem:subseq}
+There exists $x \in H^\infty$, such that for every positive integer $k$
+there exists a sequence $\{z^{(n)}\} \in \mc S$ such that 
+\[
+\limn z^{(n)}_{l} = x_l
+\]
+for every $l$ from 1 to $k$.
+\end{lemma}
+
+Assuming the lemma, we construct a subsequence $\{y^{(n_k)}\}$ of
+$\{y^{(n)}\}$ such that 
+\beq
+\label{eq:ineq}
+d(y^{(n_k)}, x) < \frac 1 {2^{k - 1}}.
+\eeq
+inductively as follows.
+
+We can choose $y^{n_0}$ to be anything because $d(x, y) \leq 1$ for 
+every pair of points in $H^\infty$. Given $\{y^{(n_l)}\}$ with $l < k$
+satisfying the condition (\ref{eq:ineq}), by Lemma \ref{lem:subseq} there
+exists a subsequence
+$\{y^{(m_j)}\}$ of $\{y^{(n)}\}$ such that
+\[
+\lim_{j \ra \infty} y^{(m_j)}_{l} = x_l
+\]
+for every $l$ from 1 to $k$. Then for every $l$ from between 1 and k
+we can choose $N_l$ such that for every 
+$j \geq N_l$, we have that 
+\[
+d(y^{(m_j)}_{l}, x_l) < \frac 1 {2^{k}}
+\]
+Let $n_k := \max(\{n_k + 1\} \cup \{N_l \| l = 1, \ldots, k\})$. Then 
+\begin{align*}
+d(y^{(n_k)}, x) 
+& = \sum_{l = 1}^k \frac {|y^{(n_k)}_l - x_l|} {2^l}
+	+ \sum_{l = k + 1}^\infty \frac {|y^{(n_k)}_l - x_l|} {2^l} \\
+& \leq \sum_{l = 1}^k \frac 1 {2^l} \cdot \frac 1 {2^k}
+	+ \sum_{l = k + 1}^\infty \frac 1 {2^l} \\
+& = \frac 1 {2^k} \left(1 - \frac 1 {2^k}\right)
+	+ \frac 1 {2^k} \\
+& < \frac 1 {2^{k - 1}},
+\end{align*}
+as desired. The constructed subsequence $\{y^{(n_k)}\}$ of $\{y^{(n)}\}$
+converges to $x$ proving the compactness of $H^\infty$.
+
+\begin{proof}[Proof of Lemma \ref{lem:subseq}]
+We construct the desired $x$ term by term, using induction on $k$. For
+$k = 0$ the statement is vacuous, so we may take $\{z^{(n)}\}$ to be 
+the whole sequence $\{y^{(n)}\}$.
+
+Assume that for an integer $k \geq 1$
+we have the first $k - 1$ terms $x_1, \ldots, x_{k - 1}$ 
+of $x$ and a sequence $\{z^{(n)}\}$ that satisfies the premise of the 
+lemma for $k - 1$. Consider the sequence $\{z^{(n)}_k\}$ of $k^{th}$ terms 
+of $\{z^{(n)}\}$. Since $\{z^{(n)}_k\}$ is a sequence on a compact
+metric space $[0, 1]$, it has a convergent subsequence
+$\{z^{(n_j)}_k\}$. Let $x_k$ be the limit of $\{z^{(n_j)}_k\}$. Then
+the sequence $\{z^{(n_j)}_k\} \in \mc S$ satisfies the premise of the
+lemma for $k$. Thus, the inductive step is complete.
+\end{proof}
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{1}
+A point $x$ in a metric space is called \emph{isolated} if the set
+$\{x\}$ is open. Prove that a complete (non-empty) metric space $M$ without
+isolated points has an uncountable number of points. 
+\textbf{Possible Hint:} Since $M$ is complete, one can produce points in $M$
+by producing Cauchy sequences in $M$. Using this reasoning, it suffices to
+associate to each element $p$ of an uncountable set $P$ (such as the set of
+binary sequences $S_{0, 1}$), a Cauchy sequence in $M$ such that if $p \neq q$,
+the Cauchy sequence associated to $p$ must have a different limit from the 
+Cauchy sequence associated to $q$.
+
+\sol
+
+\begin{lemma}
+\label{lem:disjoint-balls}
+There exists functions from the set of \emph{finite} binary tuples
+$f:S_{0, 1}^{finite} \ra M$ and $\e:S_{0, 1}^{finite} \ra (0, \infty)$ 
+such that $\e(a) < 1 / (length(a) + 1)$
+and for $C_a$ being the closed ball of radius $\e(a)$ around $f(a)$:
+\[
+C_{a} := \{x \in M \| d(f(a), x) \leq \e(a)\},
+\]
+the following two statements hold.
+\bi
+\item
+Whenever a finite binary tuple $a$ is a prefix of a finite binary
+tuple $b$ then then $C_a$ is contained in $C_b$.
+\item
+Given two finite binary tuple $a$ and $b$ such that neither is a prefix
+of the other one, then $C_a$ and $C_b$ are disjoint.
+\ei
+\end{lemma}
+
+Assuming Lemma \ref{lem:disjoint-balls}, we construct an injective 
+function $F: S_{0, 1} \ra M$ as follows.
+Given any element $s \in S_{0, 1}$, let its 
+truncation $s^{(k)}$ of length $k$ be the binary $k$-tuple
+consisting of the first $k$ elements of $s$:
+\[
+s^{(k)} = (s_1, \ldots, s_k).
+\]
+
+By Lemma \ref{lem:disjoint-balls}, for all $l \geq k$, 
+$f(s^{(l)})$ is contained in a closed ball of radius
+$\e(s^{(k)}) < 1 / k$ around $s^{(k)}$. Therefore,
+the sequence $\{s^{(k)}\}_{k\in \N}$ is Cauchy in $M$ and hence
+converges to some point $F(s)$ in $M$. Moreover, 
+$F(s)$ is contained in $C_{s^(k)}$ for every $k$.
+
+We show that
+$F$ is injective. Given two distinct elements $s$ and $t$ 
+of $S_{0, 1}$, let $k$ be the first index at such that $s_k \neq t_k$.
+
+Then neither of $s^{(k)}$ and $t^{(k)}$ is a prefix of the other one,
+hence, by Lemma \ref{lem:disjoint-balls}, the balls 
+$C_{s^{(k)}}$ and $C_{t^{(k)}}$ are disjoint. Since,
+$F(s) \in C_{s^{(k)}}$ and $F(t) \in C_{t^{(k)}}$, it follows that
+$F(s) \neq F(t)$. Thus, $M$ has an uncountable subset
+$F(S_{0, 1})$ and, hence, is uncountable.
+
+\begin{proof}[Proof of Lemma \ref{lem:disjoint-balls}]
+We construct $f$ and $\e$ by induction on the length $l$ of the finite 
+binary tuples.
+
+For $l = 0$ we have a single 0-tuple -- the empty tuple
+$()$ to which we associate some element $x \in M$: $f(()) = x$. 
+Let $\e(()) = 1/2$. 
+
+Assume that we have constructed $f$ and $\e$ for all binary 
+$l$ tuples with $l\leq k$. Fix a $k$-tuple $a = (a_1, \ldots, a_k)$. 
+Next we define $f$ on $a0 = (a_1, \ldots, a_k, 0)$ and 
+$a1 = (a_1, \ldots, a_k, 1)$. 
+
+Let $f(a0) = f(a)$. Since $f(a)$ is not an isolated point, there 
+exists a point $y \in M$ such that $d(f(a), y) < \e(a)/2$. 
+Let $f(a1) = y$ and let 
+\[
+\e(a0) = \e(a1) = \min\left\{\frac {d(f(a), y)} 3, \frac 1 {k + 3} \right\}.
+\]
+By construction $C_{a0}$ and $C_{a1}$ a disjoint and both contained in $C_a$
+and $\e(a0)$ and $\e(a1)$ are both smaller than $1 / (k + 2)$.
+
+This way we define $f$ and $\e$ on all $(k + 1)$-tuples. It remains to
+check that $f$ and $\e$ still satisfy the two conditions of the lemma.
+
+Given a prefix $a^{(l)}=(a_1, \ldots, a_l)$ of 
+$a^{(k + 1)}(a_1, \ldots, a_{k + 1})$, 
+by inductive assumption $C_{a^{(k)}}$ is contained $C_{a^{(l)}}$.
+By the discussion in the previous paragraph $C_{a^{(k + 1)}}$
+is contained in $C_{a^{(k)}}$, so $C_{a^{(k)}}$ is contained in
+$C_{a^{(l)}}$. 
+
+Given two tuples $a$ and $b$ of length at most $k + 1$ that are not 
+prefixes of one another, we have three cases:
+\bi
+\item Case 1: the largest common prefix of $a$ and $b$ is of length $l < k$.
+Then the tuples $a^{(l + 1)}$ and $b^{(l + 1)}$ of the first $(l + 1)$
+elements of $a$ and $b$ are not prefixes of one another, so by inductive
+assumption
+$C_{a^{(l + 1)}}$ and $C_{b^{(l + 1)}}$ are disjoint. Since 
+$C_a$ and $C_b$ are contained in $C_{a^{(l + 1)}}$ and $C_{b^{(l + 1)}}$,
+respectively, they are also disjoint.
+\item Case 2: the largest common prefix $c$ of $a$ and $b$ is of length $k$.
+Then then $\{a, b\} = \{c0, c1\}$ and we already mentioned that
+$C_a$ and $C_b$ are disjoint right after the construction.
+\ei
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{2}
+If $f: M \ra N$ is a function, then recall that the \emph{graph of $f$} is
+the following subset of $M \times N$:
+\[
+\Gamma_f := \{(m, f(m)) \| m \in M\}.
+\]
+On your midterm exam you were asked to prove that if $M$ and $N$ are metric
+spaces and $f$ is continuous, then $\Gamma_f$ is a closed subset of 
+$M \times N$ (equipped with the product metric). This question explores the 
+converse assertion.
+
+\bi
+\itema
+It is not always true that $\Gamma_f$ is closed implies $f$ is continuous.
+Give an example (with justification) of a non-continuous function $f$ whose
+graph is closed.
+\itemb
+Show that if the target $N$ is a \emph{compact} metric space, and 
+$\Gamma_f$ is closed, then $f$ is continuous.
+\ei
+
+\sol
+
+\bi
+\itema
+Consider $f:[0, \infty) \ra [0, \infty)$ given by
+\[
+f(x) = \manylinedefinition{
+	0 & \text{if $x = 0$,} \\
+    \frac 1 x & \text{if $x > 0$.}
+}
+\]
+We know that $g$ is not continuous, because $\lim_{x \ra 0} f(x)$
+does not exist.
+
+The graph of $f$ is s a union of $\{(0, 0)\}$ and the graph of
+$g: (0, \infty) \ra [0, \infty)$ given by $g(x) = 1/x$. Hence, 
+if $\Gamma_g$ is closed in $[0, \infty) \times [0, \infty)$, then so is
+$\Gamma_f$.
+
+Let $(x, y)$ be a limit point of $\Gamma_g$ in $[0, \infty)$. Then there
+exists a sequence $\{(x_i, y_i)\}$ in $\Gamma_g$ converging to $(x, y)$.
+Then \sequence x and \sequence y converge to $x$ and $y$, respectively,
+in $[0, \infty)$. Hence, on one hand, $x_iy_i$ converges to $xy$. 
+On the other hand, since $\{(x_i, y_i)\} \in \Gamma_g$, we have that 
+$x_iy_i = 1$, so $\{x_ny_n\}$ converges to 1. Thus, $xy = 1$, so $x > 0$ 
+and $y = 1/x$, i.e. $(x, y) \in \Gamma_g$. Thus, $\Gamma_g$ contains all
+of its limit points in $[0, \infty) \times [0, \infty)$.
+
+\itemb
+Assume $N$ is compact, $\Gamma_f$ is closed $f$ is not continuous to get a 
+contradiction.
+Then there exists a sequence \sequence x in $M$ converging to some $x \in M$
+such that $\{f(x_n)\}$ does not converge to $f(x)$. Therefore, there
+exists $\epsilon > 0$ such that for infinitely many $n$, 
+\[d(f(x_n), f(x)) \geq \epsilon.
+\]
+Therefore, there exists a subsequence
+\subsequence x of \sequence x such that 
+\beq
+\label{eq:geq-e}
+d(f(x_{n_k}), f(x))) \geq \epsilon, \> \forall k.
+\eeq
+Since $N$ is compact, there exists a subsequence 
+$\{f(x_{n_{k_l}})\}$ of $\{f(x_{n_k})\}$ that converges to some $n \in N$. 
+Then the sequence of points $\{(x_{n_{k_l}}, f(x_{n_{k_l}})\}$ converges
+to $(x, n) \in M \times N$. Since each $\{(x_{n_{k_l}}, f(x_{n_{k_l}})\}$
+is a point on the graph $\Gamma_f$ and $\Gamma_f$ is closed,
+$(x, n) \in \Gamma_f$, i. e. $n = f(x)$. 
+However, by assumption (\ref{eq:geq-e}) $\{f(x_{n_{k_l}})\}$ cannot
+converge to $f(x)$ leading to a contradiction.
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{3}
+
+A metric space $M$ is \emph{locally compact} if every point $x$ has a 
+\emph{compact neighborhood} $K$ which is by definition a compact set in $M$
+whose interior contains $x$.
+
+\bi
+\itema
+Prove that $\R^n$ is locally compact.
+\itemb
+Prove that $\Q$ is not locally compact, and in fact that no point in $\Q$ has
+a compact neighborhood.
+\ei
+
+\sol
+
+\bi
+\itema
+Every point $x \in \R^n$ is contained in a compact set $[x - 1, x + 1]$ whose
+interior $(x - 1, x + 1)$ contains $x$.
+\itemb
+Assume that $x \in \Q$ has a compact neighborhood $K$. Since the interior of 
+$K$ contains $x$, $B_{\e}^{\Q}(x) \subset K$ for some $\e > 0$. By denseness of
+irrational numbers, we can pick an irrational number $y \in (x - \e, x + \e)$. 
+
+By denseness of rationals we can pick a sequence of rationals 
+\sequence q in $(x - \e, x + \e)$ converging to $y$. Then, by compactness
+of $K$, \sequence q has a subsequence \subsequence q converging to some 
+$z \in K$ in the relative metric. Since the relative metric is the restriction
+of the Euclidean metric, \subsequence q converges to $z$ in $\R$. However,
+since we assumed that \sequence q converges to $y$ in $\R$, 
+$z = y$ which contradicts our assumptions that $y$ is irrational
+and $z$ is rational. Thus, $x$ has not compact neighborhood.
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{4}
+A collection $\mc F$ of subsets of a set $X$ is said to have the
+\emph{finite intersection property} if 
+$F_1 \cap \cdots \cap F_n \neq \emptyset$
+for any $n$ and any $F_1, \ldots, F_n \in \mc F$ (i.e. finite intersections
+in $\mc F$ are non-empty). Prove that a metric space $M$ is compact if and
+only if $\bigcap_{F \in \mc F} F \neq \emptyset$ for every family $\mc F$ of 
+closed subsets of $M$ with the finite intersection property.
+
+\sol
+
+We have the following chain of equivalences.
+\bi
+\item[] $M$ is compact.
+\itemeq
+Every family $\mc U$ of open sets in $M$
+such that $\bigcup_{U \in \mc U} U = M$
+has a finite subfamily $U_1, \ldots, U_n$ such that
+$\bigcup_{i = 1}^n U_i = M$.
+\itemeq
+If $\mc U$ is a family of open sets in $M$ such that every
+finite subfamily $U_1, \ldots, U_n$ of $\mc U$ satisfies
+$\bigcup_{i = 1}^n U_i \neq M$ then
+$\bigcup_{U \in \mc U}^n U \neq M$.
+\itemeq
+If $\mc U$ is a family of open sets in $M$ such that every
+finite subfamily $U_1, \ldots, U_n$ of $\mc U$ satisfies
+$\bigcap_{i = 1}^n U_i^c \neq \emptyset$ then
+$\bigcap_{U \in \mc U}^n U^c \neq \emptyset$.
+\itemeq
+If $\mc F$ is a family of closed sets in $M$ such that every
+finite subfamily $F_1, \ldots, F_n$ of $\mc F$ satisfies
+$\bigcap_{i = 1}^n F_i \neq \emptyset$ then
+$\bigcap_{F \in \mc F}^n F \neq \emptyset$.
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{5. Lebesgue's Covering Lemma}
+An important fact that we have proved and used several times in class
+(without stating the name) is call \textbf{Lebesgue's Covering Lemma}: If
+$M$ is a compact metric space and $\mc U$ is any open cover of $M$, then there
+exists a $\delta > 0$ (depending only on the cover), such that any 
+$\delta$-ball $B_{\delta}(x)$ (with $x \in M$) is contained in some element
+$U$ of $\mc U$. (In your textbook, this appears as Lemma 43.3, as an 
+intermediate step in proving sequential compactness implies compactness. It 
+also is used to show that any continuous function from a compact metric space
+is uniformly continous, see Theorem 44.5). Any such $\delta$ which satisfies 
+the condition above is called a \emph{Lebesgue number} for the cover $\mc U$.
+
+\bi
+\itema
+Lemma 43.3 in the book uses the sequential compactness property of $M$ to prove
+Lebesgue's covering lemma. Give another proof of Lebesgue's covering lemma
+directly from the definition of compactness, in terms of every open cover
+admitting a finite subcover.
+\itemb
+Show by example that Lebesgue's covering lemma is false when $M$ is 
+non-compact.
+\ei
+
+\sol
+
+\bi
+\itema
+Because $\mc U$ is a cover of $M$, for every $x \in M$ we can choose an 
+element $U_x$ of $\mc U$ that contains $x$.
+Because $U_x$ is open, we can choose $\delta_x > 0$ such that 
+$B_{\delta_x}(x)$ is contained in $U_x$. The collection
+\[
+\{B_{\delta_x / 2}(x) \| x \in M\}
+\]
+forms an open cover of $M$. By compactness of $M$, there exists 
+a finite subcollection $\{B_{\delta_{x_i} / 2}(x_i) \| i = 1, \ldots, n\}$
+that covers $n$. We claim that
+\[
+\delta := \min\{\frac{\delta_{x_i}} 2 \| i = 1, \ldots, n \}.
+\]
+is a Lebesgue number of $\mc U$. Indeed, given any $x \in M$,
+by assumptions, there exists $i$ such that 
+$x \in B_{\delta_{x_i} / 2}(x_i)$ and a $U \in \mc U$ such that 
+$B_{\delta_{x_i}}(x_i) \subset U$.
+
+Then for any $y \in B_{\delta}(x)$ we have that
+\[
+d(y, x_i) \leq d(y, x) + d(x, x_i) < \delta + \frac {\delta_i} 2 \leq
+\delta_i.
+\]
+Hence, $B_{\delta}(x) \subset B_{\delta_i}(x_i) \subset U$, as 
+desired.
+\itemb
+For example, take $M := (0, \infty)$ and
+\[
+\mc U := \{(r, 3r) \| r \in (0, \infty)\}.
+\]
+The collection $\mc U$ forms an open cover of $M$ because for every
+$x \in M$, $x \in (r, 2r)$ for $r = 2x / 3$.
+
+However, we show that for every $\delta > 0$, there exists $x \in M$ such that
+the ball $B_{\delta}(x)$ is not contained in any of the elements of $M$. 
+Given $\delta > 0$, let $x = \delta / 3$. Then if an element 
+$(r, 2r)$ of $\mc U$ contains $x$, then $r < \delta / 3 $, so 
+$2r < 2\delta/3$. In particular, the element $x + 2\delta / 3 = \delta$
+of $B_{\delta}(x)$ is not contained in $(r, 2r)$.
+\ei
+
+\end{document}

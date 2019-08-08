@@ -1,0 +1,689 @@
+%!TEX TS-program = xelatex
+
+\documentclass[12pt]{article}
+\usepackage {amsmath, amscd, amsbsy, amsfonts}
+\usepackage{latexsym,amssymb,mathrsfs,bbm}
+\textwidth 6.5in
+\topmargin -.3in
+\oddsidemargin 0in
+\textheight 9in
+\parindent 0 pt
+
+\usepackage{color}
+\definecolor{rltred}{rgb}{0.75,0,0}
+\definecolor{rltgreen}{rgb}{0,0.5,0}
+\definecolor{rltblue}{rgb}{0,0,0.75}
+\def\red{\color{red}}
+\def\black{\color{black}}
+\def\green{\color{rltgreen}}
+\def\blue{\color{rltblue}}
+
+\newcommand\bi{\begin{itemize}}
+\newcommand\ei{\end{itemize}}
+\newcommand\itema{\item[(a)]}
+\newcommand\itemb{\item[(b)]}
+
+\renewcommand\and{\qquad\text{and}\qquad}
+\renewcommand\|{\ | \ }
+\newcommand\ra{\rightarrow}
+\newcommand\mf\mathfrak
+\newcommand\mc\mathcal
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+
+\def\pb#1{{\green \bf Problem #1.}\hskip 8pt \black}
+\def\sol{\textbf{Solution:}}
+
+\newcommand\mfa{\mf a}
+\def\sequence#1{$\{{#1}_n\}$}
+\def\subsequence#1{$\{{#1}_{n_k}\}$}
+\newcommand\e\epsilon
+\newcommand\limn{\lim_{n \ra \infty}}
+\newcommand\limsupn{\limsup_{n \ra \infty}}
+\newcommand\liminfn{\liminf_{n \ra \infty}}
+
+\newcommand\Fixaneps{Fix an arbitrary $\epsilon > 0$ }
+\newcommand\foranyeps{for any $\epsilon > 0$ }
+\newcommand\givenanyn{given any $N \in \N$ }
+\newcommand\thereexistsn{there exists an $n \geq N$ }
+\newcommand\thereexistsN{there exists an $N$ such that for every $n \geq N$ }
+\newcommand\foreveryn{for every $n \geq N$ }
+\newcommand\foreveryk{for every $k \geq N$ }
+\newcommand\foreveryx{for every $x \in X$ }
+\newcommand\Foreveryx{For every $x \in X$  }
+
+\newcommand\textbook{Johnsonbaugh and Pfaffenberger}
+\newcommand\notes{Prof. Simon's notes}
+
+\title{hw1-solutions}
+
+\begin{document}
+\centerline{\Large Math 171 Homework 1}
+\centerline{\small (due April 8)}
+\vskip .2in
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 5.4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {5.4}
+
+\newcommand\minusinf{- \inf (-X)}
+Show that if $X$ is a nonempty subset of $\R$ which is bounded above then
+\[
+\sup X = \minusinf.
+\]
+
+\sol
+
+We need to show that: (a) $\minusinf$ is an upper bound of $X$ and (b)
+that if $b$ is an upper bound of $X$ then $\minusinf \leq b$.
+
+\bi
+\item[(a)]
+\Foreveryx we have that $-x \in -X$, so
+\[
+\inf (-X) \leq -x.
+\]
+Multiplying the equality above by $-1$ (see Theorem 4.2v in \textbook):
+\[
+\minusinf \geq x.
+\]
+Since the above inequality holds \foreveryx, $\minusinf$ is an upper bound of
+$X$.
+\item[(b)]
+Assume $b$ is an upper bound of $X$. For every $y \in -X$ we have that 
+$-y \in X$, so
+\[
+-y \leq b.
+\]
+Multiplying the inequality above by $-1$ we get that
+\[
+-b \leq y.
+\]
+Since this holds for every $y \in -X$ we have that $-b$ is a lower bound of 
+$-X$. Thus, $-X$ is bounded below and 
+\[
+-b \leq \inf (-X).
+\]
+Multiplying the above inequality by $-1$ gives us the desired result:
+\[
+\minusinf \leq b.
+\]
+\ei
+
+\vskip 12pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 5.7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {5.7}
+
+Let $X$ and $Y$ be subsets of $\R$ with least upper bounds $a$ and $b$,
+respectively. Prove that $a + b$ is the least upper bound of the set
+\[
+X + Y := \{ x + y \| x \in X, y \in Y\}.
+\]
+
+\sol
+
+\bi
+\item[(a)]
+We show that $a + b$ is an upper bound of $X + Y$. Given any element $z$ 
+of $X + Y$, by definition of $X + Y$, $z$ can be written as 
+\[
+z = x + y
+\]
+for some $x \in X$ and $y \in Y$. Since $a$ and $b$ are upper bounds of
+$X$ and $Y$, respectively, we have that
+\[
+x \leq a \and y \leq b.
+\]
+Hence $x + y \leq a + b$, which is the same as $z \leq a + b$.
+Since $z$ was an arbitrary element of $X + Y$, we have that $a + b$ is 
+an upper bound of $X + Y$.
+\item[(b)]
+Next we show that any upper bound of $X + Y$ is greater or equal to $a + b$
+by contradiction. Assume that $c$ is an upperbound of $X + Y$ satisfying
+\[
+c < a + b.
+\]
+
+Let $\epsilon := a + b - c > 0$. Since $a$ is the \emph{least} upper bound
+of $X$, $a - \e/2$ (which is smaller than $a$) is \emph{not} an upper
+bound of $X$, so there exists $x \in X$ such that
+\[
+a - \frac \e 2 < x.
+\]
+Similarly, there exists $y \in Y$ such that
+\[
+b - \frac \e 2 < y.
+\]
+Hence, 
+\[
+\left(a - \frac \e 2\right) + \left( b - \frac \e 2 \right) < x + y.
+\]
+After simplifying we see that the left hand side of the inequality above
+is equal to $c$. Thus, 
+\[
+c < x + y
+\]
+contradicting the assumption that $c$ is an upper bound of $X + Y$.
+\ei
+
+Thus, $a + b$ is the least upper bound of $X + Y$.
+
+\vskip 12pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 9.10
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {9.10}
+
+Prove that the plane is \emph{not} the union of a countable family of straight
+lines.
+
+\sol
+
+Assume the contrary -- that the plane is the union of a countable family
+$\{L_n\}_{n \in \N}$ of straight lines.
+
+Consider a different family of lines - the family of horizontal lines 
+$\{P_r\}_{r \in \R}$ -- for each real number $r$
+we get a different horizontal line $P_{r} = \{y = r\}$.
+
+The family $\{P_r\}_{r \in \R}$ is uncountable since it is equivalent to $\R$.
+Hence, there exists a line $P_r$ in this family which is not one of the 
+lines in $\{L_n\}$.
+
+By assumption every point $(x, r)$ in $P_r$ is covered by at least
+one of the lines $L_n$. For each $x$ choose such an $n(x)$ such that 
+$(x, r) \in L_{n(x)}$. Since two distinct lines intersect in at most one
+point all of these $n(x)'s$ are distinct: if $P_r$ intersect $L_n$ 
+in $(x, r)$ it can't also intersect $L_n$ at $(x', r)$ with $x' \neq x$.
+
+On one hand the set $\{L_{n(x)} \| x \in \R\}$ is uncountable, being 
+equivalent to $\R$ (for each $x$ in $\R$ we get a distinct point 
+$(x, r)$ of $P_r$ and in turn a distinct line $L_{n(x)}$ passing through
+that point).
+
+On the other hand the set $\{L_{n(x)} \| x \in \R\}$ is countable being 
+a subset of a countable set $\{L_n\}_{n \in \N}$.
+
+We get a contradiction. Hence, our initial assumption that the plane can be
+covered by countably many lines is wrong.
+
+\vskip 12pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 10.5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {10.5}
+
+Prove that 
+\[
+\limn \frac n {n + 2} = 1.
+\]
+using the definition of a limit (Definition 10.2).
+
+\sol
+
+We have that 
+\[
+\frac n {n + 2} - 1 = \frac {n - (n + 2)} {n + 2} = - \frac 2 {n + 2}.
+\]
+
+Hence,
+\[
+\left| \frac n {n + 2} - 1 \right| = \frac 2 {n + 2}
+\]
+for $n \geq 0$.
+
+\Fixaneps. We are be looking for an $N$ such that \foreveryn we will have
+$|\frac n {n + 2} - 1| < \e$. Thus, we are trying to solve
+\[
+\frac 2 {n + 2} < \e.
+\]
+The latter inequality is equivalent to
+\[
+\frac 2 \e < n + 2
+\]
+(via multiplying both sides by $(n + 2)$ and dividing by $\e$).
+Thus, if we choose $N$ to be any integer greater than $2 / \e$ we will have
+that
+\[
+\left| \frac n {n + 2} - 1 \right| < \epsilon,
+\]
+\foreveryn \ as desired.
+
+\vskip 12pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 13.2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {13.2}
+
+Let \sequence a be a sequence with limit 0. Prove that
+\[
+\limn (-1)^n a_n = 0.
+\]
+
+\sol
+
+\Fixaneps. By assumption, \thereexistsN we have that
+\[
+|a_n - 0| < \epsilon,
+\]
+which is the same as $|a_n| < \epsilon$.
+
+Therefore, \foreveryn we have that
+\[
+|(-1)^n a_n - 0| = |(-1)^n a_n| = |a_n| < \epsilon,
+\]
+as desired.
+
+\vskip 12pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 16.7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {16.7}
+
+Prove that every convergent sequence \sequence a has a monotone subsequence.
+
+\sol
+
+Let say $l$ is the limit of \sequence a. Because there are infinitely terms
+in a sequence then at least one of the following statements holds true:
+\bi
+\item
+there are infinitely many $n$ for which $a_n = l$;
+\item
+there are infinitely many $n$ for which $a_n > l$;
+\item
+there are infinitely many $n$ for which $a_n < l$.
+\ei
+
+We show that each of the statements above implies existence of a monotone
+subsequence.
+
+\bi
+\item
+Assume there are in are infinitely many $n$ for which $a_n = l$. Then
+we can discard all $n$ for which $a_n \neq l$ and get a subsequence
+of \sequence a which is constant, and in particular, both decreasing 
+and increasing. Note, that the assumption was necessary in order to get
+an infinite subsequence rather than a finite set of terms.
+\item
+Assume there are infinitely many $n$ for which $a_n > l$. Similarly to the
+previous part, start by throwing away all $n$ for which $a_n \leq l$. Then
+we are left with a subsequence of \sequence a converging to $l$ all of whose
+terms are greater than $n$. Let's call this subsequence \sequence b in
+order to avoid nested subscripts.
+
+We then recursively choose a decreasing subsequence
+\subsequence b of \sequence b (which is going to serve a the desired
+monotone subsequence of \sequence a).
+
+Assume we already chose $\{n_k\}$ for all $k \leq m$ such that
+$b_{n_k} < b_{n_{k - 1}}$. Then all we 
+need to find for the recursive step is $n_{m + 1}$ such that
+\bi
+\item
+$n_{m + 1} > n_m$
+\item
+$b_{n_{m + 1}} < b_{n_m}$
+\ei
+
+Since $b_{n_m} > l$ and \sequence b converges to $l$ we can use 
+$b_{n_m} - l$ as $\e$ in the definition of the limit to get that
+there exists $N$ such that for all $n \geq N$ we have that
+\[
+|b_n - l| < b_{n_m} - l
+\]
+Since by construction of \sequence b, $b_n > l$ the above inequality becomes
+\[
+b_n - l < b_{n_m} - 1
+\]
+i.e. $b_n < b_{n_m}$ for all $n \geq N$. Thus, we may take 
+$n_{m + 1}$ to be $N$.
+\item
+Assume there are infinitely many $n$ for which $a_n < l$. In this case
+we construct an increasing subsequence following all of the steps of the
+previous case.
+\ei
+
+\vskip 12pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 16.10
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {16.10}
+
+\bi
+\itema
+Let $x$ and $y$ be positive numbers. Let $a_0 := y$, and let
+\[
+a_n := \frac {(x / a_{n - 1}) + a_{n - 1}} 2 
+	\qquad \text{for } n = 1, 2, \ldots
+\]
+Prove that \sequence a is a decreasing sequence with limit $\sqrt x$.
+\itemb
+Generalize (a) to $k^{th}$ roots.
+\ei
+
+\sol
+\bi
+\itema
+We start by proving $a_n > 0$ by induction on $n$: 
+\bi
+\item the base case $n = 0$: $a_0 = y > 0$ by assumption;
+\item induction step, if $a_{n-1} > 0$ then $x / a_{n-1} > 0$ so
+$a_n > 0$.
+\ei
+
+Next we show that \sequence a is decreasing for $n \geq 1$. 
+We have the following chain of equivalences of inequalities
+\begin{align*}
+a_n \leq a_{n-1} 
+& \Leftrightarrow
+\frac {(x / a_{n - 1}) + a_{n - 1}} 2  \leq a_{n - 1} \\
+& \Leftrightarrow
+\frac x {a_{n - 1}} \leq a_{n-1} \\
+& \Leftrightarrow
+x \leq a_{n-1}^2 \\
+& \Leftrightarrow
+\sqrt x \leq a_{n-1}.
+\end{align*}
+
+Thus, if we prove that $a_n \geq \sqrt x$ for $n \geq 1$
+we get that \sequence a is decreasing for $n \geq 1$.
+
+Note that $a_n$ is the arithmetic mean of two terms 
+($x/a_{n-1}$ and $a_{n-1}$) whose geometric means is $\sqrt x$:
+\[
+\sqrt{x / a_{n-1} \cdot a_{n-1}} = \sqrt x.
+\]
+
+Thus, by the AM-GM inequality $a_n \geq \sqrt x$.
+
+Hence, \sequence a is decreasing for $n \geq 1$.
+
+Since, \sequence a is decreasing and bounded below (by $\sqrt x$ as we 
+have shown above), it converges (Theorem 16.2).
+Let's call its limit $l$.
+
+By Lemma 14.2 applied to the constant sequence $b_n := \sqrt x$
+and \sequence a, we have that
+\[
+\sqrt x \leq l.
+\]
+
+We have that 
+\[
+\limn a_{n-1} = l
+\] 
+(because $\{a_{n-1}\}$ is that same
+sequence as \sequence a up to index shift) and 
+\[
+\limn \frac x {a_{n - 1}} = \frac x l
+\]
+by Lemma 12.8 and Theorem 12.3. Therefore, on one hand
+\[
+\limn \frac {(x / a_{n - 1}) + a_{n - 1}} 2 = \frac {x/l + l} 2
+\]
+and on the other hand
+\[
+\limn \frac {(x / a_{n - 1}) + a_{n - 1}} 2 = \limn a_n = l.
+\]
+
+We can now solve for $l$:
+\[
+\frac {x/l + l} 2 = l
+\quad\Leftrightarrow\quad
+x / l = l
+\quad\Leftrightarrow\quad
+x = l^2
+\quad\Leftrightarrow\quad
+l = \sqrt x
+\]
+
+Thus, $\limn a_n = \sqrt x$ as desired.
+
+\itemb
+The intuition look for a recursive definition of \sequence a where
+$a_n$ is an arithmetic mean of terms whose geometric mean equals
+$\sqrt[k] x$. It turns out the following statement is true:
+
+Let $x$ and $y$ be positive numbers. Let $a_0 := y$, and let
+\[
+a_k := \frac {(x/a_{n - 1}^{k - 1}) + (k - 1) a_{n - 1}} k
+\]
+\ei
+
+Then \sequence a is decreasing for $n \geq 1$ and converges to 
+$\sqrt[k] x$.
+
+We prove the more general statement following the same steps as in
+part (a):
+\bi
+\item
+We prove that $a_n$ is positive by induction on $n$,
+\item
+By AM-GM inequality,
+\[
+a_n \geq \sqrt[k] x
+\]
+\item
+We show that $a_n \leq a_{n - 1}$ is equivalent to 
+$a_{n - 1} \geq \sqrt[k] x$ and conclude that \sequence a is decreasing,
+\item
+Because \sequence a is bounded and decreasing it converges to some $l$
+which satisfies 
+\[
+l = \frac{x / l + (k - 1) l} k.
+\]
+\item
+Solving the latter equation for $l$ we get that $l = \sqrt[k] x$.
+\ei
+
+\vskip 12pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 18.5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {18.5}
+Let $\{a_n\}$ be a sequence such that for some $\epsilon > 0$, $|a_n - a_m| \geq \epsilon$ for all $n\neq m$. Prove that $\{a_n\}$ has no convergent subsequence.
+
+\sol
+
+Let $\{a_n\}$ be as above and suppose that there is a convergent subsequence $\{a_{n_k}\}$ converging to $L$. This means that, for $\epsilon' := \epsilon / 2$, there is an $N > 0$ so that for all $k \geq N$, $|a_{n_k}-L| < \epsilon':= \epsilon/2$. Pick two natural numbers $k\neq k'$ with $k,k'\geq N$. It follows that $|a_{n_k}-L| < \epsilon'$ and $|a_{n_{k'}}-L| < \epsilon'$. Thus, by the triangle inequality, $|a_{n_k} - a_{n_{k'}}| = |a_{n_k} - L + L - a_{n_{k'}}| \leq |a_{n_k}-L| + |a_{n_{k'}}-L| < 2 \epsilon' = \epsilon$. But this is a contradiction to the hypotheses on $\{a_n\}$. We conclude that $\{a_n\}$ does not have a convergent subsequence.
+
+\vskip 12pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 20.13
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb {20.13}
+
+Let \sequence a and \sequence b be sequences such that \sequence a is 
+convergent and \sequence b is bounded. Prove that
+\[
+\limsupn (a_n + b_n) = \limsupn a_n + \limsupn b_n
+\]
+and
+\[
+\liminfn (a_n + b_n) = \liminfn a_n + \liminfn b_n.
+\]
+
+\sol
+
+Let $c_n := a_n + b_n$ and let $l$ be the limit of $a$. 
+Let $\mc L_b$ and $\mc L_c$ are the limit sets
+(i.e. sets of limits of all converging subsequences)
+of \sequence b and \sequence c, respectively. We will show that
+\[
+\mc L_c = \mc L_b + \{ l\},
+\]
+i.e.
+\[
+\mc L_c = \{ x + l \| x \in L_b \}.
+\]
+
+Then it will follow by Problem 5.7 that 
+\[
+\sup \mc L_c = \sup \mc L_b + l
+\]
+which (after taking into account that $\limsupn a_n = \limn a_n = l$
+by Theorem 20.4) is equivalent to:
+\[
+\limsupn (a_n + b_n) = \limsupn a_n + \limsupn b_n.
+\]
+
+Showing that $\mc L_c = \mc L_b + \{ l\}$ is equivalent to showing that
+any real number $x$ is in $\mc L_b$ if and only if $x + l$ is in $\mc L_c$.
+
+\bi
+\item
+Assume $x \in \mc L_b$. By definition of $\mc L_b$ there exists a
+subsequence \subsequence b of \sequence b that converges to $x$. 
+By Theorem 11.2 the corresponding subsequence \subsequence a of 
+\sequence a also converges to $l$. Hence, by Theorem 12.2
+the corresponding subsequence $c_{n_k} = a_{n_k} + b_{n_k}$
+converges to $x + l$, so $x + l \in \mc L_c$.
+\item
+Conversely, assume $x + l \in \mc L_c$. Then there exists a 
+subsequence \subsequence c of \sequence c that converges to $x + l$.
+Then by the same argument as in the previous part, 
+$b_{n_k} = c_{n_k} - a_{n_k}$ converges to $x = (x + l) - l$, so
+$x \in \mc L_b$.
+\ei
+
+The statement about $\liminf$ follows from $\mc L_c = \mc L_b + \{ l\}$
+and the results of Problem 5.4 and Problem 5.7.
+\vskip 12pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb 1
+
+Let \sequence a be a sequence of real numbers. We say a real number $l$ is a 
+\emph{cluster point} of \sequence a if \foranyeps, there are infinitely many
+$a_n$ within $\e$ of $l$. Formally, \foranyeps, \givenanyn, \thereexistsn
+with $|a_n - l| < \e$.
+
+\bi
+\item[(a)]
+Show that if $l$ is a cluster point of \sequence a, then there exists a 
+subsequence of \sequence a converging to $l$.
+\item[(b)]
+Suppose $\mfa :=$\sequence a is a bounded sequence and let $C_\mfa$ denote
+the set of all cluster points of $\mfa$. Show that $C_\mfa$ is bounded
+(so its sup and inf exist), and moreover that
+\[
+\limsup_n\{a_n\} = \sup C_\mfa
+\]
+\[
+\liminf_n\{a_n\} = \inf C_\mfa
+\]
+\ei
+
+\sol
+
+\bi
+\itema
+Assume $l$ is a cluster point of \sequence a. We will recursively construct
+a subsequence \subsequence a of \sequence a that converges to $l$.
+More precisely, we recursively construct a strictly increasing sequence $n_k$
+of positive integers such that
+\begin{equation}
+\label{eq:subseq}
+|a_{n_k} - l| < \frac 1 k.
+\end{equation}
+Assume we have constructed the first $m$ terms of $\{n_k\}$. Then
+we can choose the $(m+1)^{st}$ term $n_{m+1}$ satisfying
+\[
+n_{m+1} >= n_m + 1 \and |a_{n_{m+1}} - l| < \frac 1 {m+1}
+\]
+using the definition of a cluster point.
+
+Thus, we have constructed a subsequence \subsequence a of \sequence a
+satisfying (\ref{eq:subseq}). We show that 
+\[
+\lim_{k \ra \infty} a_{n_k} = l.
+\]
+
+Given $\epsilon > 0$, choose an integer $N > 1 / \epsilon$. Then
+\foreveryk we have that 
+\[
+|a_{n_k} - l| < \frac 1 k < \frac 1 N < \epsilon.
+\]
+Hence, $\lim_{k \ra \infty} a_{n_k} = l$, as desired.
+\itemb
+Let $\mc L_\mfa$ be the set of all limits of converging subsequences
+of \sequence a. Then we have that
+\[
+\limsup_n \{a_n\} = \sup \mc L_\mfa \and
+\liminf_n \{a_n\} = \inf \mc L_\mfa
+\]
+(see Definition 20.1). Thus, if we are able to prove that 
+\[
+\mc L_\mfa = C_\mfa
+\]
+then we are done.
+
+By part (a) we have that $C_\mfa \subset \mc L_\mfa$, so we are left to prove 
+that $\mc L_\mfa \subset C_\mfa$.
+
+Let $l$ be an arbitrary element of $\mc L_\mfa$. We will prove that $l$ 
+is an element of $C_\mfa$. By definition of 
+$\mc L_\mfa$ there exists a subsequence \subsequence a of \sequence a
+converging to $L$. Thus, \foranyeps we can choose $M$ such that 
+for every $k \geq M$ we have that 
+\begin{equation}
+\label{eq:subseq-conv}
+|a_{n_k} - l| < \e.
+\end{equation}
+Given any $N$ we can produce a $k$ with $k \geq M$ and
+$n_k \geq N$ (the latter due to $\lim_{k\ra \infty} n_k = \infty$). Thus,
+this $k$ will also satisfy (\ref{eq:subseq-conv}). Thus, given an arbitrary
+$\epsilon$ and $N$ we have produced $n$ (namely $n := n_k$) such that 
+$|a_n - l| < \e$ and $n \geq N$.
+\ei
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pb 2
+
+It may be used without proof that the complex numbers $\C$ satisfy the axioms
+of a field (axioms 1-11) in \textbook, or F1-F6 in \notes. Prove that they 
+\emph{don't} satisfy the axioms of an
+ordered field (axiom 12 in JP or O1-O2 in \notes).
+
+\sol
+
+We'll proceed by contradiction.
+Assume that $\C$ did satisfy the axioms of an ordered field, i.e. that there
+exists a subset $P$ of $\C$ such that 
+\bi
+\itema
+if $x, y\in P$ then $x + y, xy \in P$ and
+\itemb
+for every $x\in \C$ either $x=0$, $x \in P$ or $x \in -P$ and no two of the
+conditions hold simultaneously.
+\ei
+
+By condition (b) exactly one of $i$ and $-i$ is in $P$. Let's call this
+number $\alpha$. Then $\alpha \in P$ and $\alpha^2 = -1$. 
+
+By condition (a) with $x = y = \alpha$ we have that $\alpha^2 = -1 \in P$.
+Then by condition (a) with $x = \alpha$ and $y = -1$ we have that 
+$- \alpha \in P$. Thus, both $\alpha$ and $- \alpha$ are in $P$, thus
+contradicting condition (b).
+
+Hence, $\C$ can't satisfy the ordered field axioms.
+\end{document}

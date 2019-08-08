@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p
+{
+    color:black;
+    text-align:left;
+    margin-left:20px;
+}
+ul
+{
+    margin-left:20px;
+/*    list-style-type: upper-roman;*/
+}
+ol
+{
+    margin-left:20px;
+    list-style-type: upper-roman;
+}
+ol ol {
+    list-style-type: decimal;
+}
+h1
+{
+    color:#118;
+    font-size:20pt;
+    text-align:center;
+}
+h2
+{
+    color:gray;
+    font-size:14pt;
+    text-align:center;
+}
+h3
+{
+    color:#118;
+    font-size:16pt;
+    text-align:left;
+}
+table.reg
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 900px;
+    border: 1px solid black;
+}
+table.reg th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 10px;
+    /*background-color: #b99;*/
+    background-color: #99b;
+    text-align:left
+}
+table.reg td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+table.hw
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 400px;
+    border: 1px solid black;
+}
+table.hw th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 5px;
+    /*background-color: #b99;*/
+    background-color: #99b;
+    text-align:left
+}
+table.hw td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+
+#newspaper-c
+{
+    /*font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
+    /*font-size: 14px;*/
+    margin: 45px;
+    width: 700px;
+    text-align: left;
+    border-collapse: collapse;
+    /*border: 1px solid #6cf;*/
+    border: 1px solid gray;
+}
+#newspaper-c th
+{
+    padding: 20px;
+    font-weight: normal;
+    font-size: 13px;
+    /*color: #039;*/
+    text-transform: uppercase;
+    border-right: 1px solid #0865c2;
+    border-top: 1px solid #0865c2;
+    border-left: 1px solid #0865c2;
+    border-bottom: 1px solid #fff;
+}
+#newspaper-c td.odd
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color:black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right:none;
+    font-weight:bold;
+}
+#newspaper-c td
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color: black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right: 1px dashed gray;
+}
+
+
+</style>
+</head>
+
+<title> Math 171: Fundamental Concepts of Analysis </title>
+<body>
+
+<h1>Math 171: Fundamental Concepts of Analysis, Spring 2016 </h1>
+<h2>Monday, Wednesday, Friday 9:30-10:20am in 380-380F</h2>
+
+<h3>Teaching Staff</h3>
+<table id="newspaper-c" summary="Teaching Staff Info">
+<tbody>
+    <tr>
+        <td class="odd"> Instructor </td>
+        <td> Sheel Ganatra </td>
+        <td class="odd"> Course Assistant </td>
+        <td> Alex Zamorzaev </td>
+    </tr>
+    <tr>
+        <td class="odd"> Office </td>
+        <td> 380-382E </td>
+        <td class="odd"> Office </td>
+        <td> 380-380M </td>
+    </tr>
+    <tr>
+        <td class="odd"> e-mail </td>
+        <td> ganatra (at) math (dot) stanford (dot) edu </td>
+        <td class="odd"> e-mail </td>
+        <td> alzaor (at) stanford (dot) edu </td>
+    </tr>
+    <tr>
+        <td class ="odd"> Office Hours </td>
+        <td> This week: Wednesday 3-5pm, Thursday 2-3pm, Friday 2:30-3:30pm 
+            <!-- This week: Wednesday 3-4:30pm, Friday 10:30am-12pm-->
+        </td>
+        <td class ="odd"> Office Hours </td>
+        <td> This week: Thursday 4-7pm, Friday 4-7pm.  </td>
+    </tr>
+</tbody>
+</table>
+
+<h3>Course Description and Prerequisites</h3>
+<p> 
+Math 171 is Stanford's honors analysis class and will have a strong emphasis on
+rigor and proofs. The class will take an abstract approach, especially around
+metric spaces and related concepts.  Math 171 is required for honors majors,
+and satisfies the <b>WIM</b> (<i>Writing In the Major</i>) requirement.</p>
+
+<p>
+For some students, Math 115 may be a suitable alternative to 171. Both Math 115 and Math 171 cover similar material, but 171 will be more fast-paced and have a more abstract/proof-based flavor. If you are unsure which of these two classes will be more appropriate for you, please come and talk to me as soon as possible (well before the drop deadline, which is April 15). </p> 
+
+<h3>Textbook and topics</h3>
+<p> <i> Foundations of Mathematical Analysis </i> by Johnsonbaugh and Pfaffenberger.</p>
+
+<p> We will cover approximately chapters I-X of the book. Thematically, the content we will cover falls into three areas:</p>
+
+<ul>
+    <li> <b>Real numbers, sequences, limits, series, functions.</b> Much of this will be familiar to you already, and we will not cover it in detail. Specifically, we will not cover the following sections in complete detail: 1-8, 10-17, 22-33 and 48-50. Instead, these topics will be reviewed in the first two weeks. 
+    <a href="notes/simon_review.pdf">Here</a> are some notes for the review, written by Prof. Leon Simon.</li>
+    <li> <b>Metric spaces. Completeness, compactness. </b> Introduction to topological spaces.  </li>
+    <li> <b> Integration.</b> The Riemann integral. Introduction to the Lebesgue integral. We will make use of these <a href="notes/simon_integration.pdf">notes</a> written by Prof. Leon Simon.</li>
+</ul>
+
+<p> A more detailed lecture plan (updated after each lecture) is below. </p>
+
+<h3>Course Grade</h3>
+<p>The course grade will be based on the following: </p>
+<ul>
+    <li> 25% Homework assignments, </li>
+    <li> 25% Midterm exam, </li>
+    <li> 15% Writing assigment, </li>
+    <li> 35% Final exam </li>
+</ul>
+
+
+
+<h3>Homework Assignments</h3>
+<p>Homeworks will be posted here on an ongoing basis (roughly a week before
+they are due) and will be due at 4pm on the date listed. You can hand write
+your solutions, but you are encouraged to consider typing your solutions
+with <i>LaTeX</i> (now is a good time to start learning LaTeX if you
+haven't already, as you will be required to typeset the WIM assignment).
+   Please submit your homework either directly to our Course Assistant Alex if
+   he is in his office (380-380M) or slide the homework under his door if he
+   is away. If you have typed your solutions, you are welcome to simply 
+    e-mail your homework to to Alex.</p>
+
+<p>
+<i>
+   Note</i>: we are looking not just for valid proofs, but also a
+   readable, well explained ones (and indeed, you will be partly graded on
+   readability).  This means you should try to use complete sentences,
+   insert explanations, and err on the side of writing out "for all" and
+   "there exist", etc. symbols if there is any chance of confusion.  </p>
+
+
+<p> <i>Late homeworks will not be accepted.</i> In order to accomodate exceptional situations such as serious illness, your lowest homework score will be dropped at the end of the quarter.  You are encouraged to discuss problems with each other, but you must work on your own when you write down solutions. The <a
+href="http://www.stanford.edu/dept/vpsa/judicialaffairs/guiding/honorcode.htm">Honor
+Code</a> applies to this and all other written aspects of the course. </p>
+
+<!--<p> Homework problems will often consist of proofs. Even if a problem doesn't
+start with "Prove that..." you are expected to prove your argument is correct.
+Please make sure to write complete sentences, not just a string of formulas,
+and emphasize which axioms, propositions, lemmas, and theorems you use in your
+argument. </p>-->
+
+<p>As homeworks are completed, solutions (in PDF and LaTeX) will be uploaded here.
+The LaTeX files may be useful as templates for your own LaTeX work (whether on
+homework or the writing assignment).</p>
+
+<table class="hw">
+<thead>
+<tr>
+    <th> Due date </th>
+    <th> Assignment </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td> Fri, Apr 8  </td> 
+    <td>
+        <a href="assignments/hw1.pdf">Homework 1</a>.
+        Solutions: <a href="assignments/hw1_solutions.pdf">PDF</a>. <a href="assignments/hw1_solutions.tex">TeX</a>
+    </td>
+</tr>
+
+<tr>
+    <td> Fri, Apr 15  </td> 
+    <td>
+        <a href="assignments/hw2.pdf">Homework 2</a>.
+        Solutions: <a href="assignments/hw2_solutions.pdf">PDF</a>. <a href="assignments/hw2_solutions.tex">TeX</a>
+    </td>
+</tr>
+
+<tr>
+    <td> Fri, Apr 22  </td> 
+    <td>
+        <a href="assignments/hw3.pdf">Homework 3</a>.
+        Solutions: <a href="assignments/hw3_solutions.pdf">PDF</a>. <a href="assignments/hw3_solutions.tex">TeX</a>
+    </td>
+</tr>
+<tr>
+    <td> Fri, Apr 29 </td> 
+    <td> <a href="assignments/hw4.pdf">Homework 4</a>. 
+        Solutions: <a href="assignments/hw4_solutions.pdf">PDF</a>. <a href="assignments/hw4_solutions.tex">TeX</a>
+    </td>
+</tr>
+<tr>
+    <td> Fri, May 6 </td> 
+    <td> <a href="assignments/hw5.pdf">Homework 5</a>. 
+        Solutions: <a href="assignments/hw5_solutions.pdf">PDF</a>. <a href="assignments/hw5_solutions.tex">TeX</a>
+    </td>
+</tr>
+<tr>
+    <td> Fri, May 13 </td> 
+    <td> <a href="assignments/hw6.pdf">Homework 6</a>. 
+        Solutions: <a href="assignments/hw6_solutions.pdf">PDF</a>. <a href="assignments/hw6_solutions.tex">TeX</a>
+    </td>
+</tr>
+<tr>
+    <td> Fri, May 20 </td> 
+    <td> <a href="assignments/hw7.pdf">Homework 7</a> (half weight, in light of WIM assignment). 
+        Solutions: <a href="assignments/hw7_solutions.pdf">PDF</a>. <a href="assignments/hw7_solutions.tex">TeX</a>
+    </td>
+</tr>
+<tr>
+    <td> Fri, May 27 </td> 
+    <td> <a href="assignments/hw8.pdf">Homework 8</a> (not half weight, but also shorter than usual)
+        Solutions: <a href="assignments/hw8_solutions.pdf">PDF</a>. <a href="assignments/hw8_solutions.tex">TeX</a>
+    </td>
+</tr>
+</tbody>
+</table>
+<!--<tr>
+    <td> Apr 26 </td> 
+    <td> <a href="assignments/hw3.pdf">Homework 3</a>. <a href="assignments/hw3_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> May 3 </td> 
+    <td> <a href="assignments/hw4.pdf">Homework 4</a>. <a href="assignments/hw4_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> May 10 </td> 
+    <td> <a href="assignments/hw5.pdf">Homework 5</a>. <a href="assignments/hw5_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> May 17 </td> 
+    <td> <a href="assignments/hw6.pdf">Homework 6</a>. <a href="assignments/hw6_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> May 24 </td> 
+    <td> <a href="assignments/hw7.pdf">Homework 7</a>. <a href="assignments/hw7_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> May 30 </td> 
+    <td> <a href="assignments/hw8.pdf">Homework 8</a>. <a href="assignments/hw8_solutions.pdf">Solutions</a>.
+    </td>
+</tr>
+<tr>
+    <td> N/A </td> 
+    <td> <a href="assignments/hw9.pdf">Homework 9</a> (suggested problems, not
+        for credit).  </td>
+</tr>
+
+</tbody>
+</table>
+-->
+
+<h3>Writing Assignment</h3>
+
+<p> The writing assignment is now posted <a href="wim_assignment.pdf">here</a>.
+The first draft will be due <b>Friday, May 20 at 4pm to Alex</b> and the final draft will be
+due <b>Tuesday, May 31 at 4pm to Alex</b> (<b> <i> edit: The deadline has been extended to June 1 at 4 pm, should you require an additional day.</i></b>)
+Your paper should be about 4-7 pages in length.
+It is required that you typeset your assignment; we strongly recommend you use
+LaTeX. We have made available copies of the TeX solutions to homework
+assignemnts above, in case they are helpful references as you learn LaTeX.  A
+couple of the homework assignments will be shorter than usual, to give you
+time to work on the writing assignment.</p> 
+
+<p>Clear writing is an important part of mathematical communication, and is
+an important part of our course.  
+The broad idea of this assignment is to write a clear exposition of a specific
+mathematical topic detailed in the 
+<a
+    href="wim_assignment.pdf">assignment</a>
+beyond what we have covered in
+class, which is accessible to someone at a similar stage in a similar class.</p>
+
+
+<!--<h3>On mathematical writing</h3>-->
+<p>Professor Keith Conrad at the University of Connecticut has written a helpful guide to common errors in mathematical writing, available <a href="http://www.math.uconn.edu/~kconrad/math216/mathwriting.pdf">here</a>.</p>
+
+
+<!--A writing assignment of 4-7 pages will be
+posted here during the second half of the course, and due near the end of the
+course. -->
+
+
+<!--You will be
+expected to write whole sentences in proper notation, carefully define your
+notation, -->
+
+
+<h3> Midterm and Final Exam </h3>
+
+<h4> Midterm exam </h4>
+<p> 
+The Midterm Exam was held on <b>Wednesday April 27</b> from <b>8:30 am - 10:20 am</b> <b> in 380-380F</b>.  <a href="midterm.pdf">Here</a> is a copy of the exam. <a href="midterm_solutions.pdf">Here</a> is a set of solutions.  
+
+<!--, our usual classroom (please note: this exam begins <i> one hour earlier</i> than our usual class time, and will run until the end of our usual class time). Please let me know <i> as soon as possible </i> if you have any legitimate conflicts with this time. 
+There will be no lecture on Wednesday April 27, and there will be a shorter homework assignment that week.</p>-->
+
+<!--<p> The midterm was be a <i>closed book</i>, <i>closed notes</i> exam. The topics ranged through the topics we have covered through and including Wednesday, April 20 (from the axioms of the real numbers all the way through open and closed sets in metric spaces and their properties / continuity of functions between metric spaces). Please see the Lecture Plan below for a review of all of the important topics and book sections (plus Professor Simon's review notes) covered.</p>
+
+<p> A helpful way to prepare for the exam is to make sure you can solve all of the homework problems, and/or related problems in the book.  It is also important to know and be able to articulate statements of all of the major definitions and Theorems/results covered in class to date (Indeed, a part of an exam question might even be to state an important result, before working with it. Or at the very least, when you are explaining your argument, you may need to cite such a result). You will not be asked to recall from memory proofs of important theorems, but you will certainly be asked to use these results, or reason through parts of their proof --- so some understanding of how various results are proved is definitely important.</p>-->
+
+
+<p>Also, here are some old exams from previous versions of the course which we used for practice (bear in mind that the exact topics, time of exam, and format all differ from year to year):</p>
+<ul>
+    <li> 2014 spring midterm <a href="old_exams/midterm_14_sol.pdf">exam</a> (with solutions built in);</li>
+    <li> 2013 spring midterm <a href="old_exams/midterm_13.pdf">exam</a> (solution set <a href="old_exams/midterm_13-sol.pdf">here</a>);</li>
+    <li> 2011 spring midterm <a href="old_exams/midterm2011.pdf">exam</a> (no solutions available).</li>
+</ul>
+
+
+<h4> Final Exam </h4>
+
+<p> 
+The Final Exam will be held on <b>Saturday, June 4th</b> from <b>8:30 am - 11:30 am</b> in classroom <b> 380-380X</b>.
+</p>
+
+<p> The final exam is a <i>closed book</i>, <i>closed notes</i> exam. The topics range through all of the topics we have covered in the class. 
+Please see the Lecture Plan below for a review of all of the important topics and book sections (plus Professor Simon's review notes, and notes on integration) covered.</p>
+
+
+<p> A helpful way to prepare for the final exam is to make sure you can solve all of the homework problems, and/or related problems in the book.  It is also important to know and be able to articulate statements of all of the major definitions and Theorems/results covered in class to date (Indeed, a part of an exam question might even be to state an important result, before working with it. Or at the very least, when you are explaining your argument, you may need to cite such a result). You will not be asked to recall from memory proofs of important theorems, but you will certainly be asked to use these results, or reason through parts of their proof --- so some understanding of how various results are proved is definitely important.</p>
+
+<p>Also, here is an old exam and some practice problems. See also the old midterm exams above (and note that some of them had problems which did not appear on our midterm, but might appear on the final) </p>
+<ul>
+    <li> Practice problems from the Spring 2013 Math 171 class final preparation <a href="old_exams/final_practiceproblems_spring13.pdf">here</a> (a couple of these problems already appeared on our HW 8).</li>
+    <li> 2007 fall final <a href="old_exams/final_fall07.pdf">exam</a> 
+    (solutions available <a href="old_exams/final_fall07_sol.pdf">here</a>).</li> 
+</ul>
+
+
+
+<h3> Lecture Plan </h3>
+<p> Lecture topics by day will be posted on an ongoing basis below. Future
+topics are tentative and will be adjusted as necessary. </p> 
+<table class="reg">
+<thead>
+<tr> 
+    <th> Day </th> 
+    <th> Lecture topics </th> 
+    <th> Book chapters </th> 
+    <th> Remarks </th>
+</tr>
+</thead>
+<tbody>
+    <tr>
+        <td> <i> Mar. 28</i> </td>
+        <td> 
+            Welcome and overview of class. A rapid review of real numbers and their axioms (algebraic, ordering, and the supremum/least upper bound
+            property). Uniqueness of supremums (least upper bounds). Sequences, limits, convergence and uniqueness.  Monotone bounded sequences. 
+        <td>  3-7, 10, 16.  </td>
+        <td rowspan="6"> <i>For lectures Mar. 28 - April 11:</i>  See also Prof. Simon's <a href="notes/simon_review.pdf">review notes</a>.  </td>
+    </tr>
+    <tr>
+        <td> <i> Mar. 30</i> </td>
+        <td> 
+            More limits. Monotone bounded sequences are convergent. The algebra of limits and the squeeze theorem. Subsequences and the Bolzano-Weierstrass theorem. lim sup and lim inf of a bounded sequence.
+        <td> 10-13, 16, 18, 20, 21.  </td>
+    </tr>
+    <tr>
+        <td> <i> Apr. 1</i> </td>
+        <td> 
+            More lim sup and lim inf: alternate characterizations, and a sequence converges if and only if lim sup and lim inf agree. Unbounded sequences. Countable and uncountable sets.</td>
+        <td>  20, 21, 9.  </td>
+    </tr>
+    <tr>
+        <td> <i> Apr. 4</i> </td>
+        <td> 
+            More countable and uncountable sets. Criteria for countability and examples of countable sets. Cantor's diagonalization argument and examples of uncountable sets. The continuum hypothesis (briefly).</td>
+        <td> 9.  </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 6</i> </td>
+        <td> 
+            Series, and their sum. Series with non-negative entries. Geometric series.  Some tests for convergence and non-convergence. Absolute convergence. </td>
+        <td> 22-26.  </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 8</i> </td>
+        <td> 
+            More on absolute and conditional convergence and associated tests. Power series and their radius of convergence. </td>
+        <td> 27-28   </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 11</i> </td>
+        <td> 
+            Cauchy sequences in R. Functions (limits and continuity). An introduction to metric spaces.</td>
+        <td> 19, 30-33, 35.  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 13</i> </td>
+        <td> 
+            More metric spaces. A series of examples: <i>R^n</i> with its Euclidean metric, the discrete metric, the metric spaces <i>l^1</i>, <i>l^2</i>,... and <i>l^\infty</i>, and convergence properties of their elements. <i>l^k</i> metrics on <i>R^n</i>. Convergence in metric spaces.
+        </td>
+        <td> 36-37.  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 15</i> </td>
+        <td> 
+            More convergence in metric spaces. Continuous functions between metric spaces, and examples. A characterization of continuity in terms of convergent sequences.
+        <td> 37, 40.  </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 18</i> </td>
+        <td> 
+        Continuity in terms of convergent sequences continued. Compositions of continuous functions. Limit points of subsets and closed sets. Open balls and open sets. </td>
+        <td>40, 38, 39. </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 20</i> </td>
+        <td> 
+             <i> Guest lecture by Prof. Alex Wright:</i> 
+              More open sets and closed sets. V is open if and only if its complement is closed (and vice versa). Unions and intersections of closed and open sets. Characterizing continuous functions in terms of their effect on open (respectively closed) sets.
+        </td>
+        <td> 38-40. </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 22</i> </td>
+        <td> 
+
+<i> Guest lecture by Prof. Alex Wright:</i> More continuity in terms of open and closed sets. Equivalent metrics (i.e., metrics that have the same open sets, or the same <i>topology</i>) have the same continuous functions. An example of two metrics on <i>R^n</i> with the same continuous functions. Z has the <i> discrete topology</i>, and hence all functions out of it are continuous.
+        </td>
+        <td> 38-40. </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Apr. 25</i> </td>
+        <td> 
+             The example of Z continued. The relative metric for a subset X in M, and open and closed sets for subsets endowed with relative metrics. A brief introduction to compactness. 
+        </td>
+        <td> 41. </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 27</i> </td>
+        <td> 
+
+            <b> Midterm exam</b> from <i>8:30-10:20am</i> (no class). 
+        </td>
+        <td>  </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Apr. 29</i> </td>
+        <td> 
+
+            An introduction to compactness: continuous functions from [a,b] to R are always bounded (and always attain their minima and maxima) because of the Heine-Borel theorem: any collection of open intervals covering [a,b] always has a finite subcollection which still covers [a,b]. The definition of compactness for a general metric space. 
+        </td>
+        <td> 34, 42. </td>
+        <td> </td>
+
+</tr>
+
+<tr>
+        <td> <i> May 2</i> </td>
+        <td> 
+            The definition of compactness for a general metric space (<i>every</i> open cover has a finite subcover). Examples and non-examples; the Heine-Borel theorem implies that [a,b] is compact. Properties of compact sets: any continuous real valued function on a compact set is bounded and attains its maximum and minimum. Sequential compactness (any sequence in a metric space has a convergent subsequence) is equivalent to compactness; which is often known as the <i>Bolzano-Weierstrass characterization of compactness</i>. One application: The image of any compat metric space under a continuous function is compact.  
+        </td>
+        <td> 42, 43, 44. </td>
+        <td> </td>
+    </tr>
+
+
+<tr>
+        <td> <i> May 4</i> </td>
+        <td> 
+            A metric space is compact if and only if it is sequentially compact, continued. Compact subsets are closed and bounded. Subsets of R^n are compact if and only if they are closed and bounded.
+        </td>
+        <td> 42, 43, 44. </td>
+        <td> </td>
+</tr>
+
+<tr>
+        <td> <i> May 6</i> </td>
+        <td> 
+            A closed subset of a compact metric space is compact. Subsets of R^n are compact if and only if they are closed and bounded, continued. Continuous injections out of compact sets have continuous inverses. Continuous functions out of compact metric spaces are <i> uniformly continuous</i>. Cauchy sequences and <i>complete metric spaces</i>. Q and (0,1) are examples of non-complete metric spaces.
+        </td>
+        <td> 42, 43, 44, 46. </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> May 9</i> </td>
+        <td> 
+            Complete metric spaces continued. Cauchy sequences are bounded, and if they have convergent subsequences they themselves are convergent (with the same limit).  Compact metric spaces are complete. R^n and l^1 are complete. Explanation of WIM assignment.
+        </td>
+        <td> 46 </td>
+        <td> </td>
+</tr>
+
+
+    <tr>
+        <td> <i> May 11</i> </td>
+        <td> 
+            Connected metric spaces. Intervals in R are connected, and the image of a connected set under a continuous function is connected. The intermediate value theorem. An introduction to integration; intervals in R^n and their partitions.
+        </td>
+        <td> 45 </td>
+    <td rowspan="8"> <i>For lectures May 11-current:</i>  See Prof. Simon's <a href="notes/simon_integration.pdf">notes on integration</a>.  </td>
+</tr>
+
+
+    <tr>
+        <td> <i> May 13</i> </td>
+        <td> 
+            Partitions of intervals continued. Step functions and how to integrate them. The Riemann integral of a function defined on an interval in R^n.
+        </td>
+        <td> Prof. Simon's notes. </td>
+        <!--<td> </td>-->
+    </tr>
+
+
+    <tr>
+        <td> <i> May 16</i> </td>
+        <td> 
+            The Riemann integral of a function defined on an interval in R^n. A criterion for checking integrability and application: continuous functions are Riemann integrable. An example of a non-Riemann integrable function. The set of Riemann integrable functions is a <i>vector space</i>, and the integral is a <i>linear map</i> on this vector space.
+        </td>
+        <td> Prof. Simon's notes.  </td>
+        <!--<td> </td>-->
+    </tr>
+
+    <tr>
+        <td> <i> May 18</i> </td>
+        <td> 
+            Sets of (Lebesgue) measure zero. Countable unions of measure zero sets are measure zero. Lebesgue's theorem on the Riemann integral.
+        </td>
+        <td> Prof. Simon's notes.  </td>
+        <!--<td> </td>-->
+    </tr>
+
+    <tr>
+        <td> <i> May 20</i> </td>
+        <td> 
+            The Lebesgue integral for non-negative functions in L_+(R). Well-definedness of the Lebesgue integral, which follows from Lemma 3.4 in Prof. Simon's notes.
+        </td>
+        <td> Prof. Simon's notes.  </td>
+        <!--<td> </td>-->
+    </tr>
+
+
+    <tr>
+        <td> <i> May 23</i> </td>
+        <td> 
+            <i>Class cancelled.</i>
+        </td>
+        <td>  </td>
+        <!--<td> </td>-->
+    </tr>
+    
+    <tr>
+        <td> <i> May 25</i> </td>
+        <td> 
+            The Lebesgue integral of a function in L^1(R) and some properties: linearity, maxima, minima and absolute values stay in L^1(R), etc.
+        </td>
+        <td> Prof. Simon's notes.  </td>
+        <!--<td> </td>-->
+    </tr>
+
+    <tr>
+        <td> <i> May 27</i> </td>
+        <td> 
+            <i>Guest lecture by Prof. Angela Hicks:</i> Riemann integrable functions are Lebesgue integrable, and (when both defined) the Lebesgue and Riemann integral coincide. <i>Hence, the Lebesgue integral completely subsumes the Riemann integral</i>. L^1(R) as a (semi-)normed vector space, and hence a <i>pseudometric space</i>. The associated metric space is complete, and hence a <i>Banach space</i>.
+        </td>
+        <td> Prof. Simon's notes.  </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> May 27</i> </td>
+        <td> 
+            <i> Review.</i>
+        </td>
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+   <!-- <tr>
+        <td> <i> Apr. 20</i> </td>
+        <td> 
+            (<i>Tentative</i>)
+            More open and closed sets: unions and intersections of open and closed sets. Complements of open sets are closed (and vice versa). The notion of a topology.
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 22</i> </td>
+        <td> 
+            (<i>Tentative</i>)
+            The relative (subspace) metric. Open covers. The Heine-Borel theorem for open covers of <i> [a,b]</i>. Compactness.
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 25</i> </td>
+        <td> 
+            (<i>Tentative</i>)
+            Compactness...
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Apr. 27</i> </td>
+        <td> 
+            {\bf Midterm exam from 8:30-10:20am} (through usual class time).
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i> Apr. 29</i> </td>
+        <td> 
+            Stuff
+
+        <td>   </td>
+        <td> </td>
+    </tr>
+
+    -->
+
+
+
+
+</tbody>
+</table>
+</body>
+
+</html>

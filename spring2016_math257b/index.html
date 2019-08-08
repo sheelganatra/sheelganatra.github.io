@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p
+{
+    color:black;
+    text-align:left;
+    margin-left:20px;
+}
+ul
+{
+    margin-left:20px;
+/*    list-style-type: upper-roman;*/
+}
+ol
+{
+    margin-left:20px;
+    list-style-type: upper-roman;
+}
+ol ol {
+    list-style-type: decimal;
+}
+h1
+{
+    color:#488;
+    font-size:20pt;
+    text-align:center;
+}
+h2
+{
+    color:gray;
+    font-size:14pt;
+    text-align:center;
+}
+h3
+{
+    color:#488;
+    font-size:16pt;
+    text-align:left;
+}
+table.reg
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 900px;
+    border: 1px solid black;
+}
+table.reg th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 10px;
+    /*background-color: #b99;*/
+    background-color: #9bb;
+    text-align:left
+}
+table.reg td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+table.hw
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 400px;
+    border: 1px solid black;
+}
+table.hw th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 5px;
+    background-color: #9b9;
+    text-align:left
+}
+table.hw td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+
+#newspaper-c
+{
+    /*font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
+    /*font-size: 14px;*/
+    margin: 45px;
+    width: 700px;
+    text-align: left;
+    border-collapse: collapse;
+    /*border: 1px solid #6cf;*/
+    border: 1px solid gray;
+}
+#newspaper-c th
+{
+    padding: 20px;
+    font-weight: normal;
+    font-size: 13px;
+    /*color: #039;*/
+    text-transform: uppercase;
+    border-right: 1px solid #0865c2;
+    border-top: 1px solid #0865c2;
+    border-left: 1px solid #0865c2;
+    border-bottom: 1px solid #fff;
+}
+#newspaper-c td.odd
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color:black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right:none;
+    font-weight:bold;
+}
+#newspaper-c td
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color: black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right: 1px dashed gray;
+}
+
+
+</style>
+</head>
+
+<title> Math 257B: Topics in Symplectic Geometry </title>
+<body>
+
+<h1>Math 257B: Topics in Symplectic Geometry </h1>
+<h1> Aspects of Fukaya categories </h1>
+<h2>Monday, Wednesday (and occasionally Friday) 1:30-2:50pm in 240-110 (subject to imminent change)</h2>
+
+<h3>Teaching Staff</h3>
+<table id="newspaper-c" summary="Teaching Staff Info">
+<tbody>
+    <tr>
+        <td class="odd"> Instructor </td>
+        <td> Sheel Ganatra </td>
+        <!--<td class="odd"> Course Assistant </td>
+        <td> Jesse Madnick </td>-->
+    </tr>
+    <tr>
+        <td class="odd"> Office </td>
+        <td> 380-382E </td>
+        <!--<td class="odd"> Office </td>
+        <td> TBA </td>-->
+    </tr>
+    <tr>
+        <td class="odd"> e-mail </td>
+        <td> ganatra (at) math (dot) stanford (dot) edu </td>
+        <!--<td class="odd"> e-mail </td>
+        <td> jmadnick (at) math (dot) stanford (dot) edu </td>-->
+    </tr>
+    <!--<tr>
+        <td class ="odd"> Office Hours </td>
+        <td>   TBA  </td>
+        <td class ="odd"> Office Hours </td>
+        <td> TBA </td>
+    </tr>-->
+</tbody>
+</table>
+
+<h3>Course Description and Prerequisites</h3>
+<p> 
+
+This course aims to introduce the <i>Fukaya category</i> of a symplectic
+manifold, an intricate categorical invariant built out of Lagrangian
+submanifolds and their Floer homology groups (built out of moduli
+spaces of <i>J-holomorphic discs with Lagrangian boundary conditions</i>), and the symplectic half of Kontsevich's homological mirror symmetry conjecture.
+</p>
+
+<p>In fact, the course will describe several recent flavors of Fukaya
+categories (such as <i>compact</i>, <i>wrapped</i>, and <i>infinitesimal
+    Fukaya categories</i>) associated to different geometric settings. 
+A substantial part of the course will focus on understanding Fukaya categories associated to <i>singular symplectic fibrations</i> (such as <i>Lefschetz fibrations</i>), which give both non-trivial symplectic invariants of singularities and a formalism for interpolating between Fukaya categories of the general fiber and the total space. This portion of the course will draw upon new structures developed in joint work with Abouzaid, as well as recent work of Seidel and Abouzaid-Seidel. 
+</p>
+
+<p> We will assume some familiarity with basic results in symplectic
+geometry. However, no experience with the Fukaya category, J-holmorphic discs, or Floer-theoretic methods will be assumed.  </p>
+
+
+<h3> Announcements </h3>
+
+
+<ul>
+    <li> <b> 4/25/2016</b>: Class Monday and Wednesday as usual this week. Class next Monday (5/2) will be shorter than usual, ending at 2:20pm, to account for the joint symplectic seminar at Stanford.</li>
+    <li> <b>4/18/2016</b>: No class this Wednesday, April 20. We will hold class today (4/18), and then will resume class next Monday 4/25. </li>
+    <li><b> 4/5/2016 </b>: Class will stay in 240-110 for the forseeable future. This week, we will have class Wednesday and Friday from <b> 1:30pm-2:50pm</b>. (The following week, class will be on Monday and Wednesday)
+    <li><b> 3/30/2016</b>: Class will stay in 240-110 the remainder of this week: Wednesday (today), and Friday 4/1, now from <b>1:30pm-2:50pm</b>.
+
+    <li><b>3/28/2016</b>: If you are interested in being on the mailing list for this class (even if not officially enrolled), or if you are interested in attending but have a conflict, please e-mail me.</li>
+
+<li><b>3/28/2016</b>: There will be <b>no class</b> Monday, April 4.</li>
+
+</ul>
+
+
+<h3> References and resources </h3>
+<!--<h4> General </h4>-->
+We will not use a specific text for this course. Below are some general references on Fukaya categories, Lagrangian (and Hamiltonian) Floer homology, and J-holomorphic curves.
+<ul> 
+    <li> P. Seidel, <i> Fukaya categories and Picard-Lefschetz theory. </i> 
+    Available for purchase <a href="http://www.ems-ph.org/books/book.php?proj_nr=12">here</a> (or on Amazon, etc.). </li>
+
+    <li> D. Auroux, <i> A beginner's introduction to Fukaya categories. </i> Available at <a href="http://arxiv.org/abs/1301.7056">arXiv:1301.7056</a>.
+
+    <li> I. Smith, <i> A symplectic prolegomenon. </i> Available at <a href="http://arxiv.org/abs/1401.0269">arXiv:1401.0269</a>.</li>
+
+    <li> K. Fukaya, Y. Oh, H. Ohta, and K. Ono, <i> Lagrangian intersection Floer theory: anomaly and obstruction I </i> and <i> II</i>. A comprehensive (and most general) treatment of Lagrangian Floer homology. Unfortunately, this book has gone out of print, but may be orderable in late April (or available from the library).
+
+    <li>D. McDuff and D. Salamon, <i>J-holomorphic curves and symplectic topology.</i> Available for purchase <a href="http://bookstore.ams.org/coll-52-r">here</a>.
+
+    <li> <a href="https://math.berkeley.edu/~auroux/277F09/index.html">Notes</a> from a topics course on Mirror Symmetry by Denis Auroux.</li>
+
+    <li> <a href="http://math.illinois.edu/~jpascale/m392c/index.html">Notes</a> from a topics course on Lagrangian Floer homology by James Pascaleff. </li>
+    <li> <a href="http://www.math.ias.edu/~nicks/HMS.html">Notes</a> from lectures on Homological Mirror Symmetry at IAS by Nick Sheridan.</li>
+
+    <li> <a href="http://math.stanford.edu/~ganatra/notes/talbot2009/">Notes</a> from the 2009 <a href="http://math.mit.edu/talbot">Talbot</a> workshop on <i>Fukaya categories</i>, mentored by Paul Seidel.</li>
+
+</ul>
+
+
+
+<h3> Lecture Plan </h3>
+<p> Lecture topics by day will be posted on an ongoing basis below. Future
+topics are tentative and will be adjusted as necessary. </p> 
+<table class="reg">
+<thead>
+<tr> 
+    <th> Day </th> 
+    <th> Lecture topics </th> 
+    <th> Lecture notes </th>
+    <th> Additional References </th>
+</tr>
+</thead>
+<tbody>
+    <tr>
+        <td> <i>3/28</i> </td>
+        <td> Course Overview: Lagrangian Floer homology and Fukaya
+            categories at a glance. Flavors of the Fukaya category and
+            their relations. 
+              </td> 
+              <td> <a href="notes/2016-03-28.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> <i>3/30</i> </td>
+        <td> J-holomorphic curves and the energy identity. Lagrangian Floer Homology: The action functional and its critical points and flowlines. Spaces of J-holomorphic strips/discs and the Floer differential.
+              </td> 
+              <td> <a href="notes/2016-03-30.pdf">Notes</a> by Cedric De Groote.
+        </td>
+
+        <td> 
+            <!--     A. Floer <i>Morse Theory for Lagrangian intersections</i> in J. Differential Geometry 1988 (28), no. 3, pp. 513-547.-->
+    </td>
+    </tr>
+    <tr>
+        <td> <i>4/1</i> </td>
+        <td>  Lagrangian Floer homology II: Fredholm theory and transversality. The Maslov index.  
+            Gromov's compactness theorem. 
+              </td> 
+              <td> <a href="notes/2016-04-01.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i>4/6</i> </td>
+        <td> 
+            Lagrangian Floer homology III: More Gromov compactness, d^2 = 0 (and when this fails). Hamiltonian isotopy invariance.  
+              </td> 
+              <td> <a href="notes/2016-04-06.pdf">Notes</a> by Cedric De Groote.
+        </td>
+
+        <td> </td>
+    </tr>
+
+    <tr>
+        <td> <i>4/8</i> </td>
+        <td> 
+            Lagrangian Floer homology IV: Floer's equation versus pseudoholomorphic curves. Hamiltonian isotopy invariance via continuation maps.  Relation to Morse homology, Oh and Pozniak spectral sequences.  
+              </td> 
+              <td> <a href="notes/2016-04-08.pdf">Notes</a> by Cedric De Groote.
+        </td>
+
+        <td> </td>
+    </tr>
+
+    <tr> 
+        <td> <i> 4/11 </i> </td>
+        <td> Absolute and relative gradings on Lagrangian Floer homology.
+            Product structures.
+          </td> 
+              <td> <a href="notes/2016-04-11.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+
+    <tr> 
+        <td> <i> 4/13 </i> </td>
+        <td> Orientations of moduli spaces. Determinant lines and the appearance of Spin (or relatively Pin) structures in Lagrangian Floer homology. Floer homology with signs.
+          </td> 
+              <td> <a href="notes/2016-04-13.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+
+    <tr> 
+        <td> <i> 4/18 </i> </td>
+        <td> More orientations. The product in Lagrangian Floer homology, which is composition (cohomologically) in the Donaldson Fukaya category. Identity morphisms.
+          </td> 
+              <td> <a href="notes/2016-04-18.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+
+    <tr> 
+        <td> <i> 4/25 </i> </td>
+        <td> 
+            A-infinity structures and the full Fukaya category. 
+          </td> 
+              <td> <a href="notes/2016-04-25.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+
+    <tr> 
+        <td> <i> 4/27 </i> </td>
+        <td> 
+            A-infinity functors and quasi-isomorphisms. The statement of
+            invariance for the Fukaya category. Properties of A-infinity
+            structures and their presence in topology: homological
+            perturbation/transfer, quasi-isomorphisms are invertible, etc.
+            Massey products as an example of invariants not arising on the
+            cohomology. Formality and non-formality.  </td> 
+
+          <td> 
+              <a href="notes/2016-04-27.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+
+    <tr> 
+        <td> <i> 5/2 </i> </td>
+        <td> 
+            (Shorter class): Miscellaneous topics: cohomologically unital versus strictly unital versus homotopy unital A-infinity categories, Floer cohomology and Fukaya category for objects with local systems, and curved A-infinity categories. A case in which spheres and discs exist but there are still classical methods available: monotone symplectic manifolds and their monotone Lagrangians. 
+        </td> 
+
+          <td> 
+              <a href="notes/2016-05-02.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+
+    <tr> 
+        <td> <i> 5/4 </i> </td>
+        <td> 
+           More monotone Floer homology: various holomorphic curve theory miracles when (X,L) is monotone. The "charge" (or curvature) of a monotone Lagrangian, the decomposition of the monotone Fukaya category into summands indexed by charge. More general frameworks for discussing curvature: FOOO's Morse-Bott framework for Floer cohomology, and Cornea-Lalonde's cluster homology.
+        </td> 
+
+          <td> 
+              <a href="notes/2016-05-04.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+
+    <tr> 
+        <td> <i> 5/9 </i> </td>
+        <td> 
+            (Shorter class) An example: The clifford torus in CP^n. Lagrangian connect sums and long-exact sequences of Floer cohomology groups. The more general notion of exact triangles in A-infinity categories. Pre-triangulated A-infinity categories.
+        </td> 
+
+          <td> 
+              <a href="notes/2016-05-09.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+
+    <tr> 
+        <td> <i> 5/11 </i> </td>
+        <td> 
+            The pre-triangulated (and split-closed pre-triangulated) hull of an
+            A-infinity category via A-infinity modules and the Yoneda
+            embedding. Generation and split-generation in the Fukaya category.
+        </td> 
+
+          <td> 
+              <a href="notes/2016-05-11.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+
+    <tr> 
+        <td> <i> 5/16 </i> </td>
+        <td> 
+            Categorical localizations and quotients. Symplectic Landau-Ginzburg (LG) models and Floer cohomology of admissible Lagrangians in a symplectic LG model. Examples: Lefschetz (and Lefschetz-Bott) fibrations, and their thimbles (and generalized thimbles).
+        </td> 
+
+          <td> 
+              <a href="notes/2016-05-16.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+    <tr> 
+        <td> <i> 5/18 </i> </td>
+        <td> 
+            Abouzaid-Seidel's construction of the Fukaya category of a
+            Landau-Ginzburg model as a categorical localization (generalizing
+            Seidel's construction of Fukaya categories of Lefschetz
+            fibrations). Properties and examples. 
+        </td> 
+
+          <td> 
+              <a href="notes/2016-05-18.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+    <tr> 
+        <td> <i> 5/23 </i> </td>
+        <td> 
+            Canonical functors on the Fukaya category of a Landau-Ginzburg model, the Fukaya category of a fibre, and between the two categories: once wrapping, monodromy, intersection with the fiber, and the Orlov functor. Exact triangles relating these functors (a statment) and applications: another proof of Seidel's LES of a Dehn twist. Towards explaining some of these functors: a localization model of the Fukaya category of the general fibre.
+        </td> 
+
+          <td> 
+              <a href="notes/2016-05-23.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+    <tr> 
+        <td> <i> 5/25 </i> </td>
+        <td> 
+            Miscellanous remarks about split-generation and projection onto a subcategory. Serre functors on Fukaya categories of Landau-Ginzburg models and the wrapped Fukaya category. The exact triangle for once wrapping and generation of Landau-Ginzburg categories by Orlov Lagrangians (when wrapped Floer homology vanishes).
+        </td> 
+
+          <td> 
+              <a href="notes/2016-05-25.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+    <tr> 
+        <td> <i> 6/1 </i> </td>
+        <td> 
+            Generation criteria for Fukaya categories.
+        </td> 
+
+          <td> 
+              <a href="notes/2016-06-01.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+
+
+    <tr> 
+        <td> <i> 6/3 </i> </td>
+        <td> 
+            Generating Fukaya categories of Landau-Ginzburg models.
+        </td> 
+
+          <td> 
+              <a href="notes/2016-06-03.pdf">Notes</a> by Cedric De Groote.
+        </td>
+        <td> </td>
+    </tr>
+    
+
+</tbody>
+</table>
+
+
+
+
+
+
+</body>
+
+</html>

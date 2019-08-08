@@ -1,0 +1,454 @@
+%!TEX TS-program = xelatex
+
+\documentclass[12pt]{article}
+\usepackage {amsmath, amscd, amsbsy, amsfonts, amsthm, eucal}
+\usepackage{latexsym,amssymb,mathrsfs,bbm}
+\textwidth 6.5in
+\topmargin -.3in
+\oddsidemargin 0in
+\textheight 9in
+\parindent 0 pt
+
+\usepackage{color}
+\definecolor{rltred}{rgb}{0.75,0,0}
+\definecolor{rltgreen}{rgb}{0,0.5,0}
+\definecolor{rltblue}{rgb}{0,0,0.75}
+\def\red{\color{red}}
+\def\black{\color{black}}
+\def\green{\color{rltgreen}}
+\def\blue{\color{rltblue}}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand\bi{\begin{itemize}}
+\newcommand\ei{\end{itemize}}
+\newcommand\beq{\begin{equation}}
+\newcommand\eeq{\end{equation}}
+\newcommand\itema{\item[(a)]}
+\newcommand\itemb{\item[(b)]}
+\newcommand\itemc{\item[(c)]}
+\newcommand\itemd{\item[(d)]}
+\newcommand\iteme{\item[(e)]}
+\newcommand\itemf{\item[(f)]}
+
+\renewcommand\and{\qquad\text{and}\qquad}
+\renewcommand\|{\ | \ }
+\newcommand\ra{\rightarrow}
+\newcommand\sr{\stackrel}
+\newcommand\mf\mathfrak
+\newcommand\mc\mathcal
+
+\def\manylinedefinition#1{
+\left\{\begin{array}{ll}
+#1
+\end{array}\right.
+}
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+
+\def\pb#1{{\green \bf Problem #1.}\hskip 8pt \black}
+\def\sol{\textbf{Solution:}}
+
+\newcommand\ev{\text{ev}}
+\newcommand\ltwo{\ell^2}
+\newcommand\mfa{\mf a}
+\def\sequence#1{$\{{#1}_n\}$}
+\def\subsequence#1{$\{{#1}_{n_k}\}$}
+\def\sumint#1{\sum_{#1=1}^\infty}
+\def\sumzero#1{\sum_{#1=0}^\infty}
+\def\sumseries#1#2{$\sumint#1 #2_{#1}$}
+\newcommand\e\varepsilon
+\newcommand\limn{\lim_{n \ra \infty}}
+\newcommand\limsupn{\limsup_{n \ra \infty}}
+\newcommand\liminfn{\liminf_{n \ra \infty}}
+%\newcommand\iff{\quad\Leftrightarrow\quad}
+
+\newcommand\Fixaneps{Fix an arbitrary $\e > 0$ }
+\newcommand\foranyeps{for any $\e > 0$ }
+\newcommand\givenanyn{given any $N \in \N$ }
+\newcommand\thereexistsn{there exists an $n \geq N$ }
+\newcommand\thereexistsN{there exists an $N$ such that for every $n \geq N$ }
+\newcommand\foreveryn{for every $n \geq N$ }
+\newcommand\foreveryk{for every $k \geq N$ }
+\newcommand\foreveryx{for every $x \in X$ }
+\newcommand\Foreveryx{For every $x \in X$  }
+
+\newcommand\textbook{Johnsonbaugh and Pfaffenberger}
+\newcommand\notes{Prof. Simon's notes}
+
+\title{hw4-solutions}
+
+\begin{document}
+\centerline{\Large Math 171 Homework 4}
+\centerline{\small (due April 29)}
+\vskip .2in
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 38.4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{38.4}
+
+Let $M$ be a metric space such that $M$ is a finite set. Prove that every
+subset of $M$ is closed.
+
+\sol
+
+Every subset of $M$ is finite, so it is closed by Corollary 38.7.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 39.5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{39.5}
+
+Prove that the interior of a rectangle in $\R^2$
+\[
+(a, b) \times (c, d) = \{(x, y) \| a < x < b, c < y < d\}
+\]
+is an open subset of $\R^2$.
+
+\sol
+
+Let $p_0 = (x_0, y_0)$ be a point in $(a, b) \times (c, d)$ and let
+$\e = \min(x_0 - a, b - x_0, y_0 - c, d - y_0)$. We will show that 
+$B_{\e}(p_0)$ is contained in $(a, b) \times (c, d)$. Indeed, let
+$(x, y)$ be a point in $B_{\e}(p_0)$. Then
+\[
+|x - x_0|^2 \leq |x - x_0|^2 + |y - y_0|^2 = d_{\R^2}((x, y), (x_0, y_0))
+\leq \e^2,
+\]
+and consequently
+\[
+|x - x_0| < \e.
+\]
+Therefore,
+\[
+a \leq x_0 - \e < x < x_0 + \e \leq b. 
+\]
+Similarly,
+\[
+|y - y_0| \leq d_{\R^2}((x, y), (x_0, y_0)) < \e,
+\]
+so that
+\[
+c \leq y_0 - \e < y < y_0 + \e \leq d. 
+\]
+Thus, $(x, y) \in (a, b) \times (c, d)$, as desired.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 40.7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{40.7}
+
+Let $f$ be a function from a metric space $(M_1, d_1)$ into a metric space
+$(M_2, d_2)$. Let $a \in M_1$. Prove that the following are equivalent.
+
+\bi
+\itema
+$f$ is continuous at $a$.
+\itemb
+If $U$ is an open subset of $M_2$ which contains $f(a)$, there exists an open
+subset $V$ of $M_1$ which contains $a$ such that $V \subset f^{-1}(U)$.
+\ei
+
+\sol
+
+\bi
+\item (a) $\Rightarrow$ (b) 
+
+Assume $f$ is continuous at $a$. Given an open subset $U$ of $M_2$
+containing $f(a)$, by the openness condition there exists an $\e > 0$ such
+that $B_{\e}(f(a))$ is contained in $U$. By continuity of $f$, there exists
+$\delta > 0$ such that for all $x$ such that $d_1(a, x) < \delta$ we have
+that $d_2(f(a), f(x)) < \e$. Then we can take $V := B_{\delta}(a)$ because
+$B_{\delta}(a)$ is open (Theorem 39.4), $a \in B_{\delta}(a)$ and
+\[
+f(B_{\delta}(a)) \subset B_{\e}(f(a)) \subset U,
+\]
+so that
+\[
+B_{\delta}(a) \subset f^{-1}(U).
+\]
+
+\item (b) $\Rightarrow$ (a) 
+
+Assume that for every open subset $U$ of $M_2$ containing $f(a)$ there
+exists an open subset $V$ containing $a$ contained in $f^{-1}(U)$.
+
+Given an arbitrary $\e > 0$, let $U := B_{\e}(f(a))$. By Theorem 39.4
+$U$ is open, so there exists an open subset $V$ containing $a$ contained
+in $f^{-1}(B_{\e}(f(a)))$. Since $V$ is open, there exists $\delta > 0$ such
+that $B_{\delta}(a) \subset V$. Then
+\[
+B_{\delta}(a) \subset V \subset f^{-1}(B_{\e}(f(a)))
+\]
+which can be translated into: for all $x \in M_1$ with $d_1(x, a) < \delta$
+we have that $d_2(f(x), f(a)) < \e$. Thus, $f$ is continuous at $a$,
+as desired.
+\ei
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 40.14a
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{40.14a}
+
+Let $(M, d)$ be a metric space and let $X$ be a subset of $M$. If $x \in M$,
+we define 
+\[
+d(x, X) := \inf \{d(x, y) \| y \in X\}.
+\]
+Prove that $f(x) = d(x, X)$ defines a continuous real-valued function
+on $M$.
+
+\sol
+
+It suffices to show that whenever $d(x, x')< \e / 2$ we
+have that $|d(x, X) - d(x', X)| < \e$.
+
+Given $x \in M$,
+choose $y \in X$ such that $d(x, y) < d(x, X) + \e / 2$
+(we can do that because by assumption $d(x, X) + \e / 2$ is not
+an lower bound of the set $\{d(x, y) \| y \in X\}$).
+Then for every $x' \in X$ such that $d(x, x') < \e / 2$ we have that
+\[
+d(x', X) \leq d(x', x) + d(x, y) < \frac \e 2 + d(x, X) + \frac \e 2 =
+d(x, X) + \e.
+\]
+
+Similarly, by choosing $y' \in X$ with $d(x', y') < d(x', X) + \e / 2$
+we get that
+\[
+d(x, X) < d(x', X) + \e.
+\]
+
+Thus, 
+\[
+-\e < d(x, X) - d(x', X) < \e,
+\]
+as desired.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 40.17b
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{40.17b}
+
+Let $M$ be a set and let $d$ and $d'$ be metrics for $M$. We say that $d$
+and $d'$ are \emph{equivalent metrics} for $M$ if the collection of open
+subsets of $(M, d)$ is identical with the collection of open subsets of
+$(M', d')$.
+
+Prove that the metrics $d, d'$, and $d''$ of Exercise 35.7 are equivalent.
+
+\sol
+
+\begin{lemma}
+\label{lem:equivalent-metrics}
+If every sequence \sequence a in $M$ that converges in $d_1$ also converges
+in $d_2$ and vice versa then $(M, d_1)$ is equivalent to $(M, d_2)$.
+\end{lemma}
+
+The desired statement follows from the Lemma \ref{lem:equivalent-metrics}
+applied to the result of Exercise 37.10 from the previous homework.
+
+\begin{proof}[Proof of Lemma \ref{lem:equivalent-metrics}]
+By Theorem 39.5 it suffices to show that a subset $X$ of is closed in 
+$(M, d_1)$ if and only if it is closed in $(M, d_2)$. By symmetry
+it suffices to only show that if $X$ is closed in $(M, d_1)$, it is
+closed in $d_2$.
+
+Assume $X$ is closed in $(M, d_1)$. Let $x$ be a limit point of $X$ in
+$(M, d_2)$. Then there exists a sequence \sequence a in $X$ converging
+to $x$ in $(M, d_2)$. By the assumption of the problem \sequence a
+also converges to $x$ in $(M, d_1)$, so $x$ is a limit point of $X$
+in $(M, d_1)$. Since $X$ is closed in $(M, d_1)$, $x \in X$. Since
+$x$ was an arbitrary limit point of $X$ in $(M, d_2)$, $X$ is closed
+in $(M, d_2)$, as desired.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{1. The closure of a set}
+
+Let $(M, d)$ be a metric space and $X \subset M$ a subset.
+Recall that $X$ is said to be \emph{closed} if $X = \bar X$, where $\bar X$ 
+is the set of limit points of $X$ in $M$.
+
+\bi
+\itema
+Prove that for any subset $X \subset M$, $\bar X$ is always a closed set. 
+(This justifies our use of the terminology \emph{closure} to refer to
+$\bar X$.) \\
+Note: for this problem you can proceed either directly by definition or
+prove that the complement of $\bar X$ is always open, making use of
+Theorem 39.5 in the book.
+\itemb
+Prove that if $X$ is any subset of $M$ with $X \subset Y$ and $Y$ closed,
+then $\bar X \subset Y$.
+\ei
+
+\sol
+
+\bi
+\itema
+Let $x$ be a limit point of $\bar X$. Thus, there exists a sequence
+$\{x^{(k)}\}_{k \in \N}$ of points in $\bar X$ that converges to $x$. Each
+$x^{(k)}$ is a limit point of $X$, so there exists a sequence
+$\{x^{(k)}_n\}_{n \in \N}$ converging to $x^{(k)}$. Choose $N_k$ such that
+\[
+d(x^{(k)}_n, x^{(k)}) < \frac 1 k
+\]
+for all $n \geq N_k$. 
+
+Consider the sequence $\{x_{N_k}^{(k)}\}_{k \in \N}$. By the triangle
+inequality
+\[
+d(x, x_{N_k}^{(k)}) \leq d(x, x^{(k)}) + d(x^{(k)}_n, x^{(k)}).
+\]
+Thus, 
+\beq
+\label{eq:squeeze}
+0 \leq d(x, x_{N_k}^{(k)}) < d(x, x^{(k)}) + \frac 1 k.
+\eeq
+Since, the sequence $\{x^{(k)}\}_{k \in \N}$ converges to $x$, it follows by
+Theorem 40.3 and Theorem 40.2 that 
+\[\lim_{k \ra \infty} d(x, x^{(k)}) = d(x, x) = 0.
+\]
+Thus, the right-most term of (\ref{eq:squeeze}) converges to 0. Hence,
+by Squeeze Theorem 
+\[
+\lim_{k \ra \infty} d(x, x_{N_k}^{(k)}) = 0.
+\]
+
+By the definition of a limit, for every $\e > 0$ there exists $N$ such that
+for every $k \geq N$ we have that $d(x, x_{N_k}^{(k)}) < \e$. Thus, 
+the sequence $\{x_{N_k}^{(k)}\}_{k \in \N}$ converges to $x$, so $x$ is 
+a limit point of $X$. Thus, $x \in \bar X$, as desired.
+
+\itemb
+By definition, $x \in M$ is a limit point of $X$ is there exists a sequence
+\sequence x of points in $X$ converging to $x$. Since $X \subset Y$, 
+\sequence x is also a sequence of points in $Y$, so $x$ is a limit point of 
+$Y$. Since $Y$ is closed, $x \in Y$. Thus, $Y$ contains every limit point of
+$X$.
+\ei
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\pb{2. The interior of a set}
+
+Let $(M, d)$ be a metric space and $E \subset M$ a subset (not necessarily
+open). An \emph{interior point of $E$} is a point $p \in E$ such that 
+some $B_{\e}(p) \subset E$. Define the \emph{interior of $E$}, denoted
+$\mathring E$, to be the set of all interior points of $E$.
+
+\bi
+\itema
+Prove that $\mathring E$ is open, and that $E$ is open if and only if
+$\mathring E = E$.
+\itemb
+If $G \subset E$ and $G$ is open, prove that $G \subset \mathring E$.
+(In a sense analogous to 1b, this says that $\mathring E$ is the largest
+open set contained in $E$).
+\itemc
+Prove that the complement of the interior $\mathring E^c$ is equal to the
+closure of the complement $\overline{E^c}$.
+\ei
+
+\sol
+
+\bi
+\itema
+$\mathring E = E$ \\
+$\Leftrightarrow$ Every point $p$ of $E$ is an interior point. \\
+$\Leftrightarrow$ For every point $p$ of $E$ there exist $\e > 0$ such
+that $B_{\e}(p) \subset E$. \\
+$\Leftrightarrow$ E is open.
+\itemb
+Given any $p$ in $G$, since $G$ is open there exists $\e > 0$ such
+that $B_{\e}(p) \subset G$. In particular, $B_{\e}(p) \subset E$.
+Hence, $p$ is an interior point of $E$. Thus, $G \subset \mathring E$.
+\itemc
+Since $\mathring E \subset E$, we have that $\mathring E^c \supset E^c$.
+Also, because $\mathring E$ is open, $\mathring E^c$ is closed. Therefore,
+by Problem 1b, $\overline{E^c} \subset \mathring E^c$.
+
+We have that $\overline{E^c} \supset E^c$ which
+implies $(\overline{E^c})^c \subset E$.
+Also, because $\overline{E^c}$ is closed, $(\overline{E^c})^c$ is open.
+Therefore, by part b, $(\overline{E^c})^c \subset \mathring E$, which
+is equivalent to $\overline{E^c} \supset \mathring E^c$.
+\ei
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%problem 38.4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pb{3. The boundary of a set}
+If $X$ is a subset of a metric space, define the boundary of $X$ to be the
+set $\partial X : \bar X \cap \overline{X^c}$ (the intersection of the 
+closure of $X$ with the closure of the the complement of $X$. Prove that
+
+\bi
+\itema
+$\partial X$ is closed for any set $X \subset M$.
+\itemb
+$X \cup \partial X = \bar X$ for any $X$.
+\itemc
+$X \backslash \partial X = \mathring X$ for any $X$.\\
+Note: $\partial X$ is not necessarily strictly contained in $X$. Here
+the notation $X \backslash \partial X$ refers to the set of points in
+$X$ which are not in $\partial X$.
+\ei
+
+\sol
+
+\bi
+\itema
+
+By Problem 1a, both $\bar X$ and $\overline{X^c}$ are closed. Hence,
+$\partial X$ is closed being the intersection of two closed sets.
+\itemb
+We have that $X \subset \bar X$ and $\partial X \subset \bar X$
+by definition of $\partial X$. Hence $X \cup \partial X \subset \bar X$.
+To show that $\bar X \subset X \cup \partial X$, it suffices to prove that
+if $x$ is a limit point of $X$ that is not an element of $X$ then 
+it is an element of $\partial X$. 
+
+Indeed, by assumption,  and $x \in X^c$, hence $x \in \overline{X^c}$.
+Also, by assumption $x \in \bar X$. Hence, 
+$x\in \bar X \cap \overline{X^c}$, as desired.
+\itemc
+\[
+X \backslash \partial X = (X^c \cup \partial X)^c 
+\]
+By part b applied to $X^c$ (and using that $\partial(X^c) = \partial X$ by
+definition) the above set equals
+\[
+(\overline{X^c})^c.
+\]
+By Problem 2c, it equals
+\[
+(\mathring X^c)^c,
+\]
+which in turn equals $\mathring X$, as desired.
+
+\ei
+
+
+\end{document}
