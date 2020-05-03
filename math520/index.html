@@ -418,7 +418,7 @@ topics are tentative and will be adjusted as necessary. </p>
         <td> Lecture 3: A review of limits and differentiability of real (multivariable) functions, partial derivatives. Complex differentiability of a function f: C to C and its relationship to real differentiability of the same function ("Complex differentiability is real differentiability along with the total derivative matrix being a complex linear map"). The Cauchy-Riemann equations. Harmonic functions.
         </td>
             <td>  Chapter 1 Section 2.1 (p. 12-15), Chapter 2 Section 1.1-1.3 (p. 21-29)  </td>
-            <td>  Note that Ahlfors calls functions which have a well-defined complex derivative <i> complex analytic</i> whereas we will for now use <i>complex differentiable</i> or <i>holomorphic</i>, and only use the term analytic once we prove the (non-trivial) theorem that complex differentiable functions are in fact analytic (in the sense of being infinitely differentiable and equal to its Taylor expansion in a neighborhood of any point).</td>
+            <td>  Note that Ahlfors calls functions which have a well-defined complex derivative <i> complex analytic</i> whereas we will for now use <i>complex differentiable</i> or <i>holomorphic</i>, and only use the term analytic once we prove the (non-trivial) theorem that complex differentiable functions are in fact analytic (in the sense of being infinitely differentiable and and having admitting convergent Taylor expansions in a neighborhood of any point).</td>
     </tr>
 
     <tr>
@@ -539,6 +539,7 @@ topics are tentative and will be adjusted as necessary. </p>
  <td>    </td>
     </tr>
 
+    <tr>
     <td> <i> Feb. 17-21</i> </td>
         <td> 
             <i>No class.</i>
@@ -653,16 +654,241 @@ topics are tentative and will be adjusted as necessary. </p>
     </tr>
 
 
+    <tr>
+    <td> <i> Mar. 16-20</i> </td>
+        <td> 
+            <i>No lecture (spring break).</i>
+        </td>
+        <td> 
+        </td>
+        <td>  </td>
+</tr>
 
         <tr>
         <td> <i> Mar. 23</i> </td>
         <td> 
             Lecture 24: 1-chains and 2-chains. Homologous cycles, and cycles that are homologous to zero (in the topological sense). The notion of being homologous to zero in the winding number sense, and a beginning of a proof of equivalence.
-            <!--Towards the general formulation of Cauchy's theorem: <i> (1-)chains</i>, which are particular formal sums of parametrized curves up to equivalence, and <i> cycles</i> (which are those chains that can be represented by sums of closed curves). Two cycles are <i>homologous</i> if their difference is <i>nullhomologous</i> or <i>homologous to zero</i> (along with one heuristic and one precise definition of this latter term).-->
         </td>
         <td> 
             
-            <!-- Chapter 4 Section 4.1, 4.3 (p. 137-138, 141)-->
+            Chapter 4 Section 4.1, 4.3 (p. 137-138, 141).
+        </td>
+ <td>   These sections cover the definition of a cycle being homologous to zero in the winding number sense. </td>
+    </tr>
+
+
+        <tr>
+        <td> <i> Mar. 25</i> </td>
+        <td> 
+            Lecture 25: Proof of equivalence of the two notions of being homologous to zero (in the topological sense vs. in the winding number sense), part 1.
+        </td>
+ <td>    </td>
+        <td> 
+           For general topological spaces, the notion of a cycle being homologous to zero coincides with the definition we gave in class for a region in C (namely, that the cycle bounds a 2-chain). This definition is omitted in Ahlfors in favor of a computationally simpler definition (which we called "being homologous to zero in the winding number sense"); however note this latter definition only applies to regions of C (and not to arbitrary topological spaces).
+        </td>
+    </tr>
+
+
+        <tr>
+        <td> <i> Mar. 27</i> </td>
+        <td> 
+            Lecture 26: Proof of equivalence of the two notions of being homologous to zero (in the topological sense vs. in the winding number sense), part 2. The general (homological) version of Cauchy's theorem and its proof. Simply connected regions (multiple variants of the definition given, and a theorem was stated that all definitions are equivalent).
+        </td>
+        <td> 
+            Chapter 4 Section 4.2 (p. 138-141), 4.4-4.5 (p. 141-144) </td>
+        <td> Section 4.4 states the general form of Cauchy's theorem and Section 4.5 gives a proof, which is a bit different from the one we gave in class, because we can appeal to the topological version of being homologous to zero. Section 4.2 discusses simply connected regions. However, note Ahlfors defines simply connected regions to be any region "without holes", and showed that this is equivalent to any cycle in Omega being zero in the winding number sense, but does not discuss the topological notion of nullhomologous or the original definition of simply connected (that any loop is homotopic rel endpoints to a constant loop).
+        </td>
+    </tr>
+
+
+        <tr>
+        <td> <i> Mar. 30</i> </td>
+        <td> 
+            Lecture 27: More about simply connected domains (and the various equivalent definitions). Proof that a region is simply connected (in either homological or winding number sense, that every cycle in the region is nullhomologous) if and only if it "has no holes" (meaning that its complement consists only of unbounded components, hence is connected in (C union infinity).) The notion of a "surrounding cycle" for a "hole" or bounded component A of (C minus Omega), a cycle in Omega that winds once around any point in A but zero times around other points in (C minus Omega). Existence of surrounding cycles. Some further consequences of a region Omega being simply connected (corollaries of Cauchy's theorem): its possible to define a single-valued branch of log f or  nth root of f for any function on Omega without zeroes.
+        </td>
+        <td> Chapter 4 Section 4.2 (p. 138-141), 4.4 (p. 141-142), 4.7 (p. 146-147)</td>
+           Section 4.2 proves the equivalence of the two versions of the simply connected definition that appear in Ahlfors. (the proof given in class was slightly different).
+Note that Ahlfors does not use the term "surrounding cycle", but the construction of surrounding cycles is given in Section 4.7, by adapting an earlier construction given in the proof of Section 4.2's Theorem 14.
+           Section 4.4 discusses applications of Cauchy's theorem to defining branches of log and nth roots on simply connected regions.
+        </td>
+    </tr>
+
+
+
+        <tr>
+        <td> <i> Apr. 1</i> </td>
+        <td> 
+            Lecture 28: The notion of a homological basis of cycles, and the first homology of a region in C. For an arbitrary region, a collection of surrounding cycles around each of its holes (the bounded components of its complement) give a homology basis. The residue theorem.
+        </td>
+        <td> 
+            Chapter 4, Section 4.7 (p. 146 -147), Section 5.1 (p. 148-152)</td>
+        <td> Section 4.7 discusses the notion of a "multiply-connected region" (meaning a region that's not simply connected) and a homology basis for it).  The residue theorem is discussed in Section 5.1.
+        </td>
+    </tr>
+
+
+        <tr>
+        <td> <i> Apr. 3</i> </td>
+        <td> 
+            Lecture 29: Recap of the residue theorem and techniques for computing residues. Conceptual applications: (1) the general version of the Cauchy integral formula, (2) the argument principle, a convenient formula for the number of poles and zeroes of a meromorphic function in a region (3) Rouche's theorem (an immediate corollary of the argument principle): which gives criteria for which a pair of functions have same number of zeroes in a region. An example of Rouche's theorem in practice.
+        </td>
+        <td> 
+            Chapter 4, Section 5.1-5.2 (p. 148-154).
+        </td>
+ <td>    </td>
+    </tr>
+
+        <tr>
+        <td> <i> Apr. 6</i> </td>
+        <td> 
+            Lecture 30: Applications of the residue theorem to computing definite integrals 1.
+        </td>
+        <td> 
+            Chapter 4, Section 5.3 (p. 154-161).
+        </td>
+ <td>    </td>
+    </tr>
+
+
+        <tr>
+        <td> <i> Apr. 8</i> </td>
+        <td> 
+            Lecture 31: Applications of the residue theorem to computing definite integrals 2. Cauchy principle value integrals.
+        </td>
+        <td> 
+            Chapter 4, Section 5.3 (p. 154-161).
+        </td>
+ <td>    </td>
+    </tr>
+
+
+        <tr>
+        <td> <i> Apr. 10</i> </td>
+        <td> 
+            Lecture 32: Applications of the residue theorem to computing definite integrals 3. Sequences and series of complex analytic functions.
+        </td>
+        <td> 
+            Chapter 4, Section 5.3 (p. 154-161), Chapter 5 Section 1.1 (p. 175-179).
+        </td>
+ <td>    </td>
+    </tr>
+
+
+        <tr>
+        <td> <i> Apr. 13</i> </td>
+        <td> 
+            Lecture 33: Weierstrass's theorem that a sequence of complex analytic functions which converges uniformly on compact subsets has a complex analytic limit. Hurwitz's theorem that if every term in the sequence is never zero, then the limit is either identically zero or never zero. Taylor and Laurent series.
+        </td>
+        <td> 
+            Chapter 5 Section 1.1-1.3 (p. 175-186).
+        </td>
+ <td>    </td>
+    </tr>
+
+        <tr>
+        <td> <i> Apr. 15</i> </td>
+        <td> 
+            Lecture 34: Any complex analytic function on an annulus has a convergent Laurent expansion in that annulus. Integral representations for various terms in the Laurent expansion.
+        </td>
+        <td> 
+            Chapter 5 Section 1.3 (p. 184-186).
+        </td>
+ <td>    </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Apr. 17</i> </td>
+        <td> 
+            Lecture 35: Normal families of functions and the Arzela-Ascoli theorem.
+        </td>
+        <td> 
+            Chapter 5 Section 5.1-5.3 (p. 219-223).
+        </td>
+ <td>    </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Apr. 20</i> </td>
+        <td> 
+            Lecture 36: Normal families are relatively compact (or "pre-compact") subsets with respect to a metric/topology on function space. A simplified criterion for normality when the functions in the family are complex analytic: A family of complex analytic functions is normal if and only if it is locally bounded or equivalently uniformly bounded on compact subsets.
+        </td>
+        <td> 
+            Chapter 5 Section 5.1-5.4 (p. 219-225).
+        </td>
+ <td>    </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Apr. 22</i> </td>
+        <td> 
+            Lecture 37: Biholomorphisms between regions of (the extended) complex plane. The classification of all biholomorphisms of the extended complex plane as Mobius transformations (also known as fractional linear transformations). The cross ratio of a 4-tuple in the extended plane.
+        </td>
+        <td> 
+            Chapter 3 Section 3.1-3.2 (p. 76-80)</td>
+        <td> Section 3.1 introduces fractional linear transformations (which are often simply called linear transformations in the book). The proof that these are all biholomorphisms seems implicit but not explicitly mentioned (compare Chapter 4 Section 3.2 exercise 4 on p. 130, which asks the reader to show the key first step in the classification, that all biholomorphisms of C union infinity are rational functions).
+        </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Apr. 24</i> </td>
+        <td> 
+            Lecture 38: Fractional linear transformations send generalized circles (which are by definition either a circle in C or a line in C union the point at infinity) to generalized circles. The subgroup of fractional linear tranformations that preserve the unit disk. The classification result that any biholomorphism of the unit disk is one of these (unit-disk-preserving) Mobius transformations.
+        </td>
+        <td> 
+            Chapter 3 Section 3.2 (p. 78-80).  </td>
+        <td>The classification of the biholomorphisms of the unit disk, a corollary of Schwarz's Lemma, appears as an exercise in Ahlfors (see Chapter 4 Section 3.4 exercise 5 (p. 136))
+        </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Apr. 27</i> </td>
+        <td> 
+            Lecture 39: Explicit biholomorphisms between more general simply connected regions in the complex plane. Examples of biholomorphisms induced by the other elementary functions (like exp, and log, or real powers, the latter two of which are only defined on a subregion of the plane after choosing a branch). Biholomorphisms between the unit ball and the upper half plane (and vice versa). Examples of more complicated explicit biholomorphisms as a composition of various elementary biholomorphisms.
+        </td>
+        <td> 
+            Chapter 3 Section 4.1-4.2 (p. 89-97).
+        </td>
+ <td>    </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Apr. 27</i> </td>
+        <td> 
+            Lecture 39: Explicit biholomorphisms between more general simply connected regions in the complex plane. Examples of biholomorphisms induced by the other elementary functions (like exp, and log, or real powers, the latter two of which are only defined on a subregion of the plane after choosing a branch). Biholomorphisms between the unit ball and the upper half plane (and vice versa). Examples of more complicated explicit biholomorphisms as a composition of various elementary biholomorphisms.
+        </td>
+        <td> 
+            Chapter 3 Section 4.1-4.2 (p. 89-97).
+        </td>
+ <td>    </td>
+    </tr>
+
+
+    <tr>
+        <td> <i> Apr. 29</i> </td>
+        <td> 
+            Lecture 40: The Riemann mapping theorem part 1.
+        </td>
+        <td> 
+            Chapter 6 Section 1.1 (p. 229-232).
+        </td>
+ <td>    </td>
+    </tr>
+
+
+
+    <tr>
+        <td> <i> May 1</i> </td>
+        <td> 
+            Lecture 41: The Riemann mapping theorem part 2.
+        </td>
+        <td> 
+            Chapter 6 Section 1.1 (p. 229-232).
         </td>
  <td>    </td>
     </tr>
