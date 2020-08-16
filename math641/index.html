@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p
+{
+    color:black;
+    text-align:left;
+    margin-left:20px;
+}
+ul
+{
+    margin-left:20px;
+/*    list-style-type: upper-roman;*/
+}
+ol
+{
+    margin-left:20px;
+    list-style-type: upper-roman;
+}
+ol ol {
+    list-style-type: decimal;
+}
+h1
+{
+    color:#077;
+    font-size:20pt;
+    text-align:center;
+}
+h2
+{
+    color:gray;
+    font-size:14pt;
+    text-align:center;
+}
+h3
+{
+    color:#077;
+    font-size:16pt;
+    text-align:left;
+}
+table.reg
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 900px;
+    border: 1px solid black;
+}
+table.reg th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 10px;
+    /*background-color: #b99;*/
+    background-color: #4a9;
+    text-align:left
+}
+table.reg td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+table.hw
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 400px;
+    border: 1px solid black;
+}
+table.hw th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 5px;
+    /*background-color: #b99;*/
+    background-color: #4a9;
+    text-align:left
+}
+table.hw td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+
+#newspaper-c
+{
+    /*font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
+    /*font-size: 14px;*/
+    margin: 45px;
+    width: 700px;
+    text-align: left;
+    border-collapse: collapse;
+    /*border: 1px solid #6cf;*/
+    border: 1px solid gray;
+}
+#newspaper-c th
+{
+    padding: 20px;
+    font-weight: normal;
+    font-size: 13px;
+    /*color: #039;*/
+    text-transform: uppercase;
+    border-right: 1px solid #0865c2;
+    border-top: 1px solid #0865c2;
+    border-left: 1px solid #0865c2;
+    border-bottom: 1px solid #fff;
+}
+#newspaper-c td.odd
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color:black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right:none;
+    font-weight:bold;
+}
+#newspaper-c td
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color: black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right: 1px dashed gray;
+}
+
+
+</style>
+</head>
+
+<title> Math 641:  Mirror symmetry </title>
+<body>
+
+<h1>Math 641: Topics in Topology, Fall 2020 </h1>
+<h2>Monday, Wednesday, 10:00-11:20am (TBC) on Zoom </h2>
+
+<h3>Teaching Staff</h3>
+<table id="newspaper-c" summary="Teaching Staff Info">
+<tbody>
+    <tr>
+        <td class="odd"> Instructor </td>
+        <td> Sheel Ganatra </td>
+    </tr>
+    <tr>
+        <td class="odd"> Office </td>
+        <td> KAP 266D </td>
+    </tr>
+    <tr>
+        <td class="odd"> E-mail </td>
+        <td> sheel (dot) ganatra (at) usc (dot) edu (this is the best way to reach me) </td>
+    </tr>
+    <tr>
+        <td class="odd">Office hours (virtual)</td>
+        <td> TBD </td>
+
+<!--    <tr>
+        <td class="odd"> Telephone </td>
+        <td> (213) 740-2417 </td>
+        <td class="odd"> </td>
+        <td>  </td>
+    </tr>-->
+</tbody>
+</table>
+
+
+<!--<h3> Announcements </h3>
+
+
+<ul>
+    <li><b> 3/9/2020</b>: Our class will move to (remote) online instruction via Zoom for the remainder of the semester (as a campus-wide measure in response to the COVID-19 pandemic). Please let me know ASAP if you are not receiving Zoom class meeting invitations through Blackboard.
+    </li>
+
+    <li><b>2/14/2020</b>: There will be no class the week of 2/17-2/21; we will resume class on Monday 2/24.</li>
+
+</ul>
+-->
+
+</p>
+
+<h3>Course Description and Prerequisites</h3>
+<p> 
+In Fall 2020, Math 641 will be a course on <i>mirror symmetry</i>.
+We will give an incomplete survey of some aspects of mirror symmetry, an unexpected link discovered heuristically by string theorists in the early 1990s between the symplectic geometry one space and the complex geometry of a `mirror' space. While the underpinnings of mirror symmetry are much better understood today (and known to work in much greater generality than initially proposed), large parts of this correspondence remain conjectural. Topics to be discussed may include (but are not limited to): 
+<ul>
+    <li> a review of parts of symplectic and complex (and K&auml;hler) and geometry, and mirror symmetry as an equivalence of moduli spaces of such structures </li>
+    <li> combinatorial constructions of mirror pairs and mirror submanifolds (via toric and/or tropical geometry)</li>
+    <li> the Strominger-Yau-Zaslow (SYZ) proposed geometric approach to constructing mirror pairs, and relationships to affine and tropical geometry </li>
+    <li> `open string'/categorical, or homological mirror symmetry (HMS) (between the Fukaya category and categories of coherent sheaves) </li>
+    <li> `closed string'/`enumerative' mirror symmetry as first discovered by string theorists (between cohomology groups with their Hodge structures and/or between curve counts and period integrals), </li>
+    <li> expected relationships between various points of view. </li>
+</ul></p>
+
+<p>
+The course cannot quite be self contained, as it will draw in parts from, and
+reference to, differential geometry, analysis, algebraic geometry,
+algebra/category theory, and combinatorics.  We will particularly require
+familiarity with the geometry of manifolds and algebraic topology at the level
+of USC's Math 535a and Math 540 courses or equivalent.
+We will also largely assume Math 535b (Advanced Differential Geometry as covered
+<a href="https://sheelganatra.com/math535b/">here</a>), though we will try
+to review some notions  to be self-contained. Familiarity with
+homologial algebra at the level of the Math 510 series will also help at
+various points in the class.
+In general, we will try to overview important background when it is
+possible. Frequently, in place of precise definitions we will aim to focus on
+simple examples where phenomena can be understood. </p>
+
+
+<p> A more detailed lecture plan (updated on an ongoing basis, after each
+lecture) will be posted below. </p>
+
+
+<p>
+In the last roughly one or two weeks of the course, the class will become student
+run: students will give a series of talks about advanced topics in one or more
+of these areas. There will be a wide array of topics possible, ranging from
+geometric to algebraic to combinatorial.
+</p>
+
+<!--<p>
+Any K&auml;hler manifold is, after forgetting the complex structure both
+Riemannian and symplectic. While a Riemannian structure always exists, the
+conditions of being symplectic or further K&auml;hler are significantly more
+rigid and, as we will see, cannot always exist. For a real manifold to be
+K&auml;hler, there are both "local" obstructions (coming from whether a real
+manifold can be made complex) and "global" obstructions (coming from the <i>
+Hodge decomposition theorem</i>  which says that the de Rham cohomology of a
+K&auml;hler manifolds has a very special form). For a real manifold to be
+symplectic, there are no "local" obstructions (by the Darboux theorem, which
+says that symplectic manifolds are all locally standard), there are significant
+"global" obstructions (which, to begin, come again from cohomology).  
+</p>
+
+<p>
+A central class of examples of K&auml;hler (hence also Riemannian and
+symplectic) manifold comes from <i>smooth, projective complex varieties</i>
+(subsets of complex projective space cut out smoothly by polynomial equations;
+including projective space itself).  We will also see examples of manifolds
+that are (real or complex but) not symplectic, and (symplectic) but not
+K&auml;hler. Finally, we will discuss constructions in all of these categories.
+</p>-->
+
+<p>
+</p>
+
+
+<h3>References</h3>
+
+
+<p> There is no official course textbook, but we will frequently refer to the
+following books and papers (and likely others):
+
+<ul>
+
+    <li> Ana Cannas da Silva, <i>Lectures on symplectic geometry</i>, available <a href="https://people.math.ethz.ch/~acannas/Papers/lsg.pdf">online</a>. </li>
+
+    <li> Mich&egrave;le Audin, <i> Torus actions in symplectic geometry </i> 2nd ed (should be available online through SpringerLink).</li> 
+    <li> David Cox and Sheldon Katz, <i> Mirror symmetry and algebraic geometry</i>. Discusses enumerative mirror symmetry and various constructions of mirror pairs, largely from the viewpoint of algebraic geometry.</li>
+
+    <li> UNDER CONSTRUCTION </li>
+
+
+</ul>
+
+<p>We will also make key use of the following course and lecture notes:
+<ul>
+    <li> Denis Auroux's 2009 course notes on 
+        <a href="http://people.math.harvard.edu/~auroux/277F09/index.html">Mirror symmetry</a> and 2016 lecture series notes on <a href="http://math.columbia.edu/~topology/Eilenberg_lectures_fall_2016">Fukaya categories and mirror symmetry</a>.</li>
+    </li>
+
+    <li> James Pascaleff's 2014 lecture notes on <a href="https://faculty.math.illinois.edu/~jpascale/courses/2014/m392c/">Lagrangian Floer homology</a> and 2018 lecture notes on <a href="https://faculty.math.illinois.edu/~jpascale/courses/2018/595/">Homological Mirror Symmetry</a>.</li>
+
+    <li> Nick Sheridan's 2014 lecture series on <a href="https://www.maths.ed.ac.uk/~nsherida/HMS.html">Homological Mirror Symmetry</a>.
+    </li>
+
+    <li> UNDER CONSTRUCTION</li>
+</ul>
+
+</p>
+
+<!--<p> For review of the introductory geometry and topology of manifolds, you may
+wish to consult the textbook used frequently in Math 535a, <i> Foundations of
+    Differential Manifolds and Lie Groups </i> by Frank Warner.  An alternative
+introductory textbook is <i>Introduction to Smooth Manifolds</i> by John Lee. A
+nice complementary reference is Guillemin and Pollack's <i>Differential
+Topology</i>, particularly its chapter on intersection theory.</p>-->
+
+<h3>Grading System</h3>
+<p>
+Your grade in the course, a measure of your demonstrated understanding of
+course topics, will come from participation along with two (individual) final
+assignments: 
+    <ul>
+        <li> A lecture given in the final weeks of the course, on an advanced topic building on what is covered in the class. 
+         and  </li>
+        <li> A final expository paper, at least 5 pages long, about an advanced
+        topic as above. This is allowed, but does not need to exactly coincide
+        with your lecture topic. In fact, even if the topic is the same, the
+        paper should necessarily have more details and/or differing emphasis
+        from what is lectured about in class.
+        </li> </ul>
+    <p>A list of possible topics for the above assignments will be provided
+    later in the semester. You are also welcome to propose a different topic,
+    subject to instructor approval.</p>
+    </a>
+
+
+<!--<h3>Homework Assignments</h3>
+<p>
+Some optional (ungraded) homeworks exercises may be assigned periodically
+throughout the semester. They will be posted here on an ongoing basis.  
+</p>
+
+<p>
+
+<table class="hw">
+<thead>
+<tr>
+    <th> Date </th>
+    <th> Exercises </th>
+    <th> Notes </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td> 1/17  </td> 
+    <td>
+        Problems 1-4 of this <a href="../spring2017_math535a/hw/hw5.pdf">HW assignment</a> on vector bundles
+    </td>
+    <td> These exercises give various equivalent ways to think about vector bundles and also justify the various operations we perform on vector bundles. (Warning: problem 3 is fairly long, and requires some understanding of the definition of a category)  </td>
+</tr>
+</tbody>
+</table>-->
+
+
+<h3> Student lectures and final papers</h3>
+<p>Details about your final lecture and paper assignment will be posted here later in the semester.</p>
+<!--are now available <a href="final_project.pdf">here</a>.</p>-->
+
+
+<h3> Lecture Plan </h3>
+<p> Lecture topics by day will be posted on an ongoing basis below. Future
+topics are tentative and will be adjusted as necessary. </p> 
+<table class="reg">
+<thead>
+<tr> 
+    <th> Day </th> 
+    <th> Lecture topics </th> 
+    <th> References and remarks </th> 
+    <th> Notes </th>
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+        <td> <i> Aug. 17</i> </td>
+        <td> 
+            Lecture 1: Welcome + an overview of the class. 
+        <td> </td>
+        <td>    </td>
+    </tr>
+
+
+
+
+</tbody>
+</table>
+</body>
+
+</html>
