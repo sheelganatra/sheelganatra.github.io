@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p
+{
+    color:black;
+    text-align:left;
+    margin-left:20px;
+}
+ul
+{
+    margin-left:20px;
+/*    list-style-type: upper-roman;*/
+}
+ol
+{
+    margin-left:20px;
+    list-style-type: upper-roman;
+}
+ol ol {
+    list-style-type: decimal;
+}
+h1
+{
+    color:#077;
+    font-size:20pt;
+    text-align:center;
+}
+h2
+{
+    color:gray;
+    font-size:14pt;
+    text-align:center;
+}
+h3
+{
+    color:#077;
+    font-size:16pt;
+    text-align:left;
+}
+table.reg
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 900px;
+    border: 1px solid black;
+}
+table.reg th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 10px;
+    /*background-color: #b99;*/
+    background-color: #4a9;
+    text-align:left
+}
+table.reg td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+table.hw
+{
+    border-collapse: collapse;
+    margin: 45px;
+    width: 400px;
+    border: 1px solid black;
+}
+table.hw th
+{
+    /*border: 1px solid gray;*/
+    border-bottom: 1px solid black;
+    border-right: 1px dotted black;
+    padding: 5px;
+    /*background-color: #b99;*/
+    background-color: #4a9;
+    text-align:left
+}
+table.hw td
+{
+    padding: 5px;
+    /*border: 1px solid gray;*/
+}
+
+
+#newspaper-c
+{
+    /*font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
+    /*font-size: 14px;*/
+    margin: 45px;
+    width: 700px;
+    text-align: left;
+    border-collapse: collapse;
+    /*border: 1px solid #6cf;*/
+    border: 1px solid gray;
+}
+#newspaper-c th
+{
+    padding: 20px;
+    font-weight: normal;
+    font-size: 13px;
+    /*color: #039;*/
+    text-transform: uppercase;
+    border-right: 1px solid #0865c2;
+    border-top: 1px solid #0865c2;
+    border-left: 1px solid #0865c2;
+    border-bottom: 1px solid #fff;
+}
+#newspaper-c td.odd
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color:black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right:none;
+    font-weight:bold;
+}
+#newspaper-c td
+{
+    padding: 5px 10px;
+    /*color: #669;*/
+    color: black;
+    /*border-right: 1px dashed #6cf;*/
+    border-right: 1px dashed gray;
+}
+
+
+</style>
+</head>
+
+<title> Math 641:  Advanced Algebraic Topology </title>
+<body>
+
+<h1>Math 641: Topics in Topology, Fall 2020 </h1>
+<h2>Monday, Wednesday, 9:30-11:00am on Zoom (plus occasional make-up meetings Friday) </h2>
+
+<h3>Teaching Staff</h3>
+<table id="newspaper-c" summary="Teaching Staff Info">
+<tbody>
+    <tr>
+        <td class="odd"> Instructor </td>
+        <td> Sheel Ganatra </td>
+    </tr>
+    <tr>
+        <td class="odd"> Office </td>
+        <td> KAP 266D </td>
+    </tr>
+    <tr>
+        <td class="odd"> E-mail </td>
+        <td> sheel (dot) ganatra (at) usc (dot) edu (this is the best way to reach me) </td>
+    </tr>
+    <tr>
+        <td class="odd">Office hours (virtual)</td>
+        <td> TBD </td>
+
+<!--    <tr>
+        <td class="odd"> Telephone </td>
+        <td> (213) 740-2417 </td>
+        <td class="odd"> </td>
+        <td>  </td>
+    </tr>-->
+</tbody>
+</table>
+
+
+<!--<h3> Announcements </h3>
+
+
+<ul>
+    <li><b> 3/9/2020</b>: Our class will move to (remote) online instruction via Zoom for the remainder of the semester (as a campus-wide measure in response to the COVID-19 pandemic). Please let me know ASAP if you are not receiving Zoom class meeting invitations through Blackboard.
+    </li>
+
+    <li><b>2/14/2020</b>: There will be no class the week of 2/17-2/21; we will resume class on Monday 2/24.</li>
+
+</ul>
+-->
+
+</p>
+
+<h3>Course Description and Prerequisites</h3>
+<p> 
+In Spring 2021, Math 641 will be an advanced <i> algebraic topology</i> course, roughly a continuation of Math 540.
+</p>
+<p> 
+The goals of this class will be to introduce and study: the cohomology ring of a topological space and its basic properties (universal coefficient theorem, Kunneth theorem, etc.), Poincare duality, <i>vector bundles</i>, and their <i> characteristic classes</i>. Vector bundles arise frequently in geometry and topology, particularly in the study of manifolds (as developed in Math 535a) through tangent bundles of manifolds and normal bundles to embeddings. Characteristic classes are certain cohomology classes associated to the base of a vector bundle measuring the non-triviality of the bundle. </p>
+
+<p>Along the way, we will study properties of more general fibrations (and more specifically principal bundles) and classifying spaces. Time permitting, we will try to say something about <i> spectral sequences</i>, <i> homotopy groups</i>, and/or applications of theory of characteristic classes to the study of <i> cobordism</i> and the classification theory of manifolds.
+</i>
+
+
+<!--The main goal of this class is to develop the theory of <i> vector bundles</i>, which are roughly speaking families of vector spaces over some base, and <i> characteristic classes</i>, which are cohomological invariants that measure the failure of such a family to be trivial (i.e., a product). Vector bundles arise frequently in geometry and topology, particularly in the study of manifolds (as developed in Math 535a) through tangent bundles of manifolds and normal bundles to embeddings. Along the way, we will review properties of <i> cohomology</i>, <i>fibrations</i> (and principal bundles), -->
+
+
+<p>
+We will require familiarity with the geometry of manifolds and algebraic topology at the level
+of USC's Math 535a and Math 540 courses or equivalent.
+Familiarity with homologial algebra at the level of the Math 510 series may also help at
+various points in the class.  </p>
+
+
+<p> A more detailed lecture plan (updated on an ongoing basis, after each
+lecture) will be posted below. </p>
+
+
+<!--<p>
+In the last roughly one or two weeks of the course, the class will become student
+run: students will give a series of talks about advanced topics in one or more
+of these areas. There will be a wide array of topics possible, ranging from
+geometric to algebraic to combinatorial.
+</p>-->
+
+<!--<p>
+Any K&auml;hler manifold is, after forgetting the complex structure both
+Riemannian and symplectic. While a Riemannian structure always exists, the
+conditions of being symplectic or further K&auml;hler are significantly more
+rigid and, as we will see, cannot always exist. For a real manifold to be
+K&auml;hler, there are both "local" obstructions (coming from whether a real
+manifold can be made complex) and "global" obstructions (coming from the <i>
+Hodge decomposition theorem</i>  which says that the de Rham cohomology of a
+K&auml;hler manifolds has a very special form). For a real manifold to be
+symplectic, there are no "local" obstructions (by the Darboux theorem, which
+says that symplectic manifolds are all locally standard), there are significant
+"global" obstructions (which, to begin, come again from cohomology).  
+</p>
+
+<p>
+A central class of examples of K&auml;hler (hence also Riemannian and
+symplectic) manifold comes from <i>smooth, projective complex varieties</i>
+(subsets of complex projective space cut out smoothly by polynomial equations;
+including projective space itself).  We will also see examples of manifolds
+that are (real or complex but) not symplectic, and (symplectic) but not
+K&auml;hler. Finally, we will discuss constructions in all of these categories.
+</p>-->
+
+<p>
+</p>
+
+
+<h3>References</h3>
+
+
+<p> There is no official course textbook, but we will frequently refer to the
+following books and papers (and likely others):
+
+<ul>
+
+    <li> Allen Hatcher's books:  <i> Algebraic Topology </i> [H-AT], <i> Vector bundles and K-theory</i> [H-VB] , and <i>Spectral sequences in algebraic topology</i> [H-SS]  (all available free online). </li>
+
+    <li> Glen Bredon's <i> Topology and Geometry </i> (Springer GTM, available online through SpringerLink/USC Libraries)</li>
+
+    <li>Milnor and Stasheff's <i> Characteristic classes</i>, Annals of Mathematics Studies. Available online through USC libraries.</li>
+
+    <li> Stong's <i> Notes on cobordism theory</i> </li>.
+
+    <li> Bott and Tu's <i> Differential forms in algebraic topology</i>.
+
+
+</ul>
+
+
+</p>
+
+<!--<p> For review of the introductory geometry and topology of manifolds, you may
+wish to consult the textbook used frequently in Math 535a, <i> Foundations of
+    Differential Manifolds and Lie Groups </i> by Frank Warner.  An alternative
+introductory textbook is <i>Introduction to Smooth Manifolds</i> by John Lee. A
+nice complementary reference is Guillemin and Pollack's <i>Differential
+Topology</i>, particularly its chapter on intersection theory.</p>-->
+
+<h3>Grading System</h3>
+<p>
+We will assign homework exercises, to be collected once every 1-2 weeks. Almost all of these exercises are optional, and your submission will in fact only be graded on one problem per submission (of your choosing), and then also only for completeness. Your overall HW score will account for half of your grade</p>
+
+<p> At the end of the course, there will be a final paper assignment, accounting for the other half of your grade. </p>
+
+<!--<h3>Homework Assignments</h3>
+<p>
+Some optional (ungraded) homeworks exercises may be assigned periodically
+throughout the semester. They will be posted here on an ongoing basis.  
+</p>
+
+<p>
+
+<table class="hw">
+<thead>
+<tr>
+    <th> Date </th>
+    <th> Exercises </th>
+    <th> Notes </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td> 1/17  </td> 
+    <td>
+        Problems 1-4 of this <a href="../spring2017_math535a/hw/hw5.pdf">HW assignment</a> on vector bundles
+    </td>
+    <td> These exercises give various equivalent ways to think about vector bundles and also justify the various operations we perform on vector bundles. (Warning: problem 3 is fairly long, and requires some understanding of the definition of a category)  </td>
+</tr>
+</tbody>
+</table>-->
+
+
+<!--<h3> Student lectures and final papers</h3>-->
+<!--<p>Details about your final lecture and paper assignment will be posted here later in the semester.</p>-->
+<!--are now available <a href="final_project.pdf">here</a>.</p>-->
+
+
+<h3> Lecture Plan </h3>
+<p> Lecture topics by day will be posted on an ongoing basis below. Future
+topics are tentative and will be adjusted as necessary. </p> 
+<table class="reg">
+<thead>
+<tr> 
+    <th> Day </th> 
+    <th> Lecture topics </th> 
+    <th> References and remarks </th> 
+    <th> Notes </th>
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+        <td> <i> Jan. 15 (Fri)</i> </td>
+        <td> 
+            Lecture 1: Welcome + an overview of the class. 
+        <td> </td>
+        <td>    </td>
+    </tr>
+
+
+
+
+</tbody>
+</table>
+</body>
+
+</html>
