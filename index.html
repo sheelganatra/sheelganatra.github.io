@@ -1,200 +1,139 @@
-<HTML> 
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-<style>
-
-#header {
-    background-color:99CC99;
-    color:white;
-    text-align:center;
-    padding:5px;
-}
-
-p
-{
-    color:black;
-    text-align:left;
-    margin-left:20px;
-}
-ul
-{
-    margin-left:20px;
-/*    list-style-type: upper-roman;*/
-}
-ol
-{
-    margin-left:20px;
-    list-style-type: upper-roman;
-}
-ol ol {
-    list-style-type: decimal;
-}
-h1
-{
-/*    color:#484;*/
-    color:#006600;
-    font-size:18pt;
-    text-align:center;
-}
-h2
-{
-   /* color:gray;*/
-   color:#707070;
-    font-size:14pt;
-    text-align:center;
-}
-h3
-{
-    color:#557;
-    font-size:16pt;
-    text-align:left;
-}
-
-
-/* unvisited link */
-a:link {
-    /*color: #0000FF;*/
-    color: #0000FF;
-    text-decoration: none;
-}
-
-/* visited link */
-a:visited {
-    color: #7519D1;
-    text-decoration: none;
-}
-
-/* mouse over link */
-a:hover {
-    color: #FF00FF;
-    text-decoration: underline;
-}
-
-/* selected link */
-a:active {
-    color: #FFAA00;
-    text-decoration: underline;
-}
-
-</style>
-
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheel Ganatra - Academic Webpage</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .toolbar {
+            background-color: #004d00; /* Darker green color */
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .toolbar a {
+            display: inline-block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .toolbar a:hover {
+            background-color: #003300;
+            color: white;
+        }
+        .content {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .profile-photo {
+            max-width: 150px;
+            margin-right: 20px;
+            float: left;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #004d00; /* Darker green color */
+        }
+        p, ul {
+            line-height: 1.6;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        a {
+            color: #004d00; /* Darker green color */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-
-<!--<img src="sg.jpg" alt="Sheel Ganatra" style="float:left;width:216px;height:340.5px">-->
-
-<TITLE> Sheel Ganatra </TITLE>
-
 <body>
+    <div class="toolbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#papers">Papers</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#other-links">Other Links</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="content">
+        <h1 id="home">Sheel Ganatra</h1>
+        <img src="sg_lake.jpeg" alt="Sheel Ganatra" class="profile-photo">
+        <p>Email: sheel (dot) ganatra (at) usc (dot) edu</p>
+        <p>I am a Professor and Interim Department Chair of Mathematics at the University of Southern California, working on symplectic topology.</p>
+        <p>In 2023-2024 I was on sabbatical, supported by a Simons Fellowship. I gratefully acknowledge the support of the National Science Foundation through Awards DMS-1907635, DMS-2002137 and CAREER DMS-2048055.</p>
+        <p>More details can be found in my <a href="cv.pdf">CV</a> (last updated 11/2024).</p>
+        <h2 id="research">Research</h2>
+        <p>Much of my recent work concerns structural aspects of Fukaya categories and Floer theory, using methods of homological algebra and non-commutative geometry, with applications to mirror symmetry and string topology.</p>
 
-<div id = "header">
-<img src="sg.jpg" alt="Sheel Ganatra" style="float:left;width:162px;height:255.375px" hspace="30" vspace="20">
-<!--<img src="sg.jpg" alt="Sheel Ganatra" style="float:left;width:202.5px;height:319.2px" hspace="30" vspace="20">-->
-<h1> Sheel Ganatra</h1>
-<!--<h2> e-mail: ganatra (at) math \\dot\\ stanford //dot// edu </h2>-->
-<h2> e-mail: sheel (dot) ganatra (at) usc \\dot\\ edu </h2>
-
-</div>
-
-<br>
-<p>I am a Professor and Interim Department Chair of Mathematics at the <a href="http://math.usc.edu">University of Southern California</a>, working on symplectic topology. 
-<!--</p>-->
-<!--<p>From 2012-2016 I was first a Szeg&ouml; Assistant Professor and then an NSF postdoctoral fellow 
-at <a href="http://math.stanford.edu">Stanford University</a>.
-I was a member at the <a href="http://math.ias.edu">IAS</a> in Fall 2016. 
-I completed my Ph.D. in 2012 at <a href="http://math.mit.edu">MIT</a> (including two years on exchange at <a href="http://math.berkeley.edu">U.C. Berkeley</a>), working with 
-<a href="http://math.berkeley.edu/~auroux/">Denis Auroux</a>.</p>-->
-<!--<h3>Research</h3>-->
-<!--<p>-->
-Much of my recent work concerns structural aspects of <i>Fukaya categories</i> and <i>Floer theory</i>, using methods of <i>homological algebra</i> and <i>non-commutative geometry</i>, with applications to <i>mirror symmetry</i> and <i>string topology</i>. </p>
-
-<p>In 2023-2024 I was on sabbatical, supported by a Simons Fellowship. I gratefully acknowledge the support of the National Science Foundation through Awards DMS-1907635, DMS-2002137 and CAREER DMS-2048055. 
-</p>
-
-<p>  More details can be found in my <a href="cv.pdf">CV</a> (last updated 11/2024).</p>
-<br>
-
-<h3>Papers</h3>
-
-
-<p>S. Ganatra, M. Maydanskiy, <i>Legendrian Surgery Formulae and P. Seidel's
+        <h2 id="papers">Papers</h2>
+        <ul>
+ <li>S. Ganatra, M. Maydanskiy, <i>Legendrian Surgery Formulae and P. Seidel's
 Conjecture</i>, appendix to Bourgeois, Ekholm, and Eliashberg's <i>Effect of
-Legendrian Surgery</i>,  Geometry &#38; Topology 16 (2012), no. 1, 301-389. ArXiv link: <a href="http://arxiv.org/abs/0911.0026">arXiv:0911.0026</a>,
+Legendrian Surgery</i>,  Geometry &#38; Topology 16 (2012), no. 1, 301-389. ArXiv link: <a href="http://arxiv.org/abs/0911.0026">arXiv:0911.0026</a>,</li>
 
 
-<p> Y. Eliashberg, S. Ganatra, O. Lazarev, <i>Flexible Lagrangians</i>, International Mathematics Research Notices 2020 (2020), 2408-2435. ArXiv link: <a href=http://arxiv.org/abs/1510.01287>arXiv:1510.01287</a>.
+ <li> Eliashberg, S. Ganatra, O. Lazarev, <i>Flexible Lagrangians</i>, International Mathematics Research Notices 2020 (2020), 2408-2435. ArXiv link: <a href=http://arxiv.org/abs/1510.01287>arXiv:1510.01287</a>.</li>
 
 
-<p> S. Ganatra, J. Pardon, V. Shende,  <i>Covariantly functorial wrapped Floer theory on Liouville sectors</i>, Publications math&eacute;matiques de l’IH&Eacute;S 131 (2020), 73-200. ArXiv link: <a href="http://arxiv.org/abs/1706.03152">arXiv:1706.03152</a>.
+ <li> Ganatra, J. Pardon, V. Shende,  <i>Covariantly functorial wrapped Floer theory on Liouville sectors</i>, Publications math&eacute;matiques de l’IH&Eacute;S 131 (2020), 73-200. ArXiv link: <a href="http://arxiv.org/abs/1706.03152">arXiv:1706.03152</a>.</li>
 
 
-<p> M. Abouzaid, S. Ganatra, H. Iritani, N. Sheridan,  <i> The Gamma and Strominger-Yau-Zaslow conjectures: a tropical approach to periods</i>, Geometry &#38; Topology 24 (2020), no. 5, 2547-2602. ArXiv link:  <a href="http://arxiv.org/abs/1809.02177">arXiv:1809.02177</a>.
+ <li> Abouzaid, S. Ganatra, H. Iritani, N. Sheridan,  <i> The Gamma and Strominger-Yau-Zaslow conjectures: a tropical approach to periods</i>, Geometry &#38; Topology 24 (2020), no. 5, 2547-2602. ArXiv link:  <a href="http://arxiv.org/abs/1809.02177">arXiv:1809.02177</a>.</li>
 
 
-<p> S. Ganatra, D. Pomerleano, <i> Symplectic cohomology rings of affine
-    varieties in the topological limit</i>, Geometric and Functional Analysis 30 (2020), no. 2, 334-456.  ArXiv link: 
-<a href="http://arxiv.org/abs/1811.03609">arXiv:1811.03609</a>.
+ <li> Ganatra, D. Pomerleano, <i> Symplectic cohomology rings of affine varieties in the topological limit</i>, Geometric and Functional Analysis 30 (2020), no. 2, 334-456.  ArXiv link: <a href="http://arxiv.org/abs/1811.03609">arXiv:1811.03609</a>.</li>
 
-<p>S. Ganatra, D. Pomerleano,  <i>A log PSS morphism with applications to Lagrangian embeddings</i>, Journal of Topology 14 (2021), 291-368. ArXiv link: <a href="http://arxiv.org/abs/1611.06849">arXiv:1611.06849</a>.
+ <li> Ganatra, D. Pomerleano,  <i>A log PSS morphism with applications to Lagrangian embeddings</i>, Journal of Topology 14 (2021), 291-368. ArXiv link: <a href="http://arxiv.org/abs/1611.06849">arXiv:1611.06849</a>.</li>
 <!--https://doi.org/10.1112/topo.12183-->
 <!--<p>S. Ganatra,  D. Pomerleano, <i> A log PSS morphism with applications to Lagrangian embeddings</i>, to appear in J. Top. (2021), 82 pages, <a href="http://arxiv.org/abs/1611.06849">arXiv:1611.06849</a>.-->
 
 
-<p> S. Ganatra,  <i>Cyclic homology, S^1-equivariant Floer cohomology, and Calabi-Yau structures</i>, 
-Geometry &#38; Topology 27 (2023), no. 9, 3461-3584. ArXiv link: <a href="https://arxiv.org/abs/1912.13510">arXiv:1912.13510</a>.
+<li> Ganatra,  <i>Cyclic homology, S^1-equivariant Floer cohomology, and Calabi-Yau structures</i>, Geometry &#38; Topology 27 (2023), no. 9, 3461-3584. ArXiv link: <a href="https://arxiv.org/abs/1912.13510">arXiv:1912.13510</a>.</li>
 
 
-<p> S. Ganatra, J. Pardon, V. Shende,  <i>Sectorial descent for wrapped Fukaya categories</i>, Journal of the American Mathematical Society 37 (2024), 499-635. ArXiv link: <a href="http://arxiv.org/abs/1809.03427">arXiv:1809.03427</a>.
+<li> Ganatra, J. Pardon, V. Shende,  <i>Sectorial descent for wrapped Fukaya categories</i>, Journal of the American Mathematical Society 37 (2024), 499-635. ArXiv link: <a href="http://arxiv.org/abs/1809.03427">arXiv:1809.03427</a>.</li>
 
-<p> S. Ganatra, J. Pardon, V. Shende,  <i>Microlocal Morse theory of wrapped Fukaya categories</i>, Annals of Mathematics 199 (2024), 943-1042. ArXiv link: <a href="http://arxiv.org/abs/1809.08807">arXiv:1809.08807</a>.
+<li> Ganatra, J. Pardon, V. Shende,  <i>Microlocal Morse theory of wrapped Fukaya categories</i>, Annals of Mathematics 199 (2024), 943-1042. ArXiv link: <a href="http://arxiv.org/abs/1809.08807">arXiv:1809.08807</a>.</li>
 
-<p> S. Ganatra, K. Siegel, <i> On the embedding complexity of Liouville manifolds</i>, Journal of Differential Geometry 127 (2024), no. 3, 1019-1082. ArXiv link: <a href="https://arxiv.org/abs/2012.04627">arXiv:2012.04627</a>.
+<li> Ganatra, K. Siegel, <i> On the embedding complexity of Liouville manifolds</i>, Journal of Differential Geometry 127 (2024), no. 3, 1019-1082. ArXiv link: <a href="https://arxiv.org/abs/2012.04627">arXiv:2012.04627</a>.</li>
 
-<p> S. Ganatra, <i> Symplectic cohomology and duality for the wrapped Fukaya category</i>, preprint (2013), 166 pages, <a href="http://arxiv.org/abs/1304.7312">arXiv:1304.7312</a>. My Ph.D. thesis. A slightly more up to date version is available <a href="wrapcy.pdf">here</a>.
+<li> Ganatra, <i> Symplectic cohomology and duality for the wrapped Fukaya category</i>, preprint (2013), 166 pages, <a href="http://arxiv.org/abs/1304.7312">arXiv:1304.7312</a>. My Ph.D. thesis. A slightly more up to date version is available <a href="wrapcy.pdf">here</a>.</li>
 
-<p> S. Ganatra, T. Perutz, N. Sheridan, <i>Mirror symmetry: from categories to curve counts</i>, preprint (2015), 37 pages, <a href=http://arxiv.org/abs/1510.03839>arXiv:1510.03839</a>.
-
-
-<p> S. Ganatra,  <i>Automatically generating Fukaya categories and computing quantum cohomology</i>, preprint (2019), 27 pages, <a href=http://arxiv.org/abs/1605.07702>arXiv:1605.07702</a>.
+<li> Ganatra, T. Perutz, N. Sheridan, <i>Mirror symmetry: from categories to curve counts</i>, preprint (2015), 37 pages, <a href=http://arxiv.org/abs/1510.03839>arXiv:1510.03839</a>.</li>
 
 
-<p> S. Ganatra, <i> Categorical non-properness in wrapped Floer theory</i>, preprint (2021), 19 pages, <a href="https://arxiv.org/abs/2104.06516">arXiv:2104.06516</a>.
-
-<p> S. Ganatra, Y. Gao, S. Venkatesh, <i> Rabinowitz Fukaya categories and the categorical formal punctured neighborhood of infinity</i>, preprint (2022), 82 pages, <a href="https://arxiv.org/abs/2212.14863">arXiv:2212.14863</a>.
-
-<p> S. Ganatra, A. Hanlon, J. Hicks, D. Pomerleano, N. Sheridan, <i> Integrality of mirror maps and arithmetic homological mirror symmetry for Greene--Plesser mirrors</i>, preprint (2023), 30 pages, <a href="https://arxiv.org/abs/2312.01949">arXiv:2312.01949</a>.
-
-<p> S. Ganatra, A. Hanlon, J. Hicks, D. Pomerleano, N. Sheridan, <i> Homological mirror symmetry for Batyrev mirror pairs</i>, preprint (2024), 86 pages, <a href="https://arxiv.org/abs/2406.05272">arXiv:2406.05272</a>.
-
-<!--drafts, under construction-->
-
-<!--<p> (The first of two papers that subsumes my thesis) S. Ganatra, <i>Symplectic integral transforms from open-closed string maps</i>,  draft, 95 pages, available <a href="wrapcy1.pdf">here</a>. 
-
-<p> (The second of two papers that subsumes my thesis) S. Ganatra,
-<i>Symplectic cohomology from Hochschild (co)homology</i>, draft, 93 pages, available
-<a href="wrapcy2.pdf">here</a>. 
--->
-
-<!--<p> S. Ganatra,  <i>Cyclic homology, S^1-equivariant Floer cohomology, and Calabi-Yau structures</i>, to appear.
-
-<p> R. Cohen, S. Ganatra, <i> Calabi-Yau categories, the Floer theory of a cotangent bundle, and the string topology of the base</i>, in preparation.
-
-<p> M. Abouzaid, S. Ganatra, <i> Generating Fukaya categories of Landau-Ginzburg models</i>, in preparation.
-
-<p> M. Abouzaid, S. Ganatra,  <i>Exact triangles from Fukaya categories of LG models</i>, in preparation.
-
-<p> S. Ganatra, T. Perutz, N. Sheridan,  <i>The cyclic open-closed map and non-commutative Hodge structures</i>, in preparation.-->
+<li> Ganatra,  <i>Automatically generating Fukaya categories and computing quantum cohomology</i>, preprint (2019), 27 pages, <a href=http://arxiv.org/abs/1605.07702>arXiv:1605.07702</a>.</li>
 
 
+<li> Ganatra, <i> Categorical non-properness in wrapped Floer theory</i>, preprint (2021), 19 pages, <a href="https://arxiv.org/abs/2104.06516">arXiv:2104.06516</a>.</li>
 
+<li> Ganatra, Y. Gao, S. Venkatesh, <i> Rabinowitz Fukaya categories and the categorical formal punctured neighborhood of infinity</i>, preprint (2022), 82 pages, <a href="https://arxiv.org/abs/2212.14863">arXiv:2212.14863</a>.</li>
 
-</p>
+<li> Ganatra, A. Hanlon, J. Hicks, D. Pomerleano, N. Sheridan, <i> Integrality of mirror maps and arithmetic homological mirror symmetry for Greene--Plesser mirrors</i>, preprint (2023), 30 pages, <a href="https://arxiv.org/abs/2312.01949">arXiv:2312.01949</a>.</li>
 
+<li> Ganatra, A. Hanlon, J. Hicks, D. Pomerleano, N. Sheridan, <i> Homological mirror symmetry for Batyrev mirror pairs</i>, preprint (2024), 86 pages, <a href="https://arxiv.org/abs/2406.05272">arXiv:2406.05272</a>.  </li>
 
-<h3>Teaching</h3>
-<ul>
+        </ul>
+
+<h2 id="teaching">Teaching</h2>
+        <ul>
 <li> <a href="math641/">Math 641</a> (USC, Spring 2023) </li>
 <li> Math 229 (USC, Spring 2023) </li>
 <li> Math 599 (USC, Fall 2022) </li>
@@ -220,12 +159,10 @@ Geometry &#38; Topology 27 (2023), no. 9, 3461-3584. ArXiv link: <a href="https:
 <li> <a href="winter2013_math215b/">Math 215B</a> (Stanford, Winter 2013) </li>
 <li> <!--<a href=http://www.stanford.edu/class/math51/> -->Math 51<!--</a>--> (Stanford, Fall 2012) </li>
 </ul>
-
-
-<h3>Other Links</h3>
-<ul>
-    <li> I co-organize the <a href="https://sites.google.com/view/virtual-symplectic-geometer">Western Hemisphere Virtual Symplectic Seminar</a> (WHVSS).</li>
-    <li> <a href="https://sites.google.com/usc.edu/topologyseminar">USC's Topology Seminar</a>.
+        <h2 id="other-links">Other Links</h2>
+        <ul>
+    <li> <a href="https://sites.google.com/view/virtual-symplectic-geometer">Western Hemisphere Virtual Symplectic Seminar</a> (WHVSS)</li>
+    <li> <a href="https://sites.google.com/usc.edu/topologyseminar">USC's Topology Seminar</a>
     <li> From Sept. 29-Oct. 2 2020, I co-organized a virtual workshop, <a href="https://schms.math.berkeley.edu/events/syz2020/"> Floer-theoretic and algebro-geometric aspects of SYZ mirror symmetry</a>.</li>
     <!--<a href="seminars/geometry_topology.html">USC Geometry & Topology Seminar</a>.-->
     </li>
@@ -234,12 +171,9 @@ Geometry &#38; Topology 27 (2023), no. 9, 3461-3584. ArXiv link: <a href="https:
 <li>From 2009-2013, I co-organized the <a href="http://math.mit.edu/talbot">Talbot Workshop</a>. In 2010 and 2011 I co-organized the <a href="http://math.mit.edu/conferences/geometryworkshop">MIT Geometry Workshop</a>.</li>
 <li>  Here are some <a href = "notes/">notes</a> from conferences and seminars, which I am currently organizing and formatting (<i>some older notes are currently down, and will be re-posted soon</i>). Please feel free to contact me if you have any questions or would like clarification.
 </li>
-
-<!--brokenlink<li>The <a href="http://sheel.scripts.mit.edu/~sheel/msri09/">MSRI 2009-2010
-Symplectic Geometry Wiki</a>. No longer actively used, but still a source of
-some inspring material. </li>-->
-</ul>
-
+        <h2 id="contact">Contact</h2>
+        <p>Email: sheel (dot) ganatra (at) usc (dot) edu</p>
+    </div>
 </body>
+</html>
 
-</HTML>
