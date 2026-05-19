@@ -1,209 +1,456 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheel Ganatra - Academic Webpage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #e4e4e4;
-            color: #333;
-        }
-        .toolbar {
-            background-color: #004246; /* ocean blue */
-                /*#004d00; Darker green color */
-           /* overflow: hidden;*/
-            overflow: auto;
-            overflow-x: auto;
-            white-space: nowrap;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sheel Ganatra</title>
+  <style>
+    :root {
+      --bg: #17181b;
+      --panel: rgba(28, 30, 34, 0.92);
+      --text: #ece7dc;
+      --muted: #b2ab9f;
+      --line: rgba(236, 231, 220, 0.12);
+      --accent: #c6a57b;
+      --accent-soft: rgba(198, 165, 123, 0.12);
+      --shadow: 0 18px 42px rgba(0, 0, 0, 0.32);
+      --radius: 20px;
+      --max: 980px;
+    }
 
-        }
-        .toolbar a {
-            display: inline-block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .toolbar a:hover {
-            background-color: #002024; /* formerly #003300;*/
-            color: white;
-        }
-        .content {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            margin-top: 30px;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        .profile-photo {
-            max-width: 150px;
-            margin-right: 20px;
-            float: left;
-        }
-        h1, h2 {
-            text-align: center;
-            color: #004246; /* ocean blue */
-            scroll-margin-top: 50px;
-            scroll-snap-margin-top: 50px; /* iOS 11 and older */
-        }
-        p, ul {
-            line-height: 1.6;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        a {
-            color: #004246; /* ocean blue */
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        @media (max-width: 600px) {
-            .toolbar a {
-                padding: 10px 5px; /* Further adjusted padding for smaller screens */
-                font-size: 14px; /* Adjusted font size for smaller screens */
-            }
-        }
-    </style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(198, 165, 123, 0.10), transparent 25%),
+        radial-gradient(circle at top left, rgba(120, 130, 150, 0.08), transparent 24%),
+        linear-gradient(180deg, #111214 0%, var(--bg) 100%);
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      line-height: 1.7;
+    }
+
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: 0.7rem 1rem;
+      #23252a
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(20, 21, 24, 0.82);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d7bb96, #9d7651);
+      box-shadow: 0 6px 18px rgba(122, 78, 45, 0.16);
+      flex: 0 0 auto;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      font-weight: 600;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 0.05rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.45rem 0.7rem;
+      border-bottom: 1px solid transparent;
+      font-size: 0.96rem;
+    }
+
+    nav a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .hero {
+      padding: 2rem 0 1.25rem;
+    }
+
+    .hero-card {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.5rem;
+      padding: 1.35rem;
+      background: var(--panel);
+      border: 1px solid rgba(74, 62, 51, 0.10);
+      border-radius: calc(var(--radius) + 4px);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 0.38rem 0.7rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      margin: 0 0 0.8rem;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      font-weight: 600;
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 1.08rem;
+      max-width: 62ch;
+      color: #ddd6c8
+    }
+
+    .meta {
+      margin-top: 1.25rem;
+      display: grid;
+      gap: 0.8rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .portrait {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #202227
+      border: 1px solid var(--line);
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      filter: saturate(0.88) contrast(1.02) brightness(0.96);
+    }
+
+    .portrait figcaption {
+      padding: 0.8rem 0.95rem 0.95rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main { padding: 0.5rem 0 3rem; }
+
+    .section {
+      margin-top: 1.25rem;
+      padding: 1.15rem 0 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 1rem;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: 1.65rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .section-header .anchor {
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .research {
+      margin: 0;
+      font-size: 1.08rem;
+      max-width: 80ch;
+    }
+
+    .cards {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .paper, .mini-panel {
+      padding: 0;
+    }
+
+    .paper {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1rem;
+    }
+
+    .paper:last-child { border-bottom: 0; padding-bottom: 0; }
+
+    .paper-title, .link-title, .teaching-title {
+      font-weight: 600;
+      margin: 0 0 0.15rem;
+    }
+
+    .paper-meta, .link-meta, .teaching-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .lists {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .mini-panel {
+      border-left: 1px solid var(--line);
+      padding-left: 1rem;
+    }
+
+    ol, ul {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    li + li { margin-top: 0.75rem; }
+
+    .contact-box {
+      padding-top: 0.2rem;
+      color: var(--text);
+      font-size: 1.03rem;
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    @media (max-width: 900px) {
+      .hero-card { grid-template-columns: 1fr; }
+      .lists { grid-template-columns: 1fr; }
+      .mini-panel { border-left: 0; padding-left: 0; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(var(--max), calc(100% - 1rem)); }
+      .hero-card { padding: 1rem; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+      nav a { padding: 0.35rem 0.55rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="toolbar">
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header>
+    <div class="wrap topbar">
+      <div class="brand" aria-label="Sheel Ganatra homepage">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-text">
+          <strong>Sheel Ganatra</strong>
+          <span>Professor and Department Chair of Mathematics, USC</span>
+        </div>
+      </div>
+      <nav aria-label="Primary">
         <a href="#home">Home</a>
         <a href="#research">Research</a>
         <a href="#papers">Papers</a>
         <a href="#teaching">Teaching</a>
         <a href="#links">Links</a>
         <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <div class="content">
-        <h1 id="home">Sheel Ganatra</h1>
-        <img src="office2026.jpg" alt="Sheel Ganatra" class="profile-photo">
-                <p>I am a Professor and Department Chair of Mathematics at the University of Southern California. </p>
-        <p>I gratefully acknowledge the support of the National Science Foundation through Awards CAREER DMS-2048055, FRG DMS-2412041, and RTG DMS-2446019.</p>
-        <p>More details can be found in my <a href="cv.pdf">CV</a> (last updated 11/2025).</p>
-        <p><b>Email</b>: sheel (dot) ganatra (at) usc (dot) edu</p>
+  </header>
 
-        <br>
+  <main id="content" class="wrap">
+    <section id="home" class="hero">
+      <div class="hero-card">
+        <div>
+          <div class="eyebrow">Academic homepage</div>
+          <h1>Sheel Ganatra</h1>
+          <p class="lead">I am a Professor and Department Chair of Mathematics at the University of Southern California.</p>
+          <div class="meta">
+            <div>I gratefully acknowledge the support of the National Science Foundation through Awards CAREER DMS-2048055, FRG DMS-2412041, and RTG DMS-2446019.</div>
+            <div>More details can be found in my <a href="https://sheelganatra.com/CV.pdf">CV</a> (last updated 11/2025).</div>
+            <div>Email: sheel (dot) ganatra (at) usc (dot) edu</div>
+          </div>
+        </div>
+        <figure class="portrait">
+          <img src="https://sheelganatra.com/office2026.jpg" alt="Portrait of Sheel Ganatra" />
+          
+        </figure>
+      </div>
+    </section>
 
-        <h2 id="research">Research</h2>
-        <p>My research interests include structural aspects of Fukaya categories and Floer theory, using methods of homological algebra and non-commutative geometry, with applications to mirror symmetry and string topology.</p>
+    <section id="research" class="section">
+      <div class="section-header">
+        <h2>Research</h2>
+      </div>
+      <p class="research">My research interests include structural aspects of Fukaya categories and Floer theory, using methods of homological algebra and non-commutative geometry, with applications to mirror symmetry and string topology.</p>
+    </section>
 
-        <h2 id="papers">Papers</h2>
-        <ul>
- <li>S. Ganatra, M. Maydanskiy, <i>Legendrian Surgery Formulae and P. Seidel's
-Conjecture</i>, appendix to Bourgeois, Ekholm, and Eliashberg's <i>Effect of
-Legendrian Surgery</i>,  Geometry &#38; Topology 16 (2012), no. 1, 301-389. ArXiv link: <a href="http://arxiv.org/abs/0911.0026">arXiv:0911.0026</a>,</li>
+    <section id="papers" class="section">
+      <div class="section-header">
+        <h2>Papers</h2>
+      </div>
+      <div class="cards">
+        <article class="paper"><p class="paper-title">S. Ganatra, M. Maydanskiy, Legendrian Surgery Formulae and P. Seidel's Conjecture, appendix to Bourgeois, Ekholm, and Eliashberg's Effect of Legendrian Surgery, Geometry &amp; Topology 16 (2012), no. 1, 301-389.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/0911.0026">arXiv:0911.0026</a></p></article>
+        <article class="paper"><p class="paper-title">Eliashberg, S. Ganatra, O. Lazarev, Flexible Lagrangians, International Mathematics Research Notices 2020 (2020), 2408-2435.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/1510.01287">arXiv:1510.01287</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, J. Pardon, V. Shende, Covariantly functorial wrapped Floer theory on Liouville sectors, Publications mathématiques de l’IHÉS 131 (2020), 73-200.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/1706.03152">arXiv:1706.03152</a></p></article>
+        <article class="paper"><p class="paper-title">M. Abouzaid, S. Ganatra, H. Iritani, N. Sheridan, The Gamma and Strominger-Yau-Zaslow conjectures: a tropical approach to periods, Geometry &amp; Topology 24 (2020), no. 5, 2547-2602.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/1809.02177">arXiv:1809.02177</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, D. Pomerleano, Symplectic cohomology rings of affine varieties in the topological limit, Geometric and Functional Analysis 30 (2020), no. 2, 334-456.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/1811.03609">arXiv:1811.03609</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, D. Pomerleano, A log PSS morphism with applications to Lagrangian embeddings, Journal of Topology 14 (2021), 291-368.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/1611.06849">arXiv:1611.06849</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, Cyclic homology, S^1-equivariant Floer cohomology, and Calabi-Yau structures, Geometry &amp; Topology 27 (2023), no. 9, 3461-3584.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/1912.13510">arXiv:1912.13510</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, J. Pardon, V. Shende, Sectorial descent for wrapped Fukaya categories, Journal of the American Mathematical Society 37 (2024), 499-635.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/1809.03427">arXiv:1809.03427</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, J. Pardon, V. Shende, Microlocal Morse theory of wrapped Fukaya categories, Annals of Mathematics 199 (2024), 943-1042.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/1809.08807">arXiv:1809.08807</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, K. Siegel, On the embedding complexity of Liouville manifolds, Journal of Differential Geometry 127 (2024), no. 3, 1019-1082.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/2012.04627">arXiv:2012.04627</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, Symplectic cohomology and duality for the wrapped Fukaya category, preprint (2013), 166 pages.</p><p class="paper-meta">My Ph.D. thesis. A slightly more up to date version is available <a href="https://sheelganatra.com/thesis.pdf">here</a>.</p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, T. Perutz, N. Sheridan, Mirror symmetry: from categories to curve counts, preprint (2015), 37 pages.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/1510.03839">arXiv:1510.03839</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, Automatically generating Fukaya categories and computing quantum cohomology, preprint (2019), 27 pages.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/1605.07702">arXiv:1605.07702</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, Categorical non-properness in wrapped Floer theory, preprint (2021), 19 pages.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/2104.06516">arXiv:2104.06516</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, Y. Gao, S. Venkatesh, Rabinowitz Fukaya categories and the categorical formal punctured neighborhood of infinity, preprint (2022), 82 pages.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/2212.14863">arXiv:2212.14863</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, A. Hanlon, J. Hicks, D. Pomerleano, N. Sheridan, Integrality of mirror maps and arithmetic homological mirror symmetry for Greene--Plesser mirrors, preprint (2023), 30 pages.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/2312.01949">arXiv:2312.01949</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, J. Pardon, V. Shende, Survey of covariantly functorial wrapped Floer theory on Liouville sectors, Submitted to Proceedings of the International Congress of Basic Science 2024 (2024).</p><p class="paper-meta"></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, A. Hanlon, J. Hicks, D. Pomerleano, N. Sheridan, Homological mirror symmetry for Batyrev mirror pairs, preprint (2024), 86 pages.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/2406.05272">arXiv:2406.05272</a></p></article>
+        <article class="paper"><p class="paper-title">M. Ballard, C. Berkesch, M. Brown, D. Erman, D. Favero, S. Ganatra, A. Hanlon, L. Heller, J. Huang, King’s conjecture and birational geometry, preprint (2025), 54 pages.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/2501.00130">arXiv:2501.00130</a></p></article>
+        <article class="paper"><p class="paper-title">S. Ganatra, N. Sheridan, The cyclic open-closed map and variations of Hodge structures, preprint (2025), 46 pages.</p><p class="paper-meta">ArXiv link: <a href="https://arxiv.org/abs/2511.04498">arXiv:2511.04498</a></p></article>
+      </div>
+    </section>
 
+    <section id="teaching" class="section">
+      <div class="section-header">
+        <h2>Teaching</h2>
+      </div>
+      <div class="lists">
+        <div class="mini-panel">
+          <ol>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math641s23">Math 641</a></span> <span class="teaching-meta">(USC, Spring 2023)</span></li>
+            <li><span class="teaching-title">Math 229</span> <span class="teaching-meta">(USC, Spring 2023)</span></li>
+            <li><span class="teaching-title">Math 599</span> <span class="teaching-meta">(USC, Fall 2022)</span></li>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math535as22">Math 535a</a></span> <span class="teaching-meta">(USC, Spring 2022)</span></li>
+            <li><span class="teaching-title">Math 226r</span> <span class="teaching-meta">(USC, Fall 2021)</span></li>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math641s21">Math 641</a></span> <span class="teaching-meta">(USC, Spring 2021)</span></li>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math641f20">Math 641</a></span> <span class="teaching-meta">(USC, Fall 2020)</span></li>
+            <li><span class="teaching-title">Math 125g</span> <span class="teaching-meta">(USC, Fall 2020)</span></li>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math520s20">Math 520</a></span> <span class="teaching-meta">(USC, Spring 2020)</span></li>
+          </ol>
+        </div>
+        <div class="mini-panel">
+          <ol start="10">
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math535bs20">Math 535b</a></span> <span class="teaching-meta">(USC, Spring 2020)</span></li>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math535bs19">Math 535b</a></span> <span class="teaching-meta">(USC, Spring 2019)</span></li>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math535as18">Math 535a</a></span> <span class="teaching-meta">(USC, Spring 2018)</span></li>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math440f17">Math 440</a></span> <span class="teaching-meta">(USC, Fall 2017)</span></li>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math535as17">Math 535a</a></span> <span class="teaching-meta">(USC, Spring 2017)</span></li>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math51s16">Math 51</a></span> <span class="teaching-meta">(Stanford, Summer 2016)</span></li>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math257bs16">Math 257b</a></span> <span class="teaching-meta">(Stanford, Spring 2016)</span></li>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math171s16">Math 171</a></span> <span class="teaching-meta">(Stanford, Spring 2016)</span></li>
+            <li><span class="teaching-title">Math 51</span> <span class="teaching-meta">(Stanford, Winter 2015)</span></li>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math113s13">Math 113</a></span> <span class="teaching-meta">(Stanford, Spring 2013)</span></li>
+            <li><span class="teaching-title"><a href="https://sheelganatra.com/teaching/math215bw13">Math 215B</a></span> <span class="teaching-meta">(Stanford, Winter 2013)</span></li>
+            <li><span class="teaching-title">Math 51</span> <span class="teaching-meta">(Stanford, Fall 2012)</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
 
- <li> Eliashberg, S. Ganatra, O. Lazarev, <i>Flexible Lagrangians</i>, International Mathematics Research Notices 2020 (2020), 2408-2435. ArXiv link: <a href=http://arxiv.org/abs/1510.01287>arXiv:1510.01287</a>.</li>
+    <section id="links" class="section">
+      <div class="section-header">
+        <h2>Links</h2>
+      </div>
+      <div class="cards">
+        <div class="paper"><p class="link-title"><a href="https://sites.google.com/view/whvss">Western Hemisphere Virtual Symplectic Seminar</a></p><p class="link-meta">(WHVSS)</p></div>
+        <div class="paper"><p class="link-title"><a href="https://sites.google.com/view/usctopologyseminar">USC's Topology Seminar</a></p></div>
+        <div class="paper"><p class="link-title"><a href="https://schms.math.berkeley.edu/">Floer-theoretic and algebro-geometric aspects of SYZ mirror symmetry</a></p><p class="link-meta">From Sept. 29-Oct. 2 2020, I co-organized a virtual workshop.</p></div>
+        <div class="paper"><p class="link-title"><a href="https://kylerec.wordpress.com/">Kylerec 2019 (graduate student) workshop</a></p><p class="link-meta">In June 2019, I served as a mentor.</p></div>
+        <div class="paper"><p class="link-title"><a href="https://math.stanford.edu/">Lefschetz Fibrations: Rigidity and Flexibility</a></p><p class="link-meta">In January 2016, I served on the resident scientific committee of a graduate student workshop held in New Orleans.</p></div>
+        <div class="paper"><p class="link-title"><a href="https://math.mit.edu/">Talbot Workshop</a></p><p class="link-meta">From 2009-2013, I co-organized the workshop. In 2010 and 2011 I co-organized the MIT Geometry Workshop.</p></div>
+        <div class="paper"><p class="link-title"><a href = "notes/">Notes</a></p><p class="link-meta">Here are some notes from conferences and seminars, which I am currently organizing and formatting (some older notes are currently down, and will be re-posted soon). Please feel free to contact me if you have any questions or would like clarification.</p></div>
+      </div>
+    </section>
 
+    <section id="contact" class="section">
+      <div class="section-header">
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-box">Email: sheel (dot) ganatra (at) usc (dot) edu</div>
+    </section>
 
- <li> S. Ganatra, J. Pardon, V. Shende,  <i>Covariantly functorial wrapped Floer theory on Liouville sectors</i>, Publications math&eacute;matiques de l’IH&Eacute;S 131 (2020), 73-200. ArXiv link: <a href="http://arxiv.org/abs/1706.03152">arXiv:1706.03152</a>.</li>
-
-
- <li> M. Abouzaid, S. Ganatra, H. Iritani, N. Sheridan,  <i> The Gamma and Strominger-Yau-Zaslow conjectures: a tropical approach to periods</i>, Geometry &#38; Topology 24 (2020), no. 5, 2547-2602. ArXiv link:  <a href="http://arxiv.org/abs/1809.02177">arXiv:1809.02177</a>.</li>
-
-
- <li> S. Ganatra, D. Pomerleano, <i> Symplectic cohomology rings of affine varieties in the topological limit</i>, Geometric and Functional Analysis 30 (2020), no. 2, 334-456.  ArXiv link: <a href="http://arxiv.org/abs/1811.03609">arXiv:1811.03609</a>.</li>
-
- <li> S. Ganatra, D. Pomerleano,  <i>A log PSS morphism with applications to Lagrangian embeddings</i>, Journal of Topology 14 (2021), 291-368. ArXiv link: <a href="http://arxiv.org/abs/1611.06849">arXiv:1611.06849</a>.</li>
-<!--https://doi.org/10.1112/topo.12183-->
-<!--<p>S. Ganatra,  D. Pomerleano, <i> A log PSS morphism with applications to Lagrangian embeddings</i>, to appear in J. Top. (2021), 82 pages, <a href="http://arxiv.org/abs/1611.06849">arXiv:1611.06849</a>.-->
-
-
-<li> S. Ganatra,  <i>Cyclic homology, S^1-equivariant Floer cohomology, and Calabi-Yau structures</i>, Geometry &#38; Topology 27 (2023), no. 9, 3461-3584. ArXiv link: <a href="https://arxiv.org/abs/1912.13510">arXiv:1912.13510</a>.</li>
-
-
-<li> S. Ganatra, J. Pardon, V. Shende,  <i>Sectorial descent for wrapped Fukaya categories</i>, Journal of the American Mathematical Society 37 (2024), 499-635. ArXiv link: <a href="http://arxiv.org/abs/1809.03427">arXiv:1809.03427</a>.</li>
-
-<li> S. Ganatra, J. Pardon, V. Shende,  <i>Microlocal Morse theory of wrapped Fukaya categories</i>, Annals of Mathematics 199 (2024), 943-1042. ArXiv link: <a href="http://arxiv.org/abs/1809.08807">arXiv:1809.08807</a>.</li>
-
-<li> S. Ganatra, K. Siegel, <i> On the embedding complexity of Liouville manifolds</i>, Journal of Differential Geometry 127 (2024), no. 3, 1019-1082. ArXiv link: <a href="https://arxiv.org/abs/2012.04627">arXiv:2012.04627</a>.</li>
-
-<li> S. Ganatra, <i> Symplectic cohomology and duality for the wrapped Fukaya category</i>, preprint (2013), 166 pages, <a href="http://arxiv.org/abs/1304.7312">arXiv:1304.7312</a>. My Ph.D. thesis. A slightly more up to date version is available <a href="wrapcy.pdf">here</a>.</li>
-
-<li> S. Ganatra, T. Perutz, N. Sheridan, <i>Mirror symmetry: from categories to curve counts</i>, preprint (2015), 37 pages, <a href=http://arxiv.org/abs/1510.03839>arXiv:1510.03839</a>.</li>
-
-
-<li> S. Ganatra,  <i>Automatically generating Fukaya categories and computing quantum cohomology</i>, preprint (2019), 27 pages, <a href=http://arxiv.org/abs/1605.07702>arXiv:1605.07702</a>.</li>
-
-
-<li> S. Ganatra, <i> Categorical non-properness in wrapped Floer theory</i>, preprint (2021), 19 pages, <a href="https://arxiv.org/abs/2104.06516">arXiv:2104.06516</a>.</li>
-
-<li> S. Ganatra, Y. Gao, S. Venkatesh, <i> Rabinowitz Fukaya categories and the categorical formal punctured neighborhood of infinity</i>, preprint (2022), 82 pages, <a href="https://arxiv.org/abs/2212.14863">arXiv:2212.14863</a>.</li>
-
-<li> S. Ganatra, A. Hanlon, J. Hicks, D. Pomerleano, N. Sheridan, <i> Integrality of mirror maps and arithmetic homological mirror symmetry for Greene--Plesser mirrors</i>, preprint (2023), 30 pages, <a href="https://arxiv.org/abs/2312.01949">arXiv:2312.01949</a>.</li>
-
-<li> S. Ganatra, J. Pardon, V. Shende,  <i> Survey of covariantly functorial wrapped Floer theory on Liouville sectors</i>, Submitted to Proceedings of the International Congress of Basic Science 2024 (2024).</li>
-
-<li> S. Ganatra, A. Hanlon, J. Hicks, D. Pomerleano, N. Sheridan, <i> Homological mirror symmetry for Batyrev mirror pairs</i>, preprint (2024), 86 pages, <a href="https://arxiv.org/abs/2406.05272">arXiv:2406.05272</a>.  </li>
-
-
-<li> M. Ballard, C. Berkesch, M. Brown, D. Erman, D. Favero, S. Ganatra, A. Hanlon, L. Heller, J. Huang, <i> King’s conjecture and birational geometry</i>, preprint (2025), 54 pages, <a href="https://arxiv.org/abs/2501.00130">arXiv:2501.00130</a>.  </li>
-
-
-<li> S. Ganatra, N. Sheridan, <i>The cyclic open-closed map and variations of Hodge structures</i>, preprint (2025), 46 pages, <a href=https://arxiv.org/abs/2511.04498>arXiv:2511.04498</a>.</li>
-
-
-
-        </ul>
-
-<h2 id="teaching">Teaching</h2>
-        <ul>
-<li> <a href="math641/">Math 641</a> (USC, Spring 2023) </li>
-<li> Math 229 (USC, Spring 2023) </li>
-<li> Math 599 (USC, Fall 2022) </li>
-<li> <a href="math535a/">Math 535a</a> (USC, Spring 2022) </li>
-<li> Math 226r (USC, Fall 2021) </li>
-<li> <a href="spring2021_math641/">Math 641</a> (USC, Spring 2021) </li>
-<li> <a href="fall2020_math641/">Math 641</a> (USC, Fall 2020) </li>
-<li> Math 125g (USC, Fall 2020)</li>
-<li> <a href="math520/">Math 520</a> (USC, Spring 2020)</li>
-<li> <a href="math535b/">Math 535b</a> (USC, Spring 2020)</li>
-<li> <a href="spring2019_math535b/">Math 535b</a></b> (USC, Spring 2019) </li>
-<li> <a href="spring2018_math535a/">Math 535a</a> (USC, Spring 2018) </li>
-<li> <a href="math440/">Math 440</a> (USC, Fall 2017)</li>
-<li>  <a href="spring2017_math535a/">Math 535a</a> (USC, Spring 2017)</li>
-<li> <a href="summer2016_math51/">Math 51</a> (Stanford, Summer 2016) </li>
-<li> <a href="spring2016_math257b/">Math 257b</a> (Stanford, Spring 2016) </li>
-<li> <a href="spring2016_math171/">Math 171</a> (Stanford, Spring 2016) </li>
-<!--</ul>
-<h4> Previous </h4>
-<ul>-->
-    <li> <!--<a href="http://web.stanford.edu/class/math51/">-->Math 51<!--</a>-->(Stanford, Winter 2015) </li>
-<li> <a href="spring2013_math113/">Math 113</a> (Stanford, Spring 2013) </li>
-<li> <a href="winter2013_math215b/">Math 215B</a> (Stanford, Winter 2013) </li>
-<li> <!--<a href=http://www.stanford.edu/class/math51/> -->Math 51<!--</a>--> (Stanford, Fall 2012) </li>
-</ul>
-        <h2 id="links">Links</h2>
-        <ul>
-    <li> <a href="https://sites.google.com/view/virtual-symplectic-geometer">Western Hemisphere Virtual Symplectic Seminar</a> (WHVSS)</li>
-    <li> <a href="https://sites.google.com/usc.edu/topologyseminar">USC's Topology Seminar</a>
-    <li> From Sept. 29-Oct. 2 2020, I co-organized a virtual workshop, <a href="https://schms.math.berkeley.edu/events/syz2020/"> Floer-theoretic and algebro-geometric aspects of SYZ mirror symmetry</a>.</li>
-    <!--<a href="seminars/geometry_topology.html">USC Geometry & Topology Seminar</a>.-->
-    </li>
-    <li> In June 2019, I served as a mentor of the <a href="http://kylerec.wordpress.com/">Kylerec 2019 (graduate student) workshop</a>.</li>
-    <li> In January 2016, I served on the resident scientific committee of a graduate student workshop on <a href="http://math.stanford.edu/~ksiegel/workshop/main.html">Lefschetz Fibrations: Rigidity and Flexibility</a>, held in New Orleans.</li>
-<li>From 2009-2013, I co-organized the <a href="http://math.mit.edu/talbot">Talbot Workshop</a>. In 2010 and 2011 I co-organized the <a href="http://math.mit.edu/conferences/geometryworkshop">MIT Geometry Workshop</a>.</li>
-<li>  Here are some <a href = "notes/">notes</a> from conferences and seminars, which I am currently organizing and formatting (<i>some older notes are currently down, and will be re-posted soon</i>). Please feel free to contact me if you have any questions or would like clarification.
-</li>
-        <h2 id="contact">Contact</h2>
-        <p><b>Email</b>: sheel (dot) ganatra (at) usc (dot) edu</p>
-    </div>
+    <div class="footer"></div>
+  </main>
 </body>
 </html>
-
